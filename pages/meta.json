@@ -1,0 +1,31 @@
+{
+   "index": {
+    "title": "Overview",
+    "type": "page",
+    "hidden": true,
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+   "fides": {
+    "title": "Fides",
+    "type": "page",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "enterprise": {
+    "title": "Enterprise",
+    "type": "page",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "ethyca": {
+    "title": "About Ethyca",
+    "type": "page",
+    "theme": {
+      "breadcrumb": false
+    }
+  }
+}

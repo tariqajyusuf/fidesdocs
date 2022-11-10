@@ -1,0 +1,100 @@
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  src: url('public/fonts/Inter-VariableFont_slnt,wght.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-Regular.ttf');
+  font-weight: 400, normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-Italic.ttf');
+  font-weight: 400, normal;
+  font-style: italic;
+}
+  
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-LightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-ExtraLight.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-Bold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-SemiBold.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('public/fonts/SourceSansPro-Black.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+html {
+  font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "ss06" 1 !important;
+}
+
+[data-reach-skip-link] {
+  @apply sr-only;
+}
+
+[data-reach-skip-link]:focus {
+  @apply not-sr-only fixed ml-6 top-0 bg-white text-lg px-6 py-2 mt-2 outline-none focus:ring z-50;
+}
+
+.dark .invert-on-dark {
+  filter: invert(1) brightness(1.8);
+}
+
+body {
+  background: white;
+  color: #111439 !important;
+  font-family: 'Inter', 'SourceSansPro', sans-serif;
+}
+
+.dark body {
+ 
+}
+
+nav > div.flex.items-center.mr-2.flex-auto{
+	flex: unset !important;
+}
+
+nav > div.flex-1{
+	flex: unset !important;
+}
