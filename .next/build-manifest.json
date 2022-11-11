@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/enterprise/test": [
+    "/fides/More/test": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/enterprise/test.js"
+      "static/chunks/pages/fides/More/test.js"
     ],
-    "/ethyca/overview": [
+    "/fides/fides2": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/ethyca/overview.js"
+      "static/chunks/pages/fides/fides2.js"
     ],
     "/fides/overview": [
       "static/chunks/webpack.js",
