@@ -65,7 +65,7 @@
 }
 
 :root {
-  --nextra-primary-hue: 259deg;
+  --nextra-primary-hue: #824EF2;
 }
 
 .dark {
@@ -99,6 +99,11 @@ body {
   color: #fff !important;
 }
 
+.nextra-container .nextra-sidebar ul button, .nextra-container .nextra-sidebar ul li a, .nextra-container .nextra-sidebar ul summary{
+  font-weight: 700;
+  color: #2D3748;
+}
+
 nav > div.flex.items-center.mr-2.flex-auto{
 	flex: unset !important;
 }
@@ -106,3 +111,67 @@ nav > div.flex.items-center.mr-2.flex-auto{
 nav > div.flex-1{
 	flex: unset !important;
 }
+
+nav .gap-2{
+  gap: 2rem;
+}
+article pre{
+  background-color: #F7FAFC;
+}
+
+article h2{
+  border-width: 0px;
+}
+
+.bg-orange-50{
+  background-color: #FAF5FF;
+  border-color: #FAF5FF;
+  color: #718096;
+  font-weight: 600;
+}
+
+.nextra-container .nextra-sidebar ul li.active>a, .nextra-container .nextra-sidebar ul li.active>a:hover{
+  background-color: transparent;
+  color: #824EF2;
+}
+
+div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.flex.items-center.mr-2.flex-auto > a{
+    pointer-events: none;
+}
+
+.nextra-container .nextra-sidebar{
+ height: 100%;
+    /* border: 2px red solid; */
+    margin-top: 0px;
+    box-shadow: 0px 0px 25px -5px rgb(0 0 0 / 10%), 0px 0px 10px -5px rgb(0 0 0 / 4%) !important;
+    padding: 10px 0;
+    }
+
+    .nextra-container .nextra-scrollbar{
+      padding-right: 8px;
+    }
+
+.nextra-toc-meta {
+  display: none;
+}
+
+
+.nextra-search{
+  position:  absolute;
+  right: 20px;
+  top: 13px;
+}
+
+.nextra-container .nextra-nav-container .nextra-nav-link{
+  color: #2D3748;
+  font-weight: 600;
+}
+
+.text-current{
+  color: #824EF2 !important;
+}
+
+.text-current.p-2 svg{
+  display: none;
+}
+

@@ -3,7 +3,9 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/enterprise/test": "pages/enterprise/test.js",
+  "/fides/overview": "pages/fides/overview.js",
+  "/fides/fides2": "pages/fides/fides2.js",
+  "/fides/More/test": "pages/fides/More/test.js",
   "/ethyca/overview": "pages/ethyca/overview.js",
-  "/enterprise/heythere": "pages/enterprise/heythere.js",
-  "/fides/fides2": "pages/fides/fides2.js"
+  "/fides/More/heythere": "pages/fides/More/heythere.js"
 }

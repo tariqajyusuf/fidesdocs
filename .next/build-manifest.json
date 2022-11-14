@@ -25,11 +25,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/enterprise/heythere": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/enterprise/heythere.js"
-    ],
     "/enterprise/test": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
