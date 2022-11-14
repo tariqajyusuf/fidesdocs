@@ -14,7 +14,6 @@ export default {
   unstable_flexsearch: true,
   floatTOC: true,
   gitTimestamp: null,
-  darkMode: false,
   feedbackLink: () => {
     return (
       null

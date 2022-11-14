@@ -89,6 +89,7 @@ body {
 
 .dark body {
  
+  color: #fff !important;
 }
 
 nav > div.flex.items-center.mr-2.flex-auto{
