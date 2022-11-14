@@ -64,6 +64,13 @@
   font-style: normal;
 }
 
+:root {
+  --nextra-primary-hue: 259deg;
+}
+
+.dark {
+  --nextra-primary-hue: 16deg;
+}
 
 html {
   font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "ss06" 1 !important;

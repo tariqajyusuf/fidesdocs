@@ -14,6 +14,8 @@ export default {
   unstable_flexsearch: true,
   floatTOC: true,
   gitTimestamp: null,
+  font:  false,
+  darkMode: false, 
   feedbackLink: () => {
     return (
       null
@@ -86,6 +88,17 @@ export default {
         />
         <meta name="og:image" content={ogImage} />
         <meta name="apple-mobile-web-app-title" content="Ethyca" />
+        <script
+            lang="javascript"
+            dangerouslySetInnerHTML={{
+              __html: `if (!window.localStorage.getItem("theme_default")) {
+                window.localStorage.setItem("theme", "light");
+                window.localStorage.setItem("theme_default", "light");
+                document.documentElement.classList.add("light");
+                document.documentElement.classList.remove("dark");
+              }`,
+            }}
+          />;
       </>
     );
   },
@@ -95,12 +108,12 @@ export default {
   footerText: ({  }) => {
   return (
           <a
-            href="https://vercel.com/?utm_source=swr"
+            href="https://ethyca.com"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-
+            Return to ethyca.com
             <span>
             </span>
           </a>
