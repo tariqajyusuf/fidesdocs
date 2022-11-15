@@ -90,7 +90,7 @@ html {
 
 body {
   background: white;
-  color: #111439 !important;
+  color: #111439;
   font-family: 'Inter', 'SourceSansPro', sans-serif;
 }
 
@@ -130,6 +130,10 @@ article h2{
   font-weight: 600;
 }
 
+.text-primary-500{
+    color: #824EF2;
+}
+
 .nextra-container .nextra-sidebar ul li.active>a, .nextra-container .nextra-sidebar ul li.active>a:hover{
   background-color: transparent;
   color: #824EF2;
@@ -167,7 +171,7 @@ div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.fle
   font-weight: 600;
 }
 
-.text-current{
+nav .text-current{
   color: #824EF2 !important;
 }
 

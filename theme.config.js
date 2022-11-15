@@ -51,7 +51,6 @@ export default {
   logo: () => {
     return (
       <>
-      <link href="/fides/overview" />
         <Logo height={12} />
 
       </>
