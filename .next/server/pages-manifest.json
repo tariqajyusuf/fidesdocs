@@ -2,8 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/fides/overview": "pages/fides/overview.js",
-  "/fides/fides2": "pages/fides/fides2.js",
-  "/fides/More/test": "pages/fides/More/test.js",
-  "/fides/More/heythere": "pages/fides/More/heythere.js"
+  "/fides/fides2": "pages/fides/fides2.js"
 }

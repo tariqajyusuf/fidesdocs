@@ -25,21 +25,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/enterprise/test": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/enterprise/test.js"
-    ],
-    "/fides/More/heythere": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fides/More/heythere.js"
-    ],
-    "/fides/More/test": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fides/More/test.js"
-    ],
     "/fides/fides2": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
