@@ -25,25 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/enterprise/test": [
+    "/fides/dsr_quickstart/privacy_center": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/enterprise/test.js"
-    ],
-    "/fides/More/heythere": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fides/More/heythere.js"
-    ],
-    "/fides/More/test": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fides/More/test.js"
-    ],
-    "/fides/fides2": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fides/fides2.js"
+      "static/chunks/pages/fides/dsr_quickstart/privacy_center.js"
     ],
     "/fides/overview": [
       "static/chunks/webpack.js",

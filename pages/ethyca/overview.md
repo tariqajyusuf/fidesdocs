@@ -1,56 +1,21 @@
 # About Ethyca
 
-By default, `key` will be passed to `fetcher` as the argument. So the following 3 expressions are equivalent:
+The mission of Ethyca is to make Internet-scale technology respectful and ethical. We're a venture-backed privacy technology team headquartered in New York, but working as a distributed team across the US to solve what we believe is the most important problem in technology today: the human right to privacy in vastly complex data-driven systems.
 
-```js
-useSWR('/api/user', () => fetcher('/api/user'))
-useSWR('/api/user', url => fetcher(url))
-useSWR('/api/user', fetcher)
-```
+## What is Fides?
 
-## Multiple Arguments
+Fides is a universally understandable, open-source language that can be used to describe privacy within tech infrastructure. Our existing tools use this language to power a low friction set of developer tools that integrate with your existing CI pipelines, making privacy a feature of your tech stack. With Fides, we hope everyone can build better tools for privacy in the next decade and beyond.  
 
-In some scenarios, it's useful to pass multiple arguments (can be any value or object) to the `fetcher` function. 
-For example an authorized fetch request:
+## What we Believe
 
-```js
-useSWR('/api/user', url => fetchWithToken(url, token))
-```
+Data privacy is a human right that should be a native feature of any respectful technology. Today building great privacy as a feature in software is friction-filled and complicated. We're building open-source privacy tools for the developer community because we believe the only way to achieve a respectful internet is to make privacy an easy-to-implement layer of any tech stack.
 
-This is **incorrect**. Because the identifier (also the cache key) of the data is `'/api/user'`, 
-even if `token` changes, SWR will still use the same key and return the wrong data. 
+## The Future
 
-Instead, you can use an **array** as the `key` parameter, which contains multiple arguments of `fetcher`:
+We've been working on this problem since 2018 and have a clear view of our next five years. We're excited about the roadmap of features we'll add to Fides in order to make it the comprehensive tool for addressing the major challenges of privacy in both the code management and runtime environments. 
 
-```js
-const { data: user } = useSWR(['/api/user', token], fetchWithToken)
-```
+We'd love you to contribute to Fides, and you can do this directly as part of the open-source community. If you're interested in solving some of the toughest and most important problems facing internet scale data-driven software, [join us now](https://ethyca.com/jobs-culture/) and get paid to work on this problem too!
 
-The function `fetchWithToken` still accepts the same 2 arguments, but the cache key will also be associated with `token` now.
+## Your Participation
 
-## Passing Objects
-
-import Callout from 'nextra-theme-docs/callout'
-
-<Callout>
-  Since SWR 1.1.0, object-like keys will be serialized under the hood automatically. 
-</Callout>
-  
-Say you have another function that fetches data with a user scope: `fetchWithUser(api, user)`. You can do the following:
-
-```js
-const { data: user } = useSWR(['/api/user', token], fetchWithToken)
-
-// ...and then pass it as an argument to another useSWR hook
-const { data: orders } = useSWR(user ? ['/api/orders', user] : null, fetchWithUser)
-```
-
-You can directly pass an object as the key, and `fetcher` will receive that object too:
-
-```js
-const { data: orders } = useSWR({ url: '/api/orders', args: user }, fetcher)
-```
-
-<Callout emoji="⚠️">
-  In older versions (< 1.1.0), SWR **shallowly** compares the arguments on every render, and triggers revalidation if any of them has changed. 
-</Callout>
+Fides' success is predicated on your participation -- Privacy as Code can only become a reality if we ensure it's easy to understand, implement, and held as an interoperable standard for wide adoption. Your feedback, contributions, and improvements are encouraged as we build community with the sole objective of creating respectful software for everyone on the internet.
