@@ -90,7 +90,7 @@ html {
 
 body {
   background: white;
-  color: #111439;
+  color: #4A5568;
   font-family: 'Inter', 'SourceSansPro', sans-serif;
 }
 
@@ -165,7 +165,7 @@ article h2{
     height: 26px;
     width: 2px;
     position: absolute;
-    right: -20px;
+    right: 0px;
     background-color: #E2E8F0;
 }
 
@@ -219,3 +219,57 @@ nav .text-current{
   display: none;
 }
 
+
+/*** GetStarted Component Styling */
+
+.GetStarted{
+  border: 1px solid #CBD5E0;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 20px 0px;
+}
+
+.GetStarted h2, .GetStarted p{
+  margin-top: 0px;
+
+}
+
+.GetStarted h2{
+  font-size: 24px;
+}
+
+.GetStarted p{
+  font-size: 14px;
+}
+.GetStartedWrap{
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.overviewBlockWrap{
+  border: 1px solid #CBD5E0;
+border-radius: 6px;
+padding: 16px;
+
+}
+
+.overviewBlockWrap a{
+  text-decoration-line: none !important;
+}
+
+.overviewBlockWrap h3{
+  margin-top: 0px;
+  color: #4A5568;
+  font-size: 16px;
+}
+
+.overviewBlockWrap p{
+
+  font-size: 14px;
+  margin-top: 7px;
+  color: #4A5568;
+}

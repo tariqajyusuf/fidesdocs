@@ -1,4 +1,8 @@
+import GetStartedWrap, { GetStarted } from 'components/getstarted'
+
 # Fides Documentation
+
+
 
 By default, `key` will be passed to `fetcher` as the argument. So the following 3 expressions are equivalent:
 
@@ -7,6 +11,14 @@ useSWR('/api/user', () => fetcher('/api/user'))
 useSWR('/api/user', url => fetcher(url))
 useSWR('/api/user', fetcher)
 ```
+
+<GetStartedWrap>
+  <GetStarted title="Title" link="https://twitter.com/ethyca"  description="According to all known laws of aviation"/>
+  <GetStarted title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation" />
+  <GetStarted title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
+  <GetStarted title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation"/>
+</GetStartedWrap>
+
 
 ## Multiple Arguments
 
