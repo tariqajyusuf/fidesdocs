@@ -1,4 +1,7 @@
 import GetStartedWrap, { GetStarted } from 'components/getstarted'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+import ThreeColWrap, { ThreeCol } from 'components/threecol'
 
 # Fides Documentation
 
@@ -18,6 +21,26 @@ useSWR('/api/user', fetcher)
   <GetStarted title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
   <GetStarted title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation"/>
 </GetStartedWrap>
+
+
+<KeyFeatWrap>
+  <KeyFeat title="Title" link="https://twitter.com/ethyca"  description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway."/>
+  <KeyFeat title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway" />
+  <KeyFeat title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway"/>
+  <KeyFeat title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway"/>
+</KeyFeatWrap>
+
+
+<ThreeColWrap>
+  <ThreeCol title="Title" link="https://twitter.com/ethyca"  description="According to all known laws of aviation"/>
+  <ThreeCol title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation" />
+  <ThreeCol title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
+  <ThreeCol title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation"/>
+  
+  <ThreeCol title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation" />
+  <ThreeCol title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
+</ThreeColWrap>
+
 
 
 ## Multiple Arguments

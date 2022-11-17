@@ -3,7 +3,7 @@ export default function GetStartedWrap({ children }) {
   return (
     <div className="GetStarted">
       <h2> Get Started </h2>
-      <p> According to all known laws of aviation </p>
+      <p> According to all known laws of aviation  </p>
     <div className="GetStartedWrap">
      {children}
     </div>

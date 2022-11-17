@@ -170,7 +170,7 @@ article h2{
 }
 
 .text-primary-500::after{
-
+    transition: .2s;
     background-color: #824EF2 !important;
 }
 
@@ -200,10 +200,14 @@ div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.fle
 }
 
 
-.nextra-search{
+nav .nextra-search{
   position:  absolute;
   right: 20px;
   top: 13px;
+}
+
+.nextra-sidebar-search{
+  display: none;
 }
 
 .nextra-container .nextra-nav-container .nextra-nav-link{
@@ -241,6 +245,7 @@ nav .text-current{
 .GetStarted p{
   font-size: 14px;
 }
+
 .GetStartedWrap{
   margin-top: 15px;
   display: grid;
@@ -255,6 +260,11 @@ nav .text-current{
 border-radius: 6px;
 padding: 16px;
 
+}
+
+.overviewBlockWrap:hover{
+  transition: .2s;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 .overviewBlockWrap a{
@@ -273,3 +283,136 @@ padding: 16px;
   margin-top: 7px;
   color: #4A5568;
 }
+
+
+
+/*** KeyFeat Component Styling */
+
+.KeyFeat{
+  border-radius: 8px;
+  margin: 20px 0px;
+}
+
+.KeyFeat h2, .KeyFeat p{
+  margin-top: 0px;
+
+}
+
+.KeyFeat h2{
+  font-size: 24px;
+}
+
+.KeyFeat p{
+  font-size: 14px;
+}
+
+.KeyFeatWrap{
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.featBlockWrap{
+border-radius: 6px;
+padding: 16px;
+background: #F7FAFC;
+}
+
+.featBlockWrap:nth-of-type(2){
+  background: #FAF5FF;
+}
+
+.featBlockWrap:nth-of-type(3){
+  background: #F0FFF4;;
+}
+
+.featBlockWrap:nth-of-type(4){
+  background: #EBF8FF;;
+}
+
+
+.KeyFeat h2{
+  font-size: 24px;
+
+}
+
+.featBlockWrap{
+  padding: 20px;
+}
+.featBlock h3{
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.featBlockWrap a{
+  font-size: 14px;
+  margin-top: 0;
+  font-weight: 600 !important;
+  text-decoration-line: none !important;
+  color:  #824EF2 ;
+}
+
+
+
+/*** ThreeCol Component Styling */
+
+.ThreeCol{
+  border-radius: 8px;
+  padding: 0px;
+  margin: 20px 0px;
+}
+
+.ThreeCol h2, .ThreeCol p{
+  margin-top: 0px;
+
+}
+
+.ThreeCol h2{
+  font-size: 24px;
+}
+
+.ThreeCol p{
+  font-size: 14px;
+}
+
+.ThreeColWrap{
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: auto auto  auto;
+
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.blockWrap{
+  border: 1px solid #CBD5E0;
+border-radius: 6px;
+padding: 16px;
+
+}
+
+.blockWrap:hover{
+  transition: .2s;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.blockWrap a{
+  text-decoration-line: none !important;
+}
+
+.blockWrap h3{
+  margin-top: 0px;
+  color: #4A5568;
+  font-size: 16px;
+}
+
+.blockWrap p{
+
+  font-size: 14px;
+  margin-top: 7px;
+  color: #4A5568;
+}
+
