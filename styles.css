@@ -94,6 +94,13 @@ body {
   font-family: 'Inter', 'SourceSansPro', sans-serif;
 }
 
+
+  @media (min-width: 768px){
+.nextra-menu-icon{
+    display: none;
+}
+}
+
 .dark body {
  
   color: #fff !important;
@@ -410,7 +417,9 @@ nav .text-current{
 
 
 /*** footer ***/
-
+footer{
+  border-top: 1px solid #E2E8F0;
+}
 
 footer.bg-gray-100{
   background: white !important;
@@ -418,8 +427,44 @@ footer.bg-gray-100{
   height: 100%;
 }
 
+footer > div.py-12 > div{
+  display: block;
+}
+
 
 .footerwrap{
   display: flex;
+    align-items: center;
+  justify-content: space-between;
+
+}
+
+
+.logos{
+  height: 38px;
+}
+
+.hs-form{
+  display: flex;
+}
+
+
+.hs_submit{
+  background-color: #111439;
+  color: white;
+  padding: 10px 27px;
+  border-radius: 0px 5px 5px 0px;
+  font-weight: 600;
+font-size: 14px;
+}
+
+.hs_email{
+  border-width: 1px 0px 1px 1px;
+border-style: solid;
+border-color: #CBD5E0;
+  padding: 10px 27px;
+  border-radius: 5px 0px 0px 5px;
+    font-weight: 600;
+font-size: 14px;
 }
 

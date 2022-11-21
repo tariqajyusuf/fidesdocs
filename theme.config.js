@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import HubspotForm from 'react-hubspot-form'
 
 const Logo = ({ height }) => (
     <svg width="70px" height="25px" viewBox="0 0 577 177" version="1.1">
@@ -135,21 +136,25 @@ export default {
   footerText: ({  }) => {
   return (
     
-          <div className="footerwrap">
+        <div className="footerwrap">
+         <div className="logos">
           <a
             href="https://ethyca.com"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-            <span>
             <img src ="/assets/ethyca_logo.svg" />
-            </span>
           </a>
+          </div>
           <div className="socials">
-              <span>
-              <img src ="/assets/ethyca_logo.svg" />
-              </span> 
+              <HubspotForm
+                   portalId='7252764'
+                   formId='0d22c925-3a81-4f10-bfdc-69a5d67e93bc'
+                   onSubmit={() => console.log('Submit!')}
+                   onReady={(form) => console.log('Form ready!')}
+                   loading={<div>Loading...</div>}
+                   />
             </div>
           </div>
 
