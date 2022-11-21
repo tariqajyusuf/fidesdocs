@@ -134,16 +134,25 @@ export default {
   },
   footerText: ({  }) => {
   return (
+    
+          <div className="footerwrap">
           <a
             href="https://ethyca.com"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-            Return to ethyca.com
             <span>
+            <img src ="/assets/ethyca_logo.svg" />
             </span>
           </a>
+          <div className="socials">
+              <span>
+              <img src ="/assets/ethyca_logo.svg" />
+              </span> 
+            </div>
+          </div>
+
         );
   }
 };
