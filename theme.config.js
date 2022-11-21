@@ -135,7 +135,7 @@ export default {
   },
   footerText: ({  }) => {
   return (
-    
+      <div>
         <div className="footerwrap">
          <div className="logos">
           <a
@@ -148,6 +148,11 @@ export default {
           </a>
           </div>
           <div className="socials">
+            <div className="icons"> 
+                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/assets/linkedin.svg" /> </a>
+                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/assets/twitter.svg" /> </a>
+                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/assets/github.svg" /> </a>
+            </div>
               <HubspotForm
                    portalId='7252764'
                    formId='0d22c925-3a81-4f10-bfdc-69a5d67e93bc'
@@ -155,7 +160,13 @@ export default {
                    onReady={(form) => console.log('Form ready!')}
                    loading={<div>Loading...</div>}
                    />
-            </div>
+          </div>
+          </div>
+          <div className="privacyPolicy"> 
+              <a href="https://cp.ethyca.com">  Do not sell my information </a>
+
+              <a href="https://cp.ethyca.com">  Privacy policy </a>
+          </div> 
           </div>
 
         );

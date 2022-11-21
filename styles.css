@@ -444,8 +444,24 @@ footer > div.py-12 > div{
   height: 38px;
 }
 
+.socials{
+  display: flex;
+}
+
+.icons{
+  display: flex;
+  column-gap: 16px;
+  margin-right: 20px;
+  align-items: center;
+}
+
 .hs-form{
   display: flex;
+}
+
+.icons a img{
+  height: 20px;
+  width: 20px;
 }
 
 
@@ -468,3 +484,15 @@ border-color: #CBD5E0;
 font-size: 14px;
 }
 
+.privacyPolicy{
+  text-align: right;
+  margin-top: 40px;
+}
+
+.privacyPolicy a{
+  font-weight: 500;
+font-size: 14px;
+margin-left: 10px;
+text-decoration: none;
+color: #2D3748;
+}
