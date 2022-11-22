@@ -149,6 +149,8 @@ export default {
           </div>
           <div className="socials">
             <div className="icons"> 
+
+                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/assets/slack.svg" /> </a>
                 <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/assets/linkedin.svg" /> </a>
                 <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/assets/twitter.svg" /> </a>
                 <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/assets/github.svg" /> </a>
