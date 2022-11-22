@@ -95,10 +95,19 @@ body {
 }
 
 
-  @media (min-width: 768px){
-.nextra-menu-icon{
-    display: none;
-}
+@media (min-width: 768px){
+    .nextra-menu-icon{
+        display: none;
+    }
+
+    nav > div.flex.items-center.mr-2.flex-auto{
+      flex: unset !important;
+    }
+
+    nav > div.flex-1{
+      flex: unset !important;
+    }
+
 }
 
 .dark body {
@@ -111,13 +120,6 @@ body {
   color: #2D3748;
 }
 
-nav > div.flex.items-center.mr-2.flex-auto{
-	flex: unset !important;
-}
-
-nav > div.flex-1{
-	flex: unset !important;
-}
 
 nav .gap-2{
   gap: 2rem;
@@ -437,10 +439,13 @@ footer > div.py-12 > div{
 
 
 .footerwrap{
-  display: flex;
+ 
+    display: flex;
     align-items: center;
-  justify-content: space-between;
+    flex-wrap: wrap;
+      row-gap: 30px;
 
+    justify-content: center;
 }
 
 
@@ -450,12 +455,14 @@ footer > div.py-12 > div{
 
 .socials{
   display: flex;
+  flex-wrap: wrap-reverse;
+  row-gap: 20px;
+  justify-content: center;
 }
 
 .icons{
   display: flex;
   column-gap: 16px;
-  margin-right: 20px;
   align-items: center;
 }
 
@@ -507,7 +514,7 @@ position: relative;
 }
 
 .privacyPolicy{
-  text-align: right;
+  text-align: center;
   margin-top: 40px;
 }
 
@@ -517,4 +524,23 @@ font-size: 14px;
 margin-left: 10px;
 text-decoration: none;
 color: #2D3748;
+}
+
+
+@media (min-width: 568px){
+  .footerwrap{
+    justify-content: space-between;
+  }
+
+  .socials{
+    justify-content: space-between;
+  }
+
+  .privacyPolicy{
+     text-align: right;
+  }
+
+  .icons{
+    margin-right: 20px;
+  }
 }
