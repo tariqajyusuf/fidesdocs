@@ -34,8 +34,8 @@ const Logo = ({ height }) => (
 
 
 export default {
-  projectLink: "https://github.com/ethyca/fides",
-  docsRepositoryBase: "https://github.com/ethyca/fides",
+  projectLink: "https://github.com/ethyca/fidesdocs",
+  docsRepositoryBase: "https://github.com/ethyca/fidesdocs/tree/",
   titleSuffix: " – Ethyca",
   search: true,
   unstable_flexsearch: true,
@@ -45,7 +45,7 @@ export default {
   darkMode: false, 
   feedbackLink: () => {
     return (
-      null
+      'Question? Give us feedback →'
     );
   },
   feedbackLabels: "feedback",
@@ -131,7 +131,7 @@ export default {
     );
   },
   footerEditLink: ({}) => {
-        return null;
+        return "Edit this page on GitHub →";
   },
   footerText: ({  }) => {
   return (

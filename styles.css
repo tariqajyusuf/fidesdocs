@@ -207,7 +207,8 @@ div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.fle
 }
 
 .nextra-toc-meta {
-  display: none;
+ text-align: right;
+ padding-top: 15px;
 }
 
 
