@@ -4,6 +4,7 @@
     "configure_connectors": "Configure Connectors",
     "connect_databases": "Connect Databases",
     "privacy_center": "Customize the Privacy Center",
-    "dsr_processing": "Process a DSR"
+    "dsr_processing": "Process a DSR",
+    "sample_project": "Deploying the Sample Project"
   }
   

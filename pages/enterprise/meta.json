@@ -1,4 +1,7 @@
 {
-  "test": "Test",
-  "heythere": "Yo yo yo"
+  "overview": "Overview",
+  "classifier": "Data Classifier",
+  "data_mapping": "Data Map Visualizations",
+  "masking_agent": "NLP and Regex Data Masking",
+  "maintenance": "Connection Maintenance"
 }
