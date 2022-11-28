@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Generate and Maintain Resources
 
 ## What is a resource?
@@ -103,9 +105,7 @@ dataset:
 ```
 The resulting file still requires annotating the dataset with data categories to represent what is stored. 
 
-!!! Tip "**To use this Dataset in a Privacy Request,** you must add required [meta information](./datasets.md)."
-
-<!-- TODO: Add a section for `annotate dataset` usage below -->
+<Callout> **To use this Dataset in a Privacy Request,** you must add required [meta information](./datasets.md). </Callout>
 
 ### Scanning the Dataset
 

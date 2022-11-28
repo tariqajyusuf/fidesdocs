@@ -194,7 +194,7 @@ To skip the connection test, set `verify` to `false`.
 You can verify that a Connection's secrets are valid at any time by calling the [Test a Connection's Secrets](./api#operations-Connections-test_connection_config_secrets_api_v1_connection__connection_key__test_get) endpoint:
 
 
-```title="GET"
+```
 /api/v1/connection/application-postgresql-db/test
 ```
 Test failures can be resolved by calling the [Set a Connection's Secrets](./api#operations-Connections-put_connection_config_secrets_api_v1_connection__connection_key__secret_put) endpoint, and resetting the secret values.
@@ -237,7 +237,7 @@ Fides can filter and return matching Connections based on the `connection_type`,
 
 Including multiple `connection_type` query parameters and values will result in a query that looks for *any* connections with that type:
 
-```json title="<code>GET api/v1//connection/?connection_type=mariadb&connection_type=postgres</code>"
+```json
 {
     "items": [
         {
@@ -275,7 +275,7 @@ Including multiple `connection_type` query parameters and values will result in 
 ### Disabled filter
 The `disabled` filter will return datastores are skipped as part of privacy request execution:
 
-```json title="<code>GET api/v1/connection/?disabled=true</code>"
+```json
 {
     "items": [
         {
@@ -301,7 +301,7 @@ The `disabled` filter will return datastores are skipped as part of privacy requ
 ### Test_Status filter
 The `test_status` filter queries on the status of the last successful test:
 
-```json title="<code>GET api/v1/connection/?test_status=false</code>"
+```json
 {
     "items": [
         {
@@ -327,7 +327,7 @@ The `test_status` filter queries on the status of the last successful test:
 ### System_Status filter
 The `system_status` filter surfaces either `database` or [`saas`-type](../saas_connectors/saas_connectors.md) connectors:
 
-```json title="<code>GET api/v1/connection/?system_type=database</code>"
+```json
 {
     "items": [
         {
@@ -352,7 +352,7 @@ The `system_status` filter surfaces either `database` or [`saas`-type](../saas_c
 ## Search your Connections
 You can search the `name`, `key`, and `description` fields of your Connections with the `search` query parameter.
 
-```json title="<code>GET /api/v1/connection/?search=application mysql</code>"
+```json
 {
     "items": [
         {

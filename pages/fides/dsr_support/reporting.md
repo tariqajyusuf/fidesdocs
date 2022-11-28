@@ -11,7 +11,7 @@ This request displays concise, high-level information for all your privacy reque
 
 View he [API docs here](../api/index.md#operations-Privacy_Requests-get_request_status_api_v1_privacy_request_get).
 
-```json title="<code>GET api/v1/privacy-request</code>"
+```json
 {
     "items": [
         {
@@ -196,7 +196,7 @@ The embedded execution logs are automatically truncated at 50 logs. To view the 
 To get all privacy requests in CSV format, use the `download_csv` query param:
 
 
-```csv title="<code>GET api/v1/privacy-request/?download_csv=True</code>"
+```
 Time received,Subject identity,Policy key,Request status,Reviewer,Time approved/denied
 2022-03-14 16:53:28.869258+00:00,{'email': 'customer-1@example.com'},my_primary_policy,complete,fid_16ffde2f-613b-4f79-bbae-41420b0f836b,2022-03-14 16:54:08.804283+00:00
 ```
