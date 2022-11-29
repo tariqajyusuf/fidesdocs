@@ -245,4 +245,4 @@ the queries should be built. (e.g., AND versus OR, and whether only the matched 
 ### Example query traversal
 This is an example traversal created from the test `postgres_example` and `mongo_test` datasets. Multiple collections point to or from complex objects and arrays. See the `mongo_example_test_dataset.yml` for more information.
 
-![Postgres and Mongo Query Traversal](../../../public/assets/img/dsr_resources/mongo_and_postgres_complex.png)
+![Postgres and Mongo Query Traversal](../../../public/assets/img/resources/mongo_and_postgres_complex.png)
