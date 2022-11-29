@@ -1,5 +1,9 @@
 {
   "overview": "Overview",
-  "fides2": "Fides 2",
-  "dsr_quickstart": "DSR Quickstart"
+  "installation": "Installation",
+  "dsr_quickstart": "DSR Automation",
+  "dsr_support": "DSR Automation Resources",
+  "data_mapping": "Data Mapping",
+  "deployment": "Production Deployment",
+  "developers": "Fides for Developers"
 }

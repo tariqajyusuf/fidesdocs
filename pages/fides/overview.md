@@ -3,89 +3,33 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
 import ThreeColWrap, { ThreeCol } from 'components/threecol'
 
-# Fides Documentation
+# The Fides Ecosystem
 
+Fides (pronounced */fee-dhez/*, from Latin: Fidēs) is an open-source privacy engineering platform for managing the fulfillment of data privacy requests in your runtime environment, and the enforcement of privacy regulations in your code.
 
-
-By default, `key` will be passed to `fetcher` as the argument. So the following 3 expressions are equivalent:
-
-```js
-useSWR('/api/user', () => fetcher('/api/user'))
-useSWR('/api/user', url => fetcher(url))
-useSWR('/api/user', fetcher)
-```
-
-<GetStartedWrap>
-  <GetStarted title="Title" link="https://twitter.com/ethyca"  description="According to all known laws of aviation"/>
-  <GetStarted title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation" />
-  <GetStarted title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
-  <GetStarted title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation"/>
-</GetStartedWrap>
+The Fides developer tools allow engineers and legal teams to label system privacy characteristics, orchestrate programmatic rights fulfillment, and audit stored personal identifiable information (PII) throughout application systems and infrastructure. This includes support for major privacy regulations (e.g. [GDPR](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/), [CCPA](https://ethyca.com/cpra-hub/) and [LGPD](https://iapp.org/news/a/the-new-brazilian-general-data-protection-law-a-detailed-analysis/)), and standards like [ISO 19944](https://www.iso.org/standard/79573.html) by default.
 
 
 <KeyFeatWrap>
-  <KeyFeat title="Title" link="https://twitter.com/ethyca"  description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway."/>
-  <KeyFeat title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway" />
-  <KeyFeat title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway"/>
-  <KeyFeat title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway"/>
+  <KeyFeat title="End-to-End Data Subject Request Automation" link="./dsr_quickstart/basic_setup"  description="When your organization receives a privacy request, Fides will automatically fulfill it according to the execution policies your legal and business owners have created. Fides orchestrates connections to both your owned databases and third-party systems to access, update, and delete sensitive data."/>
+  <KeyFeat title="Privacy-as-Code" link="https://twitter.com/cillian"  description="Fides' extensible description language allows you to describe your datasets and code in human-readable manifest files. Create a consistent, versioned definition of your system's privacy characteristics and resources for use in your CI/CD pipeline, when processing privacy requests, or in the Fides UI."/>
+  <KeyFeat title="Compliance-minded Data Mapping" link="https://twitter.com/cillian"   description="Export a data map of your connected databases and services, or run an audit of your resources to generate an Article 30-compliant Record of Processing Activities (RoPA)."/>
+  <KeyFeat title="Comprehensive Privacy Standard Support" link="https://twitter.com/ethyca"   description="Fides' policy declarations efficiently describe the privacy behaviors of your system for major 
+  regulations, including GDPR, CCPA, and LGPD, as well as major standards like ISO 19944."/>
 </KeyFeatWrap>
 
+<GetStartedWrap>
+  <GetStarted title="DSR Automation" link="./dsr_quickstart/basic_setup"  description="Go from 'Zero to DSR Automation' in under five minutes with a simple demo project."/>
+  <GetStarted title="Data Mapping" link="./dsr_quickstart/basic_setup"  description="Generate maps of your systems and infrastructure with Fides' automated tools." />
+  <GetStarted title="Managing Consent" link="./"   description="Understand how Fides can help provide you with compliance-minded consent solutions."/>
+  <GetStarted title="Fides for Businesses" link="./"   description="Use Fides for Enterprise-level data classifications, visualizations, and more."/>
+</GetStartedWrap>
 
-<ThreeColWrap>
-  <ThreeCol title="Title" link="https://twitter.com/ethyca"  description="According to all known laws of aviation"/>
-  <ThreeCol title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation" />
-  <ThreeCol title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
-  <ThreeCol title="Title" link="https://twitter.com/ethyca"   description="According to all known laws of aviation"/>
-  
-  <ThreeCol title="Title" link="https://twitter.com/cillian"  description="According to all known laws of aviation" />
-  <ThreeCol title="Title" link="https://twitter.com/cillian"   description="According to all known laws of aviation"/>
-</ThreeColWrap>
+## Why is it called Fides?
+
+Fides was the goddess of trust and good faith in Roman paganism. Fides represented everything that was required for *"honor and credibility"* in every aspect of Roman life. In addition to this, Fides means *"reliability": reliability between two parties, which is always reciprocal*. Fides stood out for her embodiment of this project's philosophy - to provide developers with a powerful tool to make privacy a default feature of any software.
+
+If you'd like a brief Roman mythology lesson, check out [Fides on Wikipedia](https://en.wikipedia.org/wiki/Fides_(deity)).
 
 
 
-## Multiple Arguments
-
-In some scenarios, it's useful to pass multiple arguments (can be any value or object) to the `fetcher` function. 
-For example an authorized fetch request:
-
-```js
-useSWR('/api/user', url => fetchWithToken(url, token))
-```
-
-This is **incorrect**. Because the identifier (also the cache key) of the data is `'/api/user'`, 
-even if `token` changes, SWR will still use the same key and return the wrong data. 
-
-Instead, you can use an **array** as the `key` parameter, which contains multiple arguments of `fetcher`:
-
-```js
-const { data: user } = useSWR(['/api/user', token], fetchWithToken)
-```
-
-The function `fetchWithToken` still accepts the same 2 arguments, but the cache key will also be associated with `token` now.
-
-## Passing Objects
-
-import Callout from 'nextra-theme-docs/callout'
-
-<Callout>
-  Since SWR 1.1.0, object-like keys will be serialized under the hood automatically. 
-</Callout>
-  
-Say you have another function that fetches data with a user scope: `fetchWithUser(api, user)`. You can do the following:
-
-```js
-const { data: user } = useSWR(['/api/user', token], fetchWithToken)
-
-// ...and then pass it as an argument to another useSWR hook
-const { data: orders } = useSWR(user ? ['/api/orders', user] : null, fetchWithUser)
-```
-
-You can directly pass an object as the key, and `fetcher` will receive that object too:
-
-```js
-const { data: orders } = useSWR({ url: '/api/orders', args: user }, fetcher)
-```
-
-<Callout emoji="⚠️">
-  In older versions (< 1.1.0), SWR **shallowly** compares the arguments on every render, and triggers revalidation if any of them has changed. 
-</Callout>
