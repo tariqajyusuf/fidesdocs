@@ -196,7 +196,7 @@ div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.fle
 }
 
 .nextra-container .nextra-sidebar{
-  height: 100%;
+  min-height: 100%;
   margin-top: 0px;
   box-shadow: 0px 0px 25px -5px rgb(0 0 0 / 10%), 0px 0px 10px -5px rgb(0 0 0 / 4%) !important;
   padding: 10px 0;
@@ -439,12 +439,10 @@ footer > div.py-12 > div{
 
 
 .footerwrap{
- 
     display: flex;
     align-items: center;
     flex-wrap: wrap;
       row-gap: 30px;
-
     justify-content: center;
 }
 
@@ -520,10 +518,10 @@ position: relative;
 
 .privacyPolicy a{
   font-weight: 500;
-font-size: 14px;
-margin-left: 10px;
-text-decoration: none;
-color: #2D3748;
+  font-size: 14px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #2D3748;
 }
 
 
