@@ -21,7 +21,7 @@
       "breadcrumb": false
     }
   },
-  "fideslang": {
+  "lang": {
     "title": "Fides Lang",
     "type": "page",
     "theme": {
