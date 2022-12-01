@@ -159,9 +159,13 @@ article a:hover, .nextra-nav-container a:hover{
   padding-right: 20px;
   color: #4A5568;
   font-weight: 300;
+  white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 }
 .scroll-py-6 {
   margin: 0px !important;
+  height: 26px;
   }
 
 .scroll-py-6 a{
