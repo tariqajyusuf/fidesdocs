@@ -12,7 +12,6 @@ export function Author({ name, link }) {
       <a
         key={name}
         href={link}
-        target="_blank"
         className="mx-1 text-gray-800 dark:text-gray-100"
       >
         {name}

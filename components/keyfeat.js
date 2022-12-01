@@ -23,7 +23,6 @@ export function KeyFeat({ title, link, description }) {
           <a
         key={title}
         href={link}
-        target="_blank"
         className=""
       >
       Learn more

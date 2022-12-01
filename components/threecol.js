@@ -16,7 +16,6 @@ export function ThreeCol({ title, link, description }) {
       <a
         key={title}
         href={link}
-        target="_blank"
         className=""
       >
     <span className="block">
