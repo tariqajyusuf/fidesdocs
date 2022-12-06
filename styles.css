@@ -136,6 +136,11 @@ article a:hover, .nextra-nav-container a:hover{
   color: #6536ec !important;
 }
 
+article img{
+  border: 1px solid #f1f1f1  !important;
+  border-radius: 7px;
+}
+
 .bg-orange-50{
   background-color: #FAF5FF;
   border-color: #FAF5FF;
