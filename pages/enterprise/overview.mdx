@@ -1,28 +1,19 @@
 import Callout from 'nextra-theme-docs/callout'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
-# Test
+# Fides Enterprise
 
-<Callout>
-  Upgrade to the latest version (≥ 1.0.0) to use this feature.
+<Callout emoji="ⓘ">
+  Interested in what Fides Enterprise has to offer? Check out our options for [teams and businesses](https://ethyca.com/fides-business), or [book a demo](https://ethyca.com/book-demo) today.
 </Callout>
 
-<Callout emoji="⚠️">
-  In most cases, you shouldn't directly _write_ to the cache, which might cause undefined behaviors of SWR. If you need to manually mutate a key, please consider using the SWR APIs.<br/>
-  See also: [Mutation](/docs/mutation), [Reset Cache Between Test Cases](#reset-cache-between-test-cases).
-</Callout>
+In addition to the [open-source experience](/fides/overview), Fides provides premium features for businesses looking for enhanced automation and privacy compliance. 
 
-By default, SWR uses a global cache to store and share data across all components. But you can also customize this behavior with the `provider` option of `SWRConfig`.
+From data map visualizations to machine learning-backed data classifications, Fides is built from the ground up to deliver powerful full-stack data privacy governancee to empower every privacy stakeholder in your organizaion.
 
-Cache providers are intended to enable SWR with more customized storages.
-
-## Cache Provider
-
-A cache provider is Map-like object which matches the following TypeScript definition (which can be imported from `swr`):
-
-```typescript
-interface Cache<Data> {
-  get(key: string): Data | undefined
-  set(key: string, value: Data): void
-  delete(key: string): void
-}
-```
+<KeyFeatWrap>
+  <KeyFeat title="Automated Data Mapping" link="./datamaps"  description="Discover, classify, and visualize your entire data ecosystem. Maintain map accuracy as your systems evolve with dynamic updates, and export a GDPR-compliant Article 30 RoPA with one click."/>
+  <KeyFeat title="Machine Learning Data Classification" link="./classifier"  description="Generate representations of your data ecosystem and resources to identify personally identifiably information, and classify those results according to a customizable list of categories."/>
+  <KeyFeat title="Premium Connector Support" link="./connectors"   description="Integrate pre-built connectors to third-party platforms and owned databases, backed and maintained by the Fides team."/>
+  <KeyFeat title="Enhanced Data Masking" link="./datamasking"   description="Pseudonymize your data with powerful masking strategies built on natural-language processing (NLP) and text identification."/>
+</KeyFeatWrap>
