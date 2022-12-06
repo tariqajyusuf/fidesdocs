@@ -2,7 +2,6 @@
 export default function KeyFeatWrap({ children }) {
   return (
     <div className="KeyFeat">
-      <h2> Key Features </h2>
     <div className="KeyFeatWrap">
      {children}
     </div>
