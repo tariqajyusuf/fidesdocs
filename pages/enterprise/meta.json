@@ -1,7 +1,6 @@
 {
   "overview": "Overview",
-  "classifier": "Data Classifier",
-  "data_mapping": "Data Map Visualizations",
-  "masking_agent": "NLP and Regex Data Masking",
-  "maintenance": "Connection Maintenance"
+  "datamaps": "Data Map Automation",
+  "classifier": "Data Classification",
+  "datamasking": "Enhanced Data Masking"
 }
