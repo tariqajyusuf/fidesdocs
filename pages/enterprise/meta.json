@@ -1,7 +1,6 @@
 {
   "overview": "Overview",
-  "classifier": "Data Classification",
   "datamaps": "Data Map Automation",
-  "datamasking": "Enhanced Data Masking",
-  "connectors": "Connection Support"
+  "classifier": "Data Classification",
+  "datamasking": "Enhanced Data Masking"
 }
