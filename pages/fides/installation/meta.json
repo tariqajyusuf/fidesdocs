@@ -1,5 +1,7 @@
 {
-  "requirements": "Project Requirements",
-  "installation": "Installation Guide",
+  "requirements": "Requirements",
+  "quickstart": "Quickstart Guide",
+  "advanced": "Advanced Installation",
+  "sample_project": "Sample Application",
   "configuration": "Configuration Reference"
 }

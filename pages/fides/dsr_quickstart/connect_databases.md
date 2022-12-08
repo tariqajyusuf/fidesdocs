@@ -1,10 +1,10 @@
-# Connect Databases 
+# Create Datasets
 
-The Datasets panel allows you to easily view, add, edit, and configure [datasets](https://ethyca.github.io/fideslang/resources/dataset/), which represent your external databases.
+The Datasets panel allows you to easily view, add, edit, and configure _[datasets](https://ethyca.github.io/fideslang/resources/dataset/)_, which represent the information contained by databases and other systems. While Fides can create an internal dataset for standardized [SaaS connections](../saas_connectors/saas_config), your owned databases - and their custom schema - need to be scanned and annotated for personally identifiable information (PII).
 
 ## Adding a dataset 
 
-Datasets can be added to the Fides UI by connecting to your databases. To add a new dataset, select **Create new dataset** from the Datasets panel.
+Datasets can be added to the Fides UI by connecting to your owned databases, which will automatically generate a dataset of the contained tables. To add a new dataset, select **Create new dataset** from the Datasets panel.
 
 ![Dataset UI](../../../public/assets/img/dsr_quickstart/datasets.png)
 
@@ -22,7 +22,5 @@ You will need to provide your **database type** from the dropdown, as well as th
 
 Once the required information is entered, select **Create database**. Fides will display a success notification when the process is completed.
 
-## Additional resources
-To learn more about modifying datasets or manually uploading a configuration YAML, see the [datasets](../ui/datasets) reference guide.
 ## Next steps
 With your databases connected and your SaaS applications configured, you're ready to [process a DSR](./dsr_processing)!

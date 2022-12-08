@@ -10,7 +10,7 @@ The graph supports both directed and non-directed edges using the optional `dire
 
 In this example there are three databases: a mysql database that stores users and their comments, a postgres DB that stores purchase information, and a mongoDB that stores user accounts. Each of them may have related data that we'd like to retrieve.
 
-![Example tables](../../../public/assets/img/resources/traversal_tables.png "Example tables")
+![Example tables](../../../../public/assets/img/resources/traversal_tables.png "Example tables")
 
 The Dataset specification looks like this:
 
@@ -140,7 +140,7 @@ The next step is to follow any links provided in field relationship information.
 
 Behind the scenes, Fides is creating linked graph using the connections you've specified between your collections to retrieve your data.
 
-![Example graph](../../../public/assets/img/resources/traversal_graph.png "Example graph")
+![Example graph](../../../../public/assets/img/resources/traversal_graph.png "Example graph")
 
 ## Notes about Dataset traversals
 

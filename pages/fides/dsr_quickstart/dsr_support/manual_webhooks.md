@@ -53,7 +53,7 @@ Submit a list of fields that will need to be manually uploaded.
 
 | Field | Description |
 |----|----|
-| `fields` | *Required.* A list of field mappings with `pii_field` and `dsr_package_label` keys. The `pii_field` is the label fidesops will display when it solicits manual input, and the `dsr_package_label` is the identifier fidesops will use when it uploads the data to the data subject.  If no `dsr_package_label` is supplied, it will be created from the `pii_field`.
+| `fields` | *Required.* A list of field mappings with `pii_field` and `dsr_package_label` keys. The `pii_field` is the label Fides will display when it solicits manual input, and the `dsr_package_label` is the identifier Fides will use when it uploads the data to the data subject.  If no `dsr_package_label` is supplied, it will be created from the `pii_field`.
 
 
 ### Upload manual webhook data for a given privacy request

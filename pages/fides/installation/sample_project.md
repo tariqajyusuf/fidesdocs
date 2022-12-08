@@ -1,8 +1,8 @@
 # Run the Fides Sample Project
 
-In order to get started quickly with Fides, a sample project is bundled within the Fides CLI that will set up a server, privacy center, and a sample application for you to experiment with.
+To get started quickly with Fides, a sample project is bundled within the Fides CLI that will set up a server, privacy center, and a sample application for you to experiment with.
 
-To Fides in your own infrastructure, see the provided [DSR Automation](../dsr_quickstart/basic_setup.md) guide. 
+To work with Fides in your own infrastructure, see the [DSR Automation](../dsr_quickstart/overview) guide. 
 
 ## Deployment Steps
 
@@ -10,6 +10,7 @@ To Fides in your own infrastructure, see the provided [DSR Automation](../dsr_qu
 
 *  [Docker](https://www.docker.com/products/docker-desktop) (version 20.10.11 or later)
 *  [Python](https://www.python.org/downloads/) (version 3.8 through 3.10) 
+
 ### Download and install Fides
 You can easily download and install the Fides demo using `pip`. Run the following command to get started:
 
@@ -33,8 +34,8 @@ If your browser does not open automatically, you should navigate to http://local
 
 The project contains:
 
-* The Fides [Admin UI](../ui/overview.md) for managing privacy requests
-* The Fides [Privacy Center](../ui/privacy_center.md) for submitting requests
+* The Fides Admin UI for managing [privacy requests](../dsr_quickstart/dsr_processing)
+* The Fides [Privacy Center](../dsr_quickstart/privacy_center) for submitting requests
 * The sample Cookie House eCommerce site for testing
 * A DSR Directory on your computer to view results
 
@@ -46,4 +47,4 @@ Then, navigate  to the Fides Admin UI to review the pending privacy request.
 Approve the request, and review the resulting package! 
 
 ## Next steps
-Congratulations! You've just run an entire privacy request in under 5 minutes! Fides offers many more tools help take control of your data privacy. To find out more, you can run a privacy request on [your own infrastructure](../dsr_quickstart/basic_setup.md), discover [data mapping](../guides/generate_datamaps.md), or learn about the [Fides Taxonomy](https://ethyca.github.io/fideslang/).
+Congratulations! You've just run an entire privacy request in under 5 minutes! Fides offers many more tools help take control of your data privacy. To find out more, you can run a privacy request on [your own infrastructure](../dsr_quickstart/overview), discover [data mapping](../data_mapping/overview), or learn about the [Fides Taxonomy](https://ethyca.github.io/fideslang/).

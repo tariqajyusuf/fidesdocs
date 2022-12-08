@@ -9,7 +9,7 @@ Access requests produce a package of returned data upon completion. This data wi
 
 Storage destinations are associated to execution policies in their [Rules](./execution_policies#add-a-rule), allowing multiple storage destinations to be configured per execution policy.
 
-![Storage Destinations](../../../public/assets/img/resources/storage_destinations.png "Storage Destinations")
+![Storage Destinations](../../../../public/assets/img/resources/storage_destinations.png "Storage Destinations")
 
 ## Create a storage destination
 ### Configure your storage method

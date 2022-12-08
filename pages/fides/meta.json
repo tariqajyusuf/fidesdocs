@@ -2,7 +2,10 @@
   "overview": "Overview",
   "installation": "Get Started",
   "dsr_quickstart": "DSR Automation",
-  "dsr_support": "DSR Automation Resources",
   "data_mapping": "Data Mapping",
-  "deployment": "Production Deployment"
+  "consent": "Consent Enforcement",
+  "saas_connectors": "SaaS Connectors",
+  "cli_support": "CLI Resources",
+  "deployment": "Production Deployment",
+  "community": "Community"
 }
