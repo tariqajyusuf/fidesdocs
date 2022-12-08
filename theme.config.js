@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import HubspotForm from 'react-hubspot-form'
 
+
 const Logo = ({ height }) => (
     <svg width="70px" height="25px" viewBox="0 0 577 177" version="1.1">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -45,7 +46,7 @@ export default {
   darkMode: false, 
   feedbackLink: () => {
     return (
-      'Give us feedback →'
+      'Open an issue in Github'
     );
   },
   feedbackLabels: "feedback",
@@ -60,7 +61,7 @@ export default {
   head: ({ title, meta }) => {
 
     const ogImage =
-      `https://fides.vercel.app`;
+      `https://docs.ethyca.com/assets/featured.png`;
 
     return (
       <>
@@ -95,23 +96,23 @@ export default {
           name="description"
           content={
             meta.description ||
-            "Fill in later"
+            "Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
           }
         />
         <meta
           name="og:description"
           content={
             meta.description ||
-            "Fill in later"
+            "Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
           }
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@vercel" />
+        <meta name="twitter:site" content="@ethyca" />
         <meta name="twitter:image" content={ogImage} />
         <meta
           name="og:title"
           content={
-            title ? title + " – Ethyca" : "Fill in later"
+            title ? title + " – Ethyca" : "Fides Documentation"
           }
         />
         <meta name="og:image" content={ogImage} />
@@ -131,7 +132,7 @@ export default {
     );
   },
   footerEditLink: ({}) => {
-        return (<a href="https://fid.es/join-slack" class="text-xs font-medium no-underline"> Get help from the Fides community →</a>);
+        return (<a href="https://fid.es/join-slack" class="text-xs font-medium no-underline">Ask a question in our Slack Community</a>);
   },
   footerText: ({  }) => {
   return (
