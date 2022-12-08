@@ -1,6 +1,6 @@
 # Run the Fides Sample Project
 
-In order to get started quickly with Fides, a sample project is bundled within the Fides CLI that will set up a server, privacy center, and a sample application for you to experiment with.
+To get started quickly with Fides, a sample project is bundled within the Fides CLI that will set up a server, privacy center, and a sample application for you to experiment with.
 
 To Fides in your own infrastructure, see the provided [DSR Automation](../dsr_quickstart/basic_setup.md) guide. 
 
@@ -10,6 +10,7 @@ To Fides in your own infrastructure, see the provided [DSR Automation](../dsr_qu
 
 *  [Docker](https://www.docker.com/products/docker-desktop) (version 20.10.11 or later)
 *  [Python](https://www.python.org/downloads/) (version 3.8 through 3.10) 
+
 ### Download and install Fides
 You can easily download and install the Fides demo using `pip`. Run the following command to get started:
 

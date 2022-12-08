@@ -1,4 +1,4 @@
-# Configure Connectors
+# Configure Connections
 
 Fides *Connections* represent integrations to third party applications, databases, or manual storage locations.
 
@@ -45,4 +45,4 @@ Additional fields may be added by selecting **Add new PII Fields**.
 One finished, select **Save.**
 
 ## Next steps
-With your connections configured, you are read to connect Fides to your [databases](./connect_databases).
+With your connections configured, you are ready to generate datasets from your [databases](./connect_databases).

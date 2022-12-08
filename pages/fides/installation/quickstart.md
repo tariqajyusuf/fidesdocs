@@ -1,9 +1,29 @@
-Once your compute instance is set up, you can install Fides. Fides is available via maintained packages on [PyPI](https://pypi.org/project/fides/) and through Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides).
+import Callout from 'nextra-theme-docs/callout'
 
-## Running Fides via Docker
-The Fides docker image is published on the [ethyca/fides DockerHub](https://hub.docker.com/r/ethyca/fides/tags) and maintained by the Fides team. 
+# Get Started with Fides
 
-### Installation
+<Callout emoji="ⓘ">This guide is designed to get you started with Fides quickly and with minimal effort. Want to learn about configuration in-depth? Check out our [advanced setup](./advanced) and [deployment](../deployment) guides!</Callout>
+
+## Minimum requirements
+See the the [project requirements](../installation/requirements) to get started.
+
+**If using Docker,** run `docker -v` in a new shell to confirm that docker is ready to use:
+
+```bash title="Example output:"
+% docker -v
+Docker version 20.10.11, build dea9396
+```
+
+**If using Python,** run `python --version` in a new shell to confirm that docker is ready to use:
+
+```bash title="Example output:"
+% python --version
+Python 3.9.13
+```
+
+Once you are sure Docker or Python is running, you are ready to install Fides!
+
+### Using Docker 
 Run the following command to pull the latest image from Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides):
 
 ```
@@ -18,19 +38,14 @@ docker pull ethyca/fides-privacy-center
 ### Running the webserver
 Once downloaded, you can start the Fides UI and database:
 ```
-docker compose up -d
-```
-
-To open an interactive shell and connect to the CLI, run the following:
-```
-docker compose exec -it fides-poc /bin/bash
+docker run ethyca/fides
 ```
 
 With the Fides webserver running, the hosted UI is available at `http://{server_url}/` (e.g. `http://localhost:8080/`). 
 
 ---
 
-## Installing Fides via Pip
+## Using Pip
 The Fides Python package is [published on PyPI](https://pypi.org/project/fides/) and maintained by the Fides team.
 ### Installation 
 To install Fides, run:
@@ -71,8 +86,7 @@ fides webserver
 
 With the Fides webserver running, the hosted UI is available at `http://{server_url}/` (e.g. `http://localhost:8080/`). 
 
-## Additional resources
+## Next steps
 For more information on customizing your environment configuration, see the [configuration reference](../installation/configuration.md) guide.
 
-## Next steps
-Now that your webserver is running, you are ready to [add Connectors](./configure_connectors.md).
+Now that Fides is up and running, you're ready to get started with [DSR automation](../dsr_quickstart/overview) and [data mapping](../data_mapping/overview)!
