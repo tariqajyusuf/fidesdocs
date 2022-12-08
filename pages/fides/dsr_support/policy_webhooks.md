@@ -3,17 +3,17 @@
 
 ## What is a Policy webhook?
 
-An webhook is an HTTPS callback that you've defined on an [execution policy](../getting-started/execution_policies.md) to call an external REST API endpoint either *before* or *after* a privacy bequest executes.
+An webhook is an HTTPS callback that you've defined on an [execution policy](./execution_policies) to call an external REST API endpoint either *before* or *after* a privacy bequest executes.
 
 Webhooks can be `one_way`, where the API is pinged and the privacy request continues, or `two_way`, where Fides will wait for a response. Any derived values returned from a `two_way` webhook will be saved, and can be used to locate other user information. For example, a webhook might take a known `email` `identity` and use that to find a `phone_number` `derived_identity`.
 
 ## Configuration
 
-The process below will define an `https` [Connection](../getting-started/database_connectors.md) that contains the details to make a request to your API endpoint, and then create a `PolicyPreWebhook` or a `PolicyPostWebhook`for a specific execution policy using that Connection.
+The process below will define an `https` [Connection](./database_connectors) that contains the details to make a request to your API endpoint, and then create a `PolicyPreWebhook` or a `PolicyPostWebhook`for a specific execution policy using that Connection.
 
 ### Create an HTTPS Connection
 
-The information that describes how to connect to your API endpoint is represented by a Fides [Connection](../getting-started/database_connectors.md)
+The information that describes how to connect to your API endpoint is represented by a Fides [Connection](./database_connectors)
 
 ```json title="<code>PATCH /v1/connection</code>"
 [
@@ -72,9 +72,6 @@ Similarly, to update your list of post-execution webhooks on a policy, use the f
 PUT /policy/{policy_key}/webhook/post_execution
 ```
 
-See API docs for more information on how to [Update PolicyPreWebhooks](../api/index.md#operations-Policy_Webhooks-create_or_update_pre_execution_webhooks_api_v1_policy__policy_key__webhook_pre_execution_put)
-and how to [Update PolicyPostWebhooks](../api/index.md#operations-Policy_Webhooks-create_or_update_post_execution_webhooks_api_v1_policy__policy_key__webhook_post_execution_put).
-
 ### Update a single webhook
 
 To update a single webhook, send a PATCH request to update selected attributes. **Updates to order can likewise update the order of related webhooks.**
@@ -120,10 +117,6 @@ Similarly, to update your a post-execution webhook on an execution policy, use t
 ```
 PATCH /policy/{policy_key}/webhook/post_execution/{post_execution_key}
 ```
-
-See API docs for more information on how to [PATCH a PolicyPreWebhook](../api/index.md#operations-Policy_Webhooks-update_pre_execution_webhook_api_v1_policy__policy_key__webhook_pre_execution__pre_webhook_key__patch)
-and how to [PATCH a PolicyPostWebhook](../api/index.md#operations-Policy_Webhooks-update_post_execution_webhook_api_v1_policy__policy_key__webhook_post_execution__post_webhook_key__patch).
-
 ## Webhook request format
 
 Before and after running access or erasure requests, Fides will send requests to any configured webhooks in sequential order
@@ -153,7 +146,7 @@ For `two-way` webhooks, Fides includes specific headers to pause request executi
 ```
 
 To resume, send a request to the `reply-to` URL with the `reply-to-token`.  The `reply-to-token` will
-expire when your Redis cache expires (represented by `default_ttl_seconds` in your Fides [config](../installation/configuration.md). When a request expires, it is be given an `error` status, and requires resubmission.
+expire when your Redis cache expires (represented by `default_ttl_seconds` in your Fides [config](../installation/configuration). When a request expires, it is be given an `error` status, and requires resubmission.
 
 ## Webhook response format
 
@@ -191,4 +184,4 @@ Once a paused webhook has completed processing, send a request to the `reply-to`
 
 If there are no derived identities, send an empty `{}` request body.
 
-The `reply-to-token` is a JWE containing the current webhook ID, scopes to access the callback endpoint, and the datetime the token is issued.  Fides unpacks this and resumes the privacy request execution after the specified webhook. The `reply-to-token` expires after a set amount of time, (the `privacy_request_delay_timeout` in your Fides [config](../installation/configuration.md)). Once the Redis cache expires, Fides no longer has the original identity data and the privacy request should be resubmitted
+The `reply-to-token` is a JWE containing the current webhook ID, scopes to access the callback endpoint, and the datetime the token is issued.  Fides unpacks this and resumes the privacy request execution after the specified webhook. The `reply-to-token` expires after a set amount of time, (the `privacy_request_delay_timeout` in your Fides [config](../installation/configuration)). Once the Redis cache expires, Fides no longer has the original identity data and the privacy request should be resubmitted.

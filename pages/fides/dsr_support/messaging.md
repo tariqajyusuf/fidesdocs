@@ -5,7 +5,7 @@ Fides supports email and SMS server configurations for sending processing notice
 
 Supported modes of use:
 
-- Subject Identity Verification - for more information on identity verification in subject requests, see the [Privacy Requests](../getting-started/privacy_requests.md#subject-identity-verification) guide.
+- Subject Identity Verification - for more information on identity verification in subject requests, see the [Privacy Requests](../getting-started/privacy_requests#subject-identity-verification) guide.
 
 
 ## Prerequisites

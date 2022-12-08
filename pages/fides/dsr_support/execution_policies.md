@@ -1,7 +1,7 @@
 # Configure Policies
 ## What is an execution policy?
 
-An execution policy (separate from a [Policy](../guides/policies.md), used to enforce compliance) is a set of instructions, or Rules, that are executed when a user submits a [request](./privacy_requests.md) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
+An execution policy (separate from a [Policy](./policies), used to enforce compliance) is a set of instructions, or Rules, that are executed when a user submits a [request](./privacy_requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
 
 Each endpoint takes an array of objects to create multiple policies, rules, or targets at one time.
 
@@ -32,7 +32,7 @@ To create a new execution policy, it must first be defined:
 |---|---|
 | `name` | User-friendly name for your Policy. |
 | `key` | Unique key by which to reference the Policy. |
-| `drp_action` | *Optional.* A [Data Rights Protocol](../guides/data_rights_protocol.md) action to associate to this policy. Accepted values are `access` (must be used with an [access Rule](#add-a-rule)) or `deletion` (must be used with an [erasure Rule](#add-an-erasure-rule)). |
+| `drp_action` | *Optional.* A [Data Rights Protocol](./data_rights_protocol) action to associate to this policy. Accepted values are `access` (must be used with an [access Rule](#add-a-rule)) or `deletion` (must be used with an [erasure Rule](#add-an-erasure-rule)). |
 | `execution_timeframe` | The time in which to fulfill an associated privacy request, in days. |
 
 ## Add a Rule
@@ -56,11 +56,11 @@ The following is an example of an access Rule:
 | `name` | A user-friendly name for the rule.
 | `action_type` | Which action is this `Rule` handling?
 | `action_type.access` | A data subject access request. Matching data will be returned.
-| `action_type.erasure` | A data subject erasure request (or Right to be Forgotten). Matching data will be erased or [masked](../guides/masking_strategies.md).
-| `storage_destination` | Where Fides will upload the returned data for an `access` action. See [storage](./storage.md). |
-| `masking_strategy` | How to erase data that applies to this `Rule`. See [Configuring Masking Strategies](../guides/masking_strategies.md) |
+| `action_type.erasure` | A data subject erasure request (or Right to be Forgotten). Matching data will be erased or [masked](../masking_strategies).
+| `storage_destination` | Where Fides will upload the returned data for an `access` action. See [storage](./storage). |
+| `masking_strategy` | How to erase data that applies to this `Rule`. See [Configuring Masking Strategies](./masking_strategies) |
 
-!!! Note "The `storage_key` must identify an existing [Storage](./storage.md) object."
+!!! Note "The `storage_key` must identify an existing [Storage](./storage) object."
 
 ### Add a Rule Target
 A Rule also specifies one or more [Data Categories](https://ethyca.github.io/fideslang/taxonomy/data_categories/), or "Targets", to which the rule applies. Creating a Rule will return a key, which can be used to assign it one or more targets:

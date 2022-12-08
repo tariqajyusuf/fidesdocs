@@ -58,7 +58,7 @@ To use Fides as a masking service, send a `PUT` request to the masking endpoint 
 
 The email has been replaced with a random string of 20 characters, while still preserving that the value is an email.
 
-See the [masking values](../api/index.md#operations-tag-Masking) API on how to use Fides to as a masking service.
+See the [masking values](../api/index#operations-tag-Masking) API on how to use Fides to as a masking service.
 
 ## Configuration
 Erasure requests will mask data with the chosen masking strategy.
@@ -154,11 +154,11 @@ Masks the data using HMAC before returning it. The HMAC encryption strategy is d
 - `format_preservation` (optional): `Dict` with the following key/vals:
   - `suffix`: `str` that specifies suffix to append to masked value
 
-See the [Policy guide](policies.md) for more detailed instructions on creating Policies and Rules.
+See the [Policy guide](policies) for more detailed instructions on creating Policies and Rules.
 
 ## Getting masking options
 
-Issue a GET request to [`/api/v1/masking/strategy`](../api/index.md#operations-Masking-list_masking_strategies_api_v1_masking_strategy_get) to preview the different masking
+Issue a GET request to `/api/v1/masking/strategy` to preview the different masking
 strategies available, along with their configuration options.
 
 ## Extensibility
