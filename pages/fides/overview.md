@@ -5,9 +5,9 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
 Fides (pronounced */fee-dhez/*, from Latin: Fidēs) is an open-source Privacy-as-Code platform that lets you manage, maintain, and automate privacy compliance throughout your organization. 
 
-Leveraging the powerful and lightweight [Fides language](https://ethyca.github.io/fideslang/), Fides provides automated data mapping, consent management, and data subject request fulfillment, with built-in support for regulations such as [GDPR](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/), [CPRA](https://ethyca.com/how-your-business-can-prepare-for-virginias-cdpa), [CDPA](https://ethyca.com/how-your-business-can-prepare-for-virginias-cdpa), and [LGPD](https://iapp.org/news/a/the-new-brazilian-general-data-protection-law-a-detailed-analysis/) by default.
+Leveraging the powerful and lightweight [Fides language](https://ethyca.github.io/fideslang/), Fides provides automated data mapping, consent management, and data subject request fulfillment, with built-in support for regulations such as [GDPR](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/), [CPRA](https://ethyca.com/how-your-business-can-prepare-for-cpra), [CDPA](https://ethyca.com/how-your-business-can-prepare-for-virginias-cdpa), and [LGPD](https://iapp.org/news/a/the-new-brazilian-general-data-protection-law-a-detailed-analysis/) by default.
 
-Ready to get started? Use our [sample application](./installation/sample_project.md) to go from 'Zero to DSR Automation' in minutes!
+Ready to get started? Use our [sample application](./installation/sample_project) to go from 'Zero to DSR Automation' in minutes!
 
 ## Getting Started
 <KeyFeatWrap>

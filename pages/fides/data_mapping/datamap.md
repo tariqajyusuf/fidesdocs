@@ -12,7 +12,7 @@ To export the resources generated in the previous step, navigate to the root Fid
 fides export datamap --output-dir data_map/
 ```
 
-This will export a data map to a `data_map` directory. To make changes, you may use the UI to add, remove, or update scanned systems, add [datasets](../dsr_quickstart/connect_databases.md), or manually document additional resources. 
+This will export a data map to a `data_map` directory. To make changes, you may use the UI to add, remove, or update scanned systems, add [datasets](../dsr_quickstart/connect_databases), or manually document additional resources. 
 
 ## Next steps
 Congratulations - you've created your first data map! Fides offers many more tools help take control of your data privacy. To find out more, check out our guides on [DSR automation](../dsr_quickstart/overview), [privacy-as-code](../cli_support/cicd), and the [Fides Taxonomy](https://ethyca.github.io/fideslang/).

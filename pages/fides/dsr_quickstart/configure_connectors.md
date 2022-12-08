@@ -16,7 +16,7 @@ Search for and select your desired connector. The Connectors UI will assist in a
 
 ### Automated connections
 
-Fides automatically includes your SaaS connectors when processing [privacy requests](../getting-started/privacy_requests.md). Once you have selected a connection type, the UI allows you to describe your connection's configuration information, which includes any necessary fields for accessing and updating third-party data.
+Fides automatically includes your SaaS connectors when processing [privacy requests](./dsr_support/privacy_requests). Once you have selected a connection type, the UI allows you to describe your connection's configuration information, which includes any necessary fields for accessing and updating third-party data.
 
 ![Configure Connections](../../../public/assets/img/dsr_quickstart/configure_connection.png)
 

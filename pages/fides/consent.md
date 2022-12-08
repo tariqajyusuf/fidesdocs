@@ -2,6 +2,7 @@
 
 The Fides Privacy Center is a configurable webpage where users can request to download or delete their data. The Privacy Center also provides configurable consent settings for regulatory compliance, allowing users to access and edit their data use preferences.
 
+![Privacy Center](../../public/assets/img/dsr_quickstart/privacy_center.png)
 ## Run the Privacy Center
 The Privacy Center is provided in a separate Docker image. To begin, run the following command:
 
@@ -115,7 +116,9 @@ Actions represent available privacy rights executable from the Privacy Center. T
 Additional actions can be added to this list, and removed at any time.
 
 ### Consent
-To provide compliance with local and internal regulations, you may define a series of [data uses](https://ethyca.github.io/fideslang/taxonomy/data_uses/) in your Privacy Center configuration. This list of data uses will allow users to configure their personal privacy preferences, which will be stored as a cookie.
+To provide compliance with local and internal regulations, you may define a series of [data uses](https://ethyca.github.io/fideslang/taxonomy/data_uses/) in your Privacy Center configuration.
+
+![Consent Options ](../../public/assets/img/dsr_quickstart/manage_consent.png)
 
 | Key | Description |
 |----|----|

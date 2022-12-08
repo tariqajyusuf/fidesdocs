@@ -1,8 +1,10 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Connect to SQL and NoSQL Databases
 
 ## What is a Connection?
 
-A _Connection_ links your owned databases and [third-party applications](../saas_connectors/saas_connectors) to Fides, allowing Fides to execute privacy requests against your collections and fields.
+A _Connection_ links your owned databases and [third-party applications](../../saas_connectors/saas_connectors) to Fides, allowing Fides to execute privacy requests against your collections and fields.
 
 Fides currently supports connections to the following databases:
 
@@ -23,7 +25,7 @@ A Dataset is model of your database that describes the data contained within eac
 
 
 ## Create a new Connection 
-The connection between Fides and your database is represented by a _Connection_. To create a new Connection, issue a request to the [Connection](./api/#operations-Connections-put_connections_api_v1_connection_put) endpoint, passing a payload that contains the properties listed below. 
+The connection between Fides and your database is represented by a _Connection_. To create a new Connection, issue a request to the Connection endpoint, passing a payload that contains the properties listed below. 
 
 | Field | Description |
 | --- | --- |
@@ -115,9 +117,9 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ## Set the Connection secrets
 After creating a new Connection, you explain how to connect to it by setting its "secrets": the host, port, user, and password. These values are specific to each database, and should reference the user and password you would like Fides to use when accessing your database.
 
-Call the [Connection Secrets](./api#operations-Connections-put_connection_config_secrets_api_v1_connection__connection_key__secret_put) endpoint. You can set the Connection attributes separately, or supply a single `url` string that encodes them all.
+Call the Connection Secrets endpoint. You can set the Connection attributes separately, or supply a single `url` string that encodes them all.
 
-!!! Tip "Fides encrypts all Connection secrets values before they're stored."
+<Callout>Fides encrypts all Connection secrets values before they're stored.</Callout>
 
 ### Set the secrets separately
 
@@ -191,13 +193,13 @@ The `test_status` response property announces the test result as `succeeded` or 
 
 To skip the connection test, set `verify` to `false`.
 
-You can verify that a Connection's secrets are valid at any time by calling the [Test a Connection's Secrets](./api#operations-Connections-test_connection_config_secrets_api_v1_connection__connection_key__test_get) endpoint:
+You can verify that a Connection's secrets are valid at any time by calling the connection's `/secret/` endpoint:
 
 
 ```
 /api/v1/connection/application-postgresql-db/test
 ```
-Test failures can be resolved by calling the [Set a Connection's Secrets](./api#operations-Connections-put_connection_config_secrets_api_v1_connection__connection_key__secret_put) endpoint, and resetting the secret values.
+Test failures can be resolved by calling the connection's `/secret/` endpoint, and resetting the secret values.
 
 ```json title="Success"
 {
@@ -325,7 +327,7 @@ The `test_status` filter queries on the status of the last successful test:
 ```
 
 ### System_Status filter
-The `system_status` filter surfaces either `database` or [`saas`-type](../saas_connectors/saas_connectors) connectors:
+The `system_status` filter surfaces either `database` or [`saas`-type](../../saas_connectors/saas_connectors) connectors:
 
 ```json
 {
@@ -470,7 +472,8 @@ To view a list of all available connection types, visit `GET /api/v1/connection_
 ## View required connection secrets
 To view the secrets needed to authenticate with a given connection, visit `GET /api/v1/connection_type/<connection_type>/secret`.
 
-```json title="<code>GET /api/v1/connection_type/sentry/secret</code>"
+```GET /api/v1/connection_type/sentry/secret```
+```json
 {
     "title": "sentry_schema",
     "description": "Sentry secrets schema",

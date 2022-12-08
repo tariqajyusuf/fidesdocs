@@ -1,6 +1,6 @@
 # Create Datasets
 
-The Datasets panel allows you to easily view, add, edit, and configure _[datasets](https://ethyca.github.io/fideslang/resources/dataset/)_, which represent the information contained by databases and other systems. While Fides can create an internal dataset for standardized [SaaS connections](../saas_connectors/oveview), your owned databases - and their custom schema - need to be scanned and annotated for personally identifiable information (PII).
+The Datasets panel allows you to easily view, add, edit, and configure _[datasets](https://ethyca.github.io/fideslang/resources/dataset/)_, which represent the information contained by databases and other systems. While Fides can create an internal dataset for standardized [SaaS connections](../saas_connectors/saas_config), your owned databases - and their custom schema - need to be scanned and annotated for personally identifiable information (PII).
 
 ## Adding a dataset 
 

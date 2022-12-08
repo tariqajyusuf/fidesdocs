@@ -2,7 +2,7 @@ import Callout from 'nextra-theme-docs/callout'
 
 # Get Started with Fides
 
-<Callout emoji="ⓘ">This guide is designed to get you started with Fides quickly and with minimal effort. Want to learn about configuration in-depth? Check out our [advanced setup](./advanced) and [deployment](../deployment) guides!</Callout>
+<Callout emoji="ⓘ">This guide is designed to get you started with Fides in as few steps as possible. Want to learn about configuration in-depth? Check out our [advanced setup](./advanced) and [deployment](../deployment) guides!</Callout>
 
 ## Minimum requirements
 See the the [project requirements](../installation/requirements) to get started.
@@ -30,7 +30,7 @@ Run the following command to pull the latest image from Ethyca's [DockerHub](htt
 docker pull ethyca/fides
 ```
 
-To pull the Fides [Privacy Center](./privacy_center.md), run the following:
+To pull the Fides [Privacy Center](../consent), run the following:
 ```
 docker pull ethyca/fides-privacy-center
 ```
@@ -87,6 +87,6 @@ fides webserver
 With the Fides webserver running, the hosted UI is available at `http://{server_url}/` (e.g. `http://localhost:8080/`). 
 
 ## Next steps
-For more information on customizing your environment configuration, see the [configuration reference](../installation/configuration.md) guide.
+For more information on customizing your environment configuration, see the [configuration reference](../installation/configuration) guide.
 
 Now that Fides is up and running, you're ready to get started with [DSR automation](../dsr_quickstart/overview) and [data mapping](../data_mapping/overview)!

@@ -17,4 +17,4 @@ Your administrator control panel allows you to view and process submitted privac
 Double-clicking a request row will display the request detail page, which allows access to additional information about the request, including the request ID, request type, and current status.
 
 ## Next steps
-Congratulations - you've gone from **0 to DSR Automation**! Fides offers many more tools help take control of your data privacy. To find out more, check out our guides on [data mapping](../guides/generate_datamaps.md), [privacy-as-code](../cicd.md), and the [Fides Taxonomy](https://ethyca.github.io/fideslang/).
+Congratulations - you've gone from **0 to DSR Automation**! Fides offers many more tools help take control of your data privacy. To find out more, check out our guides on [data mapping](../data_mapping/overview), [privacy-as-code](../cli_support/cicd), and the [Fides Taxonomy](https://ethyca.github.io/fideslang/).
