@@ -22,7 +22,7 @@ Go to: **Settings/Preferences** -> **Docker** -> **+**
 
 See the screenshot below:
 
-![Screenshot of IDE Docker setup](../img/ide/docker.png)
+![Screenshot of IDE Docker setup](../../../../public/assets/img/docker.png)
 
 ### Configure Python Remote Interpreter
 
@@ -38,9 +38,9 @@ After clicking **OK** the Remote Python Docker Compose should be listed as an SD
 
 See screenshots below:
 
-![Screenshot of Add Python Interpreter](../img/ide/add_python_interpreter.png)
+![Screenshot of Add Python Interpreter](../../../../public/assets/img/docker.png)
 
-![Screenshot of Project Structure SDKs](../img/ide/SDKs.png)
+![Screenshot of Project Structure SDKs](../../../../public/assets/img/SDKs.png)
 
 ### Run/Debug Configuration
 
@@ -54,7 +54,7 @@ Go to: **Run/Debug Configurations** -> **+** -> **Python**
 
 See screenshot below:
 
-![Screenshot of Run/Debug Configuration for main.py](../img/ide/debug_config.png)
+![Screenshot of Run/Debug Configuration for main.py](../../../../public/assets/img/debug_config.png)
 
 ## Hit a Breakpoint
 
@@ -66,11 +66,8 @@ There is a postman collection in this repo: `docs/fides/docs/development/postman
 
 Screenshot of hit breakpoint below:
 
-![Screenshot of Debugging from IntelliJ](../img/ide/debugging.png)
+![Screenshot of Debugging from IntelliJ](../../../../public/assets/img/debugging.png)
 
 ## Links
 
-The information is this guide is largely based on these docs
-
-- <https://www.jetbrains.com/help/pycharm/using-docker-as-a-remote-interpreter.html>
-- <https://www.jetbrains.com/help/idea/configuring-local-python-interpreters.html>
+The information is this guide is largely based on the [pycharm](https://www.jetbrains.com/help/pycharm/using-docker-as-a-remote-interpreter.html) and [interpeters](https://www.jetbrains.com/help/idea/configuring-local-python-interpreters.html).

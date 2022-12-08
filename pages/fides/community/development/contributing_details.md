@@ -21,12 +21,13 @@ would both resolve as `/api/v1/privacy-request` and `/api/v1/privacy-request/{pr
 
 ### The ORM -- SQLAlchemy
 
-SQLAlchemy is an Object Relational Mapper, allowing us to avoid writing direct database queries within our codebase, and access the database via Python code instead. The ORM provides an additional configuration layer allowing user-defined Python classes to be mapped to database tables and other constructs, as well as an object persistence mechanism known as the `Session`. Some common uses cases are listed below, for a more comprehensive guide see: <https://docs.sqlalchemy.org/en/14/tutorial/index.html>
+SQLAlchemy is an Object Relational Mapper, allowing us to avoid writing direct database queries within our codebase, and access the database via Python code instead. The ORM provides an additional configuration layer allowing user-defined Python classes to be mapped to database tables and other constructs, as well as an object persistence mechanism known as the `Session`. Some common uses cases are listed below, for a more comprehensive guide see [the SQLAlcheny docs](https://docs.sqlalchemy.org/en/14/tutorial/index.html).
 
 ### Adding models
 
-Database tables are defined with model classes. Model files should live in `src/app/models/`. Individual model classes must inherit from our custom base class at `app.db.base_class.Base` to ensure uniformity within the database. Multiple models per file are encouraged so long as they fit the same logical delineation within the project. An example model declaration is added below. For a comprehensive guide see: <https://docs.sqlalchemy.org/en/14/orm/mapping_styles.html#declarative-mapping>
-You should also import your model in src/fides/api/ops/db/base.py so it is visible for alembic.
+Database tables are defined with model classes. Model files should live in `src/app/models/`. Individual model classes must inherit from our custom base class at `app.db.base_class.Base` to ensure uniformity within the database. Multiple models per file are encouraged so long as they fit the same logical delineation within the project. An example model declaration is added below. For a comprehensive guide see [the SQLAlchemy docs](https://docs.sqlalchemy.org/en/14/orm/mapping_styles.html#declarative-mapping).
+
+You should also import your model in `src/fides/api/ops/db/base.py` so it is visible for alembic.
 
 ```
 class Book(Base):
@@ -42,7 +43,7 @@ When models are added to the project, we must then add them to the database in a
 
 ### Using the database via models
 
-Once you've added database tables via project models, you're ready to read, write, and update them via Python code. Some examples of common use cases here are listed below. Official documentation is here: <https://docs.sqlalchemy.org/en/14/orm/query.html#sqlalchemy.orm.Query>.
+Once you've added database tables via project models, you're ready to read, write, and update them via Python code. Some examples of common use cases here are listed below. Official documentation is [here](https://docs.sqlalchemy.org/en/14/orm/query.html#sqlalchemy.orm.Query).
 
 - Import our application's database session: `from fides.api.ops.db.session import get_db_session`
 - Instantiate the database interaction object:
@@ -89,7 +90,7 @@ When you run `nox -s dev`, the database will spin up in a Docker container with 
 
 ### Alembic migrations
 
-Some common Alembic commands are listed below. For a comprehensive guide see: <https://alembic.sqlalchemy.org/en/latest/tutorial.html>.
+Some common Alembic commands are listed below. For a comprehensive guide see [the alembic docs](https://alembic.sqlalchemy.org/en/latest/tutorial.html).
 
 The commands will need to be run inside a shell on your Docker containers, which can be opened with `nox -s dev -- shell`.
 
