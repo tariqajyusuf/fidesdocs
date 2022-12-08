@@ -1,9 +1,8 @@
 {
   "overview": "Overview",
-  "installation": "Installation",
+  "installation": "Get Started",
   "dsr_quickstart": "DSR Automation",
   "dsr_support": "DSR Automation Resources",
   "data_mapping": "Data Mapping",
-  "deployment": "Production Deployment",
-  "developers": "Fides for Developers"
+  "deployment": "Production Deployment"
 }

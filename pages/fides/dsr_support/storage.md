@@ -1,11 +1,13 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Configure Storage Destinations
 
 ## What is a storage destination?
 Access requests produce a package of returned data upon completion. This data will need to be uploaded to a storage destination (e.g. an S3 bucket) in order to be returned to the user.
 
-!!! Tip "Fides never stores privacy request results locally. At least one storage destination must be configured if you wish to process access requests."
+<Callout>Fides never stores privacy request results locally. At least one storage destination must be configured if you wish to process access requests.</Callout>
 
-Storage destinations are associated to execution policies in their [Rules](./execution_policies.md#add-a-rule), allowing multiple storage destinations to be configured per execution policy.
+Storage destinations are associated to execution policies in their [Rules](./execution_policies#add-a-rule), allowing multiple storage destinations to be configured per execution policy.
 
 ![Storage Destinations](../../../public/assets/img/resources/storage_destinations.png "Storage Destinations")
 
@@ -20,7 +22,7 @@ To configure a Storage destination, first choose a method to store your results.
 ### Create your storage destination
 Storage destinations are created and managed via the API. To create a new Storage destination, use the following endpoint:
 
-```json title="<code>PATCH {host}/api/v1/storage/config</code>"
+```json
   {
     "destinations": [
       {
@@ -60,7 +62,7 @@ Storage destinations are created and managed via the API. To create a new Storag
 |---|---|
 | `naming` | This defines how the uploaded files will be named. Currently, Fides supports upload file naming by `request_id`. Use this value for all your storage destinations. |
 
-On success, the response from the above endpoint will include a `storage_key` for each destination, which can be used when defining execution policy [Rules](./execution_policies.md#add-a-rule).
+On success, the response from the above endpoint will include a `storage_key` for each destination, which can be used when defining execution policy [Rules](./execution_policies#add-a-rule).
 
 ```json title="Example response"
 {
