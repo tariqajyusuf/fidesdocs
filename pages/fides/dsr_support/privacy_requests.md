@@ -3,13 +3,13 @@
 
 A privacy request represents an ask from a user to perform an action on their identity data. The request itself identifies the user by email address, phone number, social security number, or other identifiable information. The data that will be affected, and how it's affected, is described in an execution policy associated with the request.
 
-For more information on policies, see the [execution policies](./execution_policies.md#rule-attributes) guide.
+For more information on policies, see the [execution policies](./execution_policies#rule-attributes) guide.
 
 ## Submit a privacy request
 
 !!! Tip "Privacy Requests are executed immediately by default. This setting may be changed in your `fides.toml` configuration file."
 
-Privacy requests are submitted by calling the [Privacy Request](../api/index.md#operations-tag-Privacy_Requests) endpoint:
+Privacy requests are submitted by calling the [Privacy Request](../api/index#operations-tag-Privacy_Requests) endpoint:
 
 ```json title="<code>POST /api/v1/privacy-request</code>"
 [
@@ -29,19 +29,17 @@ The above request will apply the `a-demo-policy` execution policy to all target 
 
 | Attribute | Description |
 |---|---|
-| `external_id` | *Optional.* An identifier that lets you track the privacy request. See [Report on Privacy Requests](../guides/reporting.md) for more information. |
+| `external_id` | *Optional.* An identifier that lets you track the privacy request. See [Report on Privacy Requests](./reporting) for more information. |
 | `requested_at` | *Optional.* An ISO8601 timestamp that specifies the moment that the request was submitted. Defaults to the `created_at` time if not specified. |
-| `policy_key` | Identifies the [execution policy](./execution_policies.md) applied to this request. |
+| `policy_key` | Identifies the [execution policy](./execution_policies) applied to this request. |
 | `identities` | An array of objects. These objects identify any users whose data will be affected by the execution policy. Each object identifies a single user.  |
-
-A full list of attributes available to set on a privacy request can be found in the [API documentation](../api/index.md#operations-tag-Privacy_Requests).
 
 
 ### Enable subject identity verification 
 Verifying user identity prior to processing their privacy request requires the following:
 
 1. Set the `subject_identity_verification_required` variable in your `fides.toml` to `TRUE`. 
-2. [Configure Emails](../guides/email_communications.md) that lets Fides send automated emails to your users.
+2. [Configure Emails](.email_communications) that lets Fides send automated emails to your users.
 
 With identify verification enabled, a user will be emailed a six-digit code when they submit a privacy request. They must supply that verification code to Fides to continue privacy request execution.  
 
@@ -89,7 +87,7 @@ GET api/v1/privacy-request?request_id=<privacy_request_id>
 GET api/v1/privacy-request?external_id=<external_id>
 ```
 
-For more detailed examples and further privacy request filtering, see [Reporting on Privacy Requests](../guides/reporting.md).
+For more detailed examples and further privacy request filtering, see [Reporting on Privacy Requests](./reporting).
 
 ### Restart failed requests
 To restart a failed privacy request, call the following endpoint with an empty request body:
@@ -158,4 +156,4 @@ a similar process for each CSV file.
 
 ## Privacy request integrations
 
-* **Generic API interoperability**: Third party services can be authorized by creating additional OAuth clients. Tokens obtained from OAuth clients can be managed and revoked at any time. See [authenticating with OAuth](../guides/oauth.md) for more information.
+* **Generic API interoperability**: Third party services can be authorized by creating additional OAuth clients. Tokens obtained from OAuth clients can be managed and revoked at any time. See [authenticating with OAuth](./oauth) for more information.

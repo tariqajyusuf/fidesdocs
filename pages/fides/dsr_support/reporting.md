@@ -9,8 +9,6 @@ information, or get more detailed information about the status of the requests o
 
 This request displays concise, high-level information for all your privacy requests including their status and related timestamps.
 
-View he [API docs here](../api/index.md#operations-Privacy_Requests-get_request_status_api_v1_privacy_request_get).
-
 ```json
 {
     "items": [
@@ -76,11 +74,9 @@ GET api/v1/privacy-request?status=paused&status=complete
 To view all the execution logs for a privacy request, visit `/api/v1/privacy-request/{privacy_request_id}/logs`.
 Embedded logs in the previous endpoints are truncated at 50 logs.
 
-View the [API docs here](../api/index.md#operations-Privacy_Requests-get_request_status_logs_api_v1_privacy_request__privacy_request_id__log_get).
-
 
 ## View a request's identity data
-Use the optional `include_identities` query param to include all identity data that was submitted for the privacy request. Due to the way Fides stores identity data, this data will expire automatically according to the `FIDES__REDIS__DEFAULT_TTL_SECONDS` variable in your Fides [config](../installation/configuration.md).
+Use the optional `include_identities` query param to include all identity data that was submitted for the privacy request. Due to the way Fides stores identity data, this data will expire automatically according to the `FIDES__REDIS__DEFAULT_TTL_SECONDS` variable in your Fides [config](../installation/configuration).
 
 If the identity data fetched by `include_identities` has expired, an empty JSON dictionary will be returned.
 
@@ -91,7 +87,7 @@ The `verbose` parameter will embed a “results” key in the response, with bot
 
 In the example below, there are two datasets: `my-mongo-db` and `my-postgres-db`. There are two execution logs for `my-mongo-db` (when the `flights` collection is starting execution, and when the `flights` collection has finished), and two execution
 logs for `my-postgres-db` (when the `order` collection is starting and finishing execution). The `fields_affected` are the fields
-that were potentially returned or masked based on the [Rules](../getting-started/execution_policies.md#add-a-rule) you've specified on the execution policy. 
+that were potentially returned or masked based on the [Rules](./execution_policies#add-a-rule) you've specified on the execution policy. 
 
 The embedded execution logs are automatically truncated at 50 logs. To view the entire list of logs, visit the execution logs endpoint separately. "Request approved" and "Request finished" audit logs are also included in the response.
 
@@ -214,7 +210,7 @@ The request below is in a `paused` state as it waits on manual input from the us
 
 The `action_needed.locators` field shows the user they should fetch the record in the filing cabinet with a `customer_id` of `72909`, and pull the `authorized_user`, `customer_id`, `id`, and `payment_card_id` fields from that record. These values should be manually uploaded to the `resume_endpoint`. 
 
-See the [manual data guides](../getting-started/datasets.md#resume-a-paused-access-privacy-request) for more information on resuming a paused access request.
+See the [manual data guides](./datasets#resume-a-paused-access-privacy-request) for more information on resuming a paused access request.
                           
 
 ```json
@@ -260,7 +256,7 @@ The request below is in a `paused` state for user to confirm they've masked the 
 
 The `stopped_collection_details` shows that the request paused execution during the `erasure` step of the `manual_key:filing_cabinet` collection. Looking at `action_needed.locators` field shows that the user should find the record in the filing cabinet with an `id` of 2, and replace its `authorized_user` with `None`. 
 
-A confirmation of the masked records count should be uploaded to the `resume_endpoint`. See the [manual data guides](../getting-started/datasets.md#resume-a-paused-erasure-privacy-request) for more information on resuming a paused erasure request.
+A confirmation of the masked records count should be uploaded to the `resume_endpoint`. See the [manual data guides](./datasets#resume-a-paused-erasure-privacy-request) for more information on resuming a paused erasure request.
               
 ```json
 {

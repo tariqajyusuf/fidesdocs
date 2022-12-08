@@ -3,7 +3,7 @@ import Callout from 'nextra-theme-docs/callout'
 # Generate and Maintain Resources
 
 ## What is a resource?
-A _resource_ is a Fides representation of a system, database, policy, or organization. Resources are maintained in YAML manifest files written in [fideslang](https://ethyca.github.io/fideslang/). Generating resources creates a template of your databases, services, or applications for further annotation and use in [privacy requests](./datasets.md) or [data maps](../guides/generate_datamaps.md).
+A _resource_ is a Fides representation of a system, database, policy, or organization. Resources are maintained in YAML manifest files written in [fideslang](https://ethyca.github.io/fideslang/). Generating resources creates a template of your databases, services, or applications for further annotation and use in [privacy requests](./datasets) or [data maps](./generate_datamaps).
 
 The Fides CLI provides a `generate` command to connect to a database, and automatically generate a resource YAML file based on the database schema. The `scan` command is available to compare your existing resources against what is defined in your Fides server, or against your resource manifest files. 
 
@@ -23,7 +23,7 @@ A connection string can be supplied using the `connection-string` option:
 The appropriate `connection-string` format for your database connector can be found in the [SQLAlchemy Documentation](https://docs.sqlalchemy.org/en/14/dialects/).
 
 #### Fides Config
-A connection string can also be defined within your Fides [configuration](../installation/configuration.md) under the `credentials` section.
+A connection string can also be defined within your Fides [configuration](../installation/configuration) under the `credentials` section.
 
 ```sh
 [credentials]
@@ -105,7 +105,7 @@ dataset:
 ```
 The resulting file still requires annotating the dataset with data categories to represent what is stored. 
 
-<Callout> **To use this Dataset in a Privacy Request,** you must add required [meta information](./datasets.md). </Callout>
+<Callout> **To use this Dataset in a Privacy Request,** you must add required [meta information](./datasets). </Callout>
 
 ### Scanning the Dataset
 
@@ -129,7 +129,7 @@ Annotation coverage: 100%
 ## Working With an AWS Account
 The `generate` command can connect to an AWS account and automatically generate resource YAML file based on tracked resources.
 
-!!! Tip "Generated resources can be used as System declarations for [generating Data Maps](../guides/generate_datamaps.md)."
+!!! Tip "Generated resources can be used as System declarations for [generating Data Maps](../guides/generate_datamaps)."
 
 ### Providing Credentials
 AWS credentials can be provided through command options, environment variables or the fides config.
@@ -159,7 +159,7 @@ export AWS_DEFAULT_REGION="us-east-1"
 ```
 
 #### Fides Config
-Credentials can be defined within your [Fides config](../installation/configuration.md) under the credentials section.
+Credentials can be defined within your [Fides config](../installation/configuration) under the credentials section.
 
 ```sh
 [credentials]
@@ -271,7 +271,7 @@ Resource coverage: 100%
 ## Working With an Okta Account
 The `generate` command can connect to an Okta admin account and automatically generate resource YAML file based on applications your organization integrates with.
 
-!!! Tip "Generated resources can be used as System declarations for [generating Data Maps](../guides/generate_datamaps.md)."
+!!! Tip "Generated resources can be used as System declarations for [generating Data Maps](../guides/generate_datamaps)."
 
 ### Providing Credentials
 Okta credentials can be provided through command options, environment variables or the Fides config.
@@ -300,7 +300,7 @@ export OKTA_CLIENT_PRIVATEKEY="<my_private_jwk>"
 ```
 
 #### Fides Configuration
-Credentials can be defined within your [Fides config](../installation/configuration.md) under the credentials section.
+Credentials can be defined within your [Fides config](../installation/configuration) under the credentials section.
 
 ```sh
 [credentials]
@@ -385,7 +385,7 @@ The path to the keyfile can be directly supplied in your command using the `keyf
 ```
 
 #### Fides Config
-Credentials can be defined within your [fides config](../installation/configuration.md) under the credentials section.
+Credentials can be defined within your [fides config](../installation/configuration) under the credentials section.
 
 ```toml
 [credentials.bigquery_1]

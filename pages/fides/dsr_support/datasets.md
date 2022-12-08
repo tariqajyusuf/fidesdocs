@@ -5,9 +5,9 @@
 A _Dataset_ is the configuration you provide for a database or other queryable datastore. Fides Datasets are applicable to a wide variety of datastores beyond traditional databases. Within Datasets, the term _collection_ is used to describe an SQL table, mongo database collection, or any other single coherent set values.
 
 ## Configure a Dataset
-Fides uses a YAML manifest file to represent your datastores, and requires information beyond table names and fields to fully configure a Dataset. Datastores connected in this way will be automatically traversed when Fides executes a privacy request, and will either return or update the requested data according to the associated [execution policy](./execution_policies.md).
+Fides uses a YAML manifest file to represent your datastores, and requires information beyond table names and fields to fully configure a Dataset. Datastores connected in this way will be automatically traversed when Fides executes a privacy request, and will either return or update the requested data according to the associated [execution policy](./execution_policies).
 
-Ensure you have created a [Connection](./database_connectors.md) for the datastore you would like to map. The Dataset defined by the following process should be [associated to the Connection](./database_connectors.md#associate-a-dataset).
+Ensure you have created a [Connection](./database_connectors) for the datastore you would like to map. The Dataset defined by the following process should be [associated to the Connection](./database_connectors#associate-a-dataset).
 
 ### Describe a datastore 
 
@@ -109,11 +109,11 @@ dataset:
 | Name | Description
 | --- | ----- |
 | `name` | The name of the field will be used to generate query and update statements. **Fides does not do automated schema discovery,** and is only aware of the fields you declare.
-| `data_categories` | Annotating `data_categories` connects fields to execution policy rules, and determines which actions apply to each field. For more information see [execution policies](./execution_policies.md).
+| `data_categories` | Annotating `data_categories` connects fields to execution policy rules, and determines which actions apply to each field. For more information see [execution policies](./execution_policies).
 | `fidesops_meta` | The `fidesops_meta` section specifies additional fields that control how Fides manages your data.
 | `references` | A declaration of relationships between collections. Where the `customer` configuration declares a reference to `mydatabase:address:id`, Fides will use the values from `mydatabase.address.id` to search for related values in `customer`. References require both the Dataset and collection name to allow for multiple Dataset-collection configurations. |
 | `references.field` | The linked field, using the syntax `[dataset name].[collection name ].[field name]`. |
-| `references.identity` | Signifies that this field is an identity value that can be used as the root for a traversal. For more information, see [graph traversals](../guides/query_execution.md). |
+| `references.identity` | Signifies that this field is an identity value that can be used as the root for a traversal. For more information, see [graph traversals](./query_execution). |
 | `references.direction` | *Optional.* Accepted values are `from` or `to`. This determines how fidesops uses the relationships to discover data. If the direction is `to`, fidesops will only use data in the _source_ collection to discover data in the _referenced_ collection. If the direction is `from`, fidesops will only use data in the _referenced_ collection to discover data in the _source_ collection. If the direction is omitted, fidesops will traverse the relation in whatever direction works to discover all related data.
 |`references.primary_key` | *Optional.* A boolean value. Fides will treat this field as a unique row identifier for generating update statements. If no primary key is specified for any field on a collection, no updates will be generated against that collection. If multiple fields are marked as primary keys, the combination of their values will be treated as a combined key. |
 | `references.data_type` | *Optional.* An indication of the type of data held by this field. Data types are used to convert values to the appropriate type when those values are used in queries. This is especially necessary when using data of one type to help locate data of another type.  Data types are also used to generate the appropriate masked value when running erasures, since fidesops needs to know the type of data expected by the field in order to generate an appropriate masked value. Available data types are `string`, `integer`, `float`, `boolean`, and `object_id`. `object` types are also supported for MongoDB.
@@ -121,9 +121,9 @@ dataset:
 | `references.return_all_elements` | *Optional.*  For array entrypoint fields, specify whether the query should return/mask all fields, or just matching fields.  By default, we just return/mask matching fields. Setting `return_all_elements=true` will return/mask the entire array. |
 
 ### Generate a Dataset
-The Fides [CLI](../cli.md) allows you to both connect to and generate a blank Dataset for your datastores. This blank Dataset does not include any annotations (e.g., Fides data descriptions) or `fidesops_meta` information, but can be used to initially map your databases.
+The Fides CLI allows you to both connect to and generate a blank Dataset for your datastores. This blank Dataset does not include any annotations (e.g., Fides data descriptions) or `fidesops_meta` information, but can be used to initially map your databases.
 
-For more information, see [generating resources](./generate_resources.md).
+For more information, see [generating resources](./generate_resources).
 
 ## Configure a manual Dataset
 
@@ -136,7 +136,7 @@ Not all data can be automatically retrieved. When services have no external API,
 In the following example, the manual Dataset is a physical location, which contains one `storage_unit` collection. `email` is
 defined as the unit's [identity](#field-members), which will then be used to retrieve the `box_id` in the storage unit.
 
-To add a Manual Dataset, first create a [Manual Connection](./database_connectors.md#examples). The following Manual Dataset can then be [added to](database_connectors.md#associate-a-dataset) the new ConnectionConfig:
+To add a Manual Dataset, first create a [Manual Connection](./database_connectors#examples). The following Manual Dataset can then be [added to](database_connectors#associate-a-dataset) the new ConnectionConfig:
 
 ```yaml title="<code>PATCH {{host}}/connection/<manual_key>/dataset</code>"
 dataset:

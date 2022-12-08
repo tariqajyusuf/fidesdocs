@@ -2,7 +2,7 @@
 
 ## What is a Connection?
 
-A _Connection_ links your owned databases and [third-party applications](../saas_connectors/saas_connectors.md) to Fides, allowing Fides to execute privacy requests against your collections and fields.
+A _Connection_ links your owned databases and [third-party applications](../saas_connectors/saas_connectors) to Fides, allowing Fides to execute privacy requests against your collections and fields.
 
 Fides currently supports connections to the following databases:
 
@@ -216,7 +216,7 @@ Test failures can be resolved by calling the [Set a Connection's Secrets](./api#
 ```
 
 ## Associate a Dataset
-Once you have a working Connection, it must be associated to an existing [dataset](datasets.md). This enables Fides to map and access the contents of your database. 
+Once you have a working Connection, it must be associated to an existing [dataset](datasets). This enables Fides to map and access the contents of your database. 
 
 Call the `/dataset` endpoint with a JSON version of your dataset as the request body:
 
@@ -325,7 +325,7 @@ The `test_status` filter queries on the status of the last successful test:
 ```
 
 ### System_Status filter
-The `system_status` filter surfaces either `database` or [`saas`-type](../saas_connectors/saas_connectors.md) connectors:
+The `system_status` filter surfaces either `database` or [`saas`-type](../saas_connectors/saas_connectors) connectors:
 
 ```json
 {
