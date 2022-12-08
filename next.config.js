@@ -11,7 +11,7 @@ module.exports = withNextra({
     return [
         {
         source: "/",
-        destination: "/fides/More/test",
+        destination: "/fides/overview",
         statusCode: 301,
       }
     ];
