@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import HubspotForm from 'react-hubspot-form'
 
+
 const Logo = ({ height }) => (
     <svg width="70px" height="25px" viewBox="0 0 577 177" version="1.1">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -60,7 +61,7 @@ export default {
   head: ({ title, meta }) => {
 
     const ogImage =
-      `https://fides.vercel.app/assets/featured.png`;
+      `https://docs.ethyca.com/assets/featured.png`;
 
     return (
       <>
