@@ -45,7 +45,7 @@ export default {
   darkMode: false, 
   feedbackLink: () => {
     return (
-      'Question? Give us feedback →'
+      'Give us feedback →'
     );
   },
   feedbackLabels: "feedback",
@@ -131,7 +131,7 @@ export default {
     );
   },
   footerEditLink: ({}) => {
-        return "Edit this page on GitHub →";
+        return (<a href="https://fid.es/join-slack" class="text-xs font-medium no-underline"> Get help from the Fides community →</a>);
   },
   footerText: ({  }) => {
   return (
