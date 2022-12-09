@@ -4,7 +4,7 @@ import Callout from 'nextra-theme-docs/callout'
 
 ## What is a Connection?
 
-A _Connection_ links your owned databases and [third-party applications](../../saas_connectors/saas_connectors) to Fides, allowing Fides to execute privacy requests against your collections and fields.
+A _Connection_ links your owned databases and [third-party applications](../saas_connectors/saas_connectors) to Fides, allowing Fides to execute privacy requests against your collections and fields.
 
 Fides currently supports connections to the following databases:
 
@@ -21,7 +21,7 @@ Other platforms will be added in future releases.
 
 ## How do Connections differ from Datasets?
 
-A Dataset is model of your database that describes the data contained within each field. A Connection stores the secrets to connect to the database. After Fides connects to your database, it dynamically generates queries to fulfil privacy requests by consulting the annotations in the Dataset.
+A _[Dataset](./datasets)_ is model of a service that describes the data contained within each field. A _Connection_ stores the secrets to connect to the database. After Fides connects to your database, it dynamically generates queries to fulfil privacy requests by consulting the annotations in the Dataset.
 
 
 ## Create a new Connection 
