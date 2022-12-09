@@ -1,17 +1,13 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Configure Policies
 ## What is an execution policy?
 
-An execution policy (separate from a [Policy](./policies), used to enforce compliance) is a set of instructions, or Rules, that are executed when a user submits a [request](./privacy_requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
+An execution policy (separate from a [Policy](../../cli_support/policies), used to enforce compliance) is a set of instructions, or Rules, that are executed when a user submits a [request](./privacy_requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
 
 Each endpoint takes an array of objects to create multiple policies, rules, or targets at one time.
 
-!!! Tip "Regarding `PATCH` endpoints"
-    `PATCH` requests perform the equivalent of a `create_or_update` operation. This means that any existing objects sent to this endpoint will:
-
-    - be updated,
-    - any non-existing objects will be created, AND
-    - any objects existing that are not specified in the request will not be deleted.
-
+<Callout>`PATCH` requests perform the equivalent of a `create_or_update` operation. This means that any existing objects sent to this endpoint will be updated, create any non-existing objects, and delete any objects that are not specified in the request.</Callout>
 ## Create a Policy
 
 To create a new execution policy, it must first be defined:
@@ -56,11 +52,11 @@ The following is an example of an access Rule:
 | `name` | A user-friendly name for the rule.
 | `action_type` | Which action is this `Rule` handling?
 | `action_type.access` | A data subject access request. Matching data will be returned.
-| `action_type.erasure` | A data subject erasure request (or Right to be Forgotten). Matching data will be erased or [masked](../masking_strategies).
+| `action_type.erasure` | A data subject erasure request (or Right to be Forgotten). Matching data will be erased or [masked](./masking_strategies).
 | `storage_destination` | Where Fides will upload the returned data for an `access` action. See [storage](./storage). |
 | `masking_strategy` | How to erase data that applies to this `Rule`. See [Configuring Masking Strategies](./masking_strategies) |
 
-!!! Note "The `storage_key` must identify an existing [Storage](./storage) object."
+<Callout>The `storage_key` must identify an existing [Storage](./storage) object.</Callout>
 
 ### Add a Rule Target
 A Rule also specifies one or more [Data Categories](https://ethyca.github.io/fideslang/taxonomy/data_categories/), or "Targets", to which the rule applies. Creating a Rule will return a key, which can be used to assign it one or more targets:
@@ -82,7 +78,7 @@ A Rule also specifies one or more [Data Categories](https://ethyca.github.io/fid
 | `data_category` | The data categories to which the associated rule applies. For example, email addresses under `user.contact.email`. |
 
 ### Add an erasure Rule
-!!! Tip "Access rules will always run before erasure rules."
+<Callout>Access rules will always run before erasure rules.</Callout>
 
 The access execution policy created above will pull all data of category `user.contact.email`. In the event of an erasure request, we might also want to mask this information. 
 
@@ -123,7 +119,7 @@ When an execution policy Rule erases data, it erases the _entire_ branch given b
 It's illegal to erase the same data twice within an execution policy. For example, erasing `user.contact` _and_ `user.contact.email` is not allowed.
 
 ## Default execution policies
-!!! Tip "These auto-generated execution policies are intended for use in a test environment. In production deployments, configure separate execution policies and storage destinations that target and process the appropriate fields."
+<Callout>These auto-generated execution policies are intended for use in a test environment. In production deployments, configure separate execution policies and storage destinations that target and process the appropriate fields.</Callout>
 
 Fides ships with two default execution policies: `download` (for access requests) and `delete` (for erasure requests).  
 

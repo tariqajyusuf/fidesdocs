@@ -10,4 +10,4 @@ This guide is designed to walk you through configuring Fides to generate your fi
 This guide will walk you though you using the Fides UI to [scan for systems](./scanners), and then register those results with Fides. Finally, you'll be able to [export a data map](./datamap) via the Fides CLI.
 
 ## Next steps
-Need support? The Fides team is here to help! Our [community resources](./community/overview) are available to assist in answering questions and sharing ideas on Slack, Github, and more.
+Need support? The Fides team is here to help! Our [community resources](../community/overview) are available to assist in answering questions and sharing ideas on Slack, Github, and more.

@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Run the Fides Sample Project
 
 To get started quickly with Fides, a sample project is bundled within the Fides CLI that will set up a server, privacy center, and a sample application for you to experiment with.
@@ -25,7 +27,7 @@ By default, Fides ships with a small project belonging to a fictional e-commerce
 fides deploy up
 ```
 
-!!! Warning "If running `fides deploy` as part of a local fides development environment, refer to the [local documentation](../development/dev_deployment.md) instead."
+<Callout>If running `fides deploy` as part of a local fides development environment, refer to the [local documentation](../development/dev_deployment.md) instead.</Callout>
 
 ### Exploring the sample project
 When your deployment finishes, a welcome screen will explain the key components of Fides and the sample Cookie House store. 

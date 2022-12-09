@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Configure Email/SMS Messaging
 ## What is email/SMS used for?
 
@@ -5,7 +7,7 @@ Fides supports email and SMS server configurations for sending processing notice
 
 Supported modes of use:
 
-- Subject Identity Verification - for more information on identity verification in subject requests, see the [Privacy Requests](../getting-started/privacy_requests#subject-identity-verification) guide.
+- Subject Identity Verification - for more information on identity verification in subject requests, see the [Privacy Requests](./privacy_requests#subject-identity-verification) guide.
 
 
 ## Prerequisites
@@ -16,8 +18,7 @@ Fides currently supports Mailgun for email integrations. Ensure you register or 
 
     Follow the [Mailgun documentation](https://documentation.mailgun.com/en/latest/api-intro.html#authentication-1) to create a new Domain Sending Key for Fides. 
 
-    !!! Note 
-        Mailgun automatically generates a **primary account API key** when you sign up for an account. This key allows you to perform all CRUD operations via Mailgun's API endpoints, and for any of your sending domains. For security purposes, using a new **domain sending key** is recommended over your primary API key.
+<Callout> Mailgun automatically generates a **primary account API key** when you sign up for an account. This key allows you to perform all CRUD operations via Mailgun's API endpoints, and for any of your sending domains. For security purposes, using a new **domain sending key** is recommended over your primary API key. </Callout>
 
 ## Configuration
 

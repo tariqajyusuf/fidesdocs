@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Execute Privacy Requests
 ## What is a Privacy Request?
 
@@ -7,9 +9,9 @@ For more information on policies, see the [execution policies](./execution_polic
 
 ## Submit a privacy request
 
-!!! Tip "Privacy Requests are executed immediately by default. This setting may be changed in your `fides.toml` configuration file."
+<Callout>Privacy Requests are executed immediately by default. This setting may be changed in your `fides.toml` configuration file.</Callout>
 
-Privacy requests are submitted by calling the [Privacy Request](../api/index#operations-tag-Privacy_Requests) endpoint:
+Privacy requests are submitted by calling the Privacy Request endpoint:
 
 ```json title="<code>POST /api/v1/privacy-request</code>"
 [
@@ -39,7 +41,7 @@ The above request will apply the `a-demo-policy` execution policy to all target 
 Verifying user identity prior to processing their privacy request requires the following:
 
 1. Set the `subject_identity_verification_required` variable in your `fides.toml` to `TRUE`. 
-2. [Configure Emails](.email_communications) that lets Fides send automated emails to your users.
+2. [Configure Emails](./messaging) that lets Fides send automated emails to your users.
 
 With identify verification enabled, a user will be emailed a six-digit code when they submit a privacy request. They must supply that verification code to Fides to continue privacy request execution.  
 

@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Report on Privacy Requests
 ## Overview
 
@@ -40,7 +42,7 @@ If an `external_id` was provided at request creation, we can also track the priv
 GET api/v1/privacy-request?external_id=<external_id>
 ```
 
-!!! Note "These parameters will return matching privacy requests based on `startswith` matches."
+<Callout>These parameters will return matching privacy requests based on `startswith` matches.</Callout>
 
 ### Filtering options
 
@@ -76,7 +78,7 @@ Embedded logs in the previous endpoints are truncated at 50 logs.
 
 
 ## View a request's identity data
-Use the optional `include_identities` query param to include all identity data that was submitted for the privacy request. Due to the way Fides stores identity data, this data will expire automatically according to the `FIDES__REDIS__DEFAULT_TTL_SECONDS` variable in your Fides [config](../installation/configuration).
+Use the optional `include_identities` query param to include all identity data that was submitted for the privacy request. Due to the way Fides stores identity data, this data will expire automatically according to the `FIDES__REDIS__DEFAULT_TTL_SECONDS` variable in your Fides [config](../../installation/configuration).
 
 If the identity data fetched by `include_identities` has expired, an empty JSON dictionary will be returned.
 

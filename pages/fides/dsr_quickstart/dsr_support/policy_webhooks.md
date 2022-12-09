@@ -13,7 +13,7 @@ The process below will define an `https` [Connection](./database_connectors) tha
 
 ### Create an HTTPS Connection
 
-The information that describes how to connect to your API endpoint is represented by a Fides [Connection](./database_connectors)
+The information that describes how to connect to your API endpoint is represented by a Fides [Connection](./database_connectors).
 
 ```json title="<code>PATCH /v1/connection</code>"
 [
@@ -29,7 +29,7 @@ The information that describes how to connect to your API endpoint is represente
 
 ### Add your Connection secrets
 
-The credentials needed to access your API endpoint are defined by making a PUT to the Connection Secrets endpoint. These credentials are encrypted in the Fides `app` database
+The credentials needed to access your API endpoint are defined by making a PUT to the Connection Secrets endpoint. These credentials are encrypted in the Fides `app` database.
 
 ```json title="<code>PUT /v1/connection/test_webhook_connection_config</code>"
     {
@@ -45,7 +45,7 @@ or *after* (`PolicyPostWebhooks`) a privacy request is executed.
 
 When defining webhooks, they should be included in the request body in the desired order. Any webhooks on the execution policy *not* included in the request will be removed from the policy.
 
-To update a list of PolicyPreWebhooks
+To update a list of PolicyPreWebhooks:
 
 ```json title="<code>PUT /policy/{policy_key}/webhook/pre_execution</code>"
 [
@@ -146,7 +146,7 @@ For `two-way` webhooks, Fides includes specific headers to pause request executi
 ```
 
 To resume, send a request to the `reply-to` URL with the `reply-to-token`.  The `reply-to-token` will
-expire when your Redis cache expires (represented by `default_ttl_seconds` in your Fides [config](../installation/configuration). When a request expires, it is be given an `error` status, and requires resubmission.
+expire when your Redis cache expires (represented by `default_ttl_seconds` in your Fides [config](../../installation/configuration). When a request expires, it is be given an `error` status, and requires resubmission.
 
 ## Webhook response format
 
@@ -184,4 +184,4 @@ Once a paused webhook has completed processing, send a request to the `reply-to`
 
 If there are no derived identities, send an empty `{}` request body.
 
-The `reply-to-token` is a JWE containing the current webhook ID, scopes to access the callback endpoint, and the datetime the token is issued.  Fides unpacks this and resumes the privacy request execution after the specified webhook. The `reply-to-token` expires after a set amount of time, (the `privacy_request_delay_timeout` in your Fides [config](../installation/configuration)). Once the Redis cache expires, Fides no longer has the original identity data and the privacy request should be resubmitted.
+The `reply-to-token` is a JWE containing the current webhook ID, scopes to access the callback endpoint, and the datetime the token is issued.  Fides unpacks this and resumes the privacy request execution after the specified webhook. The `reply-to-token` expires after a set amount of time, (the `privacy_request_delay_timeout` in your Fides [config](../../installation/configuration)). Once the Redis cache expires, Fides no longer has the original identity data and the privacy request should be resubmitted.

@@ -1,10 +1,13 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Authenticate with OAuth
 
 When you invoke a Fides API, you must pass an _access token_ as the value of the `Authorization` header. This token must also include a _scope_ that gives you permission to take an action on the API. For example, to create a new execution policy, the token that you pass to the `Authorization` header must include the `policy:create_or_update` scope.
 
-!!! Tip "When running the Fides webserver, navigate to the interactive API docs at `http://{server_url}/docs` (e.g., `http://0.0.0.0:8080/docs`) to access the following endpoints."
+<Callout>When running the Fides webserver, navigate to the interactive API docs at `http://{server_url}/docs` (e.g., `http://0.0.0.0:8080/docs`) to access the following endpoints.</Callout>
+
 ## Create the root client
-Create an access client ID and secret for the "root" client. In your [`fides.toml`](../installation/configuration), these are defined as `oauth_root_client_id` and `oauth_root_client_secret`.
+Create an access client ID and secret for the "root" client. In your [configuration](../../installation/configuration), these are defined as `oauth_root_client_id` and `oauth_root_client_secret`.
 
 **The root client token contains all scopes,** and can call any of the Fides APIs. Once authenticated, creating additional users with individual scopes is recommended.
 
@@ -44,7 +47,7 @@ Content-Type: application/json
 
 Because the root client's token contains all scopes, it can create new clients and new client ID/client secret pairs which can be used to create additional access tokens.
 
-!!! info "Best practices recommend creating a client with the scope `CLIENT_CREATE` to create any new clients. This will help to reduce the utilization of the all-scopes root client."
+<Callout>Best practices recommend creating a client with the scope `CLIENT_CREATE` to create any new clients. This will help to reduce the utilization of the all-scopes root client.</Callout>
 
 To create the client ID/secret pair, call `POST /api/v1/oauth/client`. If using the interactive Swagger docs, ensure you have provided your credentials in the **Authorize** option, and for the endpoint.
 

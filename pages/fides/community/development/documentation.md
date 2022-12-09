@@ -6,7 +6,7 @@ Documentation is an incredibly important part of Fides, both for explaining its 
 
 Fides includes a great deal of "concept" documentation, which covers features, tutorials, guides, and examples separately from the auto-generated API reference. 
 
-To write concept docs, add Markdown files to the `docs/fides/docs/` directory (or one of its subdirectories). To ensure that your page is displayed in the navigation, edit `mkdocs.yml` to include a reference to it.
+To write concept docs, add Markdown files to the `/pages/` directory (or one of its subdirectories). To ensure that your page is displayed correctly in the navigation, edit the corresponding `meta.json` to include a reference to it.
 
 ## Semantics
 
@@ -22,12 +22,13 @@ Other Fides terms, like "Data Category" or "System", should also be capitalized 
 
 ## Previewing docs locally
 
-Documentation (including both concepts and API references) is built and deployed with every merge to Fides's master branch.
+Documentation (including both concepts and API references) is built and deployed with every merge to the fidesdocs master branch.
 
-If you're using VS Code Dev Containers, the docs will automatically be available at `localhost:8000`, otherwise you'll need to run the following command:
+The project uses [pnpm](https://pnpm.io), [Nextra](https://nextra.vercel.app) and deploys via [Vercel](https://vercel.com). To develop it locally, clone this repository and run the following command to start the local dev server:
 
 ```bash
-nox -s docs_serve
+pnpm install
+pnpm dev
 ```
 
-You'll see a status update as the docs build, and then an announcement that they are available on `http://127.0.0.1:8000`.
+And visit `localhost:3000` to preview your changes.

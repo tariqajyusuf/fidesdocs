@@ -46,7 +46,7 @@ Use your database information to set the following values in your Fides [configu
 
 During privacy request execution, Fides collects result data in a temporary Redis cache that automatically expires to ensure personal data is never retained erroneously. Any hosted Redis database that meets the current [project requirements](./installation/requirements) is acceptable, from a Docker [Redis](https://hub.docker.com/_/redis) container to a managed service (e.g., AWS ElastiCache, GCP Memorystore, Azure Cache, Redis Cloud).
 
-!!! Tip "As long as your cache will be accessible by your Fides webserver, there is no need to expose it to the public Internet."
+<Callout> As long as your cache will be accessible by your Fides webserver, there is no need to expose it to the public Internet. </Callout>
 
 ### Configure your cache
 Follow the documentation for the option of your choice to configure a production-grade Redis cache.

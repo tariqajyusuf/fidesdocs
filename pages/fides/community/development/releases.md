@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Releases
 
 ## Versioning
@@ -83,8 +85,7 @@ It may be necessary for a patch release to contain only select commits to the `m
         # HEAD is now at 0123abcd Commit Message
         ```
 
-    !!! tip
-        This can be combined into a single command:
+This can be combined into a single command:
 
         ```sh
         # fides on main
@@ -152,8 +153,7 @@ It may be necessary for a patch release to contain only select commits to the `m
 1. Publish the release
 1. Merge the new release tag into `main`
 
-    !!! warning
-        Pushing commits (including merge commits) to the `main` branch requires admin-level repository permissions.
+<Callout> Pushing commits (including merge commits) to the `main` branch requires admin-level repository permissions. </Callout>
 
     1. Checkout the `main` branch, and update the local repository:
 

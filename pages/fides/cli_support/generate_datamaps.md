@@ -327,4 +327,4 @@ Below is a mapping of the newly populated columns with their respective values:
 ### Additional Learning
 The provided `demo_system.yml` includes a second System, **Demo Analytics**, which can be enhanced in the same way as the Demo Marketing System.
 
-Follow the guide to [extend the taxonomy](#extending-the-taxonomy) again, this time for the Demo Analytics System, to have both systems fully compliant.
+Follow the guide to [extend the taxonomy](#extend-the-default-taxonomy) again, this time for the Demo Analytics System, to have both systems fully compliant.
