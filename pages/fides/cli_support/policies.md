@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Create a Fides Policy
 
 ## What is a Policy?
@@ -16,7 +18,7 @@ Policies use the following attributes:
 | `data_subjects` | List[DataRule] | The individual persons to whom you data rule pertains. |
 | `data_qualifier` | String | The acceptable or non-acceptable level of de-identification. |
 
-!!! Tip "For more detail on Policy resources, see the full [Policy resource documentation](https://ethyca.github.io/fideslang/resources/policy)."
+<Callout>For more detail on Policy resources, see the full [Policy resource documentation](https://ethyca.github.io/fideslang/resources/policy).</Callout>
 
 ### Sample Policy
 
@@ -93,7 +95,7 @@ As global privacy laws change and businesses scale, a company's policies will ev
 ## Example Policies
 The following are examples of real-world use cases for Fides Policies, representing common business requirements or legislation.
 
-!!! Note "Always ensure your Policies accurately represent your business needs prior to using them in production environments."
+<Callout>Always ensure your Policies accurately represent your business needs prior to using them in production environments.</Callout>
 
 ### No Third-Party Data Sharing
 

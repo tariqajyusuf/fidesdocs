@@ -55,7 +55,7 @@ The above `authentication_request` will generate the following:
 https://<domain>/auth/authorize?client_id=<client_id>&redirect_uri=<redirect_uri>&response_type=code&scope=<scope>&state=<state>
 ```
 
-The placeholders are sourced from the values defined in the [`connector_params`](saas_config.md#connector-params) of your SaaS config.
+The placeholders are sourced from the values defined in the [`connector_params`](saas_config#connector-params) of your SaaS config.
 
 The `<state>` placeholder is generated automatically with each authorization request. This authorization URL can be retrieved by calling:
 
@@ -141,7 +141,7 @@ To use OAuth2 as a connection strategy, the following must be configured first:
 - Fides must be able to connect to the SaaS provider (Outreach, Salesforce, etc.).
 - A **Client ID** and **Client Secret** must be generated within the SaaS provider’s admin console.
   - This is dependent on the individual SaaS provider. Refer to the provider's documentation.
-- The connector using OAuth2 is configured using the steps for [how to configure a SaaS connector](../saas_connectors/#how-to-configure-a-saas-connector).
+- The connector using OAuth2 is configured using the steps for [how to configure a SaaS connector](./saas_connectors/#how-to-configure-a-saas-connector).
 
 ### Additional Steps for Authentication Code Flow
 

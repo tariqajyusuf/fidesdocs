@@ -2,11 +2,6 @@
 
 ## API Endpoints
 
-### Postman API collection
-
-The [fides Postman Collection](./postman/Fides.postman_collection.json)) can be used to test a variety of privacy request endpoints. Follow the [Using Postman](./postman/using_postman.md) guide to learn more about the how to use the collection.
-
-### API URLs
 
 We define API URLs for specific API versions as constants within `fides.api.ops.api.v1.urn_registry` (where `v1` can be substituted for that particular API version), then import those URLs into their specific API views. Since we are on the first version, there is no clear precedent set for overriding URLs between versions yet. The most likely change is that we'll override the `APIRouter` class instantiation with a different base path (ie. `/api/v2` instead of `/api/v1`). For example:
 

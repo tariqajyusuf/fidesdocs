@@ -123,13 +123,13 @@ dataset:
 ### Generate a Dataset
 The Fides CLI allows you to both connect to and generate a blank Dataset for your datastores. This blank Dataset does not include any annotations (e.g., Fides data descriptions) or `fidesops_meta` information, but can be used to initially map your databases.
 
-For more information, see [generating resources](./generate_resources).
+For more information, see [generating resources](../../cli_support/generate_resources).
 
 ## Configure a manual Dataset
 
 Not all data can be automatically retrieved. When services have no external API, or when user data is held in a physical location, you can define a Dataset to describe the types of manual fields you plan to upload, as well as any dependencies between these manual collections and other collections.
 
-!!! Tip "When a manual Dataset is defined, an in-progress access request will pause until the data is added manually, and then resume execution. For more information, see [resuming a paused request](#resume-a-paused-access-privacy-request)."
+<Callout>When a manual Dataset is defined, an in-progress access request will pause until the data is added manually, and then resume execution. For more information, see [resuming a paused request](#resume-a-paused-access-privacy-request).</Callout>
 
 ### Describe a manual datastore
 

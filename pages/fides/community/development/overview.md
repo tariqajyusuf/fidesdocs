@@ -35,11 +35,11 @@ There are a few different ways to develop Fides, they are listed below _in order
 
 We have no doubt you can write amazing code! However, we want to help you ensure your code plays nicely with the rest of the Fides ecosystem. Many projects describe code style and documentation as a suggestion; in Fides it's a CI-checked requirement.
 
-- To learn how to style your code, see the [style guide](code_style.md).
-- To learn how to migrate the database schema, see the [database migration guide](database_migration.md).
-- To learn how to document your code, see the [docs guide](documentation.md).
-- To learn how to test your code, see the [tests guide](testing.md).
-- To learn what format your PR should follow, make sure to follow the [pull request guidelines](pull_requests.md).
+- To learn how to style your code, see the [style guide](code_style).
+- To learn how to migrate the database schema, see the [database migration guide](database_migration).
+- To learn how to document your code, see the [docs guide](documentation).
+- To learn how to test your code, see the [tests guide](testing).
+- To learn what format your PR should follow, make sure to follow the [pull request guidelines](pull_requests).
 
 ### Submit your code
 

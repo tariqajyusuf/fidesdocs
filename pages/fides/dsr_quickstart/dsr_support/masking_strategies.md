@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Configure Data Masking
 
 ## What is data masking?
@@ -9,14 +11,13 @@ For example, if a customer requests that your remove all information associated 
 `test@example.com`, you might choose to "mask" that email with a random string, `xgoi4301nkyi79fjfdopvyjc5lnbr9`, and
 their associated address with another random string `2ab6jghdg37uhkaz3hpyavpss1dvg2`.
 
-!!! Tip "Masking does not equal anonymization. Since records are not deleted, a masked dataset is pseudonymized in most cases, and may still be identifiable if the masking is reversible or easy to predict."
+<Callout>Masking does not equal anonymization. Since records are not deleted, a masked dataset is pseudonymized in most cases, and may still be identifiable if the masking is reversible or easy to predict.</Callout>
 
 In Fides, your options to pseudonymize data are captured in "masking strategies". Fides supports a wide variety
 of masking strategies for different purposes when used directly as an API including HMAC, Hash, AES encryption, string rewrite, random string rewrite, and null rewrite.
 
 ### Why mask instead of delete?
-Deleting customer data may involve entirely deleting a whole record (all attributes of the entity) or permanent and
-irreversible anonymization of the record by updating specific fields within a record with masked values.
+Deleting customer data may involve entirely deleting a whole record (all attributes of the entity) or permanent and irreversible anonymization of the record by updating specific fields within a record with masked values.
 
 Using a masking strategy instead of straight deletion to obscure PII helps ensure referential integrity in your
 database. For example, you might have an `orders` table with a foreign key to `user` without cascade delete. Say you first
@@ -57,8 +58,6 @@ To use Fides as a masking service, send a `PUT` request to the masking endpoint 
 ```
 
 The email has been replaced with a random string of 20 characters, while still preserving that the value is an email.
-
-See the [masking values](../api/index#operations-tag-Masking) API on how to use Fides to as a masking service.
 
 ## Configuration
 Erasure requests will mask data with the chosen masking strategy.
@@ -154,7 +153,7 @@ Masks the data using HMAC before returning it. The HMAC encryption strategy is d
 - `format_preservation` (optional): `Dict` with the following key/vals:
   - `suffix`: `str` that specifies suffix to append to masked value
 
-See the [Policy guide](policies) for more detailed instructions on creating Policies and Rules.
+See the [Policy guide](./execution_policies) for more detailed instructions on creating Policies and Rules.
 
 ## Getting masking options
 

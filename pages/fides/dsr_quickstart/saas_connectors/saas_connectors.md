@@ -24,7 +24,7 @@ For full examples of supported Connections, see the [example configurations](./e
 
 When running the Fides webserver, you may navigate to the interactive API docs at `http://{server_url}/docs` (e.g., `http://0.0.0.0:8080/docs`) to access the following endpoints.
 
-### Create a [Connection](../dsr_support/database_connectors.md) of type `saas`
+### Create a [Connection](../dsr_support/database_connectors) of type `saas`
 
 ```json title="<code>PATCH api/v1/connection</code>"
 [
@@ -76,7 +76,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 The following constraints are enforced by the API validation:
 
-1. A SaaS connector dataset cannot have any `identities` or `references` in the `fidesops_meta`. These relationships must be defined in the [SaaS config](./saas_config.md).
+1. A SaaS connector dataset cannot have any `identities` or `references` in the `fidesops_meta`. These relationships must be defined in the [SaaS config](./saas_config).
 2. SaaS config references can only have a direction of `from`.
 3. The `fides_key` between the SaaS config and the Dataset must match in order to be associated.
 
@@ -85,9 +85,9 @@ The following constraints are enforced by the API validation:
 To create all the resources necessary to set up a SaaS Connector in one request, you can create a connector from
 a template. This creates a `saas` Connection with your supplied name and description, using your supplied `secrets`.
 
-The example below creates a [mailchimp](./example_configs/mailchimp.md) saas connector, and would need the relevant mailchimp `secrets`.
+The example below creates a [mailchimp](./example_configs/mailchimp) saas connector, and would need the relevant mailchimp `secrets`.
 
-Your `instance_key` will become the identifier for the related [Dataset](../getting-started/datasets.md). By default, the saas connection config is enabled with write access.
+Your `instance_key` will become the identifier for the related [Dataset](../dsr_support/datasets). By default, the saas connection config is enabled with write access.
 
 ```json title="<code>POST /connection/instantiate/mailchimp</code>"
 {

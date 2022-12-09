@@ -4,16 +4,16 @@ Fully configured, Fides provides end-to-end [privacy request](./privacy_requests
 
 ## Privacy request submission
 
-Once a privacy request has been submitted via the [Privacy Center](../dsr_quickstart/privacy_center), Fides first creates temporary records to store any relevant submission information.
+Once a privacy request has been submitted via the [Privacy Center](../privacy_center), Fides first creates temporary records to store any relevant submission information.
 
-Based on your [configuration](../installation/configuration), Fides can perform a number of other actions: 
+Based on your [configuration](../../installation/configuration), Fides can perform a number of other actions: 
 
 | Step | Description |
 | --- | --- |
 | **Persist** |  Fides creates a privacy request in long-term storage to capture high-level information (e.g. date created, current status). Fides saves the identity of the subject to both short- and long-term storage. |
-| **Verify** | If configured, Fides sends an [email](./privacy_requests#subject-identity-verification) to the user to verify their identity before proceeding. |
+| **Verify** | If configured, Fides sends an [email](./privacy_requests#enable-subject-identity-verification) to the user to verify their identity before proceeding. |
 | **Notify** | If configured, the user will receive an [email](./messaging) verifying that their request has been received. |
-| **Approve** | If configured, Fides will require a system administrator to [approve](../installation/configuration) the request before proceeding. |
+| **Approve** | If configured, Fides will require a system administrator to [approve](../../installation/configuration) the request before proceeding. |
 
 ## Privacy request execution
 
@@ -32,14 +32,14 @@ Request execution involves gathering data from multiple sources, and/or masking 
 
 ### Respond to manual webhooks
 
-Manual webhooks allow data pertaining a subject to be manually uploaded by a Fides admin. If manual webhooks are enabled, request execution will exit with a status of `requires_input` until a submission has been received for each manual webhook configured. The privacy request can then be resumed, and request execution will continue from this step.  See [Manual Webhooks](manual_webhooks) for more information on configuration options and resuming a `requires_input` request.
+Manual webhooks allow data pertaining a subject to be manually uploaded by a Fides admin. If manual webhooks are enabled, request execution will exit with a status of `requires_input` until a submission has been received for each manual webhook configured. The privacy request can then be resumed, and request execution will continue from this step.  See [Manual Webhooks](./manual_webhooks) for more information on configuration options and resuming a `requires_input` request.
 
 Data uploaded for manual webhooks will be returned to the data subject directly at the end of request execution. Data gathered here is not used to locate data from other sources.
 
 ### Run pre-execution webhooks
 Policy pre-execution webhooks let your system take care of prerequisite tasks, or locate additional identities for the data subject. Examples include turning on a specific database in your infrastructure, or locating a phone number for a subject from a table for which you do not want to give Fides direct access. Configuration involves defining endpoint(s) for Fides to call in order. See [Policy Webhooks](policy_webhooks) for more details.
 
-Fides sends a request to each pre-execution webhook with a [policy webhooks request format](policy_webhooks#policy-webhook-request-format), which your endpoints should be prepared to unpack. If you need more time to carry out an action, your webhook can instruct Fides to `halt`, which will cause execution to exit with a status of `paused`. Request execution can be continued when ready using a token supplied in the original request.
+Fides sends a request to each pre-execution webhook with a [policy webhooks request format](policy_webhooks#webhook-request-format), which your endpoints should be prepared to unpack. If you need more time to carry out an action, your webhook can instruct Fides to `halt`, which will cause execution to exit with a status of `paused`. Request execution can be continued when ready using a token supplied in the original request.
 
 No data uploaded by policy webhooks is returned to the data subject, but identities discovered can be used to later locate data pertaining to the subject during access request automation.
 
@@ -47,7 +47,7 @@ If a request to a pre-execution webhook fails, request execution will exit with 
 
 
 ### Access request automation
-Access request automation is performed regardless of whether there are access or erasure Rules defined, as both Rules require this data.  See how to [configure policies, rules, and rule targets](policies) for additional information.
+Access request automation is performed regardless of whether there are access or erasure Rules defined, as both Rules require this data.  See how to [configure policies, rules, and rule targets](./execution_policies) for additional information.
 
 This step visits all Collections and retrieves all Fields that you've defined in your [Datasets](./datasets). Fides builds a graph in accordance with how you've designated your Collections are related, visits each Collection in turn, and gathers all the results together.
 
@@ -65,7 +65,7 @@ A Collection isn't visited until Fides has searched for data across all of its u
 
 ![Access Execution](../../../../public/assets/img/resources/access_execution.png)
 
-If there is a failure trying to retrieve data on any Collections, the request is retried the number of times [configured](../installation/configuration) by `task_retry_count` until the request exits with status `error`.  Both the `access` step and errored Collection are cached in temporary storage.
+If there is a failure trying to retrieve data on any Collections, the request is retried the number of times [configured](../../installation/configuration) by `task_retry_count` until the request exits with status `error`.  Both the `access` step and errored Collection are cached in temporary storage.
 Restarting the privacy request will restart from this step and failed Collection.  Collections that have already been visited will not be visited again.
 
 #### Final result retrieval
@@ -75,13 +75,13 @@ The final step of an automated access request gathers all the results for each C
 ### Upload results
 If configured, Fides uploads the results retrieved from access automation for the data subject.
 
-For each configured access Rule, Fides filter the graph results to match targeted Data Categories. See [Datasets](../datasets) for more details.
+For each configured access Rule, Fides filter the graph results to match targeted Data Categories. See [Datasets](./datasets) for more details.
 Fides also supplements the results with any data manually uploaded from [manual webhooks](#respond-to-manual-webhooks). Each data package is uploaded in JSON
-or CSV format to a specified storage location like Amazon S3. See [Storage](../storage) for more information.
+or CSV format to a specified storage location like Amazon S3. See [Storage](./storage) for more information.
 
 
 ### Erasure request automation
-If applicable, (erasure [Rules](policies#Rule-attributes) are configured on your execution policy), Fides builds a simpler version of the access request graph, and visits each Collection in turn, performing masking requests as necessary.
+If applicable, (erasure [Rules](./execution_policies#Rule-attributes) are configured on your execution policy), Fides builds a simpler version of the access request graph, and visits each Collection in turn, performing masking requests as necessary.
 
 #### Graph building
 The "graph" for an erasure runs on the data from the access request, which is kept in temporary storage, and can be used to locate data for each Collection individually. Because the data has already been found, each Collection could be visited in any order or run in parallel. The graph is configured so each Collection has its previous access request results passed in as inputs, and each Collection returns a count of records masked when complete.
@@ -117,7 +117,7 @@ If configured, Fides will send a followup email to the data subject to let them 
 Request execution will then exit with the status `complete`.
 
 ## Additional notes
-- Fides uses Redis as temporary storage to support executing your request.  Data automatically retrieved from each Collection, manually uploaded data, and details about where the Privacy Request may be paused or where it failed may all be temporarily stored.  This information will expire in accordance with the `FIDES__REDIS__DEFAULT_TTL_SECONDS` [setting](../installation/configuration).
+- Fides uses Redis as temporary storage to support executing your request.  Data automatically retrieved from each Collection, manually uploaded data, and details about where the Privacy Request may be paused or where it failed may all be temporarily stored.  This information will expire in accordance with the `FIDES__REDIS__DEFAULT_TTL_SECONDS` [setting](../../installation/configuration).
 - The current Fides execution strategy prioritizes being able to erase as many of the original Collections requested as possible. If Fides masks some Collections and then registers a failure, the current logic will mask the original remaining Collections using the temporarily saved data retrieved in the original access step instead of re-querying the Collections. Once data is masked in one Collection, it could potentially prevent us from being able to locate data in downstream Collections, and so will use temporarily stored data.
     - Data added in the interim, or data related to newly added Collections, can be missed.
     - If the automated access step fails part of the way through, a new Collection is added, and then the request is restarted from failure,

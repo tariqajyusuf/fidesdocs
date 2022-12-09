@@ -53,7 +53,7 @@ Storage destinations are created and managed via the API. To create a new Storag
 #### Additional attributes for s3 buckets
 | Attribute | Description |
 |---|---|
-| `auth_method` | The [authentication method](#authentication) for creating a session with S3. Either `automatic` or `secret_keys`. |
+| `auth_method` | The [authentication method](#authenticate-with-your-destination) for creating a session with S3. Either `automatic` or `secret_keys`. |
 | `bucket` | The name of the bucket in S3. |
 | `naming` | This defines how the uploaded files will be named. Currently, Fides only supports upload file naming by `request_id`. Use this value for all your storage destinations. |
 
@@ -101,7 +101,7 @@ Use `storage_key` returned during your storage creation to provide access creden
 ```
 
 #### Additional attributes for S3 buckets
-!!! Tip "Fides supports automatically creating a session for S3. If your `auth_method` is set to `automatic`, no secrets need to be provided. Boto3 will look for credentials on the server."
+<Callout> Fides supports automatically creating a session for S3. If your `auth_method` is set to `automatic`, no secrets need to be provided. Boto3 will look for credentials on the server.</Callout>
 
 | Attribute | Description |
 |---|---|

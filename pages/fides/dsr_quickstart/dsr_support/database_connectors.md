@@ -327,7 +327,7 @@ The `test_status` filter queries on the status of the last successful test:
 ```
 
 ### System_Status filter
-The `system_status` filter surfaces either `database` or [`saas`-type](../../saas_connectors/saas_connectors) connectors:
+The `system_status` filter surfaces either `database` or [`saas`-type](../saas_connectors/saas_connectors) connectors:
 
 ```json
 {

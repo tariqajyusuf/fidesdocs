@@ -1,6 +1,7 @@
+import Callout from 'nextra-theme-docs/callout'
 # CI/CD Overview
 
-Fides provides a CLI for integrating with your existing CI pipeline configurations. These commands are designed to help evaluate code changes against defined Fides [Policies](./guides/policies.md), and flag developers in advance if any updates or merges are no longer in compliance.
+Fides provides a CLI for integrating with your existing CI pipeline configurations. These commands are designed to help evaluate code changes against defined Fides [Policies](./policies), and flag developers in advance if any updates or merges are no longer in compliance.
 ## Implementation
 To integrate Fides with your CI pipeline, you should plan to implement at least two commands in your CI actions:
 
@@ -15,7 +16,7 @@ To integrate Fides with your CI pipeline, you should plan to implement at least 
 
 The following code snippets are meant as simple example implementations, and illustrate Fides can integrate with various popular CI pipeline tools. They are not designed for immediate production use.
 
-!!! Tip "Always inspect, understand, and test your production CI configuration files."
+<Callout>Always inspect, understand, and test your production CI configuration files.</Callout>
 
 ### GitHub Actions
 
