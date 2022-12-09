@@ -18,8 +18,8 @@ This checklist can be copy/pasted into the final pre-release PR.
 
 ## CLI
 
-- [ ] do a push
-- [ ] do a pull
+- [ ] Do a push
+- [ ] Do a pull
 - [ ] Run a local evaluation
 - [ ] Run an evaluation
 - [ ] Scan a database
