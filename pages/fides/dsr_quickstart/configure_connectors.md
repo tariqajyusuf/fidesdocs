@@ -1,6 +1,6 @@
 # Configure Connections
 
-Fides *Connections* represent integrations to third party applications, databases, or manual storage locations.
+Fides *Connections* represent integrations to third-party applications, databases, or manual storage locations.
 
 ![Connections List](../../../public/assets/img/dsr_quickstart/connections_list.png)
 

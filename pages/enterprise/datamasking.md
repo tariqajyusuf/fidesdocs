@@ -1,8 +1,8 @@
 # Enhanced Data Masking
 
-Along with the default masking engine provided by the [open source edition](../fides/dsr_support/masking_strategies.md), Fides for Enterprise customers enables NLP and regex-powered masking strategies to safeguard data at scale. These masking strategy can be used on their own or combined to identify and replace personal information in free-text fields. 
+Along with the default masking engine provided by the [open source edition](../fides/dsr_quickstart/dsr_support/masking_strategies), Fides for Enterprise customers enables NLP and regex-powered masking strategies to safeguard data at scale. These masking strategy can be used on their own or combined to identify and replace personal information in free-text fields. 
 
-The available Enterprise masking strategies are an extension of the open source masking engine. To review standard implementation options, see the [open source documentation](../fides/dsr_support/masking_strategies.md).
+The available Enterprise masking strategies are an extension of the open source masking engine. To review standard implementation options, see the [open source documentation](../fides/dsr_quickstart/dsr_support/masking_strategies).
 
 ## NLP data masking
 

@@ -10,7 +10,7 @@ Fides can automatically discover new systems in your AWS infrastructure or Okta 
 
 ![Add a System](../../../public/assets/img/enterprise/systems_add.png)
 
-To begin, select your discovery method. The system discovery process will scan your infrastructure to create a list of all systems available, and then classify each system containing personally identifiably information.
+To begin, select your discovery method. The system discovery process will scan your infrastructure to create a list of all systems available, and then classify each system containing personally identifiable information.
 
 ### Authenticate with AWS
 

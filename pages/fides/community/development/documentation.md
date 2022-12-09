@@ -16,7 +16,7 @@ Concepts that refer to proper nouns or are trademarked should always be capitali
 
 Other Fides terms, like "Data Category" or "System", should also be capitalized to be clear about the fact that a Fides resource is being referenced.
 
-> When a System is applied, it is either created or updated through the Fides api.
+> When a System is applied, it is either created or updated through the Fides API.
 
 > The System model requires a field called `fides_key`.
 

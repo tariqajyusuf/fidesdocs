@@ -29,7 +29,7 @@ Informative Slack threads are archived by our resident bot Marvin. Having well-w
 
 Oftentimes your question may have been answered somewhere else; some good resources to start looking before asking a question:
 
-* [Fides Documentation](https://ethyca.github.io/fides)
+* [Fides Documentation](https://docs.ethyca.com)
 * [GitHub Issues](https://github.com/ethyca/fides/issues)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/fides)
 
