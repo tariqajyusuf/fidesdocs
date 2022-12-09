@@ -43,6 +43,7 @@ export default {
   floatTOC: true,
   gitTimestamp: null,
   font:  false,
+  defaultMenuCollapsed: true,
   darkMode: false, 
   feedbackLink: () => {
     return (
