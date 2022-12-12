@@ -43,6 +43,7 @@ export default {
   floatTOC: true,
   gitTimestamp: null,
   font:  false,
+  defaultMenuCollapsed: true,
   darkMode: false, 
   feedbackLink: () => {
     return (
@@ -166,9 +167,9 @@ export default {
           </div>
           </div>
           <div className="privacyPolicy"> 
-              <a href="https://cp.ethyca.com">  Do not sell my information </a>
+              <a href="https://privacy.ethyca.com/">  Do not sell my information </a>
 
-              <a href="https://cp.ethyca.com">  Privacy policy </a>
+              <a href="https://privacy.ethyca.com/">  Privacy policy </a>
           </div> 
           </div>
 
