@@ -10,7 +10,7 @@ A rate limit configuration can be set the within the [client configuration](./sa
 | `enabled` | `bool` | *Optional.* Determines if the rate limiter is enabled. Default is `true`. |
 | `limits` | `list`([RateLimit](#rate-limit-configuration)) | *Optional.* A list of RateLimit objects which can define multiple rate limits for endpoint requests.
 
-Fides implements rate limiting as a fixed window algorithm. Epoch seconds are divided into discrete buckets based on the configured period. 
+Fides implements rate limiting as a fixed-window algorithm. Epoch seconds are divided into discrete buckets based on the configured period. 
 
 | Attribute | Type | Description |
 | --- | --- | --- |
