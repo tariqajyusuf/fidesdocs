@@ -15,7 +15,7 @@ The Privacy Center can be deployed independently, or alongside any other hosted 
 
 ## Configuration
 
-The Fides Privacy Center's text and actions are managed by a `config.json` file in the Fides `/privacy-center/config` directory.
+The Fides Privacy Center's text and actions are managed by a `config.json` file in the Fides `/app/config` directory.
 
 ```json title="<code>config.json</code>"
 {
@@ -131,4 +131,4 @@ To provide compliance with local and internal regulations, you may define a seri
 
 ### Styling
 
-Any overrides for CSS styling can be included in a `config.css` file in the `/privacy-center/config` directory.
+Any overrides for CSS styling can be included in a `config.css` file in the `/app/config` directory.
