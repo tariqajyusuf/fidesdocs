@@ -2,8 +2,6 @@
 
 Fides provides a built-in data flow scanner that can be used to introspect systems and categories of data from traffic in your Kubernetes cluster. Systems found through the data flow scanner can be added to your data map, and quickly maintained with minimal manual intervention.
 
-![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner.png)
-
 ## Configuration 
 Fides currently uses [Pixie](https://docs.px.dev/) to provide data flow scanning capabilities in your infrastructure. Prior to using the scanner, you will need to configure either a [self-hosted](https://docs.px.dev/installing-pixie/install-guides/self-hosted-pixie/) Pixie deployment, or use the free Pixie [Community Cloud](./https://docs.px.dev/installing-pixie/install-guides/community-cloud-for-pixie/). 
 
