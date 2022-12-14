@@ -1,6 +1,6 @@
 # Automated Data Flow Scanner
 
-Fides provides a built-in scanner used to automatically detect and map any systems that are running in your runtime environment. Systems found through the runtime scanner can be added to your data map, and quickly maintained with minimal manual intervention.
+Fides provides a built-in data flow scanner that can be used to introspect systems and categories of data from traffic in your Kubernetes cluster. Systems found through the data flow scanner can be added to your data map, and quickly maintained with minimal manual intervention.
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner.png)
 
