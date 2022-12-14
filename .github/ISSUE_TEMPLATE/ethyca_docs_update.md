@@ -12,7 +12,7 @@ Describe the problem: _What isn't working?_
 
 Describe the purpose: _What needs to happen?_
 
-Describe the related work: _Brief summary of what was updated, so documentation can be written._
+Describe the related work: _Brief summary of any related engineering tickets, features, etc._
 
 Related links: _Engineering tickets, PRs, Figma specs, current docs pages, etc._
 
