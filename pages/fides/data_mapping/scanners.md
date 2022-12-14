@@ -16,11 +16,11 @@ Adding your organization information allows Fides to include it on your finished
 
 Fides can automatically discover new systems in your AWS infrastructure or Okta accounts. For services not covered by the automated scanners or analog processes, you may also manually add new systems to your map.
 
-![Add a System](../../../public/assets/img/datamap/scanner_add_systems.png)
+![Add a System](../../../public/assets/img/datamaps/scanner_add_systems.png)
 
 To begin, select your discovery method. The system discovery process will scan your infrastructure to create a list of all systems available, and then classify each system containing personally identifiable information.
 
-<Callout>Interested in Fides' automated Data Flow scanner? Check out options in [Fides Enterprise](../../enterprise/runtime_scanner.md)!</Callout>
+<Callout>Interested in Fides' automated Data Flow scanner? Check out options in [Fides Enterprise](../../enterprise/dataflow_scanner)!</Callout>
 
 ### Authenticate with AWS
 
