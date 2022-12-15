@@ -2,7 +2,7 @@
 
 The Fides Privacy Center is a configurable webpage where users can request to download or delete their data. The Privacy Center also provides configurable consent settings for regulatory compliance, allowing users to access and edit their data use preferences.
 
-![Privacy Center](../../../public/assets/img/dsr_quickstart/privacy_center.png)
+![Privacy Center](../../public/assets/img/dsr_quickstart/privacy_center.png)
 
 ## Configuration
 
