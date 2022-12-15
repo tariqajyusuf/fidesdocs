@@ -4,18 +4,9 @@ The Fides Privacy Center is a configurable webpage where users can request to do
 
 ![Privacy Center](../../../public/assets/img/dsr_quickstart/privacy_center.png)
 
-## Run the Privacy Center
-The Privacy Center is provided in a separate Docker image. To begin, run the following command:
-
-```
-docker pull ethyca/fides-privacy-center
-```
-
-The Privacy Center can be deployed independently, or alongside any other hosted components. 
-
 ## Configuration
 
-The Fides Privacy Center's text and actions are managed by a `config.json` file in the Fides `/app/config` directory.
+The Fides Privacy Center's text and actions are managed by a `config.json` file, which should be located in your project’s `/clients/app/config` directory.
 
 ```json title="<code>config.json</code>"
 {
@@ -131,4 +122,21 @@ To provide compliance with local and internal regulations, you may define a seri
 
 ### Styling
 
-Any overrides for CSS styling can be included in a `config.css` file in the `/app/config` directory.
+Any overrides for CSS styling can be included in a `config.css` file in the `/clients/app/config` directory.
+
+
+## Run the Privacy Center
+The Privacy Center is provided in a separate Docker image. To begin, run the following command:
+
+```
+docker pull ethyca/fides-privacy-center
+```
+
+The Privacy Center can be deployed independently, or alongside any other hosted components. 
+
+Once configured, the Privacy Center can be started with the following command:
+
+```
+docker run ethyca/fides-privacy-center
+```
+
