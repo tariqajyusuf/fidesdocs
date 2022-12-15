@@ -1,6 +1,8 @@
 # Automated Data Flow Scanner
 
-Fides provides a built-in data flow scanner that can be used to introspect systems and categories of data from traffic in your Kubernetes cluster. Systems found through the data flow scanner can be added to your data map, and quickly maintained with minimal manual intervention.
+Fides provides a built-in scanner for discovering services running in a deployed Kubernetes cluster. By analyzing traffic within your cluster, Fides can map and categorize the flow of data between these services.
+
+Systems found through the data flow scanner can be added to your [data map](./datamaps) for visibility, reporting, and maintenance.
 
 ## Configuration 
 Fides currently uses [Pixie](https://docs.px.dev/) to provide data flow scanning capabilities in your infrastructure. Prior to using the scanner, you will need to configure either a [self-hosted](https://docs.px.dev/installing-pixie/install-guides/self-hosted-pixie/) Pixie deployment, or use the free Pixie [Community Cloud](./https://docs.px.dev/installing-pixie/install-guides/community-cloud-for-pixie/). 
@@ -34,7 +36,7 @@ The Data Flow scanner can be run from the Add Systems option in the navigation m
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner_df.png)
 
-Select the Data Flow scanner, and Fides will attempt to scan and classify your connected systems. Depending on how many services there are to scan, this process may take a few moments. 
+Select the Data Flow scanner, and Fides will attempt to scan your connected systems and classify the data flows between them. Depending on how many services there are to scan, this process may take a few moments, but will continue if you exit the window. You may return to this process at any time by visiting the `/classify-systems` page.
 
 Once complete, you will see a list of your scanned resources.
 
@@ -49,7 +51,7 @@ Classified systems must be reviewed and approved manually. Double-clicking on an
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner_details.png)
 
-Fides attempts to connect systems which send or receive data to other systems, known as *data flows.* You may apply labels to each system to represent their purpose, or the information stored within. Completed systems will have their status changed to **Classified**.
+Fides attempts to connect systems which send or receive data to other systems, known as *data flows.* You may apply labels to each system to represent categories of data that are moving between systems. Completed systems will have their status changed to **Classified**.
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner_complete.png)
 
