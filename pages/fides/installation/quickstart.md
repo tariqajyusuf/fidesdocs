@@ -30,7 +30,7 @@ Run the following command to pull the latest image from Ethyca's [DockerHub](htt
 docker pull ethyca/fides
 ```
 
-To pull the Fides [Privacy Center](../consent), run the following:
+To pull the Fides [Privacy Center](../consent/privacy_center), run the following:
 ```
 docker pull ethyca/fides-privacy-center
 ```
