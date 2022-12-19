@@ -103,7 +103,7 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
 
 ### Actions
 
-Actions represent available privacy rights executable from the Privacy Center. The provided `config.json` includes Download and Delete default, representing common requests to access or remove data under most privacy regulations. Each action is associated with a Fides [policy key](./dsr_support/policy_webhooks.md), which defines the policy executed when the DSR is approved.
+Actions represent available privacy rights executable from the Privacy Center. The provided `config.json` includes Download and Delete default, representing common requests to access or remove data under most privacy regulations. Each action is associated with a Fides [policy key](./dsr_support/execution_policies), which defines the policy executed when the DSR is approved.
 
 Additional actions can be added to this list, and removed at any time.
 
