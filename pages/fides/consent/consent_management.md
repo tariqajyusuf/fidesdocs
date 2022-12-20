@@ -1,3 +1,4 @@
+
 # Manage Consent in the Privacy Center
 
 The Fides Privacy Center provides configurable consent settings for regulatory compliance, allowing users to access and edit their data use preferences. 
@@ -104,7 +105,7 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
 | `identity_inputs` | The list of personally identifiable information required by an action. |
 
 ### Consent
-To provide compliance with local and internal regulations, you may define a series of [data uses](https://ethyca.github.io/fideslang/taxonomy/data_uses/) in your Privacy Center configuration.
+To provide compliance with local and internal regulations, you may define a series of [data uses](https://ethyca.github.io/fideslang/taxonomy/data_uses/) in your Privacy Center configuration. More information on including data uses for third-party services can be found in the [Google Tag Manager](./google_tag_manager) guide.
 
 | Key | Description |
 |----|----|
