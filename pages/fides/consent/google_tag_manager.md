@@ -7,7 +7,7 @@ Current and upcoming state privacy regulations (e.g. CPRA, VCDPA, CPA) require o
 Once you have configured and deployed your [Privacy Center](./consent_management), Fides allows your users to save their privacy settings according to your customized consent configuration, and uses these stored consent choices to enable or disable corresponding data uses. 
 
 ## Update your Privacy Center configuration
-Consent options are defined within the Privacy Center [configuration](./consent_management#consent). The consent section of your `config.json` contains a list of consentOptions, which represent the data use cases (e.g. Data Sales, Data Sharing) that you would like to let your users opt in or out of.
+Consent options are defined within the Privacy Center [configuration](./consent_management#consent). The consent section of your `config.json` contains a list of `consentOptions`, which represent the data use cases (e.g. Data Sales, Data Sharing) that you would like to let your users opt in or out of.
 
 ```json
 "consent": {
@@ -40,13 +40,6 @@ Consent options are defined within the Privacy Center [configuration](./consent_
 | `cookieKeys` | The data use represented within your stored cookie. 
 
 <Callout>This key will correspond to the variable names in later steps, and will be used by scripts and/or third-party services (like Google Tag Manager) to access your users’ consent settings.</Callout>
-
-
-Once your Privacy Center is appropriately configured, you are ready to deploy it: 
-
-```
-docker run ethyca/fides-privacy-center
-```
 
 
 ### Implement the consent script
