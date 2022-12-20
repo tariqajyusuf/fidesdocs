@@ -37,9 +37,7 @@ Consent options are defined within the Privacy Center [configuration](./consent_
 | `url` | The URL where a user can find additional information about this data use.
 | `default` | If this consent preference is enabled (true) or disabled (false) by default.
 | `highlight` | Whether or not this consent preference is highlighted.
-| `cookieKeys` | The data use represented within your stored cookie. 
-
-<Callout>This key will correspond to the variable names in later steps, and will be used by scripts and/or third-party services (like Google Tag Manager) to access your users’ consent settings.</Callout>
+| `cookieKeys` | The data use represented within your stored cookie.  This key will correspond to the variable names in later steps, and will be used by scripts and/or third-party services (like Google Tag Manager) to access your users’ consent settings. |
 
 
 ### Implement the consent script
