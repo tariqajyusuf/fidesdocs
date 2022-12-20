@@ -3,5 +3,6 @@
   "quickstart": "Quickstart Guide",
   "advanced": "Advanced Installation",
   "sample_project": "Sample Application",
-  "configuration": "Configuration Reference"
+  "configuration": "Configuration Reference",
+  "security_practices": "Security Best Practices"
 }
