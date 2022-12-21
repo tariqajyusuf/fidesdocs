@@ -36,7 +36,9 @@ The Data Flow scanner can be run from the Add Systems option in the navigation m
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner_df.png)
 
-Select the Data Flow scanner, and Fides will attempt to scan your connected systems and classify the data flows between them. Depending on how many services there are to scan, this process may take a few moments, but will continue if you exit the window. You may return to this process at any time by visiting the `/classify-systems` page.
+Select the Data Flow scanner to allow Fides to scan systems within the connected Kubernetes cluster, and classify the data flows between them. 
+
+Depending on how many services are scanned, the classification process may take a few moments, and will continue if you exit the window. You may return to this process at any time by visiting the `/classify-systems` page.
 
 Once complete, you will see a list of your scanned resources.
 
@@ -51,7 +53,7 @@ Classified systems must be reviewed and approved manually. Double-clicking on an
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner_details.png)
 
-Fides attempts to connect systems which send or receive data to other systems, known as *data flows.* You may apply labels to each system to represent categories of data that are moving between systems. Completed systems will have their status changed to **Classified**.
+Fides attempts to link systems which send or receive data to other systems, known as *data flows.* You may apply labels to each system to represent categories of data that are moving between systems. When a system classification has been saved, the status will change to  **Classified**.
 
 ![Data Flow Scanner](../../public/assets/img/enterprise/system_scanner_complete.png)
 
