@@ -9,7 +9,7 @@ The Fides CLI provides a `generate` command to connect to a database or service,
 The `scan` and `generate` commands work best when used in tandem. The Fides format must be followed to ensure coverage.
 
 ## Scan databases 
-Fides works out-of-the-box with most Postgres databases, including:
+Fides works out-of-the-box with most databases, including:
 
 * PostgreSQL
 * MySQL and MariaDB
@@ -19,7 +19,8 @@ Fides works out-of-the-box with most Postgres databases, including:
 
  For a list of supported options, see the available [SQLAlchemy dialects](https://docs.sqlalchemy.org/en/14/dialects/index.html#external-dialects).
 
-Additionally, Fides includes commands to connect to [BigQuery](#scan-a-google-cloud-platform-account) data warehouses. 
+Additionally, Fides includes commands to connect to [BigQuery](#scan-a-google-cloud-platform-account) and [Snowflake](https://docs.snowflake.com/en/user-guide/sqlalchemy.html#connection-string-examples) data warehouses. 
+
 ### Provide connection credentials
 Database credentials are provided as part of the connection string supplied. The connection string can be supplied as a command option, or using the Fides [configuration](../installation/configuration). The appropriate `connection-string` format for your database connector can be found in the [SQLAlchemy Documentation](https://docs.sqlalchemy.org/en/14/dialects/).
 
