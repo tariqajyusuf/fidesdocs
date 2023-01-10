@@ -10,7 +10,7 @@ A [connection](../configure_connectors) links Fides to you your databases or thi
 
 A Fides [dataset](../dsr_support/datasets) consists of a declaration of fields, with metadata describing how those fields are related. Fides uses these declarations to know which fields to update or retrieve in your third-party service, and navigates between different collections by referencing their relationships.
 
-The following is example Dataset declaration, representing a simple `conversations` table:
+The following is an example Dataset declaration, representing a simple `conversations` table:
 
 ```yaml
 dataset:
