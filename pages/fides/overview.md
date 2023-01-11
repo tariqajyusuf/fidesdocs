@@ -1,5 +1,12 @@
 import GetStartedWrap, { GetStarted } from 'components/getstarted'
 import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import { SEO } from 'components/seo';
+
+
+<SEO
+      title='About Us'
+      description='Ethyca provides data privacy tools and software that empower engineering teams to integrate privacy considerations into the SDLC process. Learn more here.'
+ />  
 
 # What is Fides?
 
