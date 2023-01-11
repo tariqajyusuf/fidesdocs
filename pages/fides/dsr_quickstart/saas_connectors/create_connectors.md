@@ -51,6 +51,7 @@ The above dataset defines a conversations table with a `primary_key` of `id`, an
 | `fields` | A list of addressable fields in the collection. 
 
 | `fields` | Description |
+| -- | ----- |
 | `name` | The name of the field will be used to generate query and update statements. Fides will only attempt to access and update information from the fields you declare.
 | `data_categories` |Annotating data_categories connects fields to execution policies, allowing Fides to know what actions to take based on the contained data. For more information, see the guide on [execution policies](../dsr_support/execution_policies). 
 | `fides_meta` | The `fides_meta` section specifies additional fields that control how Fides manages your data.
