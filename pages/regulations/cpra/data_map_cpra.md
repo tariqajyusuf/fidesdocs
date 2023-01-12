@@ -27,36 +27,36 @@ In order to accomplish this you’ll want to create an inventory, or “map” o
         <tr>
             <td>**Systems**</td>
             <td>Where</td>
-            <td>The systems in which the data is being processed, so think of this as your internal technology systems, or third party vendors. To again take the personalized marketing example above, the system might be your CRM, such as Hubspot or Salesforce.</td>
+            <td>The systems in which the data is being processed. Think of this as your internal technology systems, or third party vendors. To again take the personalized marketing example above, the system might be your CRM, such as Hubspot or Salesforce.</td>
         </tr>
          <tr>
             <td>**Data Retention Policy**</td>
             <td>How long you keep data</td>
-            <td>Privacy and governance best practices dictate that you should keep data for as little time as possible. That is to say, only store and process data for as long as its truly necessary. For this reason you should have a record of when and how you delete each cateogry of data that you process.</td>
+            <td>Privacy and governance best practices dictate that you should keep data for as little time as possible. That is to say, only store and process data for as long as it's truly necessary. For this reason, you should have a record of when and how you delete each cateogry of data that you process.</td>
         </tr>
         <tr>
             <td>**Location**</td>
             <td>Where</td>
-            <td>A slightly more precise version of where, this is about understanding geographically where that data resides. For example, perhaps you use AWS for cloud hosting your databases, the AWS region might be the USA, Europe or elsewhere and that location should be recorded.</td>
+            <td>A slightly more precise version of where, this is about understanding geographically where that data resides. For example, perhaps you use AWS for cloud hosting your databases. The AWS region might be the USA, Europe, or elsewhere. That location should be recorded.</td>
         </tr>
         <tr>
             <td>**Data Processing Agreement**</td>
-            <td>Legals</td>
+            <td>Legal Policies</td>
             <td>Where the data is being processed by a third party on your behalf, e.g. a SaaS company or an external business, you should collect the contractual agreement from them on how they comply with privacy regulations and manage data on your customers behalf. This is often called a DPA or Data Processing Agreement.</td>
         </tr>
         <tr>
             <td>**Security Controls**</td>
             <td>Security Policies</td>
-            <td>For each of your systems where this differs you should have a record of the security controls and policies enforced on that system so that you can be assured that you are adequately protecting your users data.</td>
+            <td>For each of your systems where this differs, you should have a record of the security controls and policies enforced on that system so you can be assured that you are adequately protecting your users' data.</td>
         </tr>
     </tbody>
 </table>
 
-An important note, it’s easy to fall into the trap of “mapping” your connected data systems, however a really effective view of your business should map any use of data, whether that’s on or offline systems.
+An important note, it’s easy to fall into the trap of “mapping” your connected data systems. However a really effective view of your business should map any use of data, whether that’s online or offline systems.
 
-A final point to consider is that your data map must be current and reflect your systems actual data processes. So if you're an agile engineering team constantly shipping new features and changes to your product, you'll need to keep your data map up-to-date.
+A final point to consider is that your data map must be current and reflect your systems' actual data processes. So if you're an agile engineering team constantly shipping new features and changes to your product, you'll need to keep your data map up-to-date.
 
-In preparing for the CPRA consider that manual data mapping is a labor intensive process that will involve multiple members of your business. An accurate manually generated  system and data inventory can take several months.
+In preparing for the CPRA, consider that manual data mapping is a labor intensive process that will involve multiple members of your business. An accurate manually generated  system and data inventory can take several months to create.
 
 <Callout emoji="ⓘ">
 If you'd like to accelerate your data mapping and are unsure where to start, ask a question on the [Fides Slack Community](https://fid.es/join-slack).

@@ -132,7 +132,7 @@ The following table provides an example of how to think about where to provide s
   </tbody>
 </table>
 
-You can do this by implementing your own geolocation via IP detection solution to identify the user’s location and appropriately respect their rights, or you can use [Fides](https://ethyca.com/book-demo) to automate this task and adjust jurisdictions as regulations evolve with ease.
+You can do this by implementing your own geolocation via IP detection solution to identify the user’s location and appropriately respect their rights. Or you can use [Fides](https://ethyca.com/book-demo) to automate this task and adjust jurisdictions as regulations evolve with ease.
 
     <Callout emoji="ⓘ">
     If you're unsure how to setup GPC support you can ask the [Fides Slack Community](https://fid.es/join-slack), or get [Privacy Engineering Intelligence from Ethyca](https://ethyca.com/book-demo) now.

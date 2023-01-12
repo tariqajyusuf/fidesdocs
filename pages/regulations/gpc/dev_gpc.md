@@ -8,7 +8,7 @@ As a first step, preferences are set in a user's browser. (Note: for technical p
 
 
 ## How does the browser transmit the GPC signal?
-    The Sec-GPC header field should only be created and set by the browser when the users Global Privacy Control preference is set to `true`. In this case, where the user’s preference is true, the Sec-GPC header field will be set to `1`, analogous to `true`.
+    The Sec-GPC header field should only be created and set by the browser when the user's Global Privacy Control preference is set to `true`. In this case, where the user’s preference is true, the Sec-GPC header field will be set to `1`, analogous to `true`.
 
     As such, a valid HTTP request passing the Global Privacy Control will look something like:
 
@@ -35,9 +35,9 @@ As a first step, preferences are set in a user's browser. (Note: for technical p
     WorkerNavigator includes GlobalPrivacyControl;
 ```
 
-    The value of this is `false` if no `Sec-GPC` header field is sent, otherwise the value will be `true`. 
+    The value of this is `false` if no `Sec-GPC` header field is sent. Otherwise the value will be `true`. 
 
-    From this, checking the users current state is a case of checking GPC via a script such as the example below:
+    From this, checking the users current state is a case of checking GPC via a script as the example below:
 
 ```json
     if (!navigator.globalPrivacyControl) {
@@ -48,7 +48,7 @@ As a first step, preferences are set in a user's browser. (Note: for technical p
 ## How can I show my Website supports the GPC?
     While it’s not mandatory, the best practises provided by the Global Privacy Protocol recommend that your site provide a .well-known URL to represent that you abide by the GPC. 
 
-    In practise this means that to validate that your abide by the GPC, you would provide a JSON object located at the location:
+    In practise, this means that to validate that your abide by the GPC, you would provide a JSON object located at the location:
 
 
 ```json

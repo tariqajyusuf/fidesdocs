@@ -2,7 +2,7 @@ import Callout from 'nextra-theme-docs/callout'
 
 # GPC Step 01:
 # Detect & record the GPC signal
-In order to support the GPC, you'll need to understand how to detect the signal, appropriately record it and process it.
+In order to support the GPC, you'll need to understand how to detect the signal, appropriately record it, and process it.
 
 ## How to detect and manage the GPC
     Detecting the Global Privacy Control from Javascript properties is quite straightforward. The globalPrivacyControl property enables any client-side javascript to confirm the user's current settings for the Sec-GPC field value.
@@ -19,7 +19,7 @@ In order to support the GPC, you'll need to understand how to detect the signal,
 
     The value of this is `false` if no `Sec-GPC` header field is sent, otherwise the value will be `true`. 
 
-    From this, checking the users current state is a case of checking GPC via a script such as the example below:
+    From this, checking the user's current state is a case of checking GPC via a script such as the example below:
 
 ```json
     if (!navigator.globalPrivacyControl) {

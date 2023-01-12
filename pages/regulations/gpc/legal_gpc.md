@@ -4,15 +4,15 @@ import Callout from 'nextra-theme-docs/callout'
 
 At present, California’s Privacy Protection Agency, the [CPPA](https://cppa.ca.gov), is the first regulator to formally confirm that they expect businesses to comply with GPC as part of California privacy regulations. In demonstrating their willingness to enforce, in August 2022, [Sephora was fined $1.2M](https://iapp.org/news/a/the-sephora-case-do-not-sell-but-are-you-selling/) for not complying with data sales consent requirements including the Global Privacy Control.
 
-More generally speaking, Ethyca’s recommended best practice is to interpret the GPC signal as contextually appropriate to the jurisdictions in which your business operates. In simple terms, if you are operating in Europe under GDPR, Brazil under LGPD and the growing list of US States such as California, Virginia, Colorado, Connecticut and Utah that have considerations around data sharing or targeted advertising, you should consider supporting the GPC signal as appropriate to that market. 
+More generally speaking, Ethyca’s recommended best practice is to interpret the GPC signal as contextually appropriate to the jurisdictions in which your business operates. In simple terms, if you are operating in Europe under GDPR, Brazil under LGPD, and the growing list of US States such as California, Virginia, Colorado, Connecticut, and Utah that have considerations around data sharing or targeted advertising, you should consider supporting the GPC signal as appropriate to that market. 
 
-It is important to note that this decision is subjective and one a business must make, however in considering the consumers best interests, expectations and understanding of their rights to consent, here at Ethyca we believe that where a user opts-out using the GPC, they would reasonably expect to be opted out of:
+It is important to note that this decision is subjective and one that a business must make, however in considering the consumer's best interests, expectations, and understanding of their rights to consent, here at Ethyca, we believe that where a user opts-out using the GPC, they would reasonably expect to be opted out of:
 
 * Sale of their data
 * Sharing of their data for the purpose of advertising
 * Targeted advertising
 
-Conversely, you can see that many of these regulations also perform “automated decision making” or “profiling” which is something a business may reasonably expect to perform as part of the provision of its services; so of course you will need to provide a user the ability to consent, however depending on what you do within your automated decision making systems, this may not constitute something that a GPC opt-out signal should reasonably enforce.
+Conversely, you can see that many of these regulations also perform “automated decision making” or “profiling,” which is something a business may reasonably expect to perform as part of the provision of its services; so of course you will need to provide a user the ability to consent. However depending on what you do within your automated decision making systems, this may not constitute something that a GPC opt-out signal should reasonably enforce.
 
 Here’s a helpful chart of how to think about what the GPC is likely analogous to in each jurisdiction. As you can see, here we’ve mapped these to whether or not it would be reasonably expected by a consumer that the GPC should honor this data processing right.
 
@@ -147,7 +147,7 @@ Here’s a helpful chart of how to think about what the GPC is likely analogous 
 </table>
 
 
-**A note on Europe and Brazil:** An interesting point to note on the table above, while Europe’s consent requirements tend to be opt-in and don’t immediately map to the opt-out nature of GPC, thoughtful user experience considerations are vital.
+**A note on Europe and Brazil:** While Europe’s consent requirements tend to be opt-in and don’t immediately map to the opt-out nature of GPC, thoughtful user experience considerations are vital.
 
 If a user has set GPC to `true`, it would be reasonable to assume that they do not give opt-in consent to the advertising category of consent under European privacy regulations.
 

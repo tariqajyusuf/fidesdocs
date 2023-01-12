@@ -18,13 +18,13 @@ Similar to the right of access in (section eight)[./dsar_cpra], above, the right
     You can then use this identity with MFA solutions to send an email or SMS to their inbox or device with a short code. This code allows you to better confirm that the Consumer making the request is the rightful owner of the email address or phone number as they have access to the inbox or the device.
 
 ## 3. Delete their personal data from your systems
-    You must then delete all of the users data from across your businesses systems and vendors to provide the user. 
+    You must then delete all of the user's data from across your businesses systems, and to vendors to provide the user. 
 
-    If you are doing this manually, be very careful to ensure you are not deleting confidential company information, information necessary for reporting or regulatory purposes and also not deleting data belonging to other users. 
+    If you are doing this manually, be very careful to ensure you are not deleting confidential company information, information necessary for reporting or regulatory purposes, and also not deleting data belonging to other users. 
 
-    **Note**: you may retain personal information that you require for other regulatory purposes. A good example of this, if you’re a retailer, you might need to retain order history information and the consumers state of residence in order to calculate tax nexus for reporting purposes.
+    **Note**: you may retain personal information that you require for other regulatory purposes. A good example of this is, if you’re a retailer, you might need to retain order history information and the consumer's state of residence in order to calculate tax nexus for reporting purposes.
 
-    The deletion request process is labor intensive and risky, therefore we strongly recommend using an automated system such as Fides to perform this end-to-end for you from providing the consumer a privacy center to receive their requests, automating identity verification and programmatically performing secure data extraction  across all business systems on behalf of the user.
+    The deletion request process is labor intensive and risky. Therefore we strongly recommend using an automated system such as Fides to perform this end-to-end for you, from providing the consumer a privacy center to receive their requests, automating identity verification, and programmatically performing secure data extraction  across all business systems on behalf of the user.
 
     <Callout emoji="ⓘ">
     Looking for more help with Deletion Requests? Ask a question now on the [Fides Slack Community](https://fid.es/join-slack).

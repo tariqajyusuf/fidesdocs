@@ -1,8 +1,8 @@
 # What is the CPRA?
 
-The California Privacy Rights Act (CPRA) is California’s state legislation to protect the privacy rights of California residents. The CPRA goes into effect on January 1, 2023 and mandates all businesses to audit their data collection, storage, processing, and sharing mechanisms to ensure they are in compliance with the law.
+The California Privacy Rights Act (CPRA) is California’s state legislation to protect the privacy rights of California residents. The CPRA went into effect on January 1, 2023 and mandates all businesses to audit their data collection, storage, processing, and sharing mechanisms to ensure they are in compliance with the law.
 
-The CPRA builds on an earlier piece of legislation known as the California Consumers Privacy Act (CCPA), which came into effect on January 1, 2020. With the introduction of the CPRA, California will be the first US State to introduce a dedicated data protection authority, similar to those more commonly found in Europe: the California Privacy Protection Agency (CCPA).
+The CPRA builds on an earlier piece of legislation known as the California Consumer Privacy Act (CCPA), which came into effect on January 1, 2020. With the introduction of the CPRA, California will be the first US State to introduce a dedicated data protection authority, similar to those more commonly found in Europe: the California Privacy Protection Agency (CPPA).
 
 
 ## What thresholds apply to the CPRA?
@@ -20,4 +20,4 @@ Three: Businesses that receive 50% or more of their gross revenues from sharing 
 
 Businesses have until January 1, 2023, to comply with this new regulation.
 
-The CPPA (California Privacy Protection Agency) will only begin enforcements from July 1, 2023, however note these can be applied retrospectively to January 1, 2023.
+The CPPA (California Privacy Protection Agency) will only begin enforcements from July 1, 2023. However note these can be applied retrospectively to January 1, 2023.
