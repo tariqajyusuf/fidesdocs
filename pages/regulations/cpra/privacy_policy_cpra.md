@@ -9,13 +9,13 @@ import Callout from 'nextra-theme-docs/callout'
     * Right to Opt-Out
     * Right to limit the use of sensitive personal information
     * Right to opt-out of automated decision making
-    * Right to kNow about automated decision making
+    * Right to know about automated decision making
     * Right to Access
     * Right to Delete
-    * Right to correction
+    * Right to Correction
     * Right to Data Portability
     
-    So for the example of the “right to access” their data, you should provide a statement that explains their rights and how they can be actioned, similar to the example below:
+    For the example of the “right to access” their data, you should provide a statement that explains their rights and how they can be enacted. Here's an example below.
     
     > **Right of Access**: You may request access to the specific pieces of Personal Information we have about you. You may also request additional details about our information practices, including the categories of Personal Information we collect, the sources of information, the types of third parties we share information with, the types of Personal Information we share for business purposes, and details about the information we have shared, if any. You may request access by visiting our [Privacy Center](privacy.ethyca.com) or contacting us via [privacy@acme.com](mailto:privacy@acme.com).
 
@@ -23,25 +23,25 @@ import Callout from 'nextra-theme-docs/callout'
         To learn more about these consumer rights, read the [CPRA requirements here](./what_reqs_cpra#5-cpra-amends-available-consumer-and-employee-rights)
     </Callout>
 
-## 2. If your business is using any automated decision making tools for behavioral inference, analysis or decision making, you should notify the user.
+## 2. If your business is using any automated decision making tools for behavioral inference, analysis, or decision making, you should notify the user.
 
     Provide the user with a written notice of automated decision making in your privacy policy, describing what categories of personal data you are using and for what type of automated decision making.
 
 
-    Note: in the case of automated decision making, you must also Notify the user that where they enforce their right to opt-out you will Not discriminate against them; that is to say that if they opt-out of automated processing, you will still provide the service to them within reasonable limitations.
+    Note: in the case of automated decision making, you must also notify the user that when they exert their right to opt-out, you will not discriminate against them. That is to say, if they opt-out of automated processing, you will still provide the service to them within reasonable limitations.
 
 
 
 ## 3. For each of the 11 categories of data you must have four clear notices as follows:
 
-    * *Whether you collect that data*: simply confirm whether this is a category of data you collect or Not.
+    * *Whether you collect that data*: simply confirm whether this is a category of data you collect or not.
     * *How you use the data*: confirm the purpose for which you use the data.
-    * *Whether you share it*: if you share the data, with what parties is it shared.
-    * *How long you retain the data*: you must specify when the data is disposed of and _it is No longer permissible_ to provide an approximation such as “for as long as is necessary”. The CPRA demands specificity.
+    * *Whether you share it*: if you share the data, specify what other parties is it shared with.
+    * *How long you retain the data*: you must specify when the data is disposed of. _It is no longer permissible_ to provide an approximation such as “for as long as is necessary”. The CPRA demands specificity.
 
     The following table is a helpful way to consider how to display this information in your policy.
 
-    Note: in description we have provided an list of examples, you should complete with only the categories of data you process for each category.
+    Note: in this description, we have provided an list of examples. You should complete this table with only the categories of data you process for each category.
 
     <table>
 		<tr>
