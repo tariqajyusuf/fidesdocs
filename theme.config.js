@@ -39,7 +39,7 @@ export default {
   docsRepositoryBase: "https://github.com/ethyca/fidesdocs/tree/",
   titleSuffix: " – Ethyca",
   search: true,
-  unstable_flexsearch: true,
+  unstable_flexsearch: false,
   floatTOC: true,
   gitTimestamp: null,
   font:  false,
