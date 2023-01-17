@@ -20,11 +20,27 @@ Fides currently supports Mailgun for email messaging, and both Mailgun and Twili
 ### Mailgun
 When using Mailgun, ensure you register or use an existing Mailgun account in order to get up and running with email communications.
 
+Mailgun can be setup to either use Mailgun templates, allowing for customization, or the generic Fides template.
+
+#### Using Mailgun templates
+
+1. Within Mailgun create a template named `fides`
+1. The template can be setup as desired, but needs to contain a `{{{fides_email_body}}}`
+variable. This is where the Fides email text will be placed.
+1. In order to use the email template the Mailgun private API key needs to be provided in the
+Fides Mailgun configuration.
+
+When sending emails Fides will check to see if the `fides` template is available and use
+it if so. If a `fides` template is not found the email will fall back to using the generic
+Fides email template.
+
+#### Using the default fides template
+
 1. Generate a Mailgun Domain Sending Key
 
-    Follow the [Mailgun documentation](https://documentation.mailgun.com/en/latest/api-intro.html#authentication-1) to create a new Domain Sending Key for Fides. 
+    Follow the [Mailgun documentation](https://documentation.mailgun.com/en/latest/api-intro.html#authentication-1) to create a new Domain Sending Key for Fides.
 
-<Callout> Mailgun automatically generates a **primary account API key** when you sign up for an account. This key allows you to perform all CRUD operations via Mailgun's API endpoints, and for any of your sending domains. For security purposes, using a new **domain sending key** is recommended over your primary API key. </Callout>
+Alternatively the Mailgun private API key will also work for this option, but is not required.
 
 ### Twilio
 
@@ -33,7 +49,7 @@ When using Mailgun, ensure you register or use an existing Mailgun account in or
 2. Generate a Twilio API key
 
     Follow the [Twilio documentation](https://www.twilio.com/docs/iam/keys/api-key) to create a new API key for Fides.
-    
+
 ## Configuration
 
 ### Add necessary config variables
