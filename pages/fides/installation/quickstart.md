@@ -51,7 +51,7 @@ The Fides Python package is [published on PyPI](https://pypi.org/project/fides/)
 To install Fides, run:
 
 ```sh
-pipx install fides
+pip install ethyca-fides
 ```
 #### Initialize Fides
 
