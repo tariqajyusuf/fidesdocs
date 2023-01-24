@@ -13,6 +13,11 @@ module.exports = withNextra({
         source: "/",
         destination: "/fides/overview",
         statusCode: 301,
+      },
+      {
+        source: '/fides/dsr_support/:slug*',
+        destination: '/fides/dsr_quickstart/dsr_support/:slug*', // Matched parameters can be used in the destination
+        permanent: true,
       }
     ];
   },
