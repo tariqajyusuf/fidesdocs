@@ -1,20 +1,15 @@
 # Privacy Taxonomy Explorer
 The taxonomy explorer is a useful way to visualize and review the taxonomy for those looking to explore in greater depth.
 
-## Results {.tabset .tabset-pills}
+## Results 
 
 ### Data Categories
 
-< Image to be included>
 
 ### Data Uses
 
-< Image to be included>
 
 ### Data Subjects
 
-< Image to be included>
 
 ### Data Qualifiers
-
-< Image to be included>

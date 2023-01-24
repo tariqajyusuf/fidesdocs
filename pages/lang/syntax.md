@@ -10,7 +10,7 @@ The Fides language is designed to be relatively easy for anyone to read and writ
 ### Fides Taxonomy
 The Fides language is intentionally simple. To assure this, Fides declarations use predefined primitives (e.g. data categories) that are used when describing your datasets, systems, policies, etc. These predefined primitives exist as part of the Fides taxonomy which is maintained in your Fides server so they can be consistently used across your organization's development team.
 
-You can learn more about the taxonomy structure and how to extend it in the [<span style="color:purple">**taxonomy guide**</style>](https://ethyca.github.io/fideslang/taxonomy/overview/).
+You can learn more about the taxonomy structure and how to extend it in the [**taxonomy guide**](https://ethyca.github.io/fideslang/taxonomy/overview/).
 
 ### Dot Notation and Snake_Case
 To make writing and reading Fides language as easy for humans as possible, declarations from the privacy taxonomy use dot notation for the keys and use snake_case compound labels.

@@ -28,6 +28,13 @@
       "breadcrumb": false
     }
   },
+    "lang": {
+    "title": "Fides Lang",
+    "type": "page",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
   "ethyca": {
     "title": "About Ethyca",
     "type": "page",

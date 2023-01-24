@@ -4,29 +4,27 @@ import Callout from 'nextra-theme-docs/callout'
 
 Fideslang (fee-dez-læŋg, from the Latin term "Fidēs" + "language") is a proposed model for a human-readable "taxonomy" of privacy-related data types, behaviors, and usages. Fideslang hopes to develop an interoperable community standard for building privacy regulation compliance into the typical software development process.
 
-<YouTube video to be embedded>
+
 
 ## Summary of Taxonomy Classification Groups
 
 The Fides taxonomy, or categorization, is made up of four main classification groups. These groups are used together to describe the data types, uses, and processing behaviors of an entire tech stack, including both application processes and data storage.
 
-## Results {.tabset .tabset-pills}
+## Results 
 
 ### Data Categories
 
-<Image objects to be embedded>
 
 ### Data Uses
 
-<Image objects to be embedded>
 
 ### Data Subjects
 
-<Image objects to be embedded>
+
 
 ### Data Qualifiers
 
-<Image objects to be embedded>
+
 
 ## 1. Data Categories
 Data Categories are labels to describe the type of data processed by your software. These are most heavily used by the System and Dataset resources, where you can assign one or more data categories to each field.
