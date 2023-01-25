@@ -10,6 +10,29 @@ See the the [project requirements](requirements) page to get started.
 ## Installation options
 The Fides team maintains a Python package [published on PyPI](https://pypi.org/project/fides/), and a Docker image on the [ethyca/fides DockerHub](https://hub.docker.com/r/ethyca/fides/tags).
 
+Additionally, the Fides team maintains a set of [Helm charts](https://github.com/ethyca/fides-helm) and [Terraform modules](https://github.com/ethyca/fides-terraform) to assist in the deployment of Fides.
+
+### Using Helm (Recommended if using Kubernetes)
+
+To install the Helm chart to an existing Kubernetes cluster, run the following commands:
+
+```
+helm repo add ethyca https://helm.ethyca.com
+helm pull ethyca/fides
+```
+
+Then, set the required values in a values.yaml file and run 
+
+```
+helm install fides ethyca/fides --values values.yaml
+```
+
+For more information on installing the Fides Helm chart, please refer to the [Helm chart's README](https://github.com/ethyca/fides-helm/blob/main/fides/README.md)
+
+### Using Terraform
+
+To install Fides and its required infrastructure using Terraform to AWS Elastic Container Service (ECS), please refer to the [Terraform module's README](https://github.com/ethyca/fides-terraform/blob/main/fides-aws-ecs/README.md)
+
 ### Using Docker
 The published reference images contain all of the extras and dependencies for running the Python application, but do not contain the required Postgres database.
 
@@ -17,7 +40,7 @@ Run the following command to pull the latest image from Ethyca's [DockerHub](htt
 
 ```
 docker pull ethyca/fides
-``` 
+```
 
 ### Using Pip
 To install Fides from the published PyPI package, run:

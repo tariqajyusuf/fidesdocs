@@ -10,9 +10,40 @@ Fully deployed, Fides consists of the following individual systems:
 
 1. [**Hosted Database**](#set-up-the-hosted-database): A PostgreSQL database server used for permanent storage of configuration data for the webserver.
 2. [**Hosted Cache**](#set-up-the-hosted-cache): A Redis database server used as a temporary cache during execution and task scheduling.
-3. [**Fides Weberver**](#set-up-the-webserver): The main application, which houses the Admin UI and API endpoints.
+3. [**Fides Webserver**](#set-up-the-webserver): The main application, which houses the Admin UI and API endpoints.
 
-Optionally, the Fides [Privacy Center](#set-up-the-privacy-center-optional) can be deployed as a pre-built way to receive privacy requests.
+Optionally, the Fides [**Privacy Center**](#set-up-the-privacy-center-optional) can be deployed as a pre-built way to receive privacy requests.
+
+## Deployment options
+Any Docker host can be used to deploy Fides, and this guide outlines three main deployment options: [Helm](#using-helm), [Terraform](#using-terraform), and [Docker](#using-docker). For all options, please refer to our [security best practices](./installation/security_practices) for recommendations on production infrastructure.
+
+
+### Using Helm
+For a Kubernetes deployment, the recommendation option is to use the Fides [Helm chart](https://github.com/ethyca/fides-helm).
+
+To install the Helm chart to an existing Kubernetes cluster, run the following commands:
+
+```
+helm repo add ethyca https://helm.ethyca.com
+helm pull ethyca/fides
+```
+
+Then, set the required values in a values.yaml file and run 
+
+```
+helm install fides ethyca/fides --values values.yaml
+```
+
+For more information on installing the Fides Helm chart, please refer to the [Helm chart's README](https://github.com/ethyca/fides-helm/blob/main/fides/README.md)
+
+### Using Terraform
+For non-Kubernetes deployments, the Fides team maintains a [Terraform module](https://github.com/ethyca/fides-terraform) to assist in the deployment of Fides.
+
+To install Fides and its required infrastructure using Terraform to AWS Elastic Container Service (ECS), please refer to the [Terraform module's README](https://github.com/ethyca/fides-terraform/blob/main/fides-aws-ecs/README.md)
+
+### Using Docker
+
+The remainder of this guide outlines generic steps for manually deploying the databases & Docker images that you can adapt to your preferred Docker host.
 
 ## Set up the hosted database
 
