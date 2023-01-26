@@ -59,46 +59,6 @@ To view your application configuration in the API, run:
 GET /api/v1/config
 ```
 
-Fides will filter out any sensitive configuration variables. The full list of variables deemed safe to return is:
-
-#### Postgres database
-
-- `server`
-- `user`
-- `port`
-- `db`
-- `test_db`
-
-#### Redis cache
-
-- `host`
-- `port`
-- `charset`
-- `decode_responses`
-- `default_ttl_seconds`
-- `db_index`
-
-#### Security settings
-
-- `cors_origins`
-- `encoding`
-- `oauth_access_token_expire_minutes`
-
-#### Execution settings
-
-- `task_retry_count`
-- `task_retry_delay`
-- `task_retry_backoff`
-- `require_manual_request_approval`
-- `masking_strict`
-
-#### Notification settings
-
-- `send_request_completion_notification`
-- `send_request_receipt_notification`
-- `send_request_review_notification`
-- `notification_service_type`
-
 ## Configuration file
 
 After initializing Fides, a default configuration file will be generated and placed within the `.fides` directory:
