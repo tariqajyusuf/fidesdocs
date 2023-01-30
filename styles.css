@@ -236,6 +236,10 @@ nav .nextra-search{
   font-weight: 600;
 }
 
+.nextra-search ul a:focus li, .nextra-search ul li.active{
+  color: #824EF2;
+}
+
 nav .text-current{
   color: #824EF2 !important;
 }
