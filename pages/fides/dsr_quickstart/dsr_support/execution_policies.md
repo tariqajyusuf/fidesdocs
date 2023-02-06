@@ -1,16 +1,16 @@
 import Callout from 'nextra-theme-docs/callout'
 
-# Configure Policies
-## What is an execution policy?
+# Configure DSR Request Policies
+## What is DSR request policy?
 
-An execution policy (separate from a [Policy](../../cli_support/policies), used to enforce compliance) is a set of instructions, or Rules, that are executed when a user submits a [request](./privacy_requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
+A DSR request policy (separate from a [CI Policy](../../cli_support/policies), used for automated policy checks in CI) is a set of instructions, or Rules, that are executed when a user submits a [request](./privacy_requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
 
 Each endpoint takes an array of objects to create multiple policies, rules, or targets at one time.
 
 <Callout>`PATCH` requests perform the equivalent of a `create_or_update` operation. This means that any existing objects sent to this endpoint will be updated, create any non-existing objects, and delete any objects that are not specified in the request.</Callout>
 ## Create a Policy
 
-To create a new execution policy, it must first be defined:
+To create a new DSR request policy, it must first be defined:
 
 ```json title="<code>PATCH /api/v1/policy</code>"
 [
@@ -32,7 +32,7 @@ To create a new execution policy, it must first be defined:
 | `execution_timeframe` | The time in which to fulfill an associated privacy request, in days. |
 
 ## Add a Rule
-The policy creation operation returns an execution policy key. This key can be used to add a Rule to the execution policy. Rules represent a series of information and actions to take when a privacy request of the corresponding `action_type` is submitted.
+The policy creation operation returns a DSR request policy key. This key can be used to add a Rule to the DSR request policy. Rules represent a series of information and actions to take when a privacy request of the corresponding `action_type` is submitted.
 
 The following is an example of an access Rule:
 
@@ -80,9 +80,9 @@ A Rule also specifies one or more [Data Categories](https://ethyca.github.io/fid
 ### Add an erasure Rule
 <Callout>Access rules will always run before erasure rules.</Callout>
 
-The access execution policy created above will pull all data of category `user.contact.email`. In the event of an erasure request, we might also want to mask this information. 
+The access DSR request policy created above will pull all data of category `user.contact.email`. In the event of an erasure request, we might also want to mask this information. 
 
-A new `erasure` rule can be added to the same execution policy: 
+A new `erasure` rule can be added to the same DSR request policy: 
 
 ```json title="<code>PATCH /api/v1/policy/{policy_key}/rule</code>"
 [
@@ -109,19 +109,19 @@ This will create a Rule to hash an unspecified value with a SHA-512 hash. To add
   ]
 ```
 
-This execution policy, `user_email_address_policy`, will now do the following:
+This DSR request policy, `user_email_address_policy`, will now do the following:
 - Return all data with a data category that matches (or is nested under) `user.contact`.
 - Mask all data with data category that matches `user.contact.email` with a the `SHA-512` hashing function.
 
 #### Erasing data
-When an execution policy Rule erases data, it erases the _entire_ branch given by the Target. For example, a `user.contact` Rule, will erase _all_ of the information within the `contact` node, including `user.contact.email`.
+When a DSR request policy Rule erases data, it erases the _entire_ branch given by the Target. For example, a `user.contact` Rule, will erase _all_ of the information within the `contact` node, including `user.contact.email`.
 
-It's illegal to erase the same data twice within an execution policy. For example, erasing `user.contact` _and_ `user.contact.email` is not allowed.
+It's illegal to erase the same data twice within a DSR request policy. For example, erasing `user.contact` _and_ `user.contact.email` is not allowed.
 
-## Default execution policies
-<Callout>These auto-generated execution policies are intended for use in a test environment. In production deployments, configure separate execution policies and storage destinations that target and process the appropriate fields.</Callout>
+## Default DSR request policies
+<Callout>These auto-generated DSR request policies are intended for use in a test environment. In production deployments, configure separate DSR request policies and storage destinations that target and process the appropriate fields.</Callout>
 
-Fides ships with two default execution policies: `download` (for access requests) and `delete` (for erasure requests).  
+Fides ships with two default DSR request policies: `download` (for access requests) and `delete` (for erasure requests).  
 
-* The `download` execution policy is configured to retrieve `user` data and upload to a local storage location.
-* The `delete` execution policy is set up to mask `user` data with the string "`MASKED`".  
+* The `download` DSR request policy is configured to retrieve `user` data and upload to a local storage location.
+* The `delete` DSR request policy is set up to mask `user` data with the string "`MASKED`".  

@@ -1,9 +1,10 @@
 {
   "overview": "Overview",
   "installation": "Get Started",
-  "dsr_quickstart": "DSR Automation",
   "data_mapping": "Data Mapping",
+  "dsr_quickstart": "DSR Automation",
   "consent": "Consent Enforcement",
+  "configuration": "Configuring Fides",
   "cli_support": "CLI Resources",
   "deployment": "Production Deployment",
   "community": "Community"
