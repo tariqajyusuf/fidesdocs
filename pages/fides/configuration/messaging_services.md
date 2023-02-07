@@ -79,8 +79,8 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Mailgun Config
 
-`POST api/v1/messaging/config`
-```json
+
+```json filename="POST api/v1/messaging/config"
 {
     "key": "{{messaging_config_key}}",
     "name": "mailgun",
@@ -93,8 +93,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Twilio SMS Config
 
-`POST api/v1/messaging/config`
-```json
+```json filename="POST api/v1/messaging/config"
 {
     "key": "{{twilio_config_key}}",
     "name": "twilio",
@@ -117,8 +116,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Mailgun Secrets
 
-`PUT api/v1/messaging/config/{{messaging_config_key}}/secret`
-```json 
+```json filename="PUT api/v1/messaging/config/{{messaging_config_key}}/secret"
 {
     "mailgun_api_key": "{{mailgun_api_key}}",
 }
@@ -127,8 +125,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Twilio SMS Secrets
 
-`PUT api/v1/messaging/config/{{messaging_config_key}}/secret`
-```json
+```json filename="PUT api/v1/messaging/config/{{messaging_config_key}}/secret"
 {
     "twilio_account_sid": "{{twilio_account_sid}}",
     "twilio_auth_token": "{{twilio_auth_token}}",
@@ -139,8 +136,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Twilio Email Secrets
 
-`PUT api/v1/messaging/config/{{messaging_config_key}}/secret`
-```json
+```json filename="PUT api/v1/messaging/config/{{messaging_config_key}}/secret"
 {
     "twilio_api_key": "{{twilio_api_key}}",
 }

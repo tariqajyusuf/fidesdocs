@@ -15,7 +15,7 @@ The process below will define an `https` [Connection](./database_connectors) tha
 
 The information that describes how to connect to your API endpoint is represented by a Fides [Connection](./database_connectors).
 
-```json title="<code>PATCH /v1/connection</code>"
+```json filename="PATCH /v1/connection"
 [
     {
       "name": "My Webhook Connection Configuration",
@@ -31,7 +31,7 @@ The information that describes how to connect to your API endpoint is represente
 
 The credentials needed to access your API endpoint are defined by making a PUT to the Connection Secrets endpoint. These credentials are encrypted in the Fides `app` database.
 
-```json title="<code>PUT /v1/connection/test_webhook_connection_config</code>"
+```json filename="PUT /v1/connection/test_webhook_connection_config"
     {
         "url": "https://www.example.com",
         "authorization": "test_authorization"
@@ -47,7 +47,7 @@ When defining webhooks, they should be included in the request body in the desir
 
 To update a list of PolicyPreWebhooks:
 
-```json title="<code>PUT /policy/{policy_key}/webhook/pre_execution</code>"
+```json filename="PUT /policy/{policy_key}/webhook/pre_execution"
 [
     {
         "connection_config_key": "test_webhook_connection_config",
@@ -80,7 +80,7 @@ The following example will update the PolicyPreWebhook with key `webhook_hook` t
 `one_way`, and will update its order from 0 to 1.  Because we've defined two PolicyPreWebhooks, this causes the
 webhook at position 1 to move to position 0.
 
-```json title="<code>PATCH /policy/{policy_key}/webhook/pre-execution/wake_up_snowflake_db</code>"
+```json filename="PATCH /policy/{policy_key}/webhook/pre-execution/wake_up_snowflake_db"
 {
     "direction": "two_way",
     "order": 1
@@ -90,7 +90,7 @@ webhook at position 1 to move to position 0.
 Because this PATCH request updated the order of other webhooks, a reordered summary is included under the
 `new_order` attribute:
 
-```json title="Response"
+```json filename="Response"
 {
     "resource": {
         "direction": "two_way",
@@ -122,7 +122,7 @@ PATCH /policy/{policy_key}/webhook/post_execution/{post_execution_key}
 Before and after running access or erasure requests, Fides will send requests to any configured webhooks in sequential order
 with the following request body:
 
-```json title="<code>POST {user-defined URL}</code>"
+```json filename="POST {user-defined URL}"
 {
   "privacy_request_id": "pri_029832ba-3b84-40f7-8946-82aec6f95448",
   "direction": "one_way | two_way",
@@ -172,7 +172,7 @@ Derived identity is optional: a returned email or phone number will replace curr
 
 Once a paused webhook has completed processing, send a request to the `reply-to` URL sent in the original request header, along with the `reply-to-token` auth token.
 
-```json title="<code>POST privacy_request/{privacy-request-id}/resume</code>"
+```json filename="POST privacy_request/{privacy-request-id}/resume"
 {
   "derived_identity": {
     "email": "customer-1@gmail.com",

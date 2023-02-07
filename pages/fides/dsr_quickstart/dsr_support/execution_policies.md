@@ -12,7 +12,7 @@ Each endpoint takes an array of objects to create multiple policies, rules, or t
 
 To create a new DSR request policy, it must first be defined:
 
-```json title="<code>PATCH /api/v1/policy</code>"
+```json filename="PATCH /api/v1/policy"
 [
   {
     "name": "User Email Address",
@@ -36,7 +36,7 @@ The policy creation operation returns a DSR request policy key. This key can be 
 
 The following is an example of an access Rule:
 
-```json title="<code>PATCH /api/v1/policy/{policy_key}/rule</code>"
+```json filename="PATCH /api/v1/policy/{policy_key}/rule"
 [
   {
     "name": "Access User Email Address",
@@ -61,7 +61,7 @@ The following is an example of an access Rule:
 ### Add a Rule Target
 A Rule also specifies one or more [Data Categories](https://ethyca.github.io/fideslang/taxonomy/data_categories/), or "Targets", to which the rule applies. Creating a Rule will return a key, which can be used to assign it one or more targets:
 
-```json title="<code>PATCH /api/v1/policy/{policy_key}/rule/{rule_key}/target</code>"
+```json filename="PATCH /api/v1/policy/{policy_key}/rule/{rule_key}/target"
 [
   {
     "name": "Access User Email Address Target",
@@ -84,7 +84,7 @@ The access DSR request policy created above will pull all data of category `user
 
 A new `erasure` rule can be added to the same DSR request policy: 
 
-```json title="<code>PATCH /api/v1/policy/{policy_key}/rule</code>"
+```json filename="PATCH /api/v1/policy/{policy_key}/rule"
 [
   {
     "name": "Mask Provided Emails",
@@ -101,7 +101,7 @@ A new `erasure` rule can be added to the same DSR request policy:
 ```
 This will create a Rule to hash an unspecified value with a SHA-512 hash. To add a value to hash, create a new Target for this Rule:
 
-```json title="<code>PATCH api/v1/policy/{policy_key}/rule/{rule_key}</code>"
+```json filename="PATCH api/v1/policy/{policy_key}/rule/{rule_key}"
   [
     {
       "data_category": "user.contact.email",

@@ -26,7 +26,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Create a [Connection](../dsr_support/database_connectors) of type `saas`
 
-```json title="<code>PATCH api/v1/connection</code>"
+```json filename="PATCH api/v1/connection"
 [
   {
     "name": "SaaS Application",
@@ -39,7 +39,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Add a SaaS Config (in JSON format)
 
-```json title="<code>PATCH api/v1/connection/{saas_key}/saas_config</code>"
+```json filename="PATCH api/v1/connection/{saas_key}/saas_config"
 {
     "fides_key": "mailchimp_connector_example",
     "name": "Mailchimp SaaS Config",
@@ -50,7 +50,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Configure your secrets
 
-```json title="<coce>PUT api/v1/connection/{saas_key}/secret</code>"
+```json filename="PUT api/v1/connection/{saas_key}/secret"
 {
   "domain": "{mailchimp_domain}",
   "username": "{mailchimp_username}",
@@ -60,7 +60,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Add a Dataset (in JSON format)
 
-```json title="<code>PUT api/v1/connection/{saas_key}/dataset</code>"
+```json filename="PUT api/v1/connection/{saas_key}/dataset"
 [
   {
     "fides_key":"mailchimp_connector_example",
@@ -89,7 +89,7 @@ The example below creates a [mailchimp](./example_configs/mailchimp) saas connec
 
 Your `instance_key` will become the identifier for the related [Dataset](../dsr_support/datasets). By default, the saas connection config is enabled with write access.
 
-```json title="<code>POST /connection/instantiate/mailchimp</code>"
+```json filename="POST /connection/instantiate/mailchimp"
 {
     "name": "My Mailchimp connector",
     "description": "Production Mailchimp Instance",

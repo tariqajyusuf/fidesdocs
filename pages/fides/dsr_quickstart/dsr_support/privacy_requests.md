@@ -13,7 +13,7 @@ For more information on policies, see the [execution policies](./execution_polic
 
 Privacy requests are submitted by calling the Privacy Request endpoint:
 
-```json title="<code>POST /api/v1/privacy-request</code>"
+```json filename="POST /api/v1/privacy-request"
 [
   {
     "external_id": "a-user-defined-id",
@@ -47,7 +47,7 @@ With identify verification enabled, a user will be emailed a six-digit code when
 
 Until the Privacy Request identity is verified, it will have a status of `identity_unverified`:
 
-```json title="<code>POST api/v1/privacy-request/<privacy_request_id>/verify</code>"
+```json filename="POST api/v1/privacy-request/<privacy_request_id>/verify"
 {"code": "<verification code here>"}
 ```
 
@@ -58,7 +58,7 @@ Until the Privacy Request identity is verified, it will have a status of `identi
 
 To process pending privacy requests, a list of privacy request IDs must be sent to the `approve` or `deny` endpoints. Both endpoints support processing requests in bulk.
 
-```json title="<code>PATCH api/v1/privacy-request/administrate/approve</code>"
+```json filename="PATCH api/v1/privacy-request/administrate/approve"
 {
   "request_ids":[
     "pri_2d181f15-486d-4bcf-a871-f50ed9f95673",
@@ -68,7 +68,7 @@ To process pending privacy requests, a list of privacy request IDs must be sent 
 ```
 
 An optional denial reason can be provided when denying a privacy request:
-```json title="<code>PATCH api/v1/privacy-request/administrate/deny</code>"
+```json filename="PATCH api/v1/privacy-request/administrate/deny"
 {
   "request_ids":[
     "pri_2d181f15-486d-4bcf-a871-f50ed9f95673",
@@ -104,7 +104,7 @@ Access request results can be optionally encrypted by supplying an `encryption_k
 When converted to bytes, your `encryption_key` must be 16 bytes long. The data returned will have the nonce concatenated 
 to the encrypted data.
 
-```json title="<code>POST /privacy-request</code>"
+```json filename="POST /privacy-request"
 [
     {
         "requested_at": "2021-08-30T16:09:37.359Z",
@@ -130,7 +130,7 @@ For example, if you specified an encryption key of `test--encryption`, and resul
 S3 in a JSON file `GPUiK9tq5k/HfBnSN+J+OvLXZ+GCisapdI2KGP7A1WK+dz1XHef+hWb/SjszdqdNVGvziyY6GF5KIrvrXgxjZuaAvgU='`, you would
 need to implement something similar to the snippet below to decrypt the result:
 
-```python title="Sample decryption"
+```python filename="Sample decryption"
 import json
 import base64
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -149,7 +149,7 @@ decrypted_str: str = decrypted_bytes.decode("utf-8")
 json.loads(decrypted_str)
 ```
 
-```python title="Sample result"
+```python filename="Sample result"
 >>> {"street": "test street", "state": "NY"}
 ```
 

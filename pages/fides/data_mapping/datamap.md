@@ -8,7 +8,7 @@ import Callout from 'nextra-theme-docs/callout'
 
 To export the resources generated in the previous step, navigate to the root Fides directory in your terminal and run the following command:
 
-```sh title="Push and Export Defaults"
+```sh filename="Push and Export Defaults"
 fides export datamap --output-dir data_map/
 ```
 

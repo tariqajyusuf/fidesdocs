@@ -11,7 +11,7 @@ To learn more about configuring your Privacy Center for DSR enforcement, see the
 
 The Fides Privacy Center's text and actions are managed by a `config.json` file, which should be located in your project’s `/clients/app/config` directory. More information on configuration options can be found in the [Privacy Center guide](../dsr_quickstart/privacy_center).
 
-```json title="<code>config.json</code>"
+```json filename="config.json"
 {
   "title": "Take control of your data",
   "description": "When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and put you in control.",

@@ -99,7 +99,7 @@ The following are examples of real-world use cases for Fides Policies, represent
 
 ### No Third-Party Data Sharing
 
-```yaml title="data_sharing_policy.yml"
+```yaml filename="data_sharing_policy.yml"
 policy:
   - fides_key: data_sharing_policy
     name: Data Sharing
@@ -126,7 +126,7 @@ policy:
 
 ### Respecting Employee Data Privacy
 
-```yaml title="employee_data_processing_policy.yml"
+```yaml filename="employee_data_processing_policy.yml"
 policy:
   - fides_key: employee_data_processing
     name: Employee Data Processing
@@ -154,7 +154,7 @@ policy:
 
 ### Respecting Biometric PII
 
-```yaml title="biometric_data_policy.yml"
+```yaml filename="biometric_data_policy.yml"
 policy:
   - fides_key: biometric_data_policy
     name: Biometric Data
@@ -185,7 +185,7 @@ policy:
 
 ### Anonymous Derived User Contact Data
 
-```yaml title="derived_user_data_policy.yml"
+```yaml filename="derived_user_data_policy.yml"
 policy:
   - fides_key: protect_derived_user_data
     name: Protect Derived User Data
@@ -211,7 +211,7 @@ policy:
 
 ### Phone Numbers for Transactional Messaging
 
-```yaml title="transactional_messaging_policy.yaml"
+```yaml filename="transactional_messaging_policy.yaml"
 policy:
   - fides_key: transactional_messaging_policy
     rules:

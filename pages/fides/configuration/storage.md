@@ -26,9 +26,7 @@ Storage destinations are created and managed via the API. To create a new Storag
 
 Here is an example of the expected request body:
 
-<div class="code-block">
-<p class="label">**Example Request:** DSR Destination Configuration</p>
-```json
+````json filename="Example Request: DSR Destination Configuration" 
   {
     "destinations": [
       {
@@ -46,8 +44,7 @@ Here is an example of the expected request body:
     ]
   }
 
-```
-</div>
+````
 
 #### Destination attributes
 | Attribute | Description |
@@ -71,9 +68,7 @@ Here is an example of the expected request body:
 
 On success, the response from the above endpoint will include a `storage_key` for each destination, which can be used when defining a DSR request policy [Rules](../dsr_quickstart/dsr_support/execution_policies#add-a-rule).
 
-<div class="code-block">
-<p class="label">**Example Response:** DSR Destination Configuration</p>
-```json
+````json filename="**Example Response:** DSR Destination Configuration" 
 {
     "items": [
         {
@@ -93,16 +88,15 @@ On success, the response from the above endpoint will include a `storage_key` fo
     "page": 1,
     "size": 1
 }
-```
-</div>
+```` 
+
 
 ### Authenticate with your destination
 Fides requires authenticated access to update and erase/mask data in your storage destination. 
 
 Use `storage_key` returned during your storage creation to provide access credentials:
 
-`PUT {host}/api/v1/storage/config/{storage_key}/secret`
-```json
+```json filename="PUT {host}/api/v1/storage/config/{storage_key}/secret"
   {
     # s3
     "aws_access_key_id": str,
@@ -124,8 +118,8 @@ Secrets are not saved if credentials fail authentication with the given storage 
 ## Test your storage connection
 
 To test that your storage destination works correctly, you can call the `upload` endpoint directly. Specify a `request_id` in the path with an arbitrary string:
-`PUT {host}/api/v1/storage/{request_id}`
-```json
+
+````json filename="PUT {host}/api/v1/storage/{request_id}"
   {
     "storage_key": {storage_key},
     "data": {
@@ -133,7 +127,7 @@ To test that your storage destination works correctly, you can call the `upload`
     }
   }
 
-```
+````
 
 | Attribute | Description |
 |---|---|

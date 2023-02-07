@@ -5,7 +5,7 @@
 
 Docstrings are required for every function, class, and method. No specific style is required or encouraged, as we expect that most of the relevant information can be gleaned from both the function signature's type-hints as well as descriptive parameter names. The docstring should serve to give additional context/flavour beyond that which can be gained from the code itself.
 
-```python title="Docstring Example"
+```python filename="Docstring Example"
 # Bad
 def execute_evaluation(taxonomy: Taxonomy) -> Evaluation:
     """
@@ -24,7 +24,7 @@ def execute_evaluation(taxonomy: Taxonomy) -> Evaluation:
 
 Variable and parameter names should be as self-describing as possible. Brevity is not a concern here. Here are some common examples for writing good self-documenting code:
 
-```python title="Single Letter Variable Names"
+```python filename="Single Letter Variable Names"
 # Incorrect
 s = 726
 
@@ -40,7 +40,7 @@ for node in nodes:
     print(node)
 ```
 
-```python title="Abbreviated Variable Names"
+```python filename="Abbreviated Variable Names"
 # Incorrect
 r = requests.get(url)
 
@@ -51,7 +51,7 @@ resp = reqeusts.get(url)
 response = requests.get(url)
 ```
 
-```python title="Type Ambiguous Variable Names"
+```python filename="Type Ambiguous Variable Names"
 # Incorrect
 food = ["apple", "banana"] 
 
@@ -84,11 +84,11 @@ Fides includes a `.pre-commit-config.yaml` to facilitate running CI checks befor
 
 CI checks are stored as targets within the Noxfile, and can be run from the top-level `fides` directory with the following pattern:
 
-```bash title="Pattern"
+```bash filename="Pattern"
 nox -s <lowercased_name>
 ```
 
-```bash title="Examples"
+```bash filename="Examples"
 nox -s black
 nox -s mypy
 nox -s xenon

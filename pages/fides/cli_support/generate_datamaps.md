@@ -8,7 +8,7 @@ First, ensure `fides` is running with `nox -s dev`.
 
 To push and export the provided `demo_resources`, run the following commands:
 
-```sh title="Push and Export Defaults"
+```sh filename="Push and Export Defaults"
 fides push demo_resources/
 fides export datamap --output-dir demo_resources/
 ```
@@ -23,7 +23,7 @@ The header block at the top of a data map is composed of properties found in the
 
 The newly-generated data map is a direct result of the provided Organization resource manifest (`demo_resources/demo_organization.yml`):
 
-```yaml title='<code>demo_organization.yml</code>'
+```yaml filename="demo_organization.yml"
 organization:
   - fides_key: default_organization
     name: Demo Organization
@@ -58,7 +58,7 @@ The Dataset is primarily used to provide a list of Data Categories which populat
 
 The newly-generated data map is a direct result of the provided Dataset resource manifest (`demo_resources/demo_dataset.yml`):
 
-```yaml title='<code>demo_dataset.yml</code>'
+```yaml filename="demo_dataset.yml"
 dataset:
 - fides_key: demo_users_dataset
   organization_fides_key: default_organization
@@ -124,7 +124,7 @@ Your Organization and System datasets can also be assessed using the `--audit` f
 
 The output of this command will highlight any missing information:
 
-```bash title="Example Output: <code>fides audit</code>"
+```bash filename="Example Output: fides audit"
 ...
 "Auditing Organization Resource Compliance"
 Found 1 Organization resource(s) to audit...
@@ -154,7 +154,7 @@ customer missing automated_decisions_or_profiling in Demo Marketing System.
 ### Data Use
 Below is an extended [Data Use](https://ethyca.github.io/fideslang/taxonomy/data_uses) example. Each of these properties is responsible for populating a field on your data map.
 
-```yaml title="Extended Data Use"
+```yaml filename="Extended Data Use"
 data_use:
   - fides_key: third_party_sharing.personalized_advertising.direct_marketing
     name: Direct Marketing
@@ -175,7 +175,7 @@ Replace the Demo Marketing System's Data Use of `advertising` with the above fid
 ### Data Subject
 A [Data Subject](https://ethyca.github.io/fideslang/taxonomy/data_subjects), shown below, can also be extended to populate your data map with additional information.
 
-```yaml title="Extended Data Subject"
+```yaml filename="Extended Data Subject"
 data_subject:
   - fides_key: potential_customer
     name: Potential Customer
@@ -197,7 +197,7 @@ Replace the Demo Marketing System's Data Subject of `customer` with the above fi
 
 ### Testing Your Changes
 Your resulting `demo_system.yml` should look like the following:
-```yaml title="<code>demo_system.yml</code>"
+```yaml filename="demo_system.yml"
 system:
   - fides_key: demo_analytics_system
     name: Demo Analytics System
@@ -300,7 +300,7 @@ automated_decisions_or_profiling for potential_customer in Demo Marketing System
 
 Now that you have added the additional information around privacy notices and data subject rights, you can export a fresh copy of your data map:
 
-```sh title="Push and Export Defaults"
+```sh filename="Push and Export Defaults"
 $ fides push demo_resources/
 $ fides export datamap --output-dir demo_resources/
 ```

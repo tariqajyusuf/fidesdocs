@@ -35,7 +35,7 @@ To use Fides as a masking service, send a `PUT` request to the masking endpoint 
 
 ### Masking example
 
-```json title="<code>PUT /masking/mask</code>"
+```json filename="PUT /masking/mask"
      {
         "values": ["test@example.com"],
         "masking_strategy": {
@@ -50,7 +50,7 @@ To use Fides as a masking service, send a `PUT` request to the masking endpoint 
     }
 ```
 
-```json title="<code>Response 200 OK</code>"
+```json filename="Response 200 OK"
     {
         "plain": ["test@example.com"],
         "masked_value": ["idkeaotbrub346ycbmpo@masked.com"]
@@ -65,7 +65,7 @@ Erasure requests will mask data with the chosen masking strategy.
 To configure a specific masking strategy to be used for a Policy, you will create an `erasure` rule
 that captures that strategy for the Policy.
 
-```json title="<code>PATCH /policy/policy_key/rule</code>"
+```json filename="PATCH /policy/policy_key/rule"
     [{
         "name": "Global erasure rule",
         "action_type": "erasure",

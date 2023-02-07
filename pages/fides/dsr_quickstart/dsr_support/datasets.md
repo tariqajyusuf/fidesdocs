@@ -141,7 +141,7 @@ defined as the unit's [identity](#field-members), which will then be used to ret
 
 To add a Manual Dataset, first create a [Manual Connection](./database_connectors#examples). The following Manual Dataset can then be [added to](database_connectors#associate-a-dataset) the new ConnectionConfig:
 
-```yaml title="<code>PATCH {{host}}/connection/<manual_key>/dataset</code>"
+```yaml filename="PATCH {{host}}/connection/<manual_key>/dataset"
 dataset:
   - fides_key: manual_input
     name: Manual Dataset
@@ -168,7 +168,7 @@ should match the fields on the paused collection.
 
 Erasure requests with manual collections will also need data manually added as well.
 
-```json title="<code>POST {{host}}/privacy-request/{{privacy_request_id}}/manual_input</code>"
+```json filename="POST {{host}}/privacy-request/{{privacy_request_id}}/manual_input"
 [{
     "box_id": 5,
     "email": "customer-1@example.com"
@@ -186,7 +186,7 @@ If no manual data can be found, pass in an empty list to resume the privacy requ
 A privacy request will pause execution when it reaches a manual collection in an erasure request.  An administrator
 should manually mask the records in question, and send confirmation of the rows affected in a POST request.  
 
-```json title="<code>POST {{host}}/privacy-request/{{privacy_request_id}}/erasure_confirm</code>"
+```json filename="POST {{host}}/privacy-request/{{privacy_request_id}}/erasure_confirm"
 {"row_count": 2}
 ```
 

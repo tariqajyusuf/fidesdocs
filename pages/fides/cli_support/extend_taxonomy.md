@@ -10,7 +10,7 @@ If you have suggestions for core categories that should ship with the taxonomy, 
 
  A Data Use is a label that denotes the way data is used in your system. The following is an example of extending the default [Data Use taxonomy](https://ethyca.github.io/fideslang/taxonomy/data_uses/):
 
-```yaml title="data_use.yml"
+```yaml filename="data_use.yml"
 data_use:
   - fides_key: third_party_sharing.legal_obligation.payroll
     name: Payroll
@@ -49,7 +49,7 @@ The above example uses the existing `demo_data_uses.yml` from the [Fides project
 ## Implementing a custom Data Subject
 A Data Subject is a label that describes a segment of individuals whose data you store. The following is an example of extending the [Data Subject taxonomy](https://ethyca.github.io/fideslang/taxonomy/data_subjects/):
 
-```yaml title="data_subject.yml"
+```yaml filename="data_subject.yml"
 data_subject:
   - fides_key: potential_customer
     name: Potential Customer

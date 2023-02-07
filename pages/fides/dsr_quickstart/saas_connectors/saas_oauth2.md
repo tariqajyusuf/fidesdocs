@@ -18,7 +18,7 @@ The Client Credential flow has all these values except for `authorization_reques
 
 Each OAuth2 request is fully configurable to account for the different ways the parameters can be mapped to a request. The following examples demonstrate the requests generated from sample configuration files.
 
-```yaml title="OAuth2 Authorization Code example"
+```yaml filename="OAuth2 Authorization Code example"
 authentication:
   strategy: oauth2_authorization_code
   configuration:

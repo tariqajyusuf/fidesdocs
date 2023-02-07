@@ -42,7 +42,7 @@ While the Connection contains meta information about the database, it does not i
 
 All of the following are `PATCH` requests to `api/v1/connection`.
 
-```json title="PostgreSQL"
+```json filename="PostgreSQL"
 [
   { 
     "name": "Application PostgreSQL DB",
@@ -53,7 +53,7 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ]
 ```
 
-```json title="MongoDB"
+```json filename="MongoDB"
 [
   { 
     "name": "My Mongo DB",
@@ -65,7 +65,7 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ]
 ``` 
 
-```json title="MySQL"
+```json filename="MySQL"
 [
   { 
     "name": "My MySQL DB",
@@ -77,7 +77,7 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ]
 ``` 
 
-```json title="MariaDB"
+```json filename="MariaDB"
 [
   { 
     "name": "My Maria DB",
@@ -89,7 +89,7 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ]
 ``` 
 
-```json title="MsSQL""
+```json filename="MsSQL""
 [
   { 
     "name": "My MsSQL DB",
@@ -101,7 +101,7 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ]
 ``` 
 
-```json title="Manual Connections"
+```json filename="Manual Connections"
 [
   {
     "name": "Manual connector",
@@ -125,7 +125,7 @@ Call the Connection Secrets endpoint. You can set the Connection attributes sepa
 
 This example sets the database secrets through separate properties and then tests the connection.
 
-```json title="<code>PUT /api/v1/connection/application-postgresql-db/secret?verify=true</code>"
+```json filename="PUT /api/v1/connection/application-postgresql-db/secret?verify=true"
 {
    "host": "host.docker.internal",
    "port": 5432,
@@ -140,7 +140,7 @@ This example sets the database secrets through separate properties and then test
 This example sets the database secrets as a single `url` property, and skips the connection test.
 
 
-```json title="<code>PUT api/v1/connection/my_mongo_db/secret?verify=false</code>" 
+```json filename="PUT api/v1/connection/my_mongo_db/secret?verify=false" 
 {
     "url": "mongodb://mongo_user:mongo_pass@mongodb_example/mongo_test"
 }
@@ -148,7 +148,7 @@ This example sets the database secrets as a single `url` property, and skips the
 
 ### Examples
 **Amazon Redshift**
-```json title="<code>PUT api/v1/connection/my_redshift_db/secret</code>" 
+```json filename="PUT api/v1/connection/my_redshift_db/secret" 
 {
     "url": "redshift+psycopg2://username@host.amazonaws.com:5439/database",
     "db_schema": "my_test_schema"
@@ -161,7 +161,7 @@ databases have one or more schemas, with the default being named `public`.
 If you need to use a different schema, specify a `db_schema` when setting your secrets, and it will be set as the `search_path` for querying.
 
 **Google BigQuery**
-```json title="<code>PUT api/v1/connection/my_bigquery_db/secret</code>"
+```json filename="PUT api/v1/connection/my_bigquery_db/secret"
 {
     "dataset": "some-dataset",
     "keyfile_creds": {
@@ -201,7 +201,7 @@ You can verify that a Connection's secrets are valid at any time by calling the 
 ```
 Test failures can be resolved by calling the connection's `/secret/` endpoint, and resetting the secret values.
 
-```json title="Success"
+```json filename="Success"
 {
     "msg": "Test completed for ConnectionConfig with key: app_postgres_db.",
     "test_status": "succeeded",
@@ -209,7 +209,7 @@ Test failures can be resolved by calling the connection's `/secret/` endpoint, a
 }
 ```
 
-```json title="Failure"
+```json filename="Failure"
 {
     "msg": "Secrets updated for ConnectionConfig with key: app_mongo_db.",
     "test_status": "failed",
@@ -222,7 +222,7 @@ Once you have a working Connection, it must be associated to an existing [datase
 
 Call the `/dataset` endpoint with a JSON version of your dataset as the request body:
 
-```json title="<code>PATCH /api/v1/connection/my_connection_key/dataset</code>"
+```json filename="PATCH /api/v1/connection/my_connection_key/dataset"
 [{
     "fides_key": "example_test_dataset",
     "name": "Example Test Dataset",
@@ -379,7 +379,7 @@ You can search the `name`, `key`, and `description` fields of your Connections w
 ## View available connection types
 To view a list of all available connection types, visit `GET /api/v1/connection_type`. This endpoint can be filtered with a `search` query parameter, and is subject to change.  Both database options and third party API services are included.
 
-```json title="<code>GET /api/v1/connection_type</code>"
+```json filename="GET /api/v1/connection_type"
 {
     "items": [
         {
@@ -472,8 +472,7 @@ To view a list of all available connection types, visit `GET /api/v1/connection_
 ## View required connection secrets
 To view the secrets needed to authenticate with a given connection, visit `GET /api/v1/connection_type/<connection_type>/secret`.
 
-```GET /api/v1/connection_type/sentry/secret```
-```json
+```json filename="GET /api/v1/connection_type/sentry/secret"
 {
     "title": "sentry_schema",
     "description": "Sentry secrets schema",

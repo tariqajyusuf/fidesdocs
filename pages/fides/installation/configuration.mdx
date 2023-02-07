@@ -63,7 +63,7 @@ GET /api/v1/config
 
 After initializing Fides, a default configuration file will be generated and placed within the `.fides` directory:
 
-```toml title="fides.toml"
+```toml filename="fides.toml"
 [database]
 server = "fides-db"
 user = "postgres"
@@ -263,7 +263,7 @@ The `celery.toml` file provided contains a brief configuration reference for man
 
 For a full list of possible variable overrides, see the [Celery configuration](https://docs.celeryq.dev/en/stable/userguide/configuration.html#new-lowercase-settings) documentation.
 
-```sh title="Example <code>celery.toml</code>"
+```sh filename="Example celery.toml"
 default_queue_name = "fides"
 broker_url = "redis://:testpassword@redis:6379/1"
 result_backend = "redis://:testpassword@redis:6379/1"

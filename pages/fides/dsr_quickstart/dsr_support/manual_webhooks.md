@@ -17,7 +17,7 @@ not filtered on data category.  Any manual data uploaded is passed on as-is.
 ### Create a connection config of type `manual_webhook`
 
 
-```json title="<code>POST api/v1/connection</code>"
+```json filename="POST api/v1/connection"
 [
     {"name": "Manual Webhook ConnectionConfig",
     "key": "manual_webhook_key",
@@ -40,7 +40,7 @@ not filtered on data category.  Any manual data uploaded is passed on as-is.
 Submit a list of fields that will need to be manually uploaded.
 
 
-```json title="<code>PATCH api/v1/connection/{{manual_webhook_key}}/access_manual_webhook</code>"
+```json filename="PATCH api/v1/connection/{{manual_webhook_key}}/access_manual_webhook"
 {
     "fields": [
         {"pii_field": "First Name", "dsr_package_label": "first_name"},
@@ -65,7 +65,7 @@ Note that the fields here are dynamic and should match the fields specified on t
 If no data exists, an empty dictionary should be uploaded. Fidesops treats this upload as confirmation that the
 system was searched for data related to the data subject.
 
-```json title="<code>PATCH /privacy-request/{{privacy_request_id}}/access_manual_webhook/{{manual_webhook_key}}</code>"
+```json filename="PATCH /privacy-request/{{privacy_request_id}}/access_manual_webhook/{{manual_webhook_key}}"
 {
     "first_name": "Jane",
     "last_name": "Customer"
@@ -76,7 +76,7 @@ system was searched for data related to the data subject.
 
 Once a PrivacyRequest with `requires_input` has had all of its manual data uploaded, prompt the privacy request to resume.
 
-```json title="<code>POST /privacy-request/{{privacy_request_id}}/resume_from_requires_input</code>"
+```json filename="POST /privacy-request/{{privacy_request_id}}/resume_from_requires_input"
 ```
 
 #### Example Upload

@@ -8,7 +8,7 @@ The Fides Privacy Center is a configurable webpage where users can request to do
 
 The Fides Privacy Center's text and actions are managed by a `config.json` file in the Fides `/app/config` directory.
 
-```json title="<code>config.json</code>"
+```json filename="config.json"
 {
   "title": "Take control of your data",
   "description": "When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and put you in control.",

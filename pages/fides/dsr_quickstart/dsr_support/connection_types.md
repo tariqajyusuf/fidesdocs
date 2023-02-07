@@ -8,7 +8,7 @@ This endpoint can be filtered with a `search` query param or a `system_type` que
 and is subject to change.  We include database options and third party API services with 
 which Fides can communicate.
 
-```json title="<code>GET /api/v1/connection_type</code>"
+```json filename="GET /api/v1/connection_type"
 {
     "items": [
         {
@@ -133,7 +133,7 @@ which Fides can communicate.
 To view the secrets needed to authenticate with a given connection, visit `GET /api/v1/connection_type/<connection_type>/secret`.
 
 ### Example
-```json title="<code>GET /api/v1/connection_type/sentry/secret</code>"
+```json filename="GET /api/v1/connection_type/sentry/secret"
 {
     "title": "sentry_schema",
     "description": "Sentry secrets schema",
@@ -167,7 +167,7 @@ Your `instance_key` will become the identifier for the related `DatasetConfig` r
 is enabled, with write access.
 
 
-```json title="<code>POST /connection/instantiate/mailchimp</code>"
+```json filename="POST /connection/instantiate/mailchimp"
 {
     "name": "My Mailchimp connector",
     "description": "Production Mailchimp Instance",

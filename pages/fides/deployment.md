@@ -169,7 +169,7 @@ docker run \
   ethyca/fides
 ```
 
-```sh title="<code>config.env</code>"
+```sh filename="config.env"
 FIDES__SECURITY__APP_ENCRYPTION_KEY="athirtytwocharacterencryptionkey" 
 FIDES__SECURITY__OAUTH_ROOT_CLIENT_ID="fidesadmin" 
 FIDES__SECURITY__OAUTH_ROOT_CLIENT_SECRET="fidesadminsecret" 

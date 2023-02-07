@@ -93,7 +93,7 @@ that were potentially returned or masked based on the [Rules](./execution_polici
 
 The embedded execution logs are automatically truncated at 50 logs. To view the entire list of logs, visit the execution logs endpoint separately. "Request approved" and "Request finished" audit logs are also included in the response.
 
-```json title="<code>GET api/v1/privacy-request?request_id={privacy_request_id}&verbose=True</code>"
+```json filename="GET api/v1/privacy-request?request_id={privacy_request_id}&verbose=True"
 {
     "items": [
         {

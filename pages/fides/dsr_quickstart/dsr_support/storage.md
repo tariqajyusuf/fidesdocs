@@ -64,7 +64,7 @@ Storage destinations are created and managed via the API. To create a new Storag
 
 On success, the response from the above endpoint will include a `storage_key` for each destination, which can be used when defining execution policy [Rules](./execution_policies#add-a-rule).
 
-```json title="Example response"
+```json filename="Example response"
 {
     "items": [
         {
@@ -91,7 +91,7 @@ Fides requires authenticated access to update and erase/mask data in your storag
 
 Use `storage_key` returned during your storage creation to provide access credentials:
 
-```json title="<code>PUT {host}/api/v1/storage/config/{storage_key}/secret</code>"
+```json filename="PUT {host}/api/v1/storage/config/{storage_key}/secret"
   {
     # s3
     "aws_access_key_id": str,
@@ -114,7 +114,7 @@ Secrets are not saved if credentials fail authentication with the given storage 
 
 To test that your storage destination works correctly, you can call the `upload` endpoint directly. Specify a `request_id` in the path with an arbitrary string:
 
-```json title="<code>PUT {host}/api/v1/storage/{request_id}</code>"
+```json filename="PUT {host}/api/v1/storage/{request_id}"
   {
     "storage_key": {storage_key},
     "data": {

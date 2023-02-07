@@ -10,7 +10,7 @@ A [DRP action](https://github.com/consumer-reports-digital-lab/data-rights-proto
 
 A given action may only be associated to a single policy:
 
-```yaml title="<code>PATCH /api/v1/policy</code>"
+```yaml filename="PATCH /api/v1/policy"
 [
     {
         "name": "User Email Address",
@@ -43,7 +43,7 @@ The `/exercise` endpoint creates a new DRP privacy request. Fides will execute t
 
 All identity information should be encapsulated in the provided `identity` field using RFC7515-encoded [JSON Web Tokens](https://datatracker.ietf.org/doc/html/rfc7515). More about identity ecapsulation can be found in the [DRP standard](https://github.com/consumer-reports-digital-lab/data-rights-protocol#304-schema-identity-encapsulation).
 
-```json title="<code>POST /api/v1/drp/exercise</code>"
+```json filename="POST /api/v1/drp/exercise"
 {
   "meta": {
     "version": "0.5"
@@ -55,7 +55,7 @@ All identity information should be encapsulated in the provided `identity` field
 }
 ```
 
-```json title="Response"
+```json filename="Response"
 {
     "request_id": "c789ff35-7644-4ceb-9981-4b35c264aac3",
     "received_at": "20210902T152725.403-0700",
@@ -68,7 +68,7 @@ All identity information should be encapsulated in the provided `identity` field
 
 The current status of an existing privacy request may be returned via the `/status` endpoint, which must be queried using a privacy request ID.
 
-```json title="<code>GET /api/v1/drp/status?request_id={privacy_request_id}</code>"
+```json filename="GET /api/v1/drp/status?request_id={privacy_request_id}"
 {
     "request_id": "c789ff35-7644-4ceb-9981-4b35c264aac3",
     "status": "open",
@@ -79,7 +79,7 @@ The current status of an existing privacy request may be returned via the `/stat
 
 All data rights associated with existing policies may be returned via the `/data-rights` endpoint. Note that the `v1` in the below URL does not correspond to DRP version, but instead corresponds to Fides version.
 
-```json title="<code>GET /api/v1/drp/data-rights</code>"
+```json filename="GET /api/v1/drp/data-rights"
 {
     "version": "0.5",
     "api_base": null,
@@ -94,7 +94,7 @@ All data rights associated with existing policies may be returned via the `/data
 
 You can revoke a pending privacy request via the `/revoke` endpoint.
 
-```json title="<code>GET /api/v1/drp/revoke</code>"
+```json filename="GET /api/v1/drp/revoke"
 {
     "request_id": "c789ff35-7644-4ceb-9981-4b35c264aac3", 
     "reason": "Accidentally submitted"

@@ -13,7 +13,7 @@ Create an access client ID and secret for the "root" client. In your [configurat
 
 To create a root token, call the `POST /api/v1/oauth/token` endpoint:
 
-```json title="<code>POST /api/v1/oauth/token</code>"
+```json filename="POST /api/v1/oauth/token"
 {
   "client_id": "{oauth_root_client_id}",
   "client_secret": "{oauth_root_client_secret}",
@@ -21,7 +21,7 @@ To create a root token, call the `POST /api/v1/oauth/token` endpoint:
 }
 ```
 
-```sh title="Curl options"
+```sh filename="Curl options"
 curl \
   -X POST 'http://<HOST>:8080/api/v1/oauth/token' \
   -d client_id={oauth_root_client_id} \
@@ -51,7 +51,7 @@ Because the root client's token contains all scopes, it can create new clients a
 
 To create the client ID/secret pair, call `POST /api/v1/oauth/client`. If using the interactive Swagger docs, ensure you have provided your credentials in the **Authorize** option, and for the endpoint.
 
-```sh title="Curl options"
+```sh filename="Curl options"
 curl \
   -X POST 'http://<HOST>:8080/api/v1/oauth/client' \
   -H 'Authorization: Bearer <root_access_token>'

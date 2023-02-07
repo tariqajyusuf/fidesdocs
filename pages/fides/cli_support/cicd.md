@@ -21,7 +21,7 @@ The following code snippets are meant as simple example implementations, and ill
 
 ### GitHub Actions
 
-```yaml title="<code>.github/workflows/fides_ci.yml</code>"
+```yaml filename=".github/workflows/fides_ci.yml"
 name: Fides CI
 
 # Only check on Pull Requests that target main
@@ -46,7 +46,7 @@ jobs:
           FIDES__CLI__SERVER_HOST: "fides.privacyco.com"
 ```
 
-```yaml title="<code>.github/workflows/fides_cd.yml</code>"
+```yaml filename=".github/workflows/fides_cd.yml"
 name: Fides CD
 
 # Run the check every time a new commit hits the default branch
@@ -72,7 +72,7 @@ jobs:
 ___
 ### GitLab CI
 
-```yaml title="<code>.gitlab-ci.yml</code>"
+```yaml filename=".gitlab-ci.yml"
 stages:
   - test
   - deploy
@@ -103,7 +103,7 @@ fides-cd:
 ___
 ### Jenkins
 
-```groovy title="<code>Jenkinsfile</code> (Declarative Syntax)"
+```groovy filename="Jenkinsfile (Declarative Syntax)"
 pipeline {
   agent {
     docker {
@@ -143,7 +143,7 @@ pipeline {
 ___
 ### CircleCI
 
-```yaml title="<code>.circleci/config.yml</code>"
+```yaml filename=".circleci/config.yml"
 version: 2.1
 
 executors:
@@ -183,7 +183,7 @@ workflows:
 
 ### Azure Pipelines
 
-```yaml title="<code>.azure-pipelines.yml</code>"
+```yaml filename=".azure-pipelines.yml"
 # Trigger a dry run of the evaluate job on pull requests that target main
 pr:
   - main

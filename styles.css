@@ -570,13 +570,14 @@ position: relative;
 }
 
 /* title for code blocks */
-.code-block .label {
-  margin-top: 1.5rem;
+.code-block .label, article [data-nextra-code][data-filename]:before {
+  margin-top: 0;
   display: inline-block;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
   font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  font-size: .75rem;
+  font-size: 14px;
+  font-weight: 600;
   --bg-opacity: 1;
   background-color: #e1e7ef;
   background-color: rgba(224.70600000000002, 231.07080000000002, 239.394, var(--bg-opacity));
@@ -584,10 +585,7 @@ position: relative;
   border-top-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
-  --border-opacity: 1;
-  border-color: #ccd6e0;
-  border-color: rgba(204, 213.85999999999999, 224.39999999999998, var(--border-opacity));
-  margin-bottom:0
+  --border-opacity: 1;  margin-bottom: 5px;
 }
 .code-block pre {
   margin-top: 0;
