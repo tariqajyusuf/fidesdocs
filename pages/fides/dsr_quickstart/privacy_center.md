@@ -23,7 +23,7 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file 
       "description": "We will email you a report of the data related to your account.",
       "identity_inputs": {
         "name": "optional",
-        "email": "required",
+        "email": "optional",
         "phone": "optional"
       }
     },
@@ -34,7 +34,7 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file 
       "description": "We will delete all of your account data. This action cannot be undone.",
       "identity_inputs": {
         "name": "optional",
-        "email": "required",
+        "email": "optional",
         "phone": "optional"
       }
     }
@@ -99,13 +99,21 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file 
 | `actions` | A list of [action objects](#actions), each of which represent a new tile available in the portal, and are associated to a single Fides policy. |
 | `policy_key` | The key of the [policy](./dsr_support/execution_policies) to use for this action. |
 | `icon_path` | The relative path of an icon to replace the defaults. |
-| `identity_inputs` | The list of personally identifiable information required by an action. |
+| `identity_inputs` | The list of personally identifiable information required by an action.<br /><br />Please note that email and phone number are mutually exclusive. A user may submit an email, or a phone number, but not both at the same time. One of the two is always required. Setting both to optional will let the user choose one or the other. |
 
 ### Actions
 
 Actions represent available privacy rights executable from the Privacy Center. The provided `config.json` includes Download and Delete default, representing common requests to access or remove data under most privacy regulations. Each action is associated with a Fides [policy key](./dsr_support/execution_policies), which defines the policy executed when the DSR is approved.
 
 Additional actions can be added to this list, and removed at any time.
+
+### Identity Inputs
+
+Identity inputs represent the staring point for the Privacy Request execution by the fides engine. Fides currently supports starting with an email or a phone number. From here, the user's information will be returned. 
+
+As part of the data traversal, all linked identities will be returned if configured. 
+
+For example, in the Privacy Request's fulfillment, if a phone number is linked to an email or visa-vera, all relevant data will be returned in the privacy request. To learn more about the fulfillment of Privacy Requests, please see the [query execution guide](./dsr_support/query_execution). 
 
 ### Consent
 The Fides privacy center also includes options for managing consent. To learn more about enabling consent management, see the [consent enforcement guides](../consent/consent_management).
