@@ -1,4 +1,8 @@
 {
     "consent_management": "Consent in the Privacy Center",
-    "google_tag_manager": "Configure Google Tag Manager"
+    "google_tag_manager": "Configure Google Tag Manager",
+    "global_privacy_control": {
+        "hidden": true,
+        "title": "Global Privacy Control Support"
+    }
 }
