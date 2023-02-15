@@ -143,6 +143,9 @@ The `fides.toml` file should specify the following variables:
 | `connection_url` | string | N/A | A full connection URL to the Redis cache. If not specified, this URL is automatically assembled from the `host`, `port`, `password` and `db_index` specified above. |
 | `default_ttl_seconds` | int | 604800 | The number of seconds for which data will live in Redis before automatically expiring. |
 | `enabled` | bool | `True` | Whether the application's Redis cache should be enabled. Only set to false for certain narrow uses of the application. |
+| `ssl` | bool | `False` | Whether the application's connections to the cache should be encrypted using TLS. |
+| `ssl_certs_required` | string | required | If using TLS encryption, set this to "required" if you wish to enforce the Redis cache to provide a certificate. Note that not all cache providers support this e.g. AWS Elasticache. |
+
 
 #### Logging
 
@@ -176,7 +179,7 @@ The `fides.toml` file should specify the following variables:
 | `root_password` | string | None | If set, this can be used in conjunction with `root_username` to log in without first creating a user in the database. |
 | `root_user_scopes` | list of strings | All available scopes | The scopes granted to the root user when logging in with `root_username` and `root_password`. |
 | `subject_request_download_link_ttl_seconds` | int | `432000` | The number of seconds that a pre-signed download URL when using S3 storage will be valid. |
-| `request_rate_limit` | str | `100/minute` | The number of requests from a single IP address allowed to hit an endpoint within a rolling 60 second period. |
+| `request_rate_limit` | str | `1000/minute` | The number of requests from a single IP address allowed to hit an endpoint within a rolling 60 second period. |
 | `rate_limit_prefix` | str | `fides-` | The prefix given to keys in the Redis cache used by the rate limiter. |
 | `identity_verification_attempt_limit` | int | `3` | The number of identity verification attempts to allow. |
 
