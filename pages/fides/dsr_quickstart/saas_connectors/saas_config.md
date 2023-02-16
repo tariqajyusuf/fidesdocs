@@ -138,6 +138,7 @@ The above configuration also contains the following complex fields
 - `test_request`
 - `endpoints`
 - `data_protection_request`
+- `consent_requests`
 
 #### Connector params
 
@@ -270,6 +271,19 @@ The `requests` configuration further contains the following fields:
 |`grouped_inputs` | An optional list of reference fields whose inputs are dependent upon one another.  For example, an endpoint may need both an `organization_id` and a `project_id` from another endpoint.  These aren't independent values, as a `project_id` belongs to an `organization_id`.  You would specify this as `["organization_id", "project_id"]`.
 | `client_config` | Specify optional embedded Client Configs if an individual request needs a different protocol, host, or authentication strategy from the base Client Config.
 | `rate_limit_config` | An optional rate limit configuration. Can be used to set rate limits or disable limiting for a specific endpoint.
+
+#### Consent Requests
+
+The optional consent requests configuration defines one or more opt-in and/or opt-out requests to support propagating consent preferences 
+to third-party systems server-side.
+
+For example, if a user is opting out of a specific data use, every opt_out request defined will be fired in sequence.
+
+| Attribute | Description |
+|----|----|
+| `opt_in` | A list of request(s) to opt-in to various data uses |
+| `opt_out` | A list of request(s) to opt-out of various data uses |
+
 
 ## Param_values in more detail
 

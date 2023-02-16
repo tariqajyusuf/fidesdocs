@@ -53,7 +53,8 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
         "url": "https://example.com/privacy#advertising",
         "default": true,
         "highlight": false,
-        "cookieKeys": ["data_sales"]
+        "cookieKeys": ["data_sales"],
+        "executable": true
       },
       {
         "fidesDataUseKey": "improve",
@@ -62,14 +63,16 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
         "url": "https://example.com/privacy#data-sales",
         "default": true,
         "highlight": false,
-        "cookieKeys": ["data_sales"]
+        "cookieKeys": ["data_sales"],
+        "executable": false
       },
       {
         "name": "Analytics",
         "fidesDataUseKey": "third_party_sharing",
         "description": "...",
         "url": "https://example.com/privacy#analytics",
-        "cookieKeys": ["data_sharing"]
+        "cookieKeys": ["data_sharing"],
+        "executable": false
       },
       {
         "name": "Personalize",
@@ -77,7 +80,8 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
         "default": true,
         "url": "https://example.com/privacy#personalize",
         "description": "...",
-        "cookieKeys": ["functional"]
+        "cookieKeys": ["functional"],
+        "executable": false
       },
       {
         "name": "Essential",
@@ -86,7 +90,8 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
         "url": "https://example.com/privacy#essential",
         "highlight": true,
         "description": "...",
-        "cookieKeys": ["essential"]
+        "cookieKeys": ["essential"],
+        "executable": false
       }
     ]
   }
@@ -116,9 +121,22 @@ To provide compliance with local and internal regulations, you may define a seri
 | `default` | If this consent preference is enabled (true) or disabled (false) by default. |
 | `highlight` | Whether or not this consent preference is highlighted. |
 | `cookieKeys` | The data use represented within your stored cookie. |
+| `executable` |  Whether the user’s consent choice should be propagated to configured third party services |
 
 ## Actions
 To learn more about configuring your Privacy Center for DSR enforcement, see the [DSR automation guide](../dsr_quickstart/privacy_center).
+
+## Server-side Consent Enforcement
+
+There are some capabilities to propagate your users' consent preferences to external systems server-side.
+While user consent in the browser is often realized by suppressing third-party cookies, user consent 
+server-side is achieved by sending API calls to persist the user's preferences to third party web services.
+In certain regards, this type of consent propagation may be considered more comprehensive and enduring. 
+
+When saving consent preferences, those marked executable are passed onto any configured SaaS Connections with 
+capabilities to make consent requests, which in turn make various http requests to opt the user in or out of having their
+data used for various purposes. Only one consent preference is permitted to be executable at this time.
+
 
 ## Run the Privacy Center
 The Privacy Center is provided in a separate Docker image. To begin, run the following command:
