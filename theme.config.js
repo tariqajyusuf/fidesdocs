@@ -132,6 +132,11 @@ export default {
                 window.localStorage.setItem("theme_default", "light");
                 document.documentElement.classList.add("light");
                 document.documentElement.classList.remove("dark");
+              } else {
+                window.localStorage.setItem("theme", "light");
+                window.localStorage.setItem("theme_default", "light");
+                document.documentElement.classList.add("light");
+                document.documentElement.classList.remove("dark");
               }`,
             }}
           />;

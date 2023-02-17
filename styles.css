@@ -58,11 +58,12 @@
 }
 
 :root {
-  --nextra-primary-hue: #824EF2;
+  --nextra-primary-hue: #824EF2 !important;
 }
 
-.dark {
-  --nextra-primary-hue: 16deg;
+[data-theme="dark"], .dark {
+  color: #2D3748;
+  --nextra-primary-hue: #824EF2 !important;
 }
 
 html {
