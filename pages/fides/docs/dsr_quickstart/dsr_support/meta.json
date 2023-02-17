@@ -1,0 +1,19 @@
+{
+    "complex_fields": "Annotate Complex Fields",
+    "connection_types": "Available Connection Types",
+    "data_rights_protocol": "Data Rights Protocol",
+    "database_connectors": "Connect Databases",
+    "datasets": "Working with Datasets",
+    "execution_policies": "Execution Policies",
+    "messaging": "Communications",
+    "manual_webhooks": "Manual Webhooks",
+    "masking_strategies": "Masking Strategies",
+    "oauth": "Working with OAuth",
+    "policy_webhooks": "Policy Webhooks",
+    "privacy_requests": "Privacy Requests",
+    "query_execution": "Query Execution",
+    "reporting": "Reporting",
+    "request_execution": "Request Execution",
+    "storage": "Storage Destinations"
+  }
+  

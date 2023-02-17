@@ -7,11 +7,12 @@ const withNextra = require("nextra")({
 });
 
 module.exports = withNextra({
+  basePath: '/fides',
   redirects: () => {
     return [
         {
-        source: "/",
-        destination: "/fides/overview",
+        source: "/fides",
+        destination: "/fides",
         statusCode: 301,
       },
       {

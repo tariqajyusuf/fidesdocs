@@ -1,13 +1,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Inter";
-  src: url('public/fonts/Inter-VariableFont_slnt,wght.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "SourceSansPro";
   src: url('public/fonts/SourceSansPro-Regular.ttf');
   font-weight: 400, normal;
@@ -91,7 +84,7 @@ html {
 body {
   background: white;
   color: #2D3748;
-  font-family: 'Inter', 'SourceSansPro', sans-serif;
+  font-family: 'SourceSansPro', sans-serif;
 }
 
 
@@ -116,10 +109,16 @@ body {
 }
 
 .nextra-container .nextra-sidebar ul button, .nextra-container .nextra-sidebar ul li a, .nextra-container .nextra-sidebar ul summary{
-  font-weight: 700;
+  font-weight: 400;
   color: #2D3748;
+  font-size: 1em;
 }
-
+.nextra-container .nextra-sidebar ul li a:hover {
+  color: #000;
+}
+.nextra-container .nextra-sidebar li.active > a:first-child {
+  background-color: rgb(243 244 246) !important;
+}
 
 nav .gap-2{
   gap: 2rem;
@@ -128,8 +127,19 @@ article pre{
   background-color: #F7FAFC;
 }
 
+article h1{
+  font-size: 28px;
+  font-weight: 600;
+}
+
 article h2{
   border-width: 0px;
+  font-size: 24px;
+  margin-bottom: -20px;
+}
+
+article p {
+  line-height: 1.5em;
 }
 
 article a:hover, .nextra-nav-container a:hover{
@@ -163,7 +173,7 @@ article img{
 .nextra-toc-content ul li a{
   padding-right: 20px;
   color: #4A5568;
-  font-weight: 300;
+  font-weight: 400;
   white-space: nowrap;
     text-overflow: ellipsis;
     overflow-x: hidden;
@@ -198,6 +208,7 @@ article img{
 .nextra-container .nextra-sidebar ul li.active>a, .nextra-container .nextra-sidebar ul li.active>a:hover{
   background-color: transparent;
   color: #824EF2;
+  font-weight: 500;
 }
 
 div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.flex.items-center.mr-2.flex-auto > a{
@@ -233,7 +244,7 @@ nav .nextra-search{
 
 .nextra-container .nextra-nav-container .nextra-nav-link{
   color: #2D3748;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .nextra-search ul a:focus li, .nextra-search ul li.active{
@@ -318,28 +329,57 @@ thead tr, thead tr td{
   margin-top: 7px;
   color: #4A5568;
 }
+/*** Hero Visual Component Styling */
 
+.HeroVisual {
+  border-radius: 8px;
+  margin: 20px 0px; 
+  align-items: center;
+  background: #0a0e28;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.HeroVisual H1 {
+  flex: 1 1;
+  margin: 0;
+  padding: 30px;
+  color: #F7FAFC;
+}
+.HeroVisual .HeroImage {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 1 350px;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+.HeroVisual .HeroImage img {
+  border-radius: 0px 0 8px 0 !important;
+  border: none !important;
+}
+@media only screen and (max-width: 1045px) {
+  .HeroVisual .HeroImage {
+    display: none;
+  }
+}
 
-/*** KeyFeat Component Styling */
+/*** KeyFeat & CallToAction Component Styling */
 
-.KeyFeat{
+.KeyFeat, .CtaFeat{
   border-radius: 8px;
   margin: 20px 0px;
 }
 
-.KeyFeat h2, .KeyFeat p{
+.KeyFeat h2, .KeyFeat p, .CtaFeat h2, .CtaFeat p{
   margin-top: 0px;
 }
 
-.KeyFeat h2{
+.KeyFeat h2, .CtaFeat h2{
   font-size: 24px;
 }
 
-.KeyFeat p{
-  font-size: 14px;
-}
-
-.KeyFeatWrap{
+.KeyFeatWrap, .CtaFeatWrap{
   margin-top: 15px;
   display: grid;
   grid-template-columns: auto auto;
@@ -347,46 +387,95 @@ thead tr, thead tr td{
   grid-row-gap: 15px;
 }
 
-.featBlockWrap{
+.KeyFeatWrap a {
+  text-decoration: none;
+}
+
+a.featBlockWrap, .ctaBlockWrap{
   border-radius: 6px;
   padding: 16px;
   background: #F7FAFC;
+  border: 1px solid #e5e7eb;
 }
 
-.featBlockWrap:nth-of-type(4n -2){
+
+
+a.featBlockWrap:nth-of-type(4n -2), .ctaBlockWrap:nth-of-type(4n -2){
   background: #FAF5FF;
 }
 
-.featBlockWrap:nth-of-type(4n - 1){
+a.featBlockWrap:nth-of-type(4n - 1), .ctaBlockWrap:nth-of-type(4n - 1){
   background: #F0FFF4;
 }
 
-.featBlockWrap:nth-of-type(4n){
+a.featBlockWrap:nth-of-type(4n), .ctaBlockWrap:nth-of-type(4n){
   background: #EBF8FF;
 }
 
-.KeyFeat h2{
+.KeyFeat h2, .CtaFeat h2{
   font-size: 24px;
 }
 
-.featBlockWrap{
+a.featBlockWrap, a .ctaBlockWrap{
   padding: 20px;
+  transition: box-shadow 0.2s ease-in-out;
 }
-.featBlock h3{
-  font-size: 16px;
-  margin-top: 0;
+a.featBlockWrap:hover .featBlock h3, a.featBlockWrap:hover .featBlock p {
+  text-decoration: none;
+  color: #2D3748;
 }
 
-.featBlockWrap a{
+.featBlockWrap h3, a .ctaBlock h3{
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 0;
+  text-decoration-line: none !important;
+}
+.featCTA{
   font-size: 14px;
   font-weight: 600 !important;
   text-decoration-line: none !important;
-  color:  #824EF2 ;
+  color: #2D3748;
+  position: relative;
+}
+a.featBlockWrap:hover .featCTA {
+  color:  #824EF2;
+}
+a.featBlockWrap:hover .featCTA::after {
+  color:  #824EF2;
+  content :'  →';
+  position:absolute;
+  padding-left: 5px;
 }
 
-.featBlockWrap p{
-  line-height: 22px;
+.CtaFeatWrap a{
   font-size: 14px;
+  font-weight: 600 !important;
+  text-decoration-line: none !important;
+  color: #2D3748;
+}
+.CtaFeatWrap a .ctaBlockWrap .ctaBlock {
+  display: inline-block;
+}
+
+.CtaFeatWrap a:hover{
+  text-decoration: underline !important;
+}
+
+a.featBlockWrap:hover , .CtaFeatWrap a:hover .ctaBlockWrap {
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1)  ; 
+	-webkit-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1)  ; 
+	-moz-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1)  ; 
+}
+.CtaFeatWrap a:hover .ctaBlockWrap::after {
+  content :'  →';
+  position:absolute;
+  padding-left: 5px;
+}
+
+.featBlockWrap p, .ctaBlockWrap p{
+  line-height: 22px;
+  font-size: 15px;
   margin-bottom: 7px;
   margin-top: 7px;
 }

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import HubspotForm from 'react-hubspot-form'
+import HubspotForm from 'react-hubspot-form';
 
 
 const Logo = ({ height }) => (
@@ -44,11 +44,17 @@ export default {
   gitTimestamp: null,
   font:  false,
   defaultMenuCollapsed: true,
-  darkMode: false, 
-  feedbackLink: () => {
-    return (
-      'Open an issue in Github'
-    );
+  darkMode: false,
+  sidebar: {
+    titleComponent: ({ title, type }) => {
+      console.log (">> Sidebar Title Component Loading");
+      if (type === 'separator') {
+        return (
+          <div style={{ background: '#ff9900' }}>{title}</div>
+        );
+      }
+      return <> {title}</>;
+    },
   },
   feedbackLabels: "feedback",
   logo: () => {
