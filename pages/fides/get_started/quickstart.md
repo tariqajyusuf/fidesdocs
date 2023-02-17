@@ -9,14 +9,14 @@ See the the [project requirements](../installation/requirements) to get started.
 
 **If using Docker,** run `docker -v` in a new shell to confirm that docker is ready to use:
 
-```bash filename="Example output:"
+```bash title="Example output:"
 % docker -v
 Docker version 20.10.11, build dea9396
 ```
 
 **If using Python,** run `python --version` in a new shell to confirm that docker is ready to use:
 
-```bash filename="Example output:"
+```bash title="Example output:"
 % python --version
 Python 3.9.13
 ```
@@ -57,11 +57,11 @@ pip install ethyca-fides
 
 Initializing the project will create a configuration file with default values, and generate a directory to house your Fides resources.
 
-```sh filename="Initialize Fides"
+```sh title="Initialize Fides"
 fides init
 ```
 
-```txt filename="Expected Output"
+```txt title="Expected Output"
 Initializing Fides...
 ----------
 Created a './.fides' directory.

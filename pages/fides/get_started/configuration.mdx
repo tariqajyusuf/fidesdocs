@@ -1,0 +1,297 @@
+# Configuration
+
+---
+
+## Setting Configuration Values
+
+Fides can be configured in two different ways: either via a `toml` file or via environment variables.
+Both methods can be used simultaneously, with environment variables taking precedence over the `toml` file values.
+
+### Using a Configuration File
+
+Fides will use the first config file it can read from the following locations. Listed in order of precedence they are:
+
+1. At the path specified using the config file argument passed through the CLI, i.e. `fides -f <config_path>`
+1. At the path specified by the `FIDES__CONFIG_PATH` environment variable
+1. In the current working directory it will check for a subdir `.fides` and a file within named `fides.toml`, i.e. `./.fides/fides.toml`
+
+### Generating a Config File
+
+If you'd like to generate a new config file automatically using default values, run `fides init`.
+This will create the file at the default location of `./.fides/fides.toml`
+
+### Setting Values Via Environment Variables
+
+Fides follows a set pattern for configuration via environment variables.
+It looks for environment variables that start with `FIDES` followed by the config subsection name, followed by the key name, all separated with double underscores.
+In practice this would look like `FIDES__<SUBSECTION>__<KEY>`
+
+As a `toml` configuration value:
+
+```toml
+[database]
+host = config_example
+```
+
+As an environment variable:
+
+```sh
+EXPORT FIDES__DATABASE__HOST=config_example
+```
+
+---
+
+## Viewing your configuration
+
+You can view the current configuration of your application via either the CLI or API.
+
+### CLI
+
+To view your application configuration via the CLI, run:
+
+```sh
+fides view config
+```
+
+This will show _all_ configuration variables, including sensitive ones.
+It is printed to the console as valid `toml`, so this can be copy/pasted as needed.
+
+### API
+
+To view your application configuration in the API, run:
+
+```sh
+GET /api/v1/config
+```
+
+For security reasons, sensitive configuration values will not be shown here.
+
+---
+
+## Configuration File Example as of v2.6.6
+
+```toml title="fides.toml"
+[admin_ui]
+enabled = true
+
+[cli]
+local_mode = false
+analytics_id = "internal"
+server_protocol = "http"
+server_host = "localhost"
+server_port = "8080"
+server_url = "http://localhost:8080"
+
+[celery]
+event_queue_prefix = "fides_worker"
+task_default_queue = "fides"
+task_always_eager = true
+
+[credentials]
+app_postgres = {connection_string="postgresql+psycopg2://postgres:fides@fides-db:5432/fides"}
+
+[database]
+user = "defaultuser"
+password = "defaultpassword"
+server = "default-db"
+port = "5432"
+db = "default_db"
+test_db = "default_test_db"
+api_engine_pool_size = 50
+api_engine_max_overflow = 50
+task_engine_pool_size = 50
+task_engine_max_overflow = 50
+
+[execution]
+privacy_request_delay_timeout = 3600
+task_retry_count = 0
+task_retry_delay = 1
+task_retry_backoff = 1
+subject_identity_verification_required = false
+require_manual_request_approval = false
+masking_strict = true
+
+[logging]
+destination = ""
+level = "INFO"
+serialization = ""
+log_pii = false
+
+[notifications]
+send_request_completion_notification = false
+send_request_receipt_notification = false
+send_request_review_notification = false
+notification_service_type = "mailgun"
+
+[redis]
+host = "redis"
+port = 6379
+password = "testpassword"
+charset = "utf8"
+decode_responses = true
+default_ttl_seconds = 604800
+identity_verification_code_ttl_seconds = 600
+enabled = false
+ssl = false
+ssl_cert_reqs = "required"
+connection_url = "redis://:testpassword@redis:6379/"
+
+[security]
+subject_request_download_link_ttl_seconds = 432000
+request_rate_limit = "1000/minute"
+rate_limit_prefix = "fides-"
+aes_encryption_key_length = 16
+aes_gcm_nonce_length = 12
+identity_verification_attempt_limit = 3
+encoding = "UTF-8"
+env = "dev"
+cors_origins = [ "http://localhost", "http://localhost:8080", "http://localhost:3000", "http://localhost:3001",]
+oauth_access_token_expire_minutes = 11520
+oauth_client_id_length_bytes = 16
+oauth_client_secret_length_bytes = 16
+
+[user]
+analytics_opt_out = true
+encryption_key = "test_encryption_key"
+```
+
+---
+
+## Configuration Variable Reference
+
+### Application Database
+
+| Name       | Type   | Default    | Description                                                                                                                             |
+| :--------- | :----- | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `user`     | String | `postgres` | The database user with which to login to the application database.                                                                      |
+| `password` | String | `fides`    | The password with which to login to the application database.                                                                           |
+| `server`   | String | `fides-db` | The hostname of the Postgres database server.                                                                                           |
+| `port`     | String | `5432`     | The port at which the Postgres database will be accessible.                                                                             |
+| `db`       | String | `fides`    | The name of the Postgres database.                                                                                                      |
+| `test_db`  | String | `""`       | Used instead of the `db` config when the `FIDES_TEST_MODE` environment variable is set to `True`, to avoid overwriting production data. |
+
+### Redis cache
+
+| Name                  | Type   | Default  | Description                                                                                                                                                                           |
+| :-------------------- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `host`                | string | N/A      | The network address for the application Redis cache.                                                                                                                                  |
+| `port`                | int    | `6379`   | The port at which the application cache will be accessible.                                                                                                                           |
+| `user`                | string | N/A      | The user with which to login to the Redis cache.                                                                                                                                      |
+| `password`            | string | N/A      | The password with which to login to the Redis cache.                                                                                                                                  |
+| `db_index`            | int    | N/A      | The application will use this index in the Redis cache to cache data.                                                                                                                 |
+| `connection_url`      | string | N/A      | A full connection URL to the Redis cache. If not specified, this URL is automatically assembled from the `host`, `port`, `password` and `db_index` specified above.                   |
+| `default_ttl_seconds` | int    | 604800   | The number of seconds for which data will live in Redis before automatically expiring.                                                                                                |
+| `enabled`             | bool   | `True`   | Whether the application's Redis cache should be enabled. Only set to false for certain narrow uses of the application.                                                                |
+| `ssl`                 | bool   | `False`  | Whether the application's connections to the cache should be encrypted using TLS.                                                                                                     |
+| `ssl_certs_required`  | string | required | If using TLS encryption, set this to "required" if you wish to enforce the Redis cache to provide a certificate. Note that not all cache providers support this e.g. AWS Elasticache. |
+
+### Logging
+
+| Name            | Type          | Default | Description                                                                                                                                                                |
+| :-------------- | :------------ | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `destination`   | String        | `""`    | The output location for log files. Accepts any valid file path. If left unset, log entries are printed to `stdout` and log files are not produced.                         |
+| `level`         | Enum (String) | `INFO`  | The minimum log entry level to produce. Also accepts `TRACE`, `DEBUG`, `WARNING`, `ERROR`, or `CRITICAL` (case insensitive).                                               |
+| `serialization` | Enum (String) | `""`    | The format with which to produce log entries. If left unset, produces log entries formatted using the internal custom formatter. Also accepts `"JSON"` (case insensitive). |
+| `log_pii`       | Boolean       | `False` | If `True`, PII values will display unmasked in log output. This variable should always be set to "False" in production systems.                                            |
+
+### CLI
+
+| Name              | Type    | Default     | Description                                                                                                          |
+| :---------------- | :------ | :---------- | :------------------------------------------------------------------------------------------------------------------- |
+| `local_mode`      | Boolean | `False`     | When set to `True`, forbids the Fides CLI from making calls to the Fides webserver.                                  |
+| `server_host`     | String  | `localhost` | The hostname of the Fides webserver.                                                                                 |
+| `server_protocol` | String  | `http`      | The protocol used by the Fides webserver.                                                                            |
+| `server_port`     | Integer |             | The optional port of the Fides webserver.                                                                            |
+| `analytics_id`    | String  | `""`        | A fully anonymized unique identifier that is automatically generated by the application and stored in the toml file. |
+
+### Security
+
+| Name                                        | Type                 | Default              | Description                                                                                                                                                                                                                                                         |
+| :------------------------------------------ | :------------------- | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app_encryption_key`                        | string               | N/A                  | The key used to sign Fides API access tokens.                                                                                                                                                                                                                       |
+| `cors_origins`                              | List[AnyHttpUrl]     | N/A                  | A list of pre-approved addresses of clients allowed to communicate with the Fides application server.                                                                                                                                                               |
+| `oauth_root_client_id`                      | string               | N/A                  | The value used to identify the Fides application root API client.                                                                                                                                                                                                   |
+| `oauth_root_client_secret`                  | string               | N/A                  | The secret value used to authenticate the Fides application root API client.                                                                                                                                                                                        |
+| `oauth_access_token_expire_minutes`         | int                  | `11520`              | The time for which Fides API tokens will be valid.                                                                                                                                                                                                                  |
+| `root_username`                             | string               | None                 | If set, this can be used in conjunction with `root_password` to log in without first creating a user in the database.                                                                                                                                               |
+| `root_password`                             | string               | None                 | If set, this can be used in conjunction with `root_username` to log in without first creating a user in the database.                                                                                                                                               |
+| `root_user_scopes`                          | list of strings      | All available scopes | The scopes granted to the root user when logging in with `root_username` and `root_password`.                                                                                                                                                                       |
+| `subject_request_download_link_ttl_seconds` | int                  | `432000`             | The number of seconds that a pre-signed download URL when using S3 storage will be valid.                                                                                                                                                                           |
+| `request_rate_limit`                        | str                  | `1000/minute`        | The number of requests from a single IP address allowed to hit an endpoint within a rolling 60 second period.                                                                                                                                                       |
+| `rate_limit_prefix`                         | str                  | `fides-`             | The prefix given to keys in the Redis cache used by the rate limiter.                                                                                                                                                                                               |
+| `identity_verification_attempt_limit`       | int                  | `3`                  | The number of identity verification attempts to allow.                                                                                                                                                                                                              |
+| `env`                                       | str, `dev` or `prod` | `dev`                | This determines which API endpoints require authentication. The default, `dev`, does not apply authentication to endpoints typically used by the CLI. The other option, `prod`, requires authentication for _all_ endpoints that may contain sensitive information. |
+
+### Execution
+
+| Name                                     | Type | Default | Description                                                                                                                                                                                                                                   |
+| :--------------------------------------- | :--- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `privacy_request_delay_timeout`          | int  | `3600`  | The amount of time to wait for actions which delay privacy requests (e.g., pre- and post-processing webhooks).                                                                                                                                |
+| `task_retry_count`                       | int  | `0`     | The number of times a failed request will be retried.                                                                                                                                                                                         |
+| `task_retry_delay`                       | int  | `1`     | The delays between retries in seconds.                                                                                                                                                                                                        |
+| `task_retry_backoff`                     | int  | `1`     | The backoff factor for retries, to space out repeated retries.                                                                                                                                                                                |
+| `subject_identity_verification_required` | bool | `False` | Whether privacy requests require user identity verification.                                                                                                                                                                                  |
+| `require_manual_request_approval`        | bool | `False` | Whether privacy requests require explicit approval to execute.                                                                                                                                                                                |
+| `masking_strict`                         | bool | `True`  | If set to `True`, only use UPDATE requests to mask data. If `False`, Fides will use any defined DELETE or GDPR DELETE endpoints to remove PII, which may extend beyond the specific data categories that configured in your execution policy. |
+
+### User
+
+| Name                | Type    | Default               | Description                                                                                                    |
+| :------------------ | :------ | :-------------------- | :------------------------------------------------------------------------------------------------------------- |
+| `encryption_key`    | String  | `test_encryption_key` | An arbitrary string used to encrypt the user data stored in the database. Encryption is implemented using PGP. |
+| `analytics_opt_out` | Boolean | `""`                  | When set to `true`, prevents sending anonymous analytics data to Ethyca.                                       |
+
+### Credentials
+
+The credentials section uses custom keys which can be referenced in specific commands that take the `--credentials-id` option.
+For example, a command that uses a credential might look like `fides scan dataset db --credentials-id app_postgres`.
+The credential object itself will be validated at the time of use depending on what type of credential is required.
+For instance if `fides scan system okta` is used, it will expect the object to contain `orgUrl` and `token` key/value pairs.
+In the case of a typical database like postgres, it will only expect a `connection_string`.
+The following is an example of what a credentials section might look like in a given deployment with various applications:
+
+| Name                            | Type   | Description                                                          |
+| :------------------------------ | :----- | :------------------------------------------------------------------- |
+| `my_postgres.connection_string` | String | Sets the `connection_string` for `my_postgres` database credentials. |
+| `my_aws.aws_access_key_id`      | String | Sets the `aws_access_key_id` for `my_aws` credentials.               |
+| `my_aws.aws_secret_access_key`  | String | Sets the `aws_secret_access_key` for `my_aws` credentials.           |
+| `my_aws.region_name`            | String | Sets the `region_name` for `my_aws` credentials.                     |
+| `my_okta.orgUrl`                | String | Sets the `orgUrl` for `my_okta` credentials.                         |
+| `my_okta.token`                 | String | Sets the `token` for `my_okta` credentials.                          |
+
+### Admin UI
+
+| Name      | Type | Default | Description                                     |
+| --------- | ---- | ------- | ----------------------------------------------- |
+| `enabled` | bool | `True`  | Toggle whether the Admin UI is served from `/`. |
+
+### Notifications
+
+| Name                                   | Type   | Default | Description                                                                                                        |
+| :------------------------------------- | :----- | :------ | :----------------------------------------------------------------------------------------------------------------- |
+| `send_request_completion_notification` | bool   | `False` | When set to `True`, enables subject notifications upon privacy request completion.                                 |
+| `send_request_receipt_notification`    | bool   | `False` | When set to `True`, enables subject notifications upon privacy request receipt.                                    |
+| `send_request_review_notification`     | bool   | `False` | When set to `True`, enables subject notifications upon privacy request review.                                     |
+| `notification_service_type`            | String | N/A     | Sets the notification service type used to send notifications. Accepts `mailgun`, `twilio_sms`, or `twilio_email`. |
+
+### Additional environment variables
+
+The following environment variables are not included in the default `fides.toml` configuration, but may be set in your environment:
+
+| ENV Variable         | Default | Description                                                                                                                                                          |
+| -------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FIDES__HOT_RELOAD`  | `False` | If `True`, the Fides server will reload code changes without needing to restart the server. This variable should always be set to `False` in production systems.     |
+| `FIDES__DEV_MODE`    | `False` | If `True`, the Fides server will log error tracebacks, and log details of third party requests. This variable should always be set to `False` in production systems. |
+| `FIDES__CONFIG_PATH` | None    | If this is set to a path, that path will be used to load `.toml` files first. Any .toml files on this path will override any installed .toml files.                  |
+
+---
+
+## Celery Configuration
+
+Fides uses [Celery](https://docs.celeryq.dev/en/stable/index.html) for asynchronous task management.
+
+To simplify deployments and remove the need for two different `toml` configuration files, it is possible to configure `celery` via the Fides configuration file.
+Any valid configuration key/value pair for `celery` can instead be added to the Fides `toml` configuration file and will automatically be passed through to the `celery` deployment.
+Note that Fides will not validate any of these key/value pairs. See the above configuration file reference for an example of using celery configuration pass-through.
+
+For a full list of possible variable overrides, see the [Celery configuration](https://docs.celeryq.dev/en/stable/userguide/configuration.html#new-lowercase-settings) documentation.
