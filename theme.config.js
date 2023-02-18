@@ -4,7 +4,7 @@ import HubspotForm from 'react-hubspot-form';
 
 const Logo = ({ height }) => (
     <svg width="70px" height="25px" viewBox="0 0 577 177" version="1.1">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Fides-logo" transform="translate(-224.000000, -296.000000)">
             <g id="Group-14" transform="translate(224.000000, 296.000000)">
                 <polygon id="Fill-1" fill="#111439" points="0 176.953 176.953 176.953 176.953 0 0 0"></polygon>
@@ -35,28 +35,36 @@ const Logo = ({ height }) => (
 
 
 export default {
-  projectLink: "https://github.com/ethyca/fidesdocs",
+  primaryHue: 259,
   docsRepositoryBase: "https://github.com/ethyca/fidesdocs/tree/",
-  titleSuffix: " – Ethyca",
-  search: true,
-  unstable_flexsearch: false,
-  floatTOC: true,
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – Ethyca'
+    }
+  },
+  toc: {
+    float: true,
+    extraContent: <a className="text-xs" href="https://fid.es/join-slack">Ask a question in our Slack Commnunity</a>,
+  },
+  editLink: {
+    text: null,
+  },
+  feedback: {
+    content: 'Open an issue in Github',
+  },
   gitTimestamp: null,
-  font:  false,
-  defaultMenuCollapsed: true,
   darkMode: false,
   sidebar: {
+    defaultMenuCollapseLevel: 1,
     titleComponent: ({ title, type }) => {
-      console.log (">> Sidebar Title Component Loading");
       if (type === 'separator') {
         return (
-          <div style={{ background: '#ff9900' }}>{title}</div>
+          <div>{title}</div>
         );
       }
       return <> {title}</>;
     },
   },
-  feedbackLabels: "feedback",
   logo: () => {
     return (
       <>
@@ -101,17 +109,11 @@ export default {
         <meta httpEquiv="Content-Language" content="en" />
         <meta
           name="description"
-          content={
-            meta.description ||
-            "Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
-          }
+          content="Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
         />
         <meta
           name="og:description"
-          content={
-            meta.description ||
-            "Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
-          }
+          content="Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@ethyca" />
@@ -124,30 +126,11 @@ export default {
         />
         <meta name="og:image" content={ogImage} />
         <meta name="apple-mobile-web-app-title" content="Ethyca" />
-        <script
-            lang="javascript"
-            dangerouslySetInnerHTML={{
-              __html: `if (!window.localStorage.getItem("theme_default")) {
-                window.localStorage.setItem("theme", "light");
-                window.localStorage.setItem("theme_default", "light");
-                document.documentElement.classList.add("light");
-                document.documentElement.classList.remove("dark");
-              } else {
-                window.localStorage.setItem("theme", "light");
-                window.localStorage.setItem("theme_default", "light");
-                document.documentElement.classList.add("light");
-                document.documentElement.classList.remove("dark");
-              }`,
-            }}
-          />;
       </>
     );
   },
-  footerEditLink: ({}) => {
-        return (<a href="https://fid.es/join-slack" class="text-xs font-medium no-underline">Ask a question in our Slack Community</a>);
-  },
-  footerText: ({  }) => {
-  return (
+  footer: {
+    text:
       <div>
         <div className="footerwrap">
          <div className="logos">
@@ -157,16 +140,16 @@ export default {
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-            <img src ="/assets/ethyca_logo.svg" />
+            <img src ="/fides/assets/ethyca_logo.svg" />
           </a>
           </div>
           <div className="socials">
             <div className="icons"> 
 
-                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/assets/slack.svg" /> </a>
-                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/assets/linkedin.svg" /> </a>
-                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/assets/twitter.svg" /> </a>
-                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/assets/github.svg" /> </a>
+                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/fides/assets/slack.svg" /> </a>
+                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/fides/assets/linkedin.svg" /> </a>
+                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/fides/assets/twitter.svg" /> </a>
+                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/fides/assets/github.svg" /> </a>
             </div>
               <HubspotForm
                    portalId='7252764'
@@ -179,11 +162,9 @@ export default {
           </div>
           <div className="privacyPolicy"> 
               <a href="https://privacy.ethyca.com/">  Do not sell my information </a>
-
               <a href="https://privacy.ethyca.com/">  Privacy policy </a>
           </div> 
-          </div>
-
-        );
+          </div>,
   }
+
 };

@@ -1,0 +1,82 @@
+{
+"index":"Fides",
+"docs": {
+ "title": "Documentation",
+ "href": "/docs"
+},
+"tutorials": {
+  "title": "Tutorials",
+  "href": "/tutorials"
+ },
+"install": {
+  "title": "Install",
+  "href": "/install"
+ },
+ "--": {
+  "type": "separator",
+  "title": "Resources"
+},
+"regulations": {
+  "title": "Regulations",
+  "href": "/regulations"
+ },
+"community": {
+  "title": "Community Forum",
+  "href": "https://fid.es/join",
+  "newWindow": true
+},
+"github": {
+  "title": "Github",
+  "href": "https://github.com/ethyca/fides",
+  "newWindow": true
+},
+"support": {
+  "title": "Support",
+  "href": "https://ethyca.com",
+  "newWindow": true
+},
+"ethyca": {
+  "title": "About Ethyca",
+  "href": "/ethyca"
+},
+"main-index": {
+  "href":"/",
+  "title": "Fides",
+  "type": "page"
+  },
+"main-docs": {
+  "title": "Documentation",
+  "type": "menu",
+  "items": {
+    "about": {
+      "title": "About",
+      "href": "/about"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "href": "mailto:hi@example.com"
+    }
+  }
+},
+"main-tutorials": {
+  "href":"/tutorials",
+  "title": "Tutorials",
+  "type": "page"
+},
+"main-tutorials": {
+  "href":"/tutorials",
+  "title": "Tutorials",
+  "type": "page"
+},
+"main-install": {
+  "href":"/install",
+  "title": "Install",
+  "type": "page"
+},
+"main-regulations": {
+  "href":"/regulations",
+  "title": "Regulations",
+  "type": "page"
+}
+
+}
