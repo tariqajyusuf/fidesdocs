@@ -129,6 +129,10 @@ export default {
       </>
     );
   },
+  navigation: {
+    prev: true,
+    next: true
+  },
   footer: {
     text:
       <div>
