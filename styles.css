@@ -510,6 +510,19 @@ footer > div.py-12 > div{
 }
 /* title for code blocks */
 .nextra-code-block [data-language="console"] {
-	background-color: rgba(59,130,246,.05);
-	--shiki-color-text: #525252;
+	background-color: #252937;
+	--shiki-color-text: #efeff0;
+}
+.nextra-code-block div:first-child {
+  background-color: hsla(0, 0%, 0%, 0.207);
+  color: hsla(0, 0%, 100%, 0.729);
+}
+.nextra-code-block .nextra-button {
+  background-color:hsla(0, 0%, 0%, 0.207);
+  color: hsla(0, 0%, 100%, 0.87);
+  border: solid 1px hsla(0, 0%, 100%, 0.115);
+}
+.nextra-code-block .nextra-button:active {
+  background-color: hsla(0, 0%, 0%, 0.207);
+  color: hsla(0, 0%, 100%, 0.87);
 }

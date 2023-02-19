@@ -4,10 +4,11 @@ const withNextra = require("nextra")({
   themeConfig: "./theme.config.js",
   unstable_flexsearch: false,
   unstable_staticImage: true,
+  defaultShowCopyCode: true,
 });
 
 module.exports = withNextra({
-  basePath: '/fides',
+  basePath: '/fides',  
   redirects: () => {
     return [
       {
