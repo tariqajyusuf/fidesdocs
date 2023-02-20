@@ -1,9 +1,5 @@
 {
-    "commands": "Basic CLI Features",
-    "extend_taxonomy": "Customize the Fideslang Taxonomy",
-    "generate_datamaps": "Generate Reports",
-    "generate_resources": "Database Scanning",
-    "infra_scanning": "Infrastructure Scanning",
-    "policies": "Sample Policies"
-  }
+  "overview": "Basic CLI Features",
+  "init": "Initializing Working Directories"
+}
   

@@ -140,8 +140,14 @@ article img{
 article .nx-mt-6{
   margin-top: 1em;
 }
+article blockquote {
+	margin: 35px 0;
+}
 article p code {
-  border-color: rgba(0, 0, 0, 0.14);
+  border-color: rgba(0, 0, 0, 0.17) !important;
+}
+article pre code .line {
+	min-height: 1rem;
 }
 .bg-orange-50{
 	background-color: #FAF5FF;

@@ -22,7 +22,7 @@ module.exports = withNextra({
         permanent: true,
       }
     ];
-  },
+  }
 
 });
 

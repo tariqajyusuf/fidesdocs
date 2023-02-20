@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Script from "next/script";
 import HubspotForm from 'react-hubspot-form';
 
 
@@ -126,6 +127,22 @@ export default {
         />
         <meta name="og:image" content={ogImage} />
         <meta name="apple-mobile-web-app-title" content="Ethyca" />
+        <Script
+            lang="javascript"
+            dangerouslySetInnerHTML={{
+              __html: `if (!window.localStorage.getItem("theme_default")) {
+                window.localStorage.setItem("theme", "light");
+                window.localStorage.setItem("theme_default", "light");
+                document.documentElement.classList.add("light");
+                document.documentElement.classList.remove("dark");
+              } else {
+                window.localStorage.setItem("theme", "light");
+                window.localStorage.setItem("theme_default", "light");
+                document.documentElement.classList.add("light");
+                document.documentElement.classList.remove("dark");
+              }`,
+            }}
+          />;
       </>
     );
   },
