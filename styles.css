@@ -540,7 +540,7 @@ footer > div.py-12 > div{
 	}
 }
 /* title for code blocks */
-.nextra-code-block [data-language="console"] {
+.nextra-code-block [data-language="console"], .nextra-code-block [data-language="toml"] {
 	background-color: #252937;
 	--shiki-color-text: #efeff0;
 }
