@@ -2,6 +2,6 @@
   "overview": "Basic CLI Features",
   "init": "Initializing Working Directories",
   "webserver": "Running Fides Server",
-  "auth": "Authentication"
+  "auth": "Authenticating"
 }
   

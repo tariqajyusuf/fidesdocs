@@ -1,0 +1,28 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: webserver
+
+The ```fides webserver``` starts the Fides webserver using the available configuration and environment variables. By default, when Fides starts the webserver it:
+
+* Reads the configurations from one of the following three locations:
+	1. the config file passed via the CLI;
+	2. the path specified by the ```FIDES__CONFIG_PATH``` environment variable;
+	3. the current working directory ```.fides``` from the ```fides.toml``` file.
+* Configures the Fides database if it is not already setup.
+* Checks all current resources are valid.
+* Makes the hosted UI available at ```http://{server_url}/``` (e.g. ```http://localhost:8080/```).
+
+
+
+## Usage
+Usage: ```fides webserver```
+
+Starts the Fides webserver using the configuration provided and makes the UI available at ```http://{server_url}/``` (e.g. ```http://localhost:8080/```).
+
+Running this command should result in output that resembles the following:
+
+```console filename="Command Line"
+$ fides webserver
+[TODO] REQUIRES EXAMPLE CLI OUTPUT
+```
