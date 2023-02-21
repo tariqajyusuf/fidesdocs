@@ -1,48 +1,169 @@
-# Deployment Security Best Practices
+# Security Best Practices for Fides Deployment and Operation
 
-Fides offers several [configuration options](./configuration) to flexibly manage a variety of [deployments](./requirements). This guide is meant to be used as a supplement to the configuration options, and provides a summary for best practices to ensure appropriate security methods when working with Fides systems. 
+Fides offers several [configuration options](./configuration) to flexibly manage a variety of [deployments](./requirements). This guide is meant to be used as a supplement to the configuration options, and provides a summary for best practices to ensure appropriate security methods when deploying and operating Fides.
 
-## Configuration recommendations
+## Deployment Diagrams
 
-### Fides Web Server
-| Criteria | Recommendation | Example |
-| - | --- | ------ |
-| Encryption-in-transit | Enabled, secured with TLSv1.2 or TLSv1.3 | Deploy a load balancer for Fides listening on port 443.
-| Redirect HTTP requests to HTTPS | Enabled | Deploy a load balancer for Fides listening on port 443. |
-| App Encryption Key | Randomly generated string, at least 32 characters | Configured in a Fides [configuration file](./configuration).
-| CORS Origins | Allowed CORS origins do not include a wildcard, `*` | Configured in a Fides [configuration file](./configuration). |
-| OAuth Root Client Secret | Randomly generated string, at least 20 characters |  Configured in a Fides [configuration file](./configuration). |
-| Log Level | INFO or higher (lower logging levels (e.g. DEBUG or TRACE) may reveal secrets in the console logs) |  Configured in a Fides [configuration file](./configuration). |
-| User Management | Only grant needed scopes per the principle of least privilege, access revoked when no longer needed | Configured via API or UI. |
-DSR Storage Destination | Uses a remote storage location (e.g. S3) | Configured via API or UI. | 
+### Generic Deployment Diagram
 
-### Privacy Center
-| Criteria | Recommendation | Example |
-| - | --- | ------ |
-| Encryption-in-transit | Enabled, secured with TLSv1.2 or TLSv1.3 | Deploy a load balancer for the Privacy Center listening on port 443. |
-| Redirect HTTP requests to HTTPS | Enabled | Deploy a load balancer for the Privacy Center listening on port 443. |
+* The hosted fides data stores (Postgres & Redis) must be deployed before Fides itself can be deployed. These data stores should be dedicated to Fides. Access to them must be protected e.g. do not expose them to untrusted networks such as the public Internet.  
 
-### PostgreSQL Database
-| Criteria | Recommendation | Example |
-| - | --- | ------ |
-| Encryption-in-transit | Enabled, secured with TLSv1.2 or TLSv1.3 | Use a managed database platform, such as AWS RDS, to manage PostgreSQL. Configured to prevent public access. |
-| Encryption-at-rest | Enabled | Use a managed database platform, such as AWS RDS, to manage PostgreSQL. Configured to prevent public access. |
-| Network Accessibility | Not accessible from the public Internet | Use a managed database platform, such as AWS RDS, to manage PostgreSQL. Configured to prevent public access. | 
-| Role | Secured with the principle of least privilege (e.g. not a SUPERUSER) | Use a managed database platform, such as AWS RDS, to manage PostgreSQL. Configured to prevent public access. |
+* The simplest deployment model is to centralize all Fides functionality on a single fides container. However, it is possible to divide work across multiple fides containers on the same host or orchestration platform.
 
-### Redis Database
-| Criteria | Recommendation | Example |
-| - | --- | ------ |
-| Encryption-in-transit |Enabled, secured with TLSv1.2 or TLSv1.3 | Use a managed Redis platform, such as AWS Elasticache, to manage Redis. Configured to prevent public access. |
-| Encryption-at-rest | Enabled | Use a managed Redis platform, such as AWS Elasticache, to manage Redis. Configured to prevent public access. |
-| Network Accessibility | Not accessible from the public Internet | Use a managed Redis platform, such as AWS Elasticache, to manage Redis. Configured to prevent public access. |
+* The following components are optional and only deployed or integrated when using Privacy Center.
 
-### Remote Storage 
-| Criteria | Recommendation | Example |
-| - | --- | ------ |
-| Encryption-at-rest | Server-Side Encryption enabled | Deploy an S3 bucket with encryption-at-rest enabled and a lifecycle rule. |
-| Lifecycle Management | Automatically delete files older than 30 days | Deploy an S3 bucket with encryption-at-rest enabled and a lifecycle rule. |
-| User Management | Access restricted to only the Fides service account | Deploy an S3 bucket with encryption-at-rest enabled and a lifecycle rule. |
+  * Privacy Center container (and UI)
+  * Storage destination
+  * Messaging provider 
 
- 
+* The public ingress / reverse proxy component is not part of Fides, but Fides must not be deployed to production without it.
 
+![Generic Deployment Diagram](https://user-images.githubusercontent.com/83430497/219022886-9d091ef9-a3c9-415a-a9a4-d44d49b12374.png)
+
+### Public Ingress: TLS Termination of Inbound Traffic
+
+The Fides webserver and Privacy Center services are not designed for a deployment with direct termination of TLS for inbound traffic. These services must not be exposed to users on untrusted networks. Therefore a reverse proxy or load balancer must be placed in front of them to enforce encryption of inbound traffic using TLS. 
+
+![Public Ingress TLS Termination Diagram](https://user-images.githubusercontent.com/83430497/219023044-bb8552aa-cbc4-4842-bb91-2fd1d284cf82.png)
+
+### Public Ingress: Route Allow-Listing for Inbound Traffic 
+
+Expsosing all Fides API endpoints to users on untrusted networks such as the public Internet is not recommended. Therefore an ingress or API gateway must be placed in front of the Fides webserver to allow-list only the minimum set of routes required by external users.
+
+![Public Ingress Route Allow Listing](https://user-images.githubusercontent.com/83430497/219023171-6f950b7c-0307-4557-b285-ec744e25780c.png)
+
+#### Public Internet  --> Fides Webserver
+
+Only the following endpoints should be allow-listed from the public Internet to the Fides webserver.
+
+* `/api/v1/consent-request`
+* `/api/v1/consent-request/{consent_request_id}/preferences`
+* `/api/v1/consent-request/{consent_request_id}/verify`
+* `/api/v1/id-verification/config`
+* `/api/v1/oauth/callback`
+* `/api/v1/privacy-request`
+* `/api/v1/privacy-request/{privacy_request_id}/verify`
+
+Where `{consent_request_id}` and `{privacy_request_id}`  take the form of UUIDs prefixed with `con_` and `pri_`, respectively e.g. 
+
+* `/api/v1/consent-request/con_4f0d00e2-730c-4ca1-9c97-2c40ec55f847/verify`
+* `/api/v1/privacy-request/pri_ae45de5b-cb8a-4567-9784-30692d82d00e/verify`
+
+The UUIDs are randomly generated and will be different for each request.
+
+#### Public Internet → Privacy Center UI
+
+Allow all routes to the Privacy Center UI container from the public Internet.
+
+#### Trusted Internal Networks → Fides Webserver
+
+Allow-list all routes to the Fides webserver from the trusted internal networks on which your Admin UI and API users will be present.
+
+### Privacy Center Front-End Cache
+
+The Privacy Center UI is intended to be accessed by users on the public Internet. To improve performance for these users and reduce load on the Privacy Center UI origin server, it is recommended (but optional) to deploy a cache for the Privacy Center’s static assets between the user and the public ingress.
+
+![Privacy Center Front-End Cache](https://user-images.githubusercontent.com/83430497/219023296-5a16d41a-b6c6-4aac-929c-73e8a789b838.png)
+
+## Security Best Practices
+
+### Version Management
+
+* **\[DevOps\]** Deploy stable, maintained software release versions only. Re-deploy or update when new versions become available.
+* **\[DevOps\]** Check regularly for new [releases](https://github.com/ethyca/fides/releases). Re-deploy or update when new versions become available.
+
+### Authentication
+
+* **\[General\]** For username + password authentication:
+  * Is the username unique? Avoid account sharing.
+  * Is the password unique? Avoid password re-use.
+  * Is the password strong? A random alphanumeric string with a minimum length of 16 characters is recommended.
+* **\[Fides Webserver Config\]** Set `subject_identity_verification_required` to `true` so that identity verification is required for privacy requests. This is set to `false` by default.
+
+### Authorization
+
+* **\[General\]** Apply the principle of least privilege when granting users roles and permissions.
+* **\[General\]** Regularly review user accounts and their privileges. Revoke access when it is no longer required. Reduce permissions if they are not needed.
+
+### Secrets Management
+
+* **\[General\]** Avoid the use of default fides values for secrets. Configure your own unique values instead.
+* **\[DevOps\]** If deploying Fides to a container orchestration platform, use the platform’s secrets management tools and apply best practices. For example, if using Kubernetes, apply [Good practice for Kubernetes Secrets](https://kubernetes.io/docs/concepts/security/secrets-good-practices/)
+* **\[DevOps\]** If feasible, use a secrets management system such as AWS Secrets Manager or Hashicorp Vault.
+
+### Encryption
+
+#### Encryption in Transit
+
+* **\[DevOps\]** The Fides containers are designed to be deployed behind a reverse proxy for TLS termination (also known as SSL/TLS offload). When deploying Fides you must ensure that traffic is encrypted when transmitted on external networks by the following.
+  * Deploy a reverse proxy for all inbound connections to the Fides containers. Commonly used methods include:
+    * Deploying an AWS Application Load Balancer with [HTTPS listeners](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) in front of the Fides containers.
+    * Deploying an NGINX server / container for [SSL termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/) in front of the Fides containers.
+    * Using an NGINX Ingress Controller for [SSL termination](https://kubernetes.github.io/ingress-nginx/examples/tls-termination/) if deploying the Fides containers on Kubernetes.
+  * Deny all inbound traffic to Fides containers that does not pass via the proxy.
+  * Redirect all inbound HTTP connection requests to HTTPS.
+* **\[DevOps\]** For all TLS connections, ensure that TLS v1.2 is the minimum TLS version in use. Disable support for older versions.
+
+#### Encryption at Rest
+
+* **\[Fides Webserver Config\]** Generate a unique, random 32 character string for the AES app encryption key for use in your configuration.  `app_encryption_key` in the `[security]` section of `fides.toml` - see [Configuration](./configuration) for more info.
+* **\[Fides Webserver Config\]** Generate a unique, random 32 character string for the PGP user data encryption key for use in your configuration.  `encryption_key` in the `[user]` section of `fides.toml` - see [Configuration](./configuration) for more info.
+* **\[Fides Webserver Config\]** Configure a remote [storage destination](../../dsr_quickstart/dsr_support/storage) e.g. an S3 bucket with default [server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html). Do not store DSRs locally on the container’s ephemeral filesystem.
+
+### Application Traffic
+
+* **\[Fides Webserver Config\]** Allow only selected, trusted domains in the `Access-Control-Allow-Origin` header by configuring the value of `cors_origins` appropriately. The values will be unique to your deployment. Avoid the use of `*` wildcards. `cors_origins` in the `[security]` section of `fides.toml` - see [Configuration](./configuration) for more info.
+* **\[Fides Webserver Config\]** Configure a sensible value for the Fides API rate-limit. Its value should be high enough not to block genuine traffic, but low enough to protect against automated attacks. Ethyca recommends starting with a high value before lowering it as you monitor the amount of traffic Fides receives. `request_rate_limit` in the `[security]` section of `fides.toml` - see [Configuration](./configuration) for more info.
+* **\[Fides Webserver Config\]** Enable authentication for all Fides webserver API endpoints by setting `env = prod` in the `[security]` section of `fides.toml` If this is not explicitly enabled, then by default the Fides webserver allows all inbound traffic to all API endpoints and front-end paths. This includes potentially dangerous Fides API endpoints such as `/api/v1/admin/db/reset`. See [Configuration](./configuration) for more info.
+
+### Reverse Proxy
+
+* **\[DevOps\]** The public ingress / reverse proxy component is not part of Fides, but Fides must not be deployed to production without it. The reverse proxy serves two critical security purposes: TLS support and route allow-listing. Please refer to the sections linked below for more info.
+  * [Public Ingress: TLS Termination of Inbound Traffic](#public-ingress-tls-termination-of-inbound-traffic)
+  * [Public Ingress: Route Allow-Listing for Inbound Traffic](#public-ingress-route-allow-listing-for-inbound-traffic)
+
+### Network Access / Firewalls
+
+* **\[DevOps\]** Configure your firewalls to:
+  * Inbound
+    * Allow inbound HTTPS (TCP/443) traffic to the reverse proxy from any source, including the public Internet. It’s also recommended to allow inbound HTTP (TCP/80) traffic to the reverse proxy from any source, but configure the reverse proxy to immediately redirect these connections to HTTPS.
+    * Allow inbound HTTP traffic from the reverse proxy to the Fides webserver, typically on TCP/8080.
+    * Allow inbound HTTP traffic from the reverse proxy to the Privacy Center UI container, typically on TCP/3000.
+    * Implicitly deny all other inbound traffic.
+  * Outbound
+    * Allow outbound TCP and UDP traffic from the Fides containers to any destination.
+
+### Logging
+
+* **\[Fides Webserver Config\]** Set the minimum log level to `INFO` or higher. Do not set to `DEBUG` or `TRACE`.
+* **\[Fides Webserver Config\]** Do not set the `FIDES__LOGGING_LOG_PII` environment variable to `True`.
+* **\[Fides Webserver Config\]** Do not set the `FIDES__DEV_MODE` environment variable to `True`.
+* **\[DevOps\]** Incorporate Fides logging into your organization’s existing log management systems for appropriate monitoring, alerting, and reporting.
+
+### Hosted Fides Data Stores
+
+#### Hosted Fides Database (PostgreSQL)
+
+* **\[Hosted Database Config\]** Use the [latest minor version of a supported major release](https://www.postgresql.org/support/versioning/) of PostgreSQL. 
+* **\[Hosted Database Config\]** Ensure that the database’s storage is encrypted at rest at the filesystem or block level using at least AES-256.
+* **\[Hosted Database Config\]** Create a dedicated user and strong password for the Fides Webserver user to authenticate to the database.
+* **\[Hosted Database Config\]** Allocate the minimum [role attributes](https://www.prisma.io/dataguide/postgresql/authentication-and-authorization/role-management) needed to the Fides Webserver database user. 
+* **\[Hosted Database Config\]** Configure the hosted database to allow encrypted connections only.
+* **\[DevOps\]** Allow-list network traffic to/from the Fides Webserver only. Implicitly deny all other traffic e.g. to the public Internet.
+
+#### Hosted Fides Cache (Redis)
+
+* **\[Hosted Cache Config\]** Use a [stable, supported version](https://redis.io/docs/about/releases/) of Redis.
+* **\[Hosted Cache Config\]** Use a dedicated hosted cache, do not share it with other applications.
+  * Allow-list network traffic to/from the Fides Webserver only.
+  * If the cache cannot be dedicated and must be shared with other applications, use [Redis ACLs](https://redis.io/docs/management/security/acl/) to manage cache authorization.
+* **\[Hosted Cache Config\]** Use [Redis TLS support](https://redis.io/docs/management/security/encryption/) to only allow TLS/SSL encrypted connections. Note that this will have [a performance impact](https://redis.io/docs/management/security/encryption/#performance-considerations).
+* **\[Fides Webserver Config\]** Configure the Fides Webserver to enable TLS/SSL for Redis traffic. `ssl = True` in the `[redis]` section of `fides.toml` - see [Configuration](./configuration) for more info.
+  * If the hosted cache supports it, also set `ssl_cert_reqs = "required"` in the same configuration section. Note that some cache platforms e.g. Elasticache may not support this.
+
+### Remote Storage Destination
+
+Fides currently only supports S3 as a remote storage destination for DSRs.
+
+* **\[Remote Storage Config\]** Implement the recommendations in [AWS’s Security best practices for Amazon S3 user guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html).
+* **\[Remote Storage Config\]** Once a DSR is stored on S3 for retrieval, Fides does not manage their lifecycle. To ensure that DSR objects do not persist forever, implement a sensible [storage lifecycle management configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) with expiration.
