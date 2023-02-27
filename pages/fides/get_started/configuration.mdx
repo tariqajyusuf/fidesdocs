@@ -2,31 +2,7 @@
 
 ---
 
-## Setting Configuration Values
-
-Fides can be configured in two different ways: either via a `toml` file or via environment variables.
-Both methods can be used simultaneously, with environment variables taking precedence over the `toml` file values.
-
-### Using a Configuration File
-
-Fides will use the first config file it can read from the following locations. Listed in order of precedence they are:
-
-1. At the path specified using the config file argument passed through the CLI, i.e. `fides -f <config_path>`
-1. At the path specified by the `FIDES__CONFIG_PATH` environment variable
-1. In the current working directory it will check for a subdir `.fides` and a file within named `fides.toml`, i.e. `./.fides/fides.toml`
-
-### Generating a Config File
-
-If you'd like to generate a new config file automatically using default values, run `fides init`.
-This will create the file at the default location of `./.fides/fides.toml`
-
-### Setting Values Via Environment Variables
-
-Fides follows a set pattern for configuration via environment variables.
-It looks for environment variables that start with `FIDES` followed by the config subsection name, followed by the key name, all separated with double underscores.
-In practice this would look like `FIDES__<SUBSECTION>__<KEY>`
-
-As a `toml` configuration value:
+# Point to the old docs site for configuration
 
 ```toml
 [database]
