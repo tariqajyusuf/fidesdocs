@@ -162,14 +162,18 @@ encryption_key = "test_encryption_key"
 
 ### Application Database
 
-| Name       | Type   | Default    | Description                                                                                                                             |
-| :--------- | :----- | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| `user`     | String | `postgres` | The database user with which to login to the application database.                                                                      |
-| `password` | String | `fides`    | The password with which to login to the application database.                                                                           |
-| `server`   | String | `fides-db` | The hostname of the Postgres database server.                                                                                           |
-| `port`     | String | `5432`     | The port at which the Postgres database will be accessible.                                                                             |
-| `db`       | String | `fides`    | The name of the Postgres database.                                                                                                      |
-| `test_db`  | String | `""`       | Used instead of the `db` config when the `FIDES_TEST_MODE` environment variable is set to `True`, to avoid overwriting production data. |
+| Name                       | Type   | Default    | Description                                                                                                                             |
+| :------------------------- | :----- | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `user`                     | String | `postgres` | The database user with which to login to the application database.                                                                      |
+| `password`                 | String | `fides`    | The password with which to login to the application database.                                                                           |
+| `server`                   | String | `fides-db` | The hostname of the Postgres database server.                                                                                           |
+| `port`                     | String | `5432`     | The port at which the Postgres database will be accessible.                                                                             |
+| `db`                       | String | `fides`    | The name of the Postgres database.                                                                                                      |
+| `test_db`                  | String | `""`       | Used instead of the `db` config when the `FIDES_TEST_MODE` environment variable is set to `True`, to avoid overwriting production data. |
+| `api_engine_pool_size`     | int    | `50`        | The `pool_size` for the API database Engine                                                                                             |
+| `api_engine_max_overflow`  | int    | `50`       | The `max_overflow` for the API database Engine                                                                                          |
+| `task_engine_pool_size`    | int    | `50`        | The `pool_size` for the celery task database Engine                                                                                     |
+| `task_engine_max_overflow` | int    | `50`       | The `max_overflow` for the celery task database Engine                                                                                  |
 
 ### Redis cache
 
