@@ -1,3 +1,4 @@
+import Callout from 'nextra-theme-docs/callout'
 
 # Manage Consent in the Privacy Center
 
@@ -100,27 +101,27 @@ The Fides Privacy Center's text and actions are managed by a `config.json` file,
 
 | Key | Description |
 |----|----|
-| `title` and `description` | Text fields to override the default text of either the main portal, or the associated action. |
+| `title` and `description` | Basic information about the connector that can be overridden. |
 | `server_url_development` | The Fides server URL to use for development deployments. |
 | `server_url_production` | The Fides server URL to use for production deployments. |
-| `logo_path` | The relative path to a brand or site logo to replace the default. |
-| `actions` | A list of [action objects](#actions), each of which represent a new tile available in the portal, and are associated to a single Fides policy. |
+| `logo_path` | The relative path to a brand or site logo to use instead of the default. |
+| `actions` | A list of [action objects](#actions) that are associated with a single Fides policy. |
 | `policy_key` | The key of the [policy](./dsr_support/execution_policies) to use for this action. |
-| `icon_path` | The relative path of an icon to replace the defaults. |
-| `identity_inputs` | The list of personally identifiable information required by an action. |
+| `icon_path` | The relative path of an icon to use instead of the default. |
+| `identity_inputs` | The list of identities that are required by an action. |
 
 ### Consent
 To provide compliance with local and internal regulations, you may define a series of [data uses](https://ethyca.github.io/fideslang/taxonomy/data_uses/) in your Privacy Center configuration. More information on including data uses for third-party services can be found in the [Google Tag Manager](./google_tag_manager) guide.
 
 | Key | Description |
 |----|----|
-| `includeConsent` | Where or not the consent options are enabled. |
+| `includeConsent` | Defines whether or not the consent options are enabled. |
 | `cookieName` | The name of the stored cookie. |
-| `title` and `description` | Text fields to override the default text of the associated consent option. |
-| `url` | The URL where a user can find additional information about this data use. |
+| `title` and `description` | Basic information about the consent preference that can be overridden. |
+| `url` | The URL where a user can view the consent notice. |
 | `default` | If this consent preference is enabled (true) or disabled (false) by default. |
-| `highlight` | Whether or not this consent preference is highlighted. |
-| `cookieKeys` | The data use represented within your stored cookie. |
+| `highlight` | Defines whether or not this consent preference is highlighted. |
+| `cookieKeys` | The data use that is represented within your stored cookie. |
 | `executable` |  Whether the user’s consent choice should be propagated to configured third party services |
 
 ## Actions
@@ -128,15 +129,37 @@ To learn more about configuring your Privacy Center for DSR enforcement, see the
 
 ## Server-side Consent Enforcement
 
-There are some capabilities to propagate your users' consent preferences to external systems server-side.
-While user consent in the browser is often realized by suppressing third-party cookies, user consent 
-server-side is achieved by sending API calls to persist the user's preferences to third party web services.
-In certain regards, this type of consent propagation may be considered more comprehensive and enduring. 
+Most consent solutions generally focus on user consent in the browser by suppressing third-party cookies. Along with browser consent enforcement, Fides supports server-side enforcement of user consent. Fides communicates the user's consent to third-party vendors via API calls or email. This type of consent propagation can be considered more comprehensive and enduring. 
 
-When saving consent preferences, those marked executable are passed onto any configured SaaS Connections with 
-capabilities to make consent requests, which in turn make various http requests to opt the user in or out of having their
-data used for various purposes. Only one consent preference is permitted to be executable at this time.
+### How to configure Server-side consent 
+When configuring consent options in the privacy center, you need to mark the executable tag as `true` for one of the consent options. When users change their preference(opt-in, opt-out) for the consent option marked as executable, all the SaaS connections with consent as an option are triggered to make consent requests. Connections internally will make API calls or email third-party vendors to notify user's preference changes.
 
+<Callout> **Only one consent preference** is permitted to be executable at this time. After you set a consent option to be executable and if a user changes their preference for the consent option, then **all** the SaaS connections connected will be triggered. </Callout>
+
+```
+"consent": {
+    "cookieName": "fides_consent",
+    "consentOptions": [
+      {
+        "fidesDataUseKey": "advertising",
+        "name": "Advertising / Data Sharing",
+        "description": "We may use some of your personal information for advertising performance analysis and audience modeling for ongoing advertising which may be interpreted as 'Data Sharing' under some regulations.",
+        "url": "https://example.com/privacy#advertising",
+        "default": true,
+        "highlight": false,
+        "cookieKeys": ["data_sales"],
+        "executable": true
+      },
+    ]
+  }
+```
+
+Ethyca recently launched three new SaaS connectors to propagate user's consent to third-party vendors. 
+After setting the executable flag to `true` for a consent option, please follow the configuration guide to set up the connectors.
+
+1. [Wunderkind Consent Connector](../dsr_quickstart/saas_connectors/example_configs/wunderkind)
+2. [Universal Analytics Consent Connector](../dsr_quickstart/saas_connectors/example_configs/universal_analytics)
+3. [Sovrn Consent Connector](../dsr_quickstart/saas_connectors/example_configs/sovrn)
 
 ## Run the Privacy Center
 The Privacy Center is provided in a separate Docker image. To begin, run the following command:

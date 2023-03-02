@@ -1,0 +1,15 @@
+{
+    "adobe": "Adobe",
+    "hubspot": "Hubspot",
+    "mailchimp": "Mailchimp",
+    "mailchimp_transactional": "Mailchimp Transactional",
+    "outreach": "Outreach",
+    "salesforce": "Salesforce",
+    "segment": "Segment",
+    "sentry": "Sentry",
+    "sovrn": "Sovrn",
+    "stripe": "Stripe",
+    "universal_analytics": "Universal Analytics",
+    "wunderkind": "Wunderkind",
+    "zendesk": "Zendesk"
+}
