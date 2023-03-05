@@ -1,4 +1,6 @@
 {
     "messaging_services": "Configure Messaging Services",
-    "storage": "Configure DSR Storage"
+    "storage": "Configure DSR Storage",
+    "access_controls": "Role Based Access Controls",
+    "api_access_controls": "Managing Role Based Access Controls via the API "
 }
