@@ -129,8 +129,6 @@ These service types must correspond to the `service_type` in one of your messagi
         "twilio_email_from": "{{twilio_from_email}}"
     }
 }
-
-
 ```
 
 | Field          | Description                                                                                                                                                      |
