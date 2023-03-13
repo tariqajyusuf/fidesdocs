@@ -1,16 +1,17 @@
 # User Management via the API
 
-Fides uses Role Based Access Controls. You can assign roles directly to users which are associated with a list of specific scopes (permissions).  You can also optionally designate certain users as system managers who are responsible for specific systems. Here we discuss how to manage user permissions via the API directly.
+Fides uses Role-Based Access Controls which means that users can be assigned various roles within the organization that grant them a specific set of scopes (permissions). You can also optionally designate certain users as system managers who are responsible for specific systems. Here we discuss how to manage user permissions via the API directly.
+
 
 
 ## Available Roles
 
 These are the current roles that can be granted to users within your organization:
 
-- Owner: Admin permissions
-- Contributor: Nearly admin, except for setting up system configuration like storage and messaging
-- Viewer + Approver: Full read and can approve Privacy Requests
-- Viewer: Full read
+- Owner:  Full control over all settings and systems in the Data Map.
+- Contributor: Full control over all settings and systems in the Data Map except for organization-wide system configurations like storage and messaging.
+- Viewer + Approver: Read-only access to all settings and systems in the Data Map + can review and respond to privacy requests.
+- Viewer: Read-only access to all settings and systems in the Data Map.
 - Approver: Limited read and can approve Privacy Requests
 
 To view the granular scopes associated with each role:
