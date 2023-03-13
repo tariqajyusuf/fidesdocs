@@ -42,13 +42,20 @@ Fides email template.
 
 Alternatively the Mailgun private API key will also work for this option, but is not required.
 
-### Twilio
+### Twilio SMS
 
-1. Have your Twilio account information ready. To configure messaging via email or SNS, you will need your Account SID, an API Key and Auth Token, and either your Messaging Service ID or your Twilio sender phone number. These should be available in your Twilio console.
+To configure messaging via SMS, you will need your Account SID and Auth Token (viewable in the `Api keys and tokens` section of your account settings), and either your Messaging Service ID or your Twilio sender phone number (Both available in your Twilio console). 
 
-2. Generate a Twilio API key
+![Twilio SID and Auth Token](../../../../public/assets/img/dsr_quickstart/twilio_auth_tokens.png)
 
-    Follow the [Twilio documentation](https://www.twilio.com/docs/iam/keys/api-key) to create a new API key for Fides.
+Use your messaging service ID if you've set up a specific messaging service in Twilio, otherwise use your Twilio sender phone number.
+
+
+### Twilio Email (Sendgrid)
+
+To configure messaging via email, you will need generate a Twilio API key.
+
+Follow the [Twilio documentation](https://www.twilio.com/docs/iam/keys/api-key) to create a new API key for Fides.
 
 ## Configuration
 
@@ -69,7 +76,7 @@ FIDES__NOTIFICATIONS__SEND_REQUEST_REVIEW_NOTIFICATION=true
 The following service types are accepted as a `FIDES__NOTIFICATIONS__NOTIFICATION_SERVICE_TYPE`:
 
 - `mailgun`
-- `twilio_sms`
+- `twilio_text`
 - `twilio_email`
 
 These service types must correspond to the `service_type` in one of your messaging configs in the database.
@@ -104,7 +111,7 @@ These service types must correspond to the `service_type` in one of your messagi
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `key`          | *Optional.* A unique key used to manage your messaging config. This is auto-generated from `name` if left blank. Accepted values are alphanumeric, `_`, and `.`. |
 | `name`         | A unique user-friendly name for your messaging config.                                                                                                           |
-| `service_type` | The email service to configure. Currently, Fides supports `mailgun`, `twilio_email`, and `twilio_sms`.                                                           |
+| `service_type` | The email service to configure. Currently, Fides supports `mailgun`, `twilio_email`, and `twilio_text`.                                                          |
 | `details`      | A dict of key/val config vars specific to the messaging service.                                                                                                 |
 | `domain`       | Your unique Mailgun domain.                                                                                                                                      |
 | `is_eu_domain` | *Optional.* A boolean that denotes whether your Mailgun domain was created in the EU region. Defaults to `False`.                                                |
