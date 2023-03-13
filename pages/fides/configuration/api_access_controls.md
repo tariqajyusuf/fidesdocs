@@ -51,7 +51,7 @@ To view the granular scopes associated with each role:
 
 ### Configuring the root user
 
-To create users in the system, you need an initial user that *already* has permission to create users.  The Fides installation ships with a root user for this purpose.  You should typically avoid using the root user for Fides management other than for an Owner to create their user account.
+To create users in the system, you need an initial user that *already* has permission to create users.  The Fides installation ships with a root user for this purpose.  You should typically avoid using the root user for Fides management other than for an `Owner` to create their user account.
 
 A root user can be created by adding a `root_username` and `root_password` to the  security section of `fides.toml` file, or by setting `FIDES__SECURITY__ROOT_USERNAME` and `FIDES__SECURITY__ROOT_PASSWORD` environment variables.
 

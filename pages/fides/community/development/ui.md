@@ -6,7 +6,7 @@ To test the UI locally, clone the [Fides repository](https://github.com/ethyca/f
 ### Creating the root user
 
 A root user can be created by adding a `root_username` and `root_password` to the
-security section of `fides.toml` file, or by setting `FIDES__SECURITY__ROOT_USERNAME`
+security section of the `fides.toml` file, or by setting `FIDES__SECURITY__ROOT_USERNAME`
 and `FIDES__SECURITY__ROOT_PASSWORD` environment variables.
 
 This will allow you to login in with a root user that can be used to access

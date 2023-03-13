@@ -69,9 +69,9 @@ In the Permissions tab, add the `Approver` role to that user.  This user will be
 
 Both Owners and Viewers can be assigned to systems as Data Stewards (system managers). For Viewers, this provides an elevated set of permissions to manage the assigned systems without changing their overall permissions. 
 
-Note `Owners` can edit all systems without being assigned as the Data Steward due to having a role with broad admin access.
+Note that `Owners` can edit all systems without being assigned as the Data Steward due to having a role with broad admin access.
 
-To assign systems to a user, first assign their role (ex. Viewer) and then use the `Assign Systems +` button to select the systems they should manage.
+To assign systems to a user, first assign their role (ex. `Viewer`) and then use the `Assign Systems +` button to select the systems they should manage.
 In this example, we click the `Viewer` row and then click `Assign Systems +`
 
 ![Viewer Role](../../../public/assets/img/configuration/viewer_role.png)
@@ -82,7 +82,7 @@ In the Assign Systems modal, toggle on/off the specific systems that you want th
 ![Assign Systems](../../../public/assets/img/configuration/assign_systems.png)
 
 
-In this example, the user now has a Viewer role which grants view-only access to all settings & systems in the Data Map . However, they have been assigned as the Data Steward for `Demo Analytics System` and can make updates to that specific system.
+In this example, the user now has a `Viewer` role which grants view-only access to all settings and systems in the Data Map. However, they have been assigned as the Data Steward for `Demo Analytics System` and can make updates to that specific system.
 
 ![system_list](../../../public/assets/img/configuration/system_list.png)
 
