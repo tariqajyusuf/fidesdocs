@@ -20,7 +20,7 @@ Fides can scan [Okta](#working-with-an-okta-account), [AWS](#scan-aws-resources)
 The `generate` command can connect to your AWS account and automatically generate resource files based on the contents. 
 
 ### Providing Credentials
-AWS credentials can be supplied as a command option, or using the Fides [configuration](../installation/configuration). 
+AWS credentials can be supplied as a command option, or using the Fides [configuration](../get_started/configuration). 
 
 #### Command line
 Credentials can be directly supplied in your command using the `access_key_id`, `secret_access_key`, and `region` options.
@@ -47,7 +47,7 @@ export AWS_DEFAULT_REGION="us-east-1"
 ```
 
 #### Configuration files
-Credentials can be defined within your [Fides configuration](../installation/configuration) under the credentials section.
+Credentials can be defined within your [Fides configuration](../get_started/configuration) under the credentials section.
 
 ```sh
 [credentials]
@@ -189,7 +189,7 @@ export OKTA_CLIENT_PRIVATEKEY="<my_private_jwk>"
 ```
 
 #### Configuration files
-Credentials can be defined within your [Fides config](../installation/configuration) under the credentials section.
+Credentials can be defined within your [Fides config](../get_started/configuration) under the credentials section.
 
 ```sh
 [credentials]

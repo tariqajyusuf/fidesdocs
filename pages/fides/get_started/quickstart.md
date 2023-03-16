@@ -5,7 +5,7 @@ import Callout from 'nextra-theme-docs/callout'
 <Callout emoji="ⓘ">This guide is designed to get you started with Fides in as few steps as possible. Want to learn about configuration in-depth? Check out our [advanced setup](./advanced) and [deployment](../deployment) guides!</Callout>
 
 ## Minimum requirements
-See the the [project requirements](../installation/requirements) to get started.
+See the the [project requirements](../get_started/requirements) to get started.
 
 **If using Docker,** run `docker -v` in a new shell to confirm that docker is ready to use:
 
@@ -68,7 +68,7 @@ Created a './.fides' directory.
 ----------
 Created a fides config file: ./.fides/fides.toml
 To learn more about configuring fides, see:
-    https://ethyca.github.io/fides/installation/configuration/
+    https://ethyca.github.io/fides/get_started/configuration/
 ----------
 For example policies and help getting started, see:
     https://ethyca.github.io/fides/guides/policies/
@@ -87,6 +87,6 @@ fides webserver
 With the Fides webserver running, the hosted UI is available at `http://{server_url}/` (e.g. `http://localhost:8080/`). 
 
 ## Next steps
-For more information on customizing your environment configuration, see the [configuration reference](../installation/configuration) guide.
+For more information on customizing your environment configuration, see the [configuration reference](../get_started/configuration) guide.
 
 Now that Fides is up and running, you're ready to get started with [DSR automation](../dsr_quickstart/overview) and [data mapping](../data_mapping/overview)!

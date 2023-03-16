@@ -5,7 +5,7 @@ import Callout from 'nextra-theme-docs/callout'
 ## Getting started
 Ready to go from **zero** to **DSR automation**? This guide is designed to walk you through configuring Fides and automating your first Data Subject Request! 
 
-<Callout>If you haven't already, make sure Fides is installed on your machine (or compute instance). Check out the [quickstart](../installation/quickstart) or [advanced installation](../installation/advanced) guides to ensure Fides is running.</Callout>
+<Callout>If you haven't already, make sure Fides is installed on your machine (or compute instance). Check out the [quickstart](../get_started/quickstart) or [advanced installation](../get_started/advanced) guides to ensure Fides is running.</Callout>
 
 This guide will walk you through using the Fides UI to connect your [third-party services](./configure_connectors), and then [creating datasets](./connect_databases) to represent their contained tables.
 

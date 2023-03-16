@@ -15,7 +15,7 @@ Fides uses the following Adobe Campaign endpoints to retrieve and delete Persona
 
 Connection instructions may be found in the [configuration guide](../saas_config).
 
-**Deletion requests** are fulfilled by masking PII via `UPDATE` endpoints. To [give Fides permission](../../../installation/configuration#configuration-variable-reference) to remove PII using `DELETE` endpoints, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+**Deletion requests** are fulfilled by masking PII via `UPDATE` endpoints. To [give Fides permission](../../../get_started/configuration#configuration-variable-reference) to remove PII using `DELETE` endpoints, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
 
 ## Example Adobe Configuration
 
