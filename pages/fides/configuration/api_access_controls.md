@@ -2,17 +2,16 @@
 
 Fides uses Role-Based Access Controls which means that users can be assigned various roles within the organization that grant them a specific set of scopes (permissions). You can also optionally designate certain users as system managers who are responsible for specific systems. Here we discuss how to manage user permissions via the API directly.
 
-
-
 ## Available Roles
 
 These are the current roles that can be granted to users within your organization:
 
-- Owner:  Full control over all settings and systems in the Data Map.
-- Contributor: Full control over all settings and systems in the Data Map except for organization-wide system configurations like storage and messaging.
-- Viewer + Approver: Read-only access to all settings and systems in the Data Map + can review and respond to privacy requests.
-- Viewer: Read-only access to all settings and systems in the Data Map.
-- Approver: Limited read and can approve Privacy Requests
+- `Owner`: A user with full control over all settings and systems in the Data Map. Can create all types of users.
+- `Contributor`: A user with full control over all settings and systems in the Data Map except for some organization-wide system configurations like storage and messaging for privacy requests. Can create all types of users except `Owners`.
+- `Viewer`: A user with read-only access to all settings and systems in the Data Map.
+- `Viewer + Approver`: A user with read-only access to all settings and systems in the Data Map who can review and respond to privacy requests.
+- `Approver`: A user who can only approve and respond to privacy requests in the Privacy Request UI.
+
 
 To view the granular scopes associated with each role:
 
@@ -98,10 +97,10 @@ Owners automatically inherit all possible Fides scopes.
 
 ### Configuring other users
 
-To configure other users, login as your user, and follow the same workflow above to assign various roles to users within your organization. In the example below, we are adding a user that can manage Privacy Requests:
+To add other users, login as an `Owner` or `Contributor` account, and follow the  workflow above to assign various roles to users within your organization. In the example below, we are adding a user that can manage Privacy Requests.
 
 
-Login as owner:
+Login as an `Owner` or `Contributor`::
 
 `POST /login`
 
@@ -112,7 +111,7 @@ Login as owner:
 }
 ```
 
-Create a user to manage Privacy Requests:
+Create an `Approver` user to manage Privacy Requests:
 
 `POST /user`
 
@@ -135,11 +134,11 @@ Add the `approver` role to that user:
 }
 ```
 
-Approvers have limited read but can manage Privacy Requests.
+This user will be given limited access to Fides but will be able to manage Privacy Requests:
 
 ### Changing passwords
 
-Share the username and password with applicable users in a secure way. They can login and then change their password:
+Share the username and password with users in a secure way. We recommend they login and change their password:
 
 `POST /user/{user_id}/reset-password`
 
@@ -152,12 +151,13 @@ Share the username and password with applicable users in a secure way. They can 
 
 ## System Managers
 
-Fides supports being able to configure users as system managers, giving them permission to manage details for just that system or systems.
+`Owners`, `Contributors`, and `Viewers` can be assigned to systems as Data Stewards (system managers). For `Viewers`, this provides an elevated set of permissions to manage the assigned systems without changing their overall permissions. 
 
+Note that `Owners` can edit **all** systems without being assigned as the Data Steward.
 
 ### Adding a user as system manager
 
-Pass in a list of system keys for which the user should be system manager:
+To assign systems to a user who is an `Owner`, `Contributor`, or `Viewer`, pass in the list of system keys to be assigned:
 
 `PUT /user/{user_id}/system-manager`
 
@@ -165,17 +165,16 @@ Pass in a list of system keys for which the user should be system manager:
 ["system_key_1", "system_key_2"]
 ```
 
-
 ### Get systems for which the user is manager
 
-The following request returns a detailed representation of all systems the user can manage:
+To retrieve a list of systems assigned to a user, use this request format:
 
 `GET /user/{user_id}/system-manager`
 
 
 ### Remove user as system manager
 
-The following request unlinks the user as manager of the given system:
+To remove a system assignment from a user, use this request format:
 
 `DELETE /user/{user_id}/system-manager/{system_key}`
 
@@ -190,7 +189,7 @@ There might be occasions where you want to create tokens with a custom set of sc
 
 A root client can be created by adding an oauth_root_client_id and oauth_root_client_secret to the security section of fides.toml file, or by setting `FIDES__SECURITY__OAUTH_ROOT_CLIENT_ID` and `FIDES__SECURITY__OAUTH_ROOT_CLIENT_SECRET` environment variables.
 
-Get a root client token, by passing in your root `client_id` and `client_secret` as form data. 
+Get a root client token, by passing in your root `client_id` and `client_secret` as form data: 
 
 `POST /oauth/token`
 
@@ -199,7 +198,7 @@ This will return an access token with full scopes.
 
 ### Create a client
 
-Create a client with the specific set of scopes you'd like to assign.  The request should use the root client token for authentication.
+To create a client with a specific set of scopes, the request should use the root client token for authentication:
 
 `POST /oauth/client`
 
