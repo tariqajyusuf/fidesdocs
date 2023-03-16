@@ -7,7 +7,7 @@ When you invoke a Fides API, you must pass an _access token_ as the value of the
 <Callout>When running the Fides webserver, navigate to the interactive API docs at `http://{server_url}/docs` (e.g., `http://0.0.0.0:8080/docs`) to access the following endpoints.</Callout>
 
 ## Create the root client
-Create an access client ID and secret for the "root" client. In your [configuration](../../installation/configuration), these are defined as `oauth_root_client_id` and `oauth_root_client_secret`.
+Create an access client ID and secret for the "root" client. In your [configuration](../../get_started/configuration), these are defined as `oauth_root_client_id` and `oauth_root_client_secret`.
 
 **The root client token contains all scopes,** and can call any of the Fides APIs. Once authenticated, creating additional users with individual scopes is recommended.
 

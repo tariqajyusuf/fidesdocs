@@ -22,7 +22,7 @@ Fides works out-of-the-box with most databases, including:
 Additionally, Fides includes commands to connect to [BigQuery](#scan-a-google-cloud-platform-account) and [Snowflake](https://docs.snowflake.com/en/user-guide/sqlalchemy.html#connection-string-examples) data warehouses. 
 
 ### Provide connection credentials
-Database credentials are provided as part of the connection string supplied. The connection string can be supplied as a command option, or using the Fides [configuration](../installation/configuration). The appropriate `connection-string` format for your database connector can be found in the [SQLAlchemy Documentation](https://docs.sqlalchemy.org/en/14/dialects/).
+Database credentials are provided as part of the connection string supplied. The connection string can be supplied as a command option, or using the Fides [configuration](../get_started/configuration). The appropriate `connection-string` format for your database connector can be found in the [SQLAlchemy Documentation](https://docs.sqlalchemy.org/en/14/dialects/).
 
 #### Command line
 A connection string can be supplied using the `connection-string` option:
@@ -32,7 +32,7 @@ fides generate dataset db \
 ```
 
 #### Configuration files
-A connection string can also be defined within your Fides [configuration](../installation/configuration) under the `credentials` section.
+A connection string can also be defined within your Fides [configuration](../get_started/configuration) under the `credentials` section.
 
 ```sh
 [credentials]
@@ -144,7 +144,7 @@ The `generate` command can connect to a GCP account and automatically generate r
 
 ### Providing Credentials
 
-GCP credentials can be generated via a [service account keyfile](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) which can be passed as a command option or via Fides [configuration](../installation/configuration). You will need to set project specific credentials for access rights, but datasets can be passed explicitly at runtime.
+GCP credentials can be generated via a [service account keyfile](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) which can be passed as a command option or via Fides [configuration](../get_started/configuration). You will need to set project specific credentials for access rights, but datasets can be passed explicitly at runtime.
 
 #### Command line
 
@@ -156,7 +156,7 @@ The path to the keyfile can be directly supplied in your command using the `keyf
 ```
 
 #### Configuration files
-Credentials can be defined within your [Fides config](../installation/configuration) under the credentials section.
+Credentials can be defined within your [Fides config](../get_started/configuration) under the credentials section.
 
 ```toml
 [credentials.bigquery_1]

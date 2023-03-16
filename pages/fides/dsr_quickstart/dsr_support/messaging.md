@@ -61,7 +61,7 @@ Follow the [Twilio documentation](https://www.twilio.com/docs/iam/keys/api-key) 
 
 ### Add necessary config variables
 
-You'll need to set up config variables to send out messages from Fides. Refer to [the configuration reference](../../installation/configuration#configuration-variable-reference) for more details.
+You'll need to set up config variables to send out messages from Fides. Refer to [the configuration reference](../../get_started/configuration#configuration-variable-reference) for more details.
 
 The following is an example set of relevant configuration options to enable all notification types, using a `mailgun` service type:
 
