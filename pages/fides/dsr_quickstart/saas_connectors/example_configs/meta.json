@@ -1,6 +1,6 @@
 {
-    "auth0": "Auth0",
     "adobe": "Adobe",
+    "auth0": "Auth0",
     "hubspot": "Hubspot",
     "mailchimp": "Mailchimp",
     "mailchimp_transactional": "Mailchimp Transactional",
