@@ -23,6 +23,27 @@ This connection may be customized using the instructions found in the [configura
 
 **Deletion requests** are fulfilled by masking PII via `DELETE` endpoints. To [give Fides permission](../../../get_started/configuration#configuration-variable-reference) to remove PII using `DELETE` endpoints, ensure the `masking_strict` variable in your `fides.toml` or environment file is set to `false`.
 
+## Implementation
+
+### 1. Setting up Machine to Machine Application in Auth0  
+
+###### 1.1. Using the Auth0 Management Console, Navigate to Applications -> Applications
+###### 1.2. Click on the Create Application Button
+###### 1.3. Create the Ethyca Fides Application and click Machine to Machine Applications and press create
+![Create Ethyca Fides Machine to Machine Application](../../../../../public/assets/img//dsr_quickstart/create_a0_m2mapp.png)
+ 
+###### 1.4. Select the Auth0 Management API and add the read:users and delete:users scopes and click Authorize
+![Authorize Auth0 Management API and add the read:users and delete:users scopes](../../../../../public/assets/img//dsr_quickstart/authorize_a0_m2mapp.png)
+ 
+###### 1.5. Navigate to the settings tab of the Ethyca Fides Application. Notate the Domain, Client ID, and Client Secret Values
+![Notate the Domain, Client ID, and Secret](../../../../../public/assets/img//dsr_quickstart/get_a0_m2minfo.png)
+
+### 2. Configuring Auth0 SaaS Connector in Fides
+
+###### 2.1 Navigate to the connection Manager and Click on the Auth0 Tile
+###### 2.2 Fill in the Domain, Client ID, and Client Secret and click save
+![Fill in the Domain, Client ID, and Secret](../../../../../public/assets/img//dsr_quickstart/create_a0_dsr_connection.png)
+
 ## Example Auth0 Configuration
 
 ```yaml
