@@ -16,6 +16,8 @@ The following Auth0 scopes are required for executing the privacy requests using
 
 * read:users
 * delete:users
+* read:logs
+* read:logs_users
 
 ## Connection Settings
 
