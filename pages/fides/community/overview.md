@@ -4,6 +4,6 @@ We believe the only way to solve privacy is as a community of likeminded develop
 
 [Start Contributing](https://github.com/ethyca/fides)
 
-[Chat on Slack](https://www.fid.es/join-slack)
+[Chat on Slack](https://fid.es/join-slack)
 
 [Chat on Discord](https://discord.gg/6bKp5qVnSR)
