@@ -96,14 +96,14 @@ export default {
         <meta
           name="description"
           content={
-            meta.description ||
+            meta?.description ||
             "Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
           }
         />
         <meta
           name="og:description"
           content={
-            meta.description ||
+            meta?.description ||
             "Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
           }
         />
