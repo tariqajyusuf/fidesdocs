@@ -2,13 +2,13 @@ import Callout from 'nextra-theme-docs/callout'
 
 # What is a SaaS configuration?
 
-A [SaaS connector](saas_connectors) is defined in two parts: the [Dataset](../dsr_support/datasets), and the SaaS configuration. The Dataset describes the data that is available from the connector, and the SaaS config describes how to connect to, and retrieve or update the data in the connector.
+A [SaaS connector](../saas_overview) is defined in two parts: the [Dataset](../../dsr_quickstart/dsr_support/datasets), and the SaaS configuration. The Dataset describes the data that is available from the connector, and the SaaS config describes how to connect to, and retrieve or update the data in the connector.
 
-When accessing data from APIs, each application (and different endpoints within the same application) can follow different patterns, making their requirements different from [Database connectors](../dsr_support/database_connectors). Fides provides a flexible configuration to define different access/update patterns.
+When accessing data from APIs, each application (and different endpoints within the same application) can follow different patterns, making their requirements different from [Database connectors](../../dsr_quickstart/dsr_support/database_connectors). Fides provides a flexible configuration to define different access/update patterns.
 
 ## An example SaaS config
 
-This guide will use a SaaS configuration to connect to [Mailchimp](./example_configs/mailchimp). The configuration schema defines:
+This guide will use a SaaS configuration to connect to [Mailchimp](../available_connectors/mailchimp). The configuration schema defines:
 
 - The domain and authentication requirements for an HTTP client to access Mailchimp
 - A test request for verifying the connection was set up correctly
@@ -119,16 +119,15 @@ saas_config:
                 direction: from
 ```
 
-
 #### SaaS config metadata fields
 
-| Attribute | Description |
-|----|----|
-| `fides_key` | Used to uniquely identify the connector, and to link a SaaS config to a dataset. |
-| `name` | A human-readable name for the connector. |
-| `type` | Type of SaaS connector. Choose from `hubspot`, `mailchimp`, or the other [available connectors](./example_configs/adobe), or use `custom` for other types. |
-| `description` | Used to add a useful description. |
-| `version` | Used to track different versions of the SaaS config. |
+| Attribute     | Description                                                                                                                                                      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fides_key`   | Used to uniquely identify the connector, and to link a SaaS config to a dataset.                                                                                 |
+| `name`        | A human-readable name for the connector.                                                                                                                         |
+| `type`        | Type of SaaS connector. Choose from `hubspot`, `mailchimp`, or the other [available connectors](../available_connectors/adobe), or use `custom` for other types. |
+| `description` | Used to add a useful description.                                                                                                                                |
+| `version`     | Used to track different versions of the SaaS config.                                                                                                             |
 
 The above configuration also contains the following complex fields
 
@@ -142,7 +141,7 @@ The above configuration also contains the following complex fields
 
 #### Connector params
 
-The `connector_params` field is used to describe a list of settings which a user must configure as part of the setup. A `default_value` can also be used to include values such as a standard base domain for an API or a recommended page size for pagination. Make sure to not include confidential values such as passwords or API keys, these values are added as part of the Connection [secrets](../dsr_support/database_connectors#set-the-connection-secrets). When configuring a connector's secrets for the first time, the default values will be used if a value is not provided.
+The `connector_params` field is used to describe a list of settings which a user must configure as part of the setup. A `default_value` can also be used to include values such as a standard base domain for an API or a recommended page size for pagination. Make sure to not include confidential values such as passwords or API keys, these values are added as part of the Connection [secrets](../../dsr_quickstart/dsr_support/database_connectors#set-the-connection-secrets). When configuring a connector's secrets for the first time, the default values will be used if a value is not provided.
 
 ```yaml
 connector_params:
@@ -155,6 +154,7 @@ connector_params:
 ```
 
 #### External references
+
 The `external_references` field is used to describe a list of external dataset references that a user must configure as part of the setup. These dataset references point to fields in a registered Fides dataset that are used to provide necessary values to the SaaS connector execution. The location of these fields depends on the use-case, so they cannot be determined beforehand, and therefore must be configured at the time of setting up the SaaS connector.
 
 ```yaml
@@ -180,7 +180,6 @@ client_config:
 
 The authentication strategies are swappable. This example uses the `basic` authentication strategy, which takes a `username` and `password` in the configuration. An alternative to this is to use `bearer` authentication which looks like this:
 
-
 ```yaml
 authentication:
   strategy: bearer
@@ -188,12 +187,11 @@ authentication:
     token: <api_key>
 ```
 
-
-Fides also supports [OAuth2 authentication](saas_oauth2).
+Fides also supports [OAuth2 authentication](../advanced_configuration/authentication_strategies/oauth2).
 
 #### Rate limits
 
-The `rate_limit_config` field describes rate limits which can be used to limit how fast requests can be made to an endpoint. They can also be configured at the [endpoint request level](#endpoints). 
+The `rate_limit_config` field describes rate limits which can be used to limit how fast requests can be made to an endpoint. They can also be configured at the [endpoint request level](#endpoints).
 
 ```yaml
 rate_limit_config:
@@ -207,7 +205,7 @@ Rate limiter supports `second`, `minute`, `hour` and `day`periods.
 
 #### Test request
 
-Once the base client is defined, use a `test_request` to verify the hostname and credentials. This is in the form of an idempotent request (usually a `read` request). The testing approach is the same for any [Connection](../dsr_support/database_connectors#test-your-connection).
+Once the base client is defined, use a `test_request` to verify the hostname and credentials. This is in the form of an idempotent request (usually a `read` request). The testing approach is the same for any [Connection](../../dsr_quickstart/dsr_support/database_connectors#test-your-connection).
 
 ```yaml
 test_request:
@@ -215,11 +213,9 @@ test_request:
   path: /3.0/lists
 ```
 
-
 #### Data protection request
 
-If your third party integration supports something like a GDPR delete endpoint, that can be configured as a `data_protection_request`.  It has similar attributes to endpoint requests, but is generally one endpoint that removes all user information in one call.
-
+If your third party integration supports something like a GDPR delete endpoint, that can be configured as a `data_protection_request`. It has similar attributes to endpoint requests, but is generally one endpoint that removes all user information in one call.
 
 ```yaml
 data_protection_request:
@@ -244,46 +240,45 @@ data_protection_request:
 
 The endpoints configuration defines how collections are accessed and updated. The endpoint section contains the following members:
 
-| Attribute | Description |
-|----|----|
-| `name` | This name corresponds to a collection in the corresponding Dataset. |
-| `after` | To configure if this endpoint should run after other endpoints or collections. This should be a list of collection addresses. For example, `after: [ mailchimp_connector_example.member ]` would cause the current endpoint to run after the `member` endpoint. |
-| `requests` | A map of `read`, `update`, and `delete` requests for this collection. Each collection can define a way to read and a way to update the data.
+| Attribute  | Description                                                                                                                                                                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`     | This name corresponds to a collection in the corresponding Dataset.                                                                                                                                                                                             |
+| `after`    | To configure if this endpoint should run after other endpoints or collections. This should be a list of collection addresses. For example, `after: [ mailchimp_connector_example.member ]` would cause the current endpoint to run after the `member` endpoint. |
+| `requests` | A map of `read`, `update`, and `delete` requests for this collection. Each collection can define a way to read and a way to update the data.                                                                                                                    |
 
 The `requests` configuration further contains the following fields:
 
-| Attribute | Description |
-|----|----|
-| `method` | The HTTP method used for the endpoint. |
-| `path` | A static or dynamic resource path. The dynamic portions of the path are enclosed within angle brackets `<dynamic_value>` and are replaced with values from `param_values`. |
-| `headers` and `query_params` | The HTTP headers and query parameters to include in the request. |
-| `headers.name`, `query_params.name` | The value to use for the header or query param name. |
-| `headers.value`, `query_params.value` | This can be a static value, one or more of `<dynamic_value>`, or a mix of static and dynamic values (prefix `<value>`) which will be replaced with the value sourced from the `param_value` with a matching name. |
-| `body` | *Optional.* A static or dynamic request body, with dynamic portions enclosed in brackets, just like `path`. These dynamic values will be replaced with values from `param_values`. |
-| `param_values.name` | Used as the key to reference this value from dynamic values in the path, headers, query, or body params.
-| `param_values.references` | These are the same as `references` in a [Dataset](../dsr_support/datasets). It is used to define the source of the value for the given `param_value`.
-| `param_values.identity` | Used to access the identity values passed into the privacy request such as email or phone number.
-| `param_values.connector_param` | Used to access the user-configured secrets for the connection.
-| `ignore_errors` | A boolean. If true, we will ignore non-200 status codes.
-| `data_path` | The expression used to access the collection information from the raw JSON response.
-| `postprocessors` | An optional list of response post-processing strategies. We will ignore this for the example scenarios below but an in depth-explanation can be found under [SaaS Post-Processors](saas_postprocessors).
-| `pagination` | An optional strategy used to get the next set of results from APIs with resources spanning multiple pages. Details can be found under [SaaS Pagination](saas_pagination).
-|`grouped_inputs` | An optional list of reference fields whose inputs are dependent upon one another.  For example, an endpoint may need both an `organization_id` and a `project_id` from another endpoint.  These aren't independent values, as a `project_id` belongs to an `organization_id`.  You would specify this as `["organization_id", "project_id"]`.
-| `client_config` | Specify optional embedded Client Configs if an individual request needs a different protocol, host, or authentication strategy from the base Client Config.
-| `rate_limit_config` | An optional rate limit configuration. Can be used to set rate limits or disable limiting for a specific endpoint.
+| Attribute                             | Description                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `method`                              | The HTTP method used for the endpoint.                                                                                                                                                                                                                                                                                                     |
+| `path`                                | A static or dynamic resource path. The dynamic portions of the path are enclosed within angle brackets `<dynamic_value>` and are replaced with values from `param_values`.                                                                                                                                                                 |
+| `headers` and `query_params`          | The HTTP headers and query parameters to include in the request.                                                                                                                                                                                                                                                                           |
+| `headers.name`, `query_params.name`   | The value to use for the header or query param name.                                                                                                                                                                                                                                                                                       |
+| `headers.value`, `query_params.value` | This can be a static value, one or more of `<dynamic_value>`, or a mix of static and dynamic values (prefix `<value>`) which will be replaced with the value sourced from the `param_value` with a matching name.                                                                                                                          |
+| `body`                                | _Optional._ A static or dynamic request body, with dynamic portions enclosed in brackets, just like `path`. These dynamic values will be replaced with values from `param_values`.                                                                                                                                                         |
+| `param_values.name`                   | Used as the key to reference this value from dynamic values in the path, headers, query, or body params.                                                                                                                                                                                                                                   |
+| `param_values.references`             | These are the same as `references` in a [Dataset](../../dsr_quickstart/dsr_support/datasets). It is used to define the source of the value for the given `param_value`.                                                                                                                                                                    |
+| `param_values.identity`               | Used to access the identity values passed into the privacy request such as email or phone number.                                                                                                                                                                                                                                          |
+| `param_values.connector_param`        | Used to access the user-configured secrets for the connection.                                                                                                                                                                                                                                                                             |
+| `ignore_errors`                       | A boolean. If true, we will ignore non-200 status codes.                                                                                                                                                                                                                                                                                   |
+| `data_path`                           | The expression used to access the collection information from the raw JSON response.                                                                                                                                                                                                                                                       |
+| `postprocessors`                      | An optional list of response post-processing strategies. We will ignore this for the example scenarios below but an in depth-explanation can be found under [Postprocessor Strategies](../advanced_configuration/postprocessor_strategies.mdx).                                                                                            |
+| `pagination`                          | An optional strategy used to get the next set of results from APIs with resources spanning multiple pages. Details can be found under [Pagination Strategies](../advanced_configuration/pagination_strategies).                                                                                                                            |
+| `grouped_inputs`                      | An optional list of reference fields whose inputs are dependent upon one another. For example, an endpoint may need both an `organization_id` and a `project_id` from another endpoint. These aren't independent values, as a `project_id` belongs to an `organization_id`. You would specify this as `["organization_id", "project_id"]`. |
+| `client_config`                       | Specify optional embedded Client Configs if an individual request needs a different protocol, host, or authentication strategy from the base Client Config.                                                                                                                                                                                |
+| `rate_limit_config`                   | An optional rate limit configuration. Can be used to set rate limits or disable limiting for a specific endpoint.                                                                                                                                                                                                                          |
 
 #### Consent Requests
 
-The optional consent requests configuration defines one or more opt-in and/or opt-out requests to support propagating consent preferences 
+The optional consent requests configuration defines one or more opt-in and/or opt-out requests to support propagating consent preferences
 to third-party systems server-side.
 
 For example, if a user is opting out of a specific data use, every opt_out request defined will be fired in sequence.
 
-| Attribute | Description |
-|----|----|
-| `opt_in` | A list of request(s) to opt-in to various data uses |
+| Attribute | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `opt_in`  | A list of request(s) to opt-in to various data uses  |
 | `opt_out` | A list of request(s) to opt-out of various data uses |
-
 
 ## Param_values in more detail
 
@@ -321,7 +316,6 @@ messages:
         - name: version
           connector_param: version
 ```
-
 
 ## Generating requests
 
@@ -426,10 +420,10 @@ For example, an access request returned the following row
 
 With the `name` field masked, the value of each placeholder would be:
 
-| Placeholder | Value |
-|---|---|
-| `<masked_object_fields>` | `"name":"MASKED"` |
-| `<all_object_fields>` | `"id":123,"name":"MASKED","address":"Arlen TX"` |
+| Placeholder              | Value                                           |
+| ------------------------ | ----------------------------------------------- |
+| `<masked_object_fields>` | `"name":"MASKED"`                               |
+| `<all_object_fields>`    | `"id":123,"name":"MASKED","address":"Arlen TX"` |
 
 <Callout>`all_object_fields` should be used if non-masked fields are required as part of the update payload.</Callout>
 
@@ -444,8 +438,8 @@ With the `name` field masked, the value of each placeholder would be:
 
 This would result in the following change, with `id` removed from the result:
 
-| Placeholder | Value |
-|---|---|
+| Placeholder           | Value                                  |
+| --------------------- | -------------------------------------- |
 | `<all_object_fields>` | `"name":"MASKED","address":"Arlen TX"` |
 
 ## Example scenarios
@@ -476,7 +470,6 @@ GET /3.0/conversations/2/messages
 GET /3.0/conversations/2/messages
 ```
 
-
 #### Identity as a query param
 
 ```yaml
@@ -496,11 +489,9 @@ endpoints:
 
 In this example, the placeholder in the `query` query param will be replaced with the value of the `param_value` with a name of `email`, which is the `email` identity. The result would look like this:
 
-
 ```
 GET /3.0/search-members?query=name@email.com
 ```
-
 
 #### Data update with a dynamic path
 
@@ -552,7 +543,7 @@ PUT /3.0/lists/123/members/456
 }
 ```
 
-and the contents of the body would be masked according to the configured [policy](../dsr_support/execution_policies).
+and the contents of the body would be masked according to the configured [policy](../../dsr_quickstart/dsr_support/execution_policies).
 
 #### Data update with a dynamic HTTP body
 
@@ -565,7 +556,7 @@ update:
   body: '{
     "properties": {
       <masked_object_fields>,
-      "user_ref_id": <user_ref_id>            
+      "user_ref_id": <user_ref_id>
     }
   }'
   param_values:
@@ -594,7 +585,7 @@ PUT /crm/v3/objects/contacts
 
 ## How does this relate to graph traversal?
 
-Fides uses the available Datasets to [generate a graph](../dsr_support/query_execution) of all reachable data and the dependencies between Datasets. For SaaS connectors, all the references and identities are stored in the `param_values`, and must merge both the SaaS config and Dataset to provide a complete picture for the graph traversal. Using Mailchimp as an example, the Dataset collection and SaaS config endpoints for `messages` looks like this:
+Fides uses the available Datasets to [generate a graph](../../dsr_quickstart/dsr_support/query_execution) of all reachable data and the dependencies between Datasets. For SaaS connectors, all the references and identities are stored in the `param_values`, and must merge both the SaaS config and Dataset to provide a complete picture for the graph traversal. Using Mailchimp as an example, the Dataset collection and SaaS config endpoints for `messages` looks like this:
 
 ```yaml
 collections:
@@ -695,5 +686,3 @@ endpoints:
 ```
 
 Some endpoints might not have any external dependencies on `identity` or Dataset `reference` values. The way the Fides [graph traversal](../dsr_support/query_execution) interprets this is as an unreachable collection. At this time, the way to mark this as reachable is to include a `param_value` with an identity or a reference.
-
-In the future, collections like these will still be considered reachable even without this placeholder

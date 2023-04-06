@@ -1,10 +1,12 @@
-# SaaS Post-Processors
+import Callout from 'nextra-theme-docs/callout'
 
-Post-processors are, in essence, data transformers. Given data from an endpoint, we can add specific processors to transform the data into a format we need for privacy requests.
+# Postprocessor Strategies
+
+Postprocessors are data transformers. Given data returned from a request, we can add specific processors to transform the data into a format we need for privacy requests.
 
 ## Configuration
 
-Post-processors are configured within the `endpoints` section of a `saas_config`:
+Postprocessors are configured within the `requests` section of a `saas_config`:
 
 ```yaml
 endpoints:
@@ -26,20 +28,24 @@ endpoints:
                 identity: email
 ```
 
-Note: Order matters as it's defined in the config. In the above example, unwrap will be run first, then the output of unwrap will be used in the filter strategy.
+<Callout emoji="ⓘ">Note: Order matters as it's defined in the config. In the above example, unwrap will be run first, then the output of unwrap will be used in the filter strategy.</Callout>
 
 ### Format subsequent requests
 
-Post-processors can format the results of your access requests for use in subsequent update or delete statements.
+Postprocessors can format the results of your access requests for use in subsequent update or delete statements.
 
 For example, if we need to return the following in an access request:
 
 ```json
-{"recipient": "test@email.com",
-  "subscriptions": [{
-    "id": "123",
-    "subscribed": "TRUE"
-  }]}
+{
+  "recipient": "test@email.com",
+  "subscriptions": [
+    {
+      "id": "123",
+      "subscribed": "TRUE"
+    }
+  ]
+}
 ```
 
 And we needed to perform an update request for each item within `subscriptions`, where `subscribed` = `TRUE`, then we'd need the following config for our update request:
@@ -56,9 +62,9 @@ update:
 ```
 
 ## Supported Strategies
+
 - `unwrap`: Gets object at given data path.
 - `filter`: Removes data that does not match a given field and value.
-
 
 ### Filter
 
@@ -72,13 +78,14 @@ Filters object or array given field name and value. Value can reference a dynami
 
 - `field` (_str_): Corresponds to the field on which to filter. For example, we wish to filter where `email_contact == "bob@mail.com"`, then `field` will be `email_contact`.
 - `value` (_str_): Value to search for when filtering (e.g. hard-coded `bob@mail.com`) or Dict of identity path:
-    - `identity` (_str_): Identity object from privacy request (e.g. `email` or `phone_number`)
+  - `identity` (_str_): Identity object from privacy request (e.g. `email` or `phone_number`)
 - `exact` (optional _bool_ defaults to True): `value` and `field` value must be the same length (no extra characters).
 - `case_sensitive` (optional _bool_ defaults to True): Cases must match between `value` and `field` value.
 
 #### Examples
 
-Post-Processor Config:
+Postprocessor Config:
+
 ```yaml
 - strategy: filter
   configuration:
@@ -96,6 +103,7 @@ Identity data passed in through request:
 ```
 
 Data to be processed:
+
 ```json
 [
     {
@@ -112,6 +120,7 @@ Data to be processed:
 ```
 
 Result:
+
 ```json
 [
     {
@@ -121,9 +130,11 @@ Result:
     }
 ]
 ```
+
 By default, this filter is exact and case-sensitive.
 
-Post-Processor Config:
+Postprocessor Config:
+
 ```yaml
 - strategy: filter
   configuration:
@@ -143,6 +154,7 @@ Identity data passed in through request:
 ```
 
 Data to be processed:
+
 ```json
 [
     {
@@ -159,6 +171,7 @@ Data to be processed:
 ```
 
 Result:
+
 ```json
 [
     {
@@ -173,10 +186,10 @@ Result:
     }
 ]
 ```
+
 We can configure how strict the filter is by setting `exact` and `case_sensitive` both to False. This allows our value to be a substring of a longer string, and to ignore case (upper vs lower case).
 
 Note: Type casting is not supported at this time. We currently only support filtering by string values. e.g. `bob@mail.com` and not `12344245`.
-
 
 ### Unwrap
 
@@ -190,10 +203,10 @@ Given a path to a dict/list, returns the dict/list at that location.
 
 - `data_path` (_str_): Gives the path to desired object. E.g. `exact_matches.members` will attempt to get the `members` object on the `exact_matches` object.
 
-
 #### Example
 
-Post-Processor Config:
+Postprocessor Config:
+
 ```yaml
 - strategy: unwrap
   configuration:
@@ -201,6 +214,7 @@ Post-Processor Config:
 ```
 
 Data to be processed:
+
 ```json
 {
   "exact_matches": {
@@ -209,14 +223,14 @@ Data to be processed:
       { "meow": 841 }
     ]
   }
-}   
+}
 ```
+
 Result:
+
 ```json
 [
   { "howdy": 123 },
   { "meow": 841 }
 ]
 ```
-
-

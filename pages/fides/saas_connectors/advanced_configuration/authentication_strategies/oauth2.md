@@ -1,4 +1,4 @@
-# OAuth2 
+# OAuth2 Authentication
 
 SaaS connectors support two OAuth2 flows:
 
@@ -157,4 +157,4 @@ To use OAuth2 as a connection strategy, the following must be configured first:
 
 ## OAuth2 Authentication Code Flow Diagram
 
-![OAuth2 Workflow](../../../../public/assets/img/saas_connections/oauth2_workflow.png "OAuth2 Workflow")
+![OAuth2 Workflow](../../../../../public/assets/img/saas_connections/oauth2_workflow.png "OAuth2 Workflow")

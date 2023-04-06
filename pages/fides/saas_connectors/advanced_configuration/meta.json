@@ -1,0 +1,11 @@
+{
+  "overview": "Overview",
+  "saas_configuration": "SaaS Configuration Reference",
+  "authentication_strategies": "Authentication Strategies",
+  "pagination_strategies": "Pagination Strategies",
+  "postprocessor_strategies": "Postprocessor Strategies",
+  "custom_strategies": "Custom Strategies",
+  "request_overrides": "Request Overrides",
+  "register_custom_template": "Custom Connector Templates",
+  "api_configuration": "Configure SaaS Connections via API"
+}

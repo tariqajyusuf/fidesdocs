@@ -1,0 +1,14 @@
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Advanced Configuration
+
+SaaS connectors in Fides are designed to be fully configuration-driven. This means that if a connector for a particular SaaS platform or API is not available, you have multiple options for loading a new connector during runtime. With this approach, there is no need to wait for a new release or even restart the server.
+
+In we following sections we will cover:
+
+<KeyFeatWrap>
+  <KeyFeat title="SaaS Config" link="./saas_configuration"  description="The primary configuration file for a SaaS connector."/>
+  <KeyFeat title="Swappable Strategies" link="./authentication_strategies/overview"  description="The building blocks for various functionalities, including authentication, pagination, and post-processing."/>
+  <KeyFeat title="Custom Functionality" link="./custom_strategies"   description="Custom strategies and request overrides defined in Python for maximum customization."/>
+  <KeyFeat title="Advanced Deployment" link="./register_custom_template"   description="Different methods for deploying custom connectors, either through UI upload or API."/>
+</KeyFeatWrap>
