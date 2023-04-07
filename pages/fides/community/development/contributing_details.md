@@ -89,7 +89,7 @@ Some common Alembic commands are listed below. For a comprehensive guide see [th
 
 The commands will need to be run inside a shell on your Docker containers, which can be opened with `nox -s dev -- shell`.
 
-In the `/src/fides` directory:
+In the `/src/fides/api/ctl` directory:
 
 - Migrate your database to the latest state: `alembic upgrade head`
 - Get revision id of previous migration: `alembic current`
