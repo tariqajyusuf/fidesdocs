@@ -7,5 +7,7 @@
   "configuration": "Configuring Fides",
   "cli_support": "CLI Resources",
   "deployment": "Production Deployment",
-  "community": "Community"
+  "community": "Community",
+  "fides_release_notes": "Fides Release Notes",
+  "fidesplus_release_notes": "Fides Business Release Notes"
 }
