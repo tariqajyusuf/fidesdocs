@@ -35,7 +35,7 @@ This connection may be customized using the instructions found in the [configura
 ![Create Ethyca Fides Machine to Machine Application](../../../../../public/assets/img//dsr_quickstart/create_a0_m2mapp.png)
  
 ###### 1.4. Select the Auth0 Management API and add the read:users and delete:users scopes and click Authorize
-![Authorize Auth0 Management API and add the read:users and delete:users scopes](../../../../../public/assets/img//dsr_quickstart/authorize_a0_m2mapp.png)
+![Authorize Auth0 Management API and add the read:users, delete:users, read:logs, read:logs_users scopes](../../../../../public/assets/img//dsr_quickstart/authorize_a0_m2mapp.png)
  
 ###### 1.5. Navigate to the settings tab of the Ethyca Fides Application. Notate the Domain, Client ID, and Client Secret Values
 ![Notate the Domain, Client ID, and Secret](../../../../../public/assets/img//dsr_quickstart/get_a0_m2minfo.png)
