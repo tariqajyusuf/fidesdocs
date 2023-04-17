@@ -1,16 +1,26 @@
 # Fides Release Notes 
 
+## Fides 2.11
+April 17, 2023
+
+**Enhancements**
+- **Connector template uploads**: Connector templates can now be uploaded in the Connectors UI to create new connectors or update existing connectors.  
+- **Connector updates**
+    - **Shippo**: Added a privacy request access connector Shippo
+
+
+
 ## Fides 2.10
 April 3, 2023
 
 **Enhancements**
 - **Dedicated links for systems**: Systems now have dedicated URLs to make it easy to find or share a system.
-- **Credentials via config file**: Allow users to configure their username and password via the config file.
+- **Credentials via config file**: Allows users to configure their username and password via the config file.
 - **Self-service passwords** - Viewers and Approvers can reset their own passwords from the User Management UI
 - **Secure Masking API**: Added [optional] authentication to the masking endpoints. 
 - **Organization Management page**: Added a page for managing organization information to the UI. 
 - **Connector updates**
-    - **Attentive connector**: Added a privacy request connector for Attentive
+    - **Attentive Connector**: Added a privacy request connector for Attentive
 
 **Known Issues**
 - Creating a duplicate user does not work and does not show error.
