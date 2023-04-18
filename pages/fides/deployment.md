@@ -15,7 +15,7 @@ Fully deployed, Fides consists of the following individual systems:
 Optionally, the Fides [**Privacy Center**](#set-up-the-privacy-center-optional) can be deployed as a pre-built way to receive privacy requests.
 
 ## Deployment options
-Any Docker host can be used to deploy Fides, and this guide outlines three main deployment options: [Helm](#using-helm), [Terraform](#using-terraform), and [Docker](#using-docker). For all options, please refer to our [security best practices](./installation/security_practices) for recommendations on production infrastructure.
+Any Docker host can be used to deploy Fides, and this guide outlines three main deployment options: [Helm](#using-helm), [Terraform](#using-terraform), and [Docker](#using-docker). For all options, please refer to our [security best practices](./get_started/security_practices) for recommendations on production infrastructure.
 
 
 ### Using Helm
@@ -47,7 +47,7 @@ The remainder of this guide outlines generic steps for manually deploying the da
 
 ## Set up the hosted database
 
-Fides uses an application database for persistent storage. Any hosted PostgreSQL database that meets the current [project requirements](./installation/requirements) is acceptable, as long as it's accessible. 
+Fides uses an application database for persistent storage. Any hosted PostgreSQL database that meets the current [project requirements](./get_started/requirements) is acceptable, as long as it's accessible. 
 
 Options include:
 
@@ -63,7 +63,7 @@ Follow the documentation for the option of your choice to configure a production
 Once your database is up and running, create a **unique user** and **database** for Fides to use, and assign your Fides user a secure password.  
 
 ### Update your Fides configuration
-Use your database information to set the following values in your Fides [configuration](./installation/configuration). The options for the `[postgres]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
+Use your database information to set the following values in your Fides [configuration](./get_started/configuration). The options for the `[postgres]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
 
 | Name | Default | Description |
 | :---- | :------- | :----------- |
@@ -75,7 +75,7 @@ Use your database information to set the following values in your Fides [configu
 
 ## Set up the hosted cache
 
-During privacy request execution, Fides collects result data in a temporary Redis cache that automatically expires to ensure personal data is never retained erroneously. Any hosted Redis database that meets the current [project requirements](./installation/requirements) is acceptable, from a Docker [Redis](https://hub.docker.com/_/redis) container to a managed service (e.g., AWS ElastiCache, GCP Memorystore, Azure Cache, Redis Cloud).
+During privacy request execution, Fides collects result data in a temporary Redis cache that automatically expires to ensure personal data is never retained erroneously. Any hosted Redis database that meets the current [project requirements](./get_started/requirements) is acceptable, from a Docker [Redis](https://hub.docker.com/_/redis) container to a managed service (e.g., AWS ElastiCache, GCP Memorystore, Azure Cache, Redis Cloud).
 
 <Callout> As long as your cache will be accessible by your Fides webserver, there is no need to expose it to the public Internet. </Callout>
 
@@ -85,7 +85,7 @@ Follow the documentation for the option of your choice to configure a production
 Once your cache is available, ensure you enable a password (via Redis [`AUTH`](https://redis.io/commands/auth)) to provide additional security, and keep track of your connection credentials.
 
 ### Update your Fides configuration
-Use your database information to set the following values in your Fides [configuration](./installation/configuration). The options for the `[redis]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
+Use your database information to set the following values in your Fides [configuration](./get_started/configuration). The options for the `[redis]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
 
 | Config Variable | Example | Description |
 | :--- | :--- | :--- | 
@@ -106,7 +106,7 @@ The Fides webserver is a [FastAPI](https://fastapi.tiangolo.com/) application wi
 
 ### Using docker
 
-Ensure that Docker is running on your host, and satisfies the [minimum requirements](./installation/requirements).
+Ensure that Docker is running on your host, and satisfies the [minimum requirements](./get_started/requirements).
 
 #### Pull the docker image
 Run the following command to pull the latest image from Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides):
@@ -116,7 +116,7 @@ docker pull ethyca/fides
 ``` 
 
 #### Configure Fides
-A number of environment variables are required for a minimum working [configuration](./installation/configuration). You can provide a configuration by creating an `.env` file and passing it in via the [`--env-file {file}` option](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file), by providing individual variables with the `--env {VAR}` option, or directly to your docker host.
+A number of environment variables are required for a minimum working [configuration](./get_started/configuration). You can provide a configuration by creating an `.env` file and passing it in via the [`--env-file {file}` option](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file), by providing individual variables with the `--env {VAR}` option, or directly to your docker host.
 
 At a minimum, you'll need to configure the following:
 
@@ -193,7 +193,7 @@ You can also visit the hosted UI at `http://{server_url}/`.
 
 ## Set up the Privacy Center (Optional)
 
-Ensure that Docker is running on your host, and satisfies the [minimum requirements](./installation/requirements).
+Ensure that Docker is running on your host, and satisfies the [minimum requirements](./get_started/requirements).
 
 Run the following command to pull the latest image from Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides):
 

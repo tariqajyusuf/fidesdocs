@@ -78,7 +78,7 @@ Embedded logs in the previous endpoints are truncated at 50 logs.
 
 
 ## View a request's identity data
-Use the optional `include_identities` query param to include all identity data that was submitted for the privacy request. Due to the way Fides stores identity data, this data will expire automatically according to the `FIDES__REDIS__DEFAULT_TTL_SECONDS` variable in your Fides [config](../../installation/configuration).
+Use the optional `include_identities` query param to include all identity data that was submitted for the privacy request. Due to the way Fides stores identity data, this data will expire automatically according to the `FIDES__REDIS__DEFAULT_TTL_SECONDS` variable in your Fides [config](../../get_started/configuration).
 
 If the identity data fetched by `include_identities` has expired, an empty JSON dictionary will be returned.
 

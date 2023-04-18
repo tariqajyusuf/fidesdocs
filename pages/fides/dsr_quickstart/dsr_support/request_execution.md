@@ -6,14 +6,14 @@ Fully configured, Fides provides end-to-end [privacy request](./privacy_requests
 
 Once a privacy request has been submitted via the [Privacy Center](../privacy_center), Fides first creates temporary records to store any relevant submission information.
 
-Based on your [configuration](../../installation/configuration), Fides can perform a number of other actions: 
+Based on your [configuration](../../get_started/configuration), Fides can perform a number of other actions: 
 
 | Step | Description |
 | --- | --- |
 | **Persist** |  Fides creates a privacy request in long-term storage to capture high-level information (e.g. date created, current status). Fides saves the identity of the subject to both short- and long-term storage. |
 | **Verify** | If configured, Fides sends an [email](./privacy_requests#enable-subject-identity-verification) to the user to verify their identity before proceeding. |
 | **Notify** | If configured, the user will receive an [email](./messaging) verifying that their request has been received. |
-| **Approve** | If configured, Fides will require a system administrator to [approve](../../installation/configuration) the request before proceeding. |
+| **Approve** | If configured, Fides will require a system administrator to [approve](../../get_started/configuration) the request before proceeding. |
 
 ## Privacy request execution
 
@@ -65,7 +65,7 @@ A Collection isn't visited until Fides has searched for data across all of its u
 
 ![Access Execution](../../../../public/assets/img/resources/access_execution.png)
 
-If there is a failure trying to retrieve data on any Collections, the request is retried the number of times [configured](../../installation/configuration) by `task_retry_count` until the request exits with status `error`.  Both the `access` step and errored Collection are cached in temporary storage.
+If there is a failure trying to retrieve data on any Collections, the request is retried the number of times [configured](../../get_started/configuration) by `task_retry_count` until the request exits with status `error`.  Both the `access` step and errored Collection are cached in temporary storage.
 Restarting the privacy request will restart from this step and failed Collection.  Collections that have already been visited will not be visited again.
 
 #### Final result retrieval
@@ -117,7 +117,7 @@ If configured, Fides will send a followup email to the data subject to let them 
 Request execution will then exit with the status `complete`.
 
 ## Additional notes
-- Fides uses Redis as temporary storage to support executing your request.  Data automatically retrieved from each Collection, manually uploaded data, and details about where the Privacy Request may be paused or where it failed may all be temporarily stored.  This information will expire in accordance with the `FIDES__REDIS__DEFAULT_TTL_SECONDS` [setting](../../installation/configuration).
+- Fides uses Redis as temporary storage to support executing your request.  Data automatically retrieved from each Collection, manually uploaded data, and details about where the Privacy Request may be paused or where it failed may all be temporarily stored.  This information will expire in accordance with the `FIDES__REDIS__DEFAULT_TTL_SECONDS` [setting](../../get_started/configuration).
 - The current Fides execution strategy prioritizes being able to erase as many of the original Collections requested as possible. If Fides masks some Collections and then registers a failure, the current logic will mask the original remaining Collections using the temporarily saved data retrieved in the original access step instead of re-querying the Collections. Once data is masked in one Collection, it could potentially prevent us from being able to locate data in downstream Collections, and so will use temporarily stored data.
     - Data added in the interim, or data related to newly added Collections, can be missed.
     - If the automated access step fails part of the way through, a new Collection is added, and then the request is restarted from failure,
