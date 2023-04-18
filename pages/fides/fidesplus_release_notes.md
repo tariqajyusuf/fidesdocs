@@ -12,7 +12,7 @@ April 17, 2023
     - **Shippo Access Connector**: Added a privacy request connector for Shippo
 
 **Known Issues**
-- **Data Flow**: when configuring data flow, the source and destination fields are not reciprocal meaning that this value is only set on the system where it has been configured. To make this reportable or searchable, you must set the reciprocal field on the related system. Will be fixed in a future release.
+- **Data Flow**: when configuring data flow, the source and destination fields are not reciprocal meaning that this value is only set on the system where it has been configured. To make this reportable or searchable, you must set the reciprocal field on the related system. Will be solved in a future release.
 
 ## Fides For Business 2.10
 April 3, 2023
