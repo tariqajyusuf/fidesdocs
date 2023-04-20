@@ -221,21 +221,21 @@ The goal of the OAuth process is to authenticate the connector and give respecti
 
 ###### 3.12. Get a root client token, passing in your root `client id` and `secret` as form data.
 
-![Get Access Token](../../../../../public/assets/img/consent/Universal_Analytics/Get_Access_Token.png)
+![Get Access Token](../../../../public/assets/img/consent/Universal_Analytics/Get_Access_Token.png)
 
 The response returns an `access_token`
 
 
 ###### 3.13. Use that access token as Bearer token to create a client with `connection:authorize` scopes
 
-![Create Client](../../../../../public/assets/img/consent/Universal_Analytics/Create_Client.png)
+![Create Client](../../../../public/assets/img/consent/Universal_Analytics/Create_Client.png)
 
 The response returns a fides `client_id` and `client_secret`
 
 
 ###### 3.14. Use that `client_id` and `client_secret` to get a new token for that client
 
-![Get Client Token](../../../../../public/assets/img/consent/Universal_Analytics/Get_Client_Token.png)
+![Get Client Token](../../../../public/assets/img/consent/Universal_Analytics/Get_Client_Token.png)
 
 The response returns an `access_token`. 
 
@@ -256,12 +256,12 @@ Use the Fides `access_token` above as a Bearer token and the connector key defin
 ###### 3.17 After following that URL, you should be prompted to log into your Google account 
 
 
-![Select Google Account](../../../../../public/assets/img/consent/Universal_Analytics/Select_Google_Account.png)
+![Select Google Account](../../../../public/assets/img/consent/Universal_Analytics/Select_Google_Account.png)
 
 
 ###### 3.18 Give Fides permission to manage google analytics user deletion requests
 
-![Allow Permission Screen](../../../../../public/assets/img/consent/Universal_Analytics/Permission_Consent_Screen.png)
+![Allow Permission Screen](../../../../public/assets/img/consent/Universal_Analytics/Permission_Consent_Screen.png)
 
 
 ###### 3.19 Automatic Fides Redirect
