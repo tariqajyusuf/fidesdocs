@@ -4,11 +4,13 @@ These strategies give us a collection of common authentication methods to use fo
 
 ## Supported strategies
 
-- `basic`: Iterates through the available pages by incrementing the value of a query param.
-- `bearer`: Uses links returned in the headers or the body to get to the next page.
-- `api_key`: Uses a value from the last-retrieved object to use as a query param pointing to the next set of results.
+- `basic`: Adds a basic authentication header to the incoming request, using the username and password provided in the configuration.
+- `bearer`: Includes the provided token as a bearer in the authorization header of the incoming request.
+- `api_key`: Adds an API key to the request, which can be placed in the header, query parameter, or body, depending on the configuration.
+- `oauth2_client_credentials`: Exchanges the given client ID and client secret for an access token, following the OAuth2 client credentials flow.
+- `oauth2_authorization_code`: Utilizes the client ID and client secret to generate an authorization URL, allowing the user to authorize the connection, following the OAuth2 authorization code flow.
 
-Detailed guides for the OAuth2 strategies `oauth2_client_credentials` and `oauth2_authorization_code` can be found [here](./oauth2).
+Detailed guides for the OAuth2 strategies can be found [here](./oauth2).
 
 ### Basic
 
