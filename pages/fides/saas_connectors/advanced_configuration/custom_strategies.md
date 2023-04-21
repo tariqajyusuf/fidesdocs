@@ -6,7 +6,7 @@ The SaaS config specification is designed in a way that allows for varying level
 
 - **Custom strategies**: Implementing custom logic for predefined extension points, such as authentication, pagination, and postprocessing strategies, while still allowing Fides to build and execute requests. This level of customization is ideal when you need to customize only specific parts of the request process but want to leverage Fides for the overall request handling.
 
-- [**Request overrides**](./request_overrides.md): Complete override of the way a request is built and executed. This approach is best suited for cases that require custom business logic or complex customizations that go beyond the capabilities of custom strategies. With request overrides, you have full control over the request process, offering the highest level of flexibility and customization.
+- [**Request overrides**](./request_overrides): Complete override of the way a request is built and executed. This approach is best suited for cases that require custom business logic or complex customizations that go beyond the capabilities of custom strategies. With request overrides, you have full control over the request process, offering the highest level of flexibility and customization.
 
 ## Custom strategies
 
