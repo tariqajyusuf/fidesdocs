@@ -1,6 +1,25 @@
 # Fides For Business Release Notes 
 
-## Fides For Business 2.11
+## Fides For Business 2.12 ##
+May 2, 2023
+
+**What's New** 
+- **Custom fields**: create custom reports by adding custom fields to your systems, data uses, and taxonomy elements! Supported field types are open text, single-select, and multi-select.
+
+**Enhancements**
+- **Pseudonymous consent preferences**: Identity verification for saving consent preferences is now optional. Previously, all consent requests required either email or phone validation. This change adds the "Fides User Device ID" field to the Fides user preferences cookie which will contain a randomly generated unique ID to represent the user's browser and store preferences on the Fides server. 
+    - Note: Most 3rd party APIs or databases require primary identifiers to function, so functionality will be limited if identity verification is disabled.
+
+**Connector updates**
+- [Aircall](https://aircall.io/): Access & erasure support
+- [Klaviyo](https://www.klaviyo.com/): Access & erasure support
+- [Unbounce](https://unbounce.com/): Access & erasure support
+
+**Known Issues**
+- **Custom field ordering***: Currently, custom fields are not rendered in any particular order where they are placed or in the table of custom fields. 
+- **Updates to custom fields require hard refresh**: When creating a new custom field or updating the name of an existing custom field, a hard refresh must be performed to view these columns in the Data Map table view. This will be fixed in a subsequent release. 
+
+## Fides For Business 2.11 ##
 April 17, 2023
 
 **Enhancements**

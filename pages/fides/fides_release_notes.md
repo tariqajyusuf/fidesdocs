@@ -1,6 +1,19 @@
 # Fides Release Notes 
 
-## Fides 2.11
+## Fides 2.12 ##
+May 2, 2023
+
+**Enhancements**
+- **Pseudonymous consent preferences**: Identity verification for saving consent preferences is now optional. Previously, all consent requests required either email or phone validation. This change adds the "Fides User Device ID" field to the Fides user preferences cookie which will contain a randomly generated unique ID to represent the user's browser and store preferences on the Fides server. 
+    - Note: Most 3rd party APIs or databases require primary identifiers to function, so functionality will be limited if identity verification is disabled.
+
+
+**Connector updates**
+- [Aircall](https://aircall.io/): Access & erasure support
+- [Klaviyo](https://www.klaviyo.com/): Access & erasure support
+- [Unbounce](https://unbounce.com/): Access & erasure support
+
+## Fides 2.11 ##
 April 17, 2023
 
 **Enhancements**
@@ -10,7 +23,7 @@ April 17, 2023
 
 
 
-## Fides 2.10
+## Fides 2.10 ##
 April 3, 2023
 
 **Enhancements**
