@@ -17,7 +17,7 @@ May 2, 2023
 
 **Known Issues**
 - **Custom field ordering***: Currently, custom fields are not rendered in any particular order where they are placed or in the table of custom fields. 
-- **Updates to custom fields require hard refresh**: When creating a new custom field or updating the name of an existing custom field, a hard refresh must be performed to view these columns in the Data Map table view. This will be fixed in a subsequent release. 
+- **Updates to custom fields require hard refresh**: When creating a new custom field or updating the name of an existing custom field, a hard refresh must be performed to view these columns in the Data Map table view. This will be resolved in a subsequent release. 
 
 ## Fides For Business 2.11 ##
 April 17, 2023
