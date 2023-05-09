@@ -1,5 +1,5 @@
 {
     "index": "Overview",
-    "cmd-init": "init"
+    "cmd-worker": "worker"
   }
   

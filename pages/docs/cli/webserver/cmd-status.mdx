@@ -1,0 +1,22 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: status
+
+The ```fides status``` makes a request to the Fides server to check its health, current version and report back any possible issues.
+
+To learn more about configuring Fides see the [How to Configure Fides](#LINK) guide.
+
+## Usage
+Usage: ```fides status```
+
+Sends a request to the fides API healthcheck endpoint and prints the response.
+
+Running this command should result in output that resembles the following:
+
+```console
+$ fides status
+Loaded config from: .fides/fides.toml
+Getting server status...
+Server is reachable and the client/server application versions match.
+```

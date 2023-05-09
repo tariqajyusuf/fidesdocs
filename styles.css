@@ -549,11 +549,24 @@ footer > div.py-12 > div{
   color: hsla(0, 0%, 100%, 0.729);
 }
 .nextra-code-block .nextra-button {
-  background-color:hsla(0, 0%, 0%, 0.207);
+  background-color:rgb(73, 0, 230);
   color: hsla(0, 0%, 100%, 0.87);
-  border: solid 1px hsla(0, 0%, 100%, 0.115);
+  border: solid 1px rgb(112, 57, 231);
 }
 .nextra-code-block .nextra-button:active {
   background-color: hsla(0, 0%, 0%, 0.207);
   color: hsla(0, 0%, 100%, 0.87);
 }
+:root {
+	--shiki-color-text: #414141;
+	--shiki-color-background: transparent;
+	--shiki-token-constant: #1976d2;
+	--shiki-token-string: #22863a;
+	--shiki-token-comment: #aaa;
+	--shiki-token-keyword: #b488c7;
+	--shiki-token-parameter: #ff9800;
+	--shiki-token-function: #6f42c1;
+	--shiki-token-string-expression: rgb(227, 211, 140);
+	--shiki-token-punctuation: #212121;
+	--shiki-token-link: #22863a;
+  }

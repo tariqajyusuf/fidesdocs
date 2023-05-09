@@ -1,0 +1,65 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: view
+
+The ```fides view``` command prints the current configuration of the Fides instance.
+
+## Usage
+Usage: ```fides view [args]```
+
+This command prints the specified resource. Today this only supports the following options:
+
+* <span class="nx-absolute -nx-mt-20" id="config"></span>[```config```](#config) - Print the current configuration of the Fides instance.
+
+Running this command should result in output that resembles the following example. Note, depending on the configuration of your Fides instance this may contain a much longer list of configuration variables.
+To learn more about all Fides configuration variables read the [Fides Configuration Variables](#LINK) guide.
+
+```console
+$ fides view config
+Loaded config from: .fides/fides.toml
+----------
+test_mode = false
+is_test_mode = false
+hot_reloading = false
+dev_mode = false
+
+[admin_ui]
+enabled = true
+
+[cli]
+local_mode = false
+analytics_id = "e16fe2019386e3e35ecd13003db9737e"
+server_protocol = "http"
+server_host = "localhost"
+server_port = "8080"
+server_url = "http://localhost:8080"
+
+[database]
+user = "[DB-USERNAME]"
+password = "[PASSWORD]"
+server = "127.0.0.1"
+port = "5432"
+db = "[DATABASE]"
+
+[execution]
+privacy_request_delay_timeout = 3600
+task_retry_count = 0
+task_retry_delay = 1
+task_retry_backoff = 1
+subject_identity_verification_required = false
+require_manual_request_approval = false
+masking_strict = true
+
+[logging]
+destination = ""
+level = "CRITICAL"
+serialization = ""
+log_pii = false
+
+[redis]
+host = "127.0.0.1"
+port = 6379
+user = ""
+password = "[PASSWORD]"
+```

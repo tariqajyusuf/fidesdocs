@@ -49,7 +49,7 @@
   "type": "menu",
   "items": {
     "about": {
-      "title": "About",
+      "title": "Test",
       "href": "/about"
     },
     "contact": {

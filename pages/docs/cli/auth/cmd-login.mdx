@@ -3,7 +3,7 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
 # Command: user login
 
-The ```fides user login``` command can be used to automatically obtain and save an API token for Fides Server.
+The ```fides user login``` command can be used to automatically obtain and save an access token for Fides Server.
 
 <Callout emoji="">**Note:** The username and password provided must be an existing, authorized user for Fides. If you have not created at least one user for Fides already, you must complete this step first. For details on creating users, see the [Creating Fides Users](#LINK) guide.</Callout>
 
@@ -14,20 +14,18 @@ The command will log the user in to Fides. If no options are given, you will be 
 
 The command-line flags are all optional. The following flags are available:
 
-* [```-u```](#) - Provide username as an option.
-* [```-p```](#) - Provide password as an option.
+* <span class="nx-absolute -nx-mt-20" id="u"></span>[```-u```](#u) - Provide username as an option.
+* <span class="nx-absolute -nx-mt-20" id="p"></span>[```-p```](#p) - Provide password as an option.
 
 ## Credentials Storage
 
-By default, Fides will obtain an API token and save it in a plain text in a local CLI configuration file called ```.fides_credentials```. When you run ```fides user login``` successfully for the first time it will print the location of where ```.fides_credentials``` is written to on your computer.
-
-
+By default, Fides will obtain an access token and save it in a plain text file in a local CLI configuration file called ```.fides_credentials```. When you run ```fides user login``` successfully for the first time it will print the location of where ```.fides_credentials``` is written to on your computer.
 
 ## Example: No options provided
 This example prompts for the username and password separately:
 
-```console filename="Command Line"
-fides> fides user login
+```console
+$ fides user login
 Loaded config from: .fides/fides.toml
 Username: root_user
 Password:
@@ -35,11 +33,11 @@ Logged in as user: root_user
 Credentials file written to: /Users/fidesuser/.fides_credentials
 ```
 
-## Example: No options provided
-This example prompts for the username and password separately:
+## Example: Specifying username and password as options
+This example specifies the -u (username) and -p (password) options:
 
-```console filename="Input As Options"
-fides> fides user login -u root_user -p Testpassword1!
+```console
+$ fides user login -u root_user -p Testpassword1!
 Loaded config from: .fides/fides.toml
 Logged in as user: root_user
 Credentials file written to: /Users/fidesuser/.fides_credentials
