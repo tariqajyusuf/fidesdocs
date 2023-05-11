@@ -76,7 +76,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 The following constraints are enforced by the API validation:
 
-1. A SaaS connector dataset cannot have any `identities` or `references` in the `fidesops_meta`. These relationships must be defined in the [SaaS config](./saas_config).
+1. A SaaS connector dataset cannot have any `identities` or `references` in the `fides_meta`. These relationships must be defined in the [SaaS config](./saas_config).
 2. SaaS config references can only have a direction of `from`.
 3. The `fides_key` between the SaaS config and the Dataset must match in order to be associated.
 

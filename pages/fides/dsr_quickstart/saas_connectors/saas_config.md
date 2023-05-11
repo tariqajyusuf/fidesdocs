@@ -438,7 +438,7 @@ With the `name` field masked, the value of each placeholder would be:
 ```yaml
 - name: id
   data_categories: [system.operations]
-  fidesops_meta:
+  fides_meta:
     read_only: True
 ```
 
@@ -652,7 +652,7 @@ collections:
         data_categories: [system.operations]
       - name: conversation_id
         data_categories: [system.operations]
-        fidesops_meta:
+        fides_meta:
           references:
             - dataset: mailchimp_connector_example
               field: conversations.id
