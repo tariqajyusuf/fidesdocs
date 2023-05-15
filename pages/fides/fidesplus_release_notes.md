@@ -1,5 +1,12 @@
 # Fides For Business Release Notes 
 
+## Fides For Business 2.12.1 ##
+May 5, 2023
+
+**Fixed**
+- **Updates to custom fields no longer require hard refresh**: this issue is now fixed and custom field updates are reflected automatically. 
+
+
 ## Fides For Business 2.12 ##
 May 2, 2023
 

@@ -215,6 +215,9 @@ div.nextra-nav-container.z-20.sticky.bg-transparent.w-full.top-0 > nav > div.fle
   padding-right: 8px;
 }
 
+div.max-w-\[90rem\].w-full.mx-auto.flex.flex-1.items-stretch > div > aside{
+  position: sticky !important;
+}
 .nextra-toc-meta {
  text-align: right;
  padding-top: 15px;
