@@ -1,5 +1,19 @@
 # Fides Release Notes 
 
+## Fides 2.13.0 ##
+May 15, 2023
+
+**Enhancements**
+- **Fixed broken links** to docs site pages in Admin UI [#3232](https://github.com/ethyca/fides/pull/3232)
+- **Deprecated fides export CLI command** as it is moving to fidesplus [#3264](https://github.com/ethyca/fides/pull/3264)
+
+
+**Connector updates**
+- [Amplitude](https://amplitude.com/): Access & erasure support
+- [Gorgias](https://www.gorgias.com/): Access & erasure support
+- [OneSignal](https://onesignal.com/): Access & erasure support
+- [DynamoDB](https://www.amazonaws.cn/en/dynamodb/): Access & erasure support
+
 ## Fides 2.12 ##
 May 2, 2023
 

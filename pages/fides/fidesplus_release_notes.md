@@ -1,5 +1,22 @@
 # Fides For Business Release Notes 
 
+# Fides For Business 2.13.0 ##
+May 15, 2023
+
+**Enhancements**
+- **Custom fields are now sorted** by `created_at` date
+- **Custom field values** now remain in a consistent order, sorted by `created_at` date
+- **Custom field names** now have a uniqueness constraint that is not case sensitive
+- **Fixed broken links** to docs site pages in Admin UI [#3232](https://github.com/ethyca/fides/pull/3232)
+- **Deprecated fides export CLI command** as it is moving to fidesplus [#3264](https://github.com/ethyca/fides/pull/3264)
+
+
+**Connector updates**
+- [Amplitude](https://amplitude.com/): Access & erasure support
+- [Gorgias](https://www.gorgias.com/): Access & erasure support
+- [OneSignal](https://onesignal.com/): Access & erasure support
+- [DynamoDB](https://www.amazonaws.cn/en/dynamodb/): Access & erasure support
+
 ## Fides For Business 2.12.1 ##
 May 5, 2023
 
