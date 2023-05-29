@@ -1,0 +1,48 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import TutorialKey from 'components/tutorialkey'
+
+# Data Mapping: Adding Systems Manually
+
+<TutorialKey duration="4" product="Fides" topic="Adding Systems Manually" video="true" interactive="true"/>
+
+## Introduction
+
+Fides is Ethyca's [Privacy as Code](#LINK) platform that lets you make privacy a default capability of your organization's technology and processes. Fides provides a quick and efficient way to build a data map allowing you to visualize sensitive data, identify privacy risks and generate compliance reports for global privacy regulations. 
+
+In this tutorial, you'll add a new system manually to your data map and by the end of this tutorial, you'll understand systems, data maps and how to manage them in Fides.
+
+## Prerequisites
+
+For this tutorial you will need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+
+You should also be familiar with the basics of the [Fides admin dashboard](#LINK).
+
+## Adding systems manually
+
+To start, navigate to **Data map** → **Add systems** and choose **Add a system** to add a system manually:
+
+![Add a system manually](/fides/assets/img/tutorials/data-mapping-manual-add-system.gif)
+
+From here you can search the list of available system templates:
+
+![Search for system templates](/fides/assets/img/tutorials/data-mapping-manual-search-system.gif)
+
+Alternatively, to create a custom system, select **Create system** from upper right corner:
+
+![Create a system manually](/fides/assets/img/tutorials/data-mapping-manual-create-system.gif)
+
+<Callout emoji="ⓘ">Using a system template will speed up your privacy operations as it uses Fides built-in privacy intelligence to prepopulate and and pre-configure integrations for privacy request processing.</Callout>
+
+Create your system by completing the required **System details** on the **System information** tab as follows:
+
+* <span class="nx-absolute -nx-mt-20" id="system-details-name"></span>[System name](#system-details-name) - A unique and relevant name to identify the system on the data map and in reports.
+* <span class="nx-absolute -nx-mt-20" id="system-details-fides-key"></span>[System Fides key](#system-details-fides-key) - A unique key to represent this system across all Fides resources. This only accepts alphanumeric characters, hyphens and underscores, and may not contain spaces.
+* <span class="nx-absolute -nx-mt-20" id="system-details-description"></span>[System description](#system-details-description) - An optional description to help other users understand what this system is.
+
+![Complete your system information](/fides/assets/img/tutorials/data-mapping-manual-describe-system.gif)
+
+Next you will learn how to reduce manual data entry by using Fides' automated scanning and system discovery tools and then you will [add information to describe the ways in which you use data in your system](#LINK).

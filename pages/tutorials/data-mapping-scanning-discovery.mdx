@@ -1,0 +1,135 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import TutorialKey from 'components/tutorialkey'
+
+# Data Mapping: Automated Scanning & System Discovery
+
+<TutorialKey duration="8" product="Fides" topic="System Discovery" video="true" interactive="true"/>
+
+## Introduction
+
+Fides is Ethyca's [Privacy as Code](#LINK) platform that lets you make privacy a default capability of your organization's technology and processes. Fides provides a quick and efficient way to build a data map allowing you to visualize sensitive data, identify privacy risks and generate compliance reports for global privacy regulations. 
+
+In this tutorial, you'll add a new system to your data map using Fides' Discovery Scanners and by the end of this tutorial, you'll be able to use Fides' automated system discovery and scanning tools.
+
+## Prerequisites
+
+For this tutorial you will need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+* If you are using Fides' Network Data Flow scanner this must be deployed in your cloud.
+
+You should also be familiar with the basics of the [Fides admin dashboard](#LINK).
+
+## Automated system discovery
+
+In this step, you'll add a system to your data map using Fides' automated scanning and discovery tools:
+
+1. [Discover systems with the cloud scanner for AWS](#cloud-system-discovery-for-aws)
+2. [Discover systems with the sign-on scanner for Okta](#single-sign-ondiscovery-for-okta)
+3. [Discover systems by scanning network data flows](#network-data-flow-discovery)
+
+
+## Cloud system discovery for AWS
+
+To start, navigate to **Data map** → **Add systems** and choose **Scan your infrastructure** to scan automatically.
+
+![Scan your cloud to discover systems](/fides/assets/img/tutorials/data-mapping-scan-infrastructure.gif)
+
+To automatically discover systems you must first authenticate the cloud infrastructure scanner to your AWS cloud by providing the following information:
+
+* <span class="nx-absolute -nx-mt-20" id="access-key-id"></span>[Access Key ID](#access-key-id) - The Access Key ID created by the cloud hosting provider.
+* <span class="nx-absolute -nx-mt-20" id="secret"></span>[Secret](#secret) - The secret associated with the Access Key ID used for authentication.
+* <span class="nx-absolute -nx-mt-20" id="default-region"></span>[Default Region](#default-region) - The geographic region of the cloud hosting provider you would like to scan.
+
+![Authenticate the infrastructure scanner](/fides/assets/img/tutorials/data-mapping-scan-infrastructure-authenticate.gif)
+
+The identity which is authenticated must have appropriate permissions to complete the scan:
+
+* ``redshift:DescribeClusters``
+* ``rds:DescribeDBInstances``
+* ``rds:DescribeDBClusters``
+
+These permissions can be manually configured via your AWS IAM policy management or supplied via an IAM policy similar to the following. For more information on permissions in AWS, read AWS' <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html" class="nx-text-primary-600 nx-underline nx-decoration-from-font" target="_blank">Overview of access management</a> here.
+
+
+```json  filename="Sample IAM Policy"
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "redshift:DescribeClusters",
+                "rds:DescribeDBInstances",
+                "rds:DescribeDBClusters",
+                "tag:GetResources",
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+When the scan has completed, you will be presented with a list of systems discovered in your AWS cloud. You will see the scanner displays the system name, type and the resource's identifier which is typically the ARN (Amazon Resource Name) for the discovered system:
+
+![Infrastructure scanner results of disovered systems](/fides/assets/img/tutorials/data-mapping-scan-infrastructure-results.gif)
+
+To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
+
+## Single sign-on discovery for Okta
+
+To start, navigate to **Data map** → **Add systems** and choose **Scan your Sign On Provider** to scan automatically.
+
+![Scan your single sign-on provider to discover systems](/fides/assets/img/tutorials/data-mapping-scan-sso.gif)
+
+To automatically discover systems you must first authenticate the single sign-on scanner to your Okta account by providing the following information. For more information on roles and generating API tokens, read Okta's guide to <a href="https://help.okta.com/en-us/Content/Topics/Security/API.htm?cshid=ext_API" class="nx-text-primary-600 nx-underline nx-decoration-from-font" target="_blank">API token management</a> here.
+
+
+* <span class="nx-absolute -nx-mt-20" id="org-url"></span>[Org URL](#org-url) - The URL for your organization's account on Okta.
+* <span class="nx-absolute -nx-mt-20" id="okta-token"></span>[Okta token](#okta-token) - The token generated by Okta for your account.
+
+![Authenticate the sign sign-on provider scanner](/fides/assets/img/tutorials/data-mapping-scan-sso-authenticate.gif)
+
+When the scan has completed, you will be presented with a list of systems discovered in your Okta account. You will see the scanner displays the system name, type and the resource's identifier which is typically the unique ID in Okta for the discovered system:
+
+![Single sign-on provider scanner results of disovered systems](/fides/assets/img/tutorials/data-mapping-scan-sso-results.gif)
+
+To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
+
+## Network data flow discovery
+
+To start, navigate to **Data map** → **Add systems** and choose **Data flow scan** to scan automatically.
+
+<Callout emoji="ⓘ">The network data flow scanner is a deployed tool. If you see it in your Fides admin dashboard, it has already been deployed and configured for your organization and does not require additional authentication. To learn more, read about the <a href="#LINK" class="nx-text-primary-600 nx-underline nx-decoration-from-font">network data flow scanner</a> here.</Callout>
+
+The network data flow scaner works by analyzing data flowing between services in clusters such as Kubernetes (k8s). This network inspection means the data flow scanner can safely analyze the network traffic between services in your cloud and categorize the data flowing.
+
+![Scan your network data flows to discover systems](/fides/assets/img/tutorials/data-mapping-scan-dataflow.gif)
+
+When the scan has completed, you will be presented with a list of systems discovered from real-time analysis of dataflow in Kubernetes (k8s) clusters in your cloud. You will see the scanner displays the system name and type:
+
+![Network data flow scanner results of disovered systems](/fides/assets/img/tutorials/data-mapping-scan-dataflow-results.gif)
+
+To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**. 
+
+After registering your systems, you will be prompted to classify the data flow between the systems. Your systems have already been registered to your map and you can complete or leave this flow without concern. If you wish to classify data flows, proceed to the step below;
+
+### Classify sensitive data flowing between systems
+
+The network data flow scanner will use Fides Classify, the machine learning classification engine to categorize the sensitive data flowing between systems and provide a report of findings for review.
+
+![Machine learning sensitive data flow classification awaiting review](/fides/assets/img/tutorials/data-mapping-scan-dataflow-classification-results.gif)
+
+Review each system by clicking on **Awaiting Review** to see a detailed analysis of sensitive data classification for any source system and any destination system.
+
+* <span class="nx-absolute -nx-mt-20" id="source-systems"></span>[Source Systems](#source-systems) - Other systems that are sending data to the selected system are considered sources.
+* <span class="nx-absolute -nx-mt-20" id="destination-systems"></span>[Destination Systems](#destination-systems) - Systems that are receiving data from the selected system are considered destinations.
+
+For each source and destination system, Fides will display the categories of sensitive data that have been detected flowing in network traffic:
+
+![Machine learning sensitive data flow classification awaiting review](/fides/assets/img/tutorials/data-mapping-scan-dataflow-classification-detail-results.gif)
+
+After you have reviewed the list of systems, click **Finish** to complete the data flow analysis and return to the data map.
+
+Next you will complete your system with Data uses and Processing Activities so that you can begin building compliant privacy reports.

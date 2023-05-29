@@ -134,7 +134,7 @@ article a:hover, .nextra-nav-container a:hover{
 	color: #6536ec !important;
 }
 article img{
-	border: 1px solid #f1f1f1 !important;
+	border: 2px solid #ebeef5;
 	border-radius: 7px;
 }
 article .nx-mt-6{
@@ -625,7 +625,7 @@ footer > div.py-12 > div{
 	}
 }
 /* title for code blocks */
-.nextra-code-block [data-language="console"], .nextra-code-block [data-language="toml"] {
+.nextra-code-block [data-language="console"], .nextra-code-block [data-language="json"], .nextra-code-block [data-language="toml"] {
 	background-color: #252937;
 	--shiki-color-text: #efeff0;
 }
@@ -646,13 +646,13 @@ footer > div.py-12 > div{
 	--shiki-color-text: #414141;
 	--shiki-color-background: transparent;
 	--shiki-token-constant: #1976d2;
-	--shiki-token-string: #22863a;
+	--shiki-token-string: #48BB78;
 	--shiki-token-comment: #aaa;
-	--shiki-token-keyword: #b488c7;
+	--shiki-token-keyword: #B794F4;
 	--shiki-token-parameter: #ff9800;
-	--shiki-token-function: #6f42c1;
-	--shiki-token-string-expression: rgb(227, 211, 140);
-	--shiki-token-punctuation: #212121;
+	--shiki-token-function: #B794F4;
+	--shiki-token-string-expression: #38A169;
+	--shiki-token-punctuation: #fff;
 	--shiki-token-link: #22863a;
   }
 /* Loom Video Styles */
