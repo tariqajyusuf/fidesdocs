@@ -276,7 +276,7 @@ thead tr, thead tr td{
 	color: #4A5568;
 }
 /*** Hero Visual Component Styling */
-.HeroVisual {
+.HeroVisual, .HeroCTAVisual {
 	border-radius: 8px;
 	margin: 20px 0px;
 	align-items: center;
@@ -284,16 +284,51 @@ thead tr, thead tr td{
 	display: flex;
 	flex-wrap: wrap;
 	overflow: hidden;
+	color: #ffffff;
 }
-.HeroVisual h1 {
+.HeroCTAVisual .branded-callout {
+	display: inline-block;
+	padding: 24px 0 24px 24px;
+	box-sizing: border-box;
+	margin: 0;
+	flex: 1 1;
+}
+.HeroCTAVisual .branded-callout a {
+	font-weight: 500;
+	display: inline-block;
+}
+.HeroCTAVisual .branded-callout a::after {
+	content :'  →';
+	position:absolute;
+	padding-left: 5px;
+}
+.HeroCTAVisual .branded-callout a:hover {
+	text-decoration: underline;
+	color: #ffffff !important;
+}
+
+.HeroCTAVisual h1 {
+	color: #F7FAFC;
+	font-size: 24px;
+	font-weight: 700;
+	display: block;
+}
+.HeroCTAVisual p {
+	display: block;
+	padding: 10px 0;
+}
+.HeroVisual h1{
 	flex: 1 1;
 	margin: 0;
 	padding: 30px;
 	color: #F7FAFC;
 	font-size: 24px;
 	font-weight: 700;
+	display: inline-block;
 }
-.HeroVisual .HeroImage {
+
+
+.HeroVisual .HeroImage, .HeroCTAVisual .HeroCTAImage{
 	align-items: flex-end;
 	align-self: stretch;
 	display: flex;
@@ -301,12 +336,13 @@ thead tr, thead tr td{
 	justify-content: flex-end;
 	margin-left: auto;
 }
-.HeroVisual .HeroImage img {
+
+.HeroVisual .HeroImage img, .HeroCTAVisual .HeroCTAImage img {
 	border-radius: 0px 0 8px 0 !important;
 	border: none !important;
 }
 @media only screen and (max-width: 1045px) {
-	.HeroVisual .HeroImage {
+	.HeroVisual .HeroImage, .HeroCTAVisual .HeroCTAImage {
 		display: none;
 	}
 }
@@ -405,6 +441,55 @@ a.featBlockWrap:hover , .CtaFeatWrap a:hover .ctaBlockWrap {
 	margin-bottom: 7px;
 	margin-top: 7px;
 }
+
+/*** Tutorial Key Component ***/
+.tutorialKey {
+	font-size: 14px;
+	font-weight: 500;
+	margin: 10px 0 20px 0;
+}
+.tutorialKey span {
+	padding-right: 10px;
+}
+.tutorialKey span::after {
+	content :'|';
+	padding-left: 10px;
+}
+.tutorialKey span:first-child {
+	padding-left: 0;
+}
+.tutorialKey span:last-child::after {
+	content: none;
+}
+.tutorialKey .tutorial-product {
+	padding-right: 0;
+}
+.tutorialKey .tutorial-topic, .tutorialKey .tutorial-video, .tutorialKey .tutorial-interactive {
+	padding-right: 20px;
+}
+.tutorialKey .tutorial-product::after {
+	content: ' / ';
+	padding-right: 0;
+	padding-left: 0;
+}
+.tutorialKey span:last-child::after, .tutorialKey .tutorial-topic::after, .tutorialKey .tutorial-video::after {
+	content: none;
+}
+.tutorialKey .tutorial-video::before {
+	content: url(/fides/assets/svg/video-icon.svg);
+	position:relative;
+	top:2px;
+	padding-right: 3px;
+	line-height: 1em;
+}
+.tutorialKey .tutorial-interactive::before {
+	content: url(/fides/assets/svg/terminal-icon.svg);
+	position:relative;
+	top:2px;
+	padding-right: 5px;
+	line-height: 1em;
+}
+
 /*** ThreeCol Component Styling */
 .ThreeCol{
 	border-radius: 8px;
@@ -570,3 +655,20 @@ footer > div.py-12 > div{
 	--shiki-token-punctuation: #212121;
 	--shiki-token-link: #22863a;
   }
+/* Loom Video Styles */
+.loomFrame {
+	position: relative;
+	padding-bottom: 63.607594936708864%;
+	height: 0;
+	border-radius: 7px;
+	box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1), 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+	margin: 30px 0;
+}
+.loom {
+	position: absolute;
+	border-radius: 7px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

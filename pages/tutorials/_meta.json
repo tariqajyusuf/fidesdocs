@@ -1,0 +1,26 @@
+{
+  "separator-data-mapping": {
+    "title":"Data Mapping",
+    "type": "separator"
+  },
+  "data-mapping-get-started":"Getting Started",
+  "data-mapping-configuration": "Configuration",
+  "data-mapping-fundamentals": "Data Mapping Fundamentals",
+
+  "separator-privacy-requests": {
+    "title": "Privacy Requests",
+    "type": "separator"
+  },
+  "privacy-requests-get-started":"Getting Started",
+  "privacy-requests-configuration": "Configuration",
+  "privacy-requests-fundamentals": "Privacy Requests Fundamentals",
+
+  "separator-consent-management": {
+    "title": "Consent Management",
+    "type": "separator"
+  },
+  "consent-management-get-started":"Getting Started",
+  "consent-management-configuration": "Configuration",
+  "consent-management-fundamentals": "Privacy Requests Fundamentals"
+
+}

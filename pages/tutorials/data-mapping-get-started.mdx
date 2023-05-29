@@ -1,0 +1,81 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import TutorialKey from 'components/tutorialkey'
+
+# Getting Started with Data Mapping
+
+<TutorialKey duration="9" product="Fides" topic="Data Mapping" video="true" interactive="true"/>
+
+<div class="loomFrame">
+  <iframe src="https://www.loom.com/embed/0c4dd3aaa3a344399f80fdb0300100b4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="loom"></iframe>
+</div>
+
+Fides allows you to quickly build a Data Map in order to visualize sensitive data, identify privacy risks and generate compliant reports for privacy regulations globally. 
+
+In this tutorial, you will add a new system to your Data Map using Fides' Discovery Scanners, update your system's privacy activities, view your system on the Data Map and export a compliance report for a regulation such as the GDPR's RoPA (Record of Processing Activity) requirements. 
+
+By the end of this tutorial you'll be proficient in how to add and manage systems and data to your Data Map as well as reporting.
+
+## Prerequisites
+
+For this tutotial you will need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+
+You should also be familiar with the basics of the [Fides admin dashboard](./docs/ui/).[TO BE UPDATED]
+
+## 
+
+manage infrastructure with configuration files rather than through a graphical user interface. IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
+
+Terraform is HashiCorp's infrastructure as code tool. It lets you define resources and infrastructure in human-readable, declarative configuration files, and manages your infrastructure's lifecycle. Using Terraform has several advantages over manually managing your infrastructure:
+
+Terraform can manage infrastructure on multiple cloud platforms.
+The human-readable configuration language helps you write infrastructure code quickly.
+Terraform's state allows you to track resource changes throughout your deployments.
+You can commit your configurations to version control to safely collaborate on infrastructure.
+
+
+The ```fides init``` command initializes a working directory called ***.fides*** and automatically creates a default configuration file called ```fides.toml```  using default values.
+This is the first command that should run if you intend to configure Fides via a toml file rather than via environment variables.
+
+Both methods can be used simultaneously, but note that environment variables take precedence over the ```toml``` file values. You can read more about [How to configure Fides](#LINK) here.
+
+## Usage
+Usage: ```fides init```
+
+This command creates the default ```.fides``` directory and ```fides.toml``` config file using default configuration values.
+
+Running this command should result in output that resembles the following:
+
+```console
+$ fides init
+
+No config file found
+Using default configuration values.
+Loading config from: .fides/fides.toml
+No config file found
+Using default configuration values.
+----------
+Created a './.fides' directory.
+Created a fides config file: ./.fides/fides.toml
+To learn more about configuring fides, see:
+	https://docs.ethyca.com/fides/tutorials#getting-started
+
+███████╗██╗██████╗ ███████╗███████╗
+██╔════╝██║██╔══██╗██╔════╝██╔════╝
+█████╗  ██║██║  ██║█████╗  ███████╗
+██╔══╝  ██║██║  ██║██╔══╝  ╚════██║
+██║     ██║██████╔╝███████╗███████║
+╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝
+
+Initializing fides...
+----------
+----------
+Directory './.fides' already exists.
+Configuration file already exists: ./.fides/fides.toml
+To learn more about configuring fides, see:
+	https://docs.ethyca.com/fides/tutorials#getting-started
+----------
+```
