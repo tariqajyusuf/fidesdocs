@@ -1,5 +1,22 @@
 # Fides Release Notes 
 
+## Fides 2.14.0 ##
+May 30, 2023
+
+**Enhancements**
+  - **Support for data categories on manual processes**: The manual process definition for access requests now supports data categories which will enable categorization in access request files in future releases. 
+  - **Snowflake dataset generation**: Improved handling of Snowflake object casing and quoting in dataset generation. [#3245](https://github.com/ethyca/fides/pull/3245)
+  - **Audit Logs**: Added optional, basic audit logs for POST and PUT requests
+ [#3331](https://github.com/ethyca/fides/pull/3331)
+
+**Connector updates**
+- [Delighted](https://delighted.com/): Updated the  connector so the `survey_response` endpoint depends on the `person` endpoint. [#3385](https://github.com/ethyca/fides/pull/3385)
+- Email: Email based connectors now respect the `notifications.notification_service_type` configuration variable [#3355](https://github.com/ethyca/fides/pull/3355)
+
+
+**Removed**
+* The `export` CLI command was removed.
+
 ## Fides 2.13.0 ##
 May 15, 2023
 
