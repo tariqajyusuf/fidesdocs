@@ -347,69 +347,69 @@ thead tr, thead tr td{
 	}
 }
 /*** KeyFeat & CallToAction Component Styling */
-.KeyFeat, .CtaFeat{
+.KeyFeat, .CtaFeat, .KeyTutorial{
 	border-radius: 8px;
 	margin: 20px 0px;
 }
-.KeyFeat h2, .KeyFeat p, .CtaFeat h2, .CtaFeat p{
+.KeyFeat h2, .KeyFeat p, .CtaFeat h2, .CtaFeat p, .KeyTutorial h2, .KeyTutorial p{
 	margin-top: 0px;
 }
-.KeyFeat h2, .CtaFeat h2{
+.KeyFeat h2, .CtaFeat h2, .KeyTutorial h2 {
 	font-size: 24px;
 }
-.KeyFeatWrap, .CtaFeatWrap{
+.KeyFeatWrap, .CtaFeatWrap, .KeyTutorialWrap{
 	margin-top: 15px;
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-column-gap: 15px;
 	grid-row-gap: 15px;
 }
-.KeyFeatWrap a {
+.KeyFeatWrap a , .KeyTutorialWrap a {
 	text-decoration: none;
 }
-a.featBlockWrap, .ctaBlockWrap{
+a.featBlockWrap, .ctaBlockWrap, a.tutorialBlockWrap {
 	border-radius: 6px;
 	padding: 16px;
 	background: #F7FAFC;
 	border: 1px solid #e5e7eb;
 }
-a.featBlockWrap:nth-of-type(4n -2), .ctaBlockWrap:nth-of-type(4n -2){
+a.featBlockWrap:nth-of-type(4n -2), .ctaBlockWrap:nth-of-type(4n -2), a.tutorialBlockWrap:nth-of-type(4n -2){
 	background: #FAF5FF;
 }
-a.featBlockWrap:nth-of-type(4n - 1), .ctaBlockWrap:nth-of-type(4n - 1){
+a.featBlockWrap:nth-of-type(4n - 1), .ctaBlockWrap:nth-of-type(4n - 1), a.tutorialBlockWrap:nth-of-type(4n - 1) {
 	background: #F0FFF4;
 }
-a.featBlockWrap:nth-of-type(4n), .ctaBlockWrap:nth-of-type(4n){
+a.featBlockWrap:nth-of-type(4n), .ctaBlockWrap:nth-of-type(4n), a.tutorialBlockWrap:nth-of-type(4n) {
 	background: #EBF8FF;
 }
-.KeyFeat h2, .CtaFeat h2{
+.KeyFeat h2, .CtaFeat h2, .KeyTutorial h2 {
 	font-size: 24px;
 }
-a.featBlockWrap, a .ctaBlockWrap{
+a.featBlockWrap, a .ctaBlockWrap, a.tutorialBlockWrap{
 	transition: box-shadow 0.2s ease-in-out;
 }
-a.featBlockWrap:hover .featBlock h3, a.featBlockWrap:hover .featBlock p {
+a.featBlockWrap:hover .featBlock h3, a.featBlockWrap:hover .featBlock p, a.tutorialBlockWrap:hover .tutorialBlock h3, a.tutorialBlockWrap:hover .tutorialBlock p, a.tutorialBlockWrap:hover .tutorialBlock, .tutorialCTAKey {
 	text-decoration: none;
 	color: #2D3748;
 }
-.featBlockWrap h3, a .ctaBlock h3{
+.featBlockWrap h3, a .ctaBlock h3, .tutorialBlockWrap h3{
 	font-size: 16px;
 	font-weight: 600;
 	margin-top: 0;
 	text-decoration-line: none !important;
   transition: color 0.2s ease-in-out;
 }
-.featCTA{
+.featCTA, .tutorialCTA{
 	font-size: 14px;
 	font-weight: 600 !important;
 	text-decoration-line: none !important;
 	color: #2D3748;
 	position: relative;
 }
-a.featBlockWrap:hover .featCTA {
+a.featBlockWrap:hover .featCTA, a.tutorialBlockWrap:hover .tutorialCTA {
 	color: #824EF2;
 }
-a.featBlockWrap:hover .featCTA::after {
+a.featBlockWrap:hover .featCTA::after, a.tutorialBlockWrap:hover .tutorialCTA::after {
 	color: #824EF2;
 	content :' →';
 	position:absolute;
@@ -427,7 +427,7 @@ a.featBlockWrap:hover .featCTA::after {
 .CtaFeatWrap a:hover{
 	text-decoration: underline !important;
 }
-a.featBlockWrap:hover , .CtaFeatWrap a:hover .ctaBlockWrap {
+a.featBlockWrap:hover, .CtaFeatWrap a:hover .ctaBlockWrap, a.tutorialBlockWrap:hover{
 	box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
 }
 .CtaFeatWrap a:hover .ctaBlockWrap::after {
@@ -435,7 +435,7 @@ a.featBlockWrap:hover , .CtaFeatWrap a:hover .ctaBlockWrap {
 	position:absolute;
 	padding-left: 5px;
 }
-.featBlockWrap p, .ctaBlockWrap p{
+.featBlockWrap p, .ctaBlockWrap p, .tutorialBlockWrap p,{
 	line-height: 22px;
 	font-size: 15px;
 	margin-bottom: 7px;
@@ -443,46 +443,59 @@ a.featBlockWrap:hover , .CtaFeatWrap a:hover .ctaBlockWrap {
 }
 
 /*** Tutorial Key Component ***/
-.tutorialKey {
+.tutorialKey, .tutorialCTAKey {
 	font-size: 14px;
 	font-weight: 500;
 	margin: 10px 0 20px 0;
 }
-.tutorialKey span {
+.tutorialCTAKey {
+	margin-bottom: 0;
+	font-size: .8em;
+}
+.tutorialKey span, .tutorialCTAKey span {
 	padding-right: 10px;
 }
-.tutorialKey span::after {
+.tutorialKey span::after, .tutorialCTAKey span::after {
 	content :'|';
-	padding-left: 10px;
+	padding-left: 10px
 }
-.tutorialKey span:first-child {
+
+.tutorialCTAKey span {
+	padding: 0 5px;
+}
+
+.tutorialCTAKey .tutorial-video::after {
+	content :'|';
+	padding-left: 5px;
+}
+.tutorialKey span:first-child, .tutorialCTAKey span:first-child {
 	padding-left: 0;
 }
-.tutorialKey span:last-child::after {
+.tutorialKey span:last-child::after, .tutorialCTAKey span:last-child::after {
 	content: none;
 }
-.tutorialKey .tutorial-product {
+.tutorialKey .tutorial-product, .tutorialCTAKey .tutorial-product {
 	padding-right: 0;
 }
-.tutorialKey .tutorial-topic, .tutorialKey .tutorial-video, .tutorialKey .tutorial-interactive {
+.tutorialKey .tutorial-topic, .tutorialKey .tutorial-video, .tutorialKey .tutorial-interactive{
 	padding-right: 20px;
 }
-.tutorialKey .tutorial-product::after {
+.tutorialKey .tutorial-product::after, .tutorialCTAKey .tutorial-product::after {
 	content: ' / ';
 	padding-right: 0;
 	padding-left: 0;
 }
-.tutorialKey span:last-child::after, .tutorialKey .tutorial-topic::after, .tutorialKey .tutorial-video::after {
+.tutorialKey span:last-child::after, .tutorialKey .tutorial-topic::after, .tutorialKey .tutorial-video::after{
 	content: none;
 }
-.tutorialKey .tutorial-video::before {
+.tutorialKey .tutorial-video::before, .tutorialCTAKey .tutorial-video::before {
 	content: url(/fides/assets/svg/video-icon.svg);
 	position:relative;
 	top:2px;
 	padding-right: 3px;
 	line-height: 1em;
 }
-.tutorialKey .tutorial-interactive::before {
+.tutorialKey .tutorial-interactive::before, .tutorialCTAKey .tutorial-interactive::before {
 	content: url(/fides/assets/svg/terminal-icon.svg);
 	position:relative;
 	top:2px;
