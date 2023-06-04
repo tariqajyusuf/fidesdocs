@@ -134,7 +134,19 @@ article a:hover, .nextra-nav-container a:hover{
 	color: #6536ec !important;
 }
 article img{
-	border: 2px solid #ebeef5;
+	border: 2px solid #e5e8ee;
+	border-radius: 7px;
+}
+article .screenshot { 
+	background-color: #f4f4f5;
+	padding: 12px;
+	border-radius: 7px;
+	display: block;
+	margin: 25px 0;
+}
+
+article .screenshot img{
+	border: 1px solid #dcdcdc;
 	border-radius: 7px;
 }
 article .nx-mt-6{
@@ -684,4 +696,13 @@ footer > div.py-12 > div{
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+/* Glossary List Styles */
+
+.glossary-list {
+	margin: 20px 0;
+}
+.glossary-list ul{
+	column-count: 2;
 }
