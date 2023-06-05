@@ -4,66 +4,34 @@ import Callout from 'nextra-theme-docs/callout'
 
 Current and upcoming state privacy regulations (e.g. CPRA, VCDPA, CPA) require organizations to offer consumers the right to opt in or out of a variety of data uses, such as data processing for sales, data sharing, and sensitive information processing.
 
-Once you have configured and deployed your [Privacy Center](./consent_management), Fides allows your users to save their privacy settings according to your customized consent configuration, and uses these stored consent choices to enable or disable corresponding data uses. 
+Once you have configured and deployed your [Privacy Center Consent Management](./consent_management), Fides allows your users to save their privacy settings according to your customized consent configuration, and uses these stored consent choices to enable or disable corresponding data uses. 
 
-## Update your Privacy Center configuration
-Consent options are defined within the Privacy Center [configuration](./consent_management#consent). The consent section of your `config.json` contains a list of `consentOptions`, which represent the data use cases (e.g. Data Sales, Data Sharing) that you would like to let your users opt in or out of.
+### Install the Fides.js script on your website
 
-```json
-"consent": {
-    "title": "Manage your consent",
-    "description": "Manage your consent preferences, including the option to select 'Do Not Sell My Personal Information'.",
-    "cookieName": "fides_consent",
-    "icon_path": "/consent.svg",
-    "consentOptions": [ {
-        "fidesDataUseKey": "advertising",
-        "name": "Advertising / Data Sharing",
-        "description": "We may use some of your personal information for advertising performance analysis and audience modeling for ongoing advertising which may be interpreted as 'Data Sharing' under some regulations.",
-        "url": "https://example.com/privacy#advertising",
-        "default": true,
-        "highlight": false,
-        "cookieKeys": ["data_sales"]
-        }
-    ]
-}
-...
-```
+The Privacy Center hosts a customized script called `fides.js` that can be used in a given web page to access the consent choices a user has made.
 
-| Attribute | Description |
-| --- | --- |
-| `includeConsent` | Whether the consent options are enabled.
-| `cookieName` | The name of the stored cookie.
-| `title` and `description` | Text fields to override the default text of the associated consent option.
-| `url` | The URL where a user can find additional information about this data use.
-| `default` | If this consent preference is enabled (true) or disabled (false) by default.
-| `highlight` | Whether or not this consent preference is highlighted.
-| `cookieKeys` | The data use represented within your stored cookie.  This key will correspond to the variable names in later steps, and will be used by scripts and/or third-party services (like Google Tag Manager) to access your users’ consent settings. |
-
-
-### Implement the consent script
-
-The Privacy Center’s `fides-consent` package builds a script that can be used in a given web page to access the consent choices a user has made using the Privacy Center.
-
-To use the script, the following should be included within the `<head>` tag of your page:
+To install this script on your site, the following should be included within the `<head>` tag of your page:
 
 ```html
 <head>
   <!-- Include before any scripts which need consent. -->
-  <script src="example.com/privacy-center/fides-consent.js"></script>
+  <script src="privacy.example.com/fides.js"></script>
 </head>
 ```
 
 | Attribute | Description |
 | --- | --- |
-| `example.com/privacy-center` | Replace this with the URL to your deployed Privacy Center.
+| `privacy.example.com` | Replace this with the URL to your deployed Privacy Center.
 
 
-### Push consent options to Google Tag Manager
-When using Google Tag Manager, calling `Fides.gtm()` will push the user's consent choices into GTM's Data Layer under Fides.consent. 
+### Integrate Fides.js with Google Tag Manager
+When using Google Tag Manager, calling `Fides.gtm()` will push the user's consent choices into GTM's Data Layer under a variable named `Fides.consent`.
+
+To enable the Google Tag Manager integration, call `Fides.gtm()` in your website code:
 
 ```html
 <head>
-  <script src="example.com/privacy-center/fides-consent.js"></script>
+  <script src="privacy.example.com/fides.js"></script>
   <script>Fides.gtm()</script>
 
   <!-- Include Google Tag Manager's script below. -->
@@ -75,32 +43,17 @@ See the [end of this guide](#configure-consent-in-google-tag-manager-gtm) for mo
 ### Usage options
 In any code which requires user consent, you can now check a user’s consent map under the Fides global variable:
 ```js
-if (Fides.consent.data_sales) {
+if (Fides.consent.data_sales_and_sharing) {
   // User has opted in.
 } else {
   // User has opted out.
 }
 ```
 
-In the above example, `data_sales` matches the cookieKeys set during your Privacy Center configuration:
-
-```json
-...
-    "consentOptions": [
-      {
-        "fidesDataUseKey": "advertising",
-        "name": "Advertising / Data Sharing",
-        "description": "We may use some of your personal information for advertising performance analysis and audience modeling for ongoing advertising which may be interpreted as 'Data Sharing' under some regulations.",
-        "url": "https://example.com/privacy#advertising",
-        "default": true,
-        "highlight": false,
-        "cookieKeys": ["data_sales"]
-      }
-...
-```
+Note that, in the above example, `data_sales_and_sharing` matches a key set for one of the consent options during your Privacy Center configuration. See the [Privacy Center Consent Management](./consent_management) documentation for more details on how to customize these options and configure other keys, etc.
 
 ## Configure consent in Google Tag Manager (GTM)
-The following step-by-step implementation will use the cookieKeys created during your Privacy Center configuration. To begin, open your GTM console and select **Variables** from the navigation menu. 
+The following step-by-step implementation will use the consent options created during your Privacy Center configuration. To begin, open your GTM console and select **Variables** from the navigation menu. 
 
 ### Set up a GTM variable
 1. From the Variables menu, click **New** within the **User-Defined Variables** section.
@@ -109,9 +62,9 @@ The following step-by-step implementation will use the cookieKeys created during
 
 ![Page Variables](../../../public/assets/img/google_tag_manager/image6.png)
 
-3. Set the **Data Layer Variable Name** to the corresponding `consentKey` configured in your Privacy Center (Fides.consent.data_sales in this guide’s examples).
+3. Set the **Data Layer Variable Name** to the corresponding `cookieKey` configured in your Privacy Center (`Fides.consent.data_sales_and_sharing` in this guide’s examples).
 
-4. Give the variable a suitable, identifiable name, such as Fides.DataSalesSharing, as in the example below:
+4. Give the variable a suitable, identifiable name, such as `Fides.DataSalesAndSharing`, as in the example below:
 
 ![Data Layer](../../../public/assets/img/google_tag_manager/image4.png)
 
@@ -127,18 +80,18 @@ Many third-party tools rely on you to correctly configure their tags to fire dep
 
 <Callout> Ensure you use the appropriate trigger type for your tag. If your primary firing trigger is Page View based, use the **Page View** exception trigger. If your primary firing trigger is Custom Event based, use the **Custom Event** exception trigger.</Callout>
 
-3. Give the trigger a suitable, identifiable name, such as Fides.DataSales.Consent.
+3. Give the trigger a suitable, identifiable name, such as Fides.DataSalesAndSharing.OptOut
 
 4. Set “This trigger fires on” to Some Page Views.
 
 5. In the “Fire this trigger when…” option, set the following:
-    * The **event field** to Fides.DataSaleSharing (this matches the user-defined variable created earlier)
+    * The **event field** to match your user-defined variable earlier (e.g. `Fides.DataSalesAndSharing`)
     * The **evaluation** to `equals`
     * The **value** to `false`
 
 ![Trigger Settings](../../../public/assets/img/google_tag_manager/image9.png)
 
-This new trigger event can now be added to your tags, and will ensure the tag is suppressed where the user has opted out (e.g. when a user’s consent preference has set **DataSalesSharing** to false.)
+This new trigger event can now be added to your tags, and will ensure the tag is suppressed where the user has opted out (e.g. when a user’s consent preference has set **Fides.DataSalesAndSharing** to false.)
 
 <Callout>You can repeat this step to include the condition on other types of triggers as you require them.  For example, this condition could be on Custom Events, Page Views, Window Loads or Initialization.</Callout>
 
@@ -172,10 +125,10 @@ To implement the Limited Data Use flag, the following modifications to your pixe
 1. Add the line below _before_ `fbq('init', '00000000000');`
 
 ```
-{{Fides.DataSaleSharing}} ? fbq('dataProcessingOptions', []) : fbq('dataProcessingOptions', ['LDU'], 1, 1000);
+{{Fides.DataSalesAndSharing}} ? fbq('dataProcessingOptions', []) : fbq('dataProcessingOptions', ['LDU'], 1, 1000);
 ```
 
-This line checks the value of Fides.DataSaleSharing, and will opt a user out of or into data processing based on its value (`true` or `false`).
+This line checks the value of `Fides.DataSalesAndSharing`, and will opt a user out of or into data processing based on its value (`true` or `false`).
 
 <Callout> If your Meta pixel is using the `<noscript></noscript>` for non-javascript browsers, _remove this_ from your pixel. Consent management solutions, like Fides, rely on javascript; this pixel would risk firing, causing non-compliance.</Callout>
 
@@ -187,7 +140,7 @@ In order to configure Google's Restricted Data Processing flag, minor updates ar
 
 1. Edit your Google Ads Pixel:
 
-2. In the dropdown list labeled "Enable Restricted Data Processing", select the appropriate variable that you created [at the start](#set-up-a-gtm-variable) (e.g. Fides.DataSaleSharing).
+2. In the dropdown list labeled "Enable Restricted Data Processing", select the appropriate variable that you created [at the start](#set-up-a-gtm-variable) (e.g. `Fides.DataSalesAndSharing`).
 
 ![Restricted Data Processing](../../../public/assets/img/google_tag_manager/image11.png)
 
