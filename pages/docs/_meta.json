@@ -1,5 +1,6 @@
 {
   "cli": "Fides CLI",
+  "control": "Fides Control",
   "server-docs": "Fides Server",
   "enterprise": "Fides Enterprise"
 }
