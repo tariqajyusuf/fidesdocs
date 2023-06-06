@@ -501,14 +501,14 @@ a.featBlockWrap:hover, .CtaFeatWrap a:hover .ctaBlockWrap, a.tutorialBlockWrap:h
 	content: none;
 }
 .tutorialKey .tutorial-video::before, .tutorialCTAKey .tutorial-video::before {
-	content: url(/fides/assets/svg/video-icon.svg);
+	content: url(/assets/svg/video-icon.svg);
 	position:relative;
 	top:2px;
 	padding-right: 3px;
 	line-height: 1em;
 }
 .tutorialKey .tutorial-interactive::before, .tutorialCTAKey .tutorial-interactive::before {
-	content: url(/fides/assets/svg/terminal-icon.svg);
+	content: url(/assets/svg/terminal-icon.svg);
 	position:relative;
 	top:2px;
 	padding-right: 5px;
