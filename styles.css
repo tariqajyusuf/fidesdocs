@@ -233,19 +233,66 @@ nav .text-current{
 .text-current.p-2 svg{
 	display: none;
 }
-table{
-	margin-top: 15px;
-}
-thead tr, thead tr td{
-	border-top: 0;
-	border-right: 0;
-	border-left: 0;
-	font-weight: bold;
-	border-bottom: 2px solid #824EF2;
+table {
+    margin-top: 15px;
+    padding: 0
 }
 
-table tr td{
-	padding: 10px 5px;
+table:first-child {
+    margin-top: 0
+}
+
+table tr {
+    margin: 0;
+    border-top-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(209 213 219/var(--tw-border-opacity));
+    padding: 0
+}
+
+.dark table tr {
+    --tw-border-opacity: 1;
+    border-color: rgb(75 85 99/var(--tw-border-opacity))
+}
+
+table tr:nth-child(2n) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246/var(--tw-bg-opacity))
+}
+
+.dark table tr:nth-child(2n) {
+    background-color: rgb(75 85 99/var(--tw-bg-opacity));
+    --tw-bg-opacity: 0.2
+}
+
+table tr th {
+    font-weight: 600
+}
+
+table tr td[align=center],table tr th[align=center] {
+    text-align: center
+}
+
+table tr td[align=right],table tr th[align=right] {
+    text-align: right
+}
+
+table tr td,table tr th {
+    text-align: left;
+    margin: 0;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(209 213 219/var(--tw-border-opacity));
+    padding: .5rem 1rem
+}
+
+.dark table tr td,.dark table tr th {
+    --tw-border-opacity: 1;
+    border-color: rgb(75 85 99/var(--tw-border-opacity))
+}
+
+.table-container {
+    overflow: auto
 }
 
 /*** GetStarted Component Styling */
