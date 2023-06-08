@@ -1,0 +1,14 @@
+{
+  "overview": "Overview",
+  "developing_fides": "Developing Fides",
+  "development_tips": "Development Tips",
+  "testing": "Testing",
+  "code_style": "Code Style",
+  "ui": "UI Development",
+  "documentation":"Documentation",
+  "pull_requests":"Pull Requests",
+  "releases": "Releases",
+  "postman": "Using Postman",
+  "update_erd_diagram": "Updating the Database Diagram",
+  "fideslog": "User Analytics"
+}

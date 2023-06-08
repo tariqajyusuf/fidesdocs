@@ -21,7 +21,11 @@
   "href": "/regulations"
  },
 "community": {
-  "title": "Community Forum",
+  "title": "Community",
+  "href": "/community"
+ },
+"slack": {
+  "title": "Join Our Slack",
   "href": "https://fid.es/join",
   "newWindow": true
 },

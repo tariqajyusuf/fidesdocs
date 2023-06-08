@@ -59,6 +59,13 @@ html {
 .dark .invert-on-dark {
 	filter: invert(1) brightness(1.8);
 }
+
+:root{
+--shiki-token-string-expression: #27BF66 !important;
+--shiki-token-constant: #4898FF !important;
+}
+
+
 body {
 	background: white;
 	color: #2D3748;
@@ -432,6 +439,13 @@ table tr td,table tr th {
 .KeyFeatWrap a , .KeyTutorialWrap a {
 	text-decoration: none;
 }
+
+.featBlockWrap div{
+	height: 100%;
+	position: relative;
+	padding-bottom: 25px;
+}
+
 a.featBlockWrap, .ctaBlockWrap, a.tutorialBlockWrap {
 	border-radius: 6px;
 	padding: 16px;
@@ -461,8 +475,10 @@ a.featBlockWrap:hover .featBlock h3, a.featBlockWrap:hover .featBlock p, a.tutor
 	font-weight: 600 !important;
 	text-decoration-line: none !important;
 	color: #2D3748;
-	position: relative;
+	position: absolute;
+	bottom: 0;
 }
+
 a.featBlockWrap:hover .featCTA, a.tutorialBlockWrap:hover .tutorialCTA {
 	color: #824EF2;
 }
@@ -699,9 +715,10 @@ footer > div.py-12 > div, footer .nx-mx-auto.nx-py-12{
 	}
 }
 /* title for code blocks */
-.nextra-code-block [data-language="console"], .nextra-code-block [data-language="json"], .nextra-code-block [data-language="toml"] {
+.nextra-code-block [data-language="console"], .nextra-code-block [data-language="json"], .nextra-code-block [data-language="toml"], .nextra-code-block [data-language="python"], .nextra-code-block{
 	background-color: #252937;
 	--shiki-color-text: #efeff0;
+	border-radius: 7px;
 }
 .nextra-code-block div:first-child {
   background-color: hsla(0, 0%, 0%, 0.207);
@@ -754,6 +771,15 @@ footer > div.py-12 > div, footer .nx-mx-auto.nx-py-12{
 }
 .glossary-list ul{
 	column-count: 2;
+}
+
+
+/** Article styling ***/
+
+main h2{
+	margin-bottom: 0px;
+	overflow: hidden;
+	font-size: 28px !important;
 }
 
 
