@@ -1,50 +1,15 @@
 import { Callout } from 'nextra-theme-docs'
-import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
-# Command: init
+# Get Started with DSR Automation
 
-> **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```init``` command, check out the [Initialize Fides Configuration tutorial](#LINK).
+## Getting started
+Ready to go from **zero** to **DSR automation**? This guide is designed to walk you through configuring Fides and automating your first Data Subject Request! 
 
+<Callout>If you haven't already, make sure Fides is installed on your machine (or compute instance). Check out the [quickstart](../installation/quickstart) or [advanced installation](../installation/advanced) guides to ensure Fides is running.</Callout>
 
-The ```fides init``` command initializes a working directory called ***.fides*** and automatically creates a default configuration file called ```fides.toml```  using default values.
-This is the first command that should run if you intend to configure Fides via a toml file rather than via environment variables.
+This guide will walk you though you using the Fides UI to connect your [third-party services](./configure_connectors), and then [create datasets](./connect_databases) to represent their contained tables.
 
-Both methods can be used simultaneously, but note that environment variables take precedence over the ```toml``` file values. You can read more about [How to configure Fides](#LINK) here.
+Finally, you'll customize and deploy the Fides [Privacy Center](./privacy_center), which serves as your central hub to allow your users to submit privacy requests, and then [process your first DSR](./dsr_processing).
 
-## Usage
-Usage: ```fides init```
-
-This command creates the default ```.fides``` directory and ```fides.toml``` config file using default configuration values.
-
-Running this command should result in output that resembles the following:
-
-```console
-$ fides init
-
-No config file found
-Using default configuration values.
-Loading config from: .fides/fides.toml
-No config file found
-Using default configuration values.
-----------
-Created a './.fides' directory.
-Created a fides config file: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-
-███████╗██╗██████╗ ███████╗███████╗
-██╔════╝██║██╔══██╗██╔════╝██╔════╝
-█████╗  ██║██║  ██║█████╗  ███████╗
-██╔══╝  ██║██║  ██║██╔══╝  ╚════██║
-██║     ██║██████╔╝███████╗███████║
-╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝
-
-Initializing fides...
-----------
-----------
-Directory './.fides' already exists.
-Configuration file already exists: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-----------
-```
+## Next steps
+Need support? The Fides team is here to help! Our [community resources](../community/overview) are available to assist in answering questions and sharing ideas on Slack, Github, and more.

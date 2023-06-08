@@ -1,6 +1,17 @@
 {
   "cli": "Fides CLI",
   "control": "Fides Control",
-  "server-docs": "Fides Server",
-  "enterprise": "Fides Enterprise"
+  "privacy-center": "Fides Privacy Center",
+  "data-mapping": "Data Mapping",
+  "privacy-requests": "Privacy Requests",
+  "consent": "Consent Management",
+  "configuration": "Fides Configuration",
+  "connectors": "Connectors",
+  "databases": "Databases",
+ 
+  "policies": "Policies",
+  "--1": {
+    "type": "separator"
+  },
+  "glossary": "Glossary"
 }

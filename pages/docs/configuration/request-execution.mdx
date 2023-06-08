@@ -54,7 +54,7 @@ This step visits all Collections and retrieves all Fields that you've defined in
 #### Graph building
 Fides builds a Directed Acyclic Graph, or DAG, where each location or node corresponds to a Collection in one of your Datasets. The graph helps determine the order in which nodes will be visited. Fides begins with any Collections that can be queried using the supplied identity data, and then points those Collections toward dependent Collections, etc. If Fides can't determine how to reach a Collection, it will exit early with a status of `error`.  To remedy an errored access request, you update how your Collections are related to each other in your Datasets, and resubmit the privacy request.
 
-![Access Graph](../../../../public/assets/img/resources/access_graph.png)
+![Access Graph](/assets/img/resources/access_graph.png)
 
 #### Graph Execution
 After the graph is built, Fides passes the result to [Dask](https://www.dask.org/) to execute sequentially. Fides visits one Collection at a time, following the graph created, and uses Dask to determine ordering for ties.
@@ -63,7 +63,7 @@ For the first Collections in the graph connected to the root, Fides uses the cus
 
 A Collection isn't visited until Fides has searched for data across all of its upstream Collections. This continues until all Collections have been visited. See [Query Execution](query_execution) for more information.
 
-![Access Execution](../../../../public/assets/img/resources/access_execution.png)
+![Access Execution](/assets/img/resources/access_execution.png)
 
 If there is a failure trying to retrieve data on any Collections, the request is retried the number of times [configured](../../installation/configuration) by `task_retry_count` until the request exits with status `error`.  Both the `access` step and errored Collection are cached in temporary storage.
 Restarting the privacy request will restart from this step and failed Collection.  Collections that have already been visited will not be visited again.
@@ -86,7 +86,7 @@ If applicable, (erasure [Rules](./execution_policies#Rule-attributes) are config
 #### Graph building
 The "graph" for an erasure runs on the data from the access request, which is kept in temporary storage, and can be used to locate data for each Collection individually. Because the data has already been found, each Collection could be visited in any order or run in parallel. The graph is configured so each Collection has its previous access request results passed in as inputs, and each Collection returns a count of records masked when complete.
 
-![Erasure Graph](../../../../public/assets/img/resources/erasure_graph.png)
+![Erasure Graph](/assets/img/resources/erasure_graph.png)
 
 #### Graph execution
 Fides visits each Collection sequentially, using a deterministic order set by Dask. For each row of data retrieved in the access request step, Fides attempts to mask the data targeting the fields specified on your execution policy, using the [masking strategies](masking_strategies) you've defined. If no rows exist from the access request, or no Fields on that Collection match the targeted Data Categories, no masking occurs. Fides caches a count of the records

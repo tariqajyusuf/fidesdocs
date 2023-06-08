@@ -7,6 +7,7 @@
   "data-mapping-fundamentals": "Data Mapping Fundamentals",
   "data-mapping-adding-systems-manually":"Adding Systems Manually",
   "data-mapping-system-detection": "Automated System Detection",
+  "data-mapping-data-classification": "Automated Data Classification",
   "data-mapping-data-uses": "Data Use & Processing Activities",
   "data-mapping-reports": "Data Map & Inventory Reporting",
   "data-mapping-ropa": "Record of Processing Activities",
@@ -27,6 +28,17 @@
   },
   "consent-management-get-started":"Getting Started",
   "consent-management-configuration": "Configuration",
-  "consent-management-fundamentals": "Privacy Requests Fundamentals"
+  "consent-management-fundamentals": "Privacy Requests Fundamentals",
 
+  "separator-deployment": {
+    "title": "Deploying Fides",
+    "type": "separator"
+  },
+  "deployment-prerequisites": "Prerequisites",
+  "deployment-get-started": "Getting Started",
+  "deployment-quickstart": "Quick Start",
+  "deployment-advanced": "Advanced Deployment",
+  "deployment-configuration": "Deployment Configurations",
+  "deployment-security-practices": "Security Best Practices",
+  "deployment-sample-project": "Security Best Practices"
 }

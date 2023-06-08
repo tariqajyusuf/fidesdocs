@@ -1,0 +1,10 @@
+{
+    "overview": "Overview",
+    "privacy-request-complex-fields": "Annotate Complex Fields",
+    "privacy-request-query-execution": "Privacy Request Query Execution",
+    "privacy-request-webhooks": "Webhooks for Privacy Requests",
+    "manual-integrations": "Manual Integrations",
+    "privacy-request-masking-strategies": "Data Masking for Privacy Requests",
+    "privacy-request-data-rights-protocol": "Data Rights Protocol"
+    
+}
