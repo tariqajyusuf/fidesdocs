@@ -17,7 +17,7 @@ not filtered on data category.  Any manual data uploaded is passed on as-is.
 ### Create a connection config of type `manual_webhook`
 
 
-```json filename="POST api/v1/connection"
+```json filename="POST /api/v1/connection"
 [
     {"name": "Manual Webhook ConnectionConfig",
     "key": "manual_webhook_key",
@@ -40,7 +40,7 @@ not filtered on data category.  Any manual data uploaded is passed on as-is.
 Submit a list of fields that will need to be manually uploaded.
 
 
-```json filename="PATCH api/v1/connection/{{manual_webhook_key}}/access_manual_webhook"
+```json filename="PATCH /api/v1/connection/{{manual_webhook_key}}/access_manual_webhook"
 {
     "fields": [
         {"pii_field": "First Name", "dsr_package_label": "first_name"},

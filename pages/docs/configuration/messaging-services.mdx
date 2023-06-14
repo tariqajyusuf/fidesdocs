@@ -3,19 +3,19 @@ import { Callout } from 'nextra-theme-docs'
 # Configure Email/SMS Messaging
 ## What is email/SMS used for?
 
-When your users submit a privacy request, you need to be able to send them messages to do things such as verify their identity or keep them informed of progress on their privacy request. Fides supports email and SMS service configurations for sending processing notifications to your users. 
+Fides supports email and SMS server configurations for sending processing notices to privacy request subjects. Future updates will support outbound email communications with data processors.
 
 Supported modes of use:
 
-- **`Subject Identity Verification`** -> Used to verify subject identity by sending an OTP (one-time-passord, or code) before proceeding with their privacy request. To learn more about how to use identity verification in subject requests, see the [Privacy Requests](../dsr_quickstart/dsr_support/privacy_requests#enable-subject-identity-verification) guide.
-- **`Request Receipt Notification`** -> Used to send subject notifications upon privacy request receipt.
-- **`Request Review Notification`** -> Used to send subject notifications upon privacy request review. Includes denial reason of the request, if applicable.
-- **`Request Completion Notification`** -> Used to send subject notifications upon privacy request completion. Includes link to download data package, if applicable.
+- **Subject Identity Verification** - Used to verify subject identity before proceeding with their privacy request. For more information on identity verification in subject requests, see the [Privacy Requests](./privacy_requests#enable-subject-identity-verification) guide.
+- **Request Receipt Notification** - Used to send subject notifications upon privacy request receipt.
+- **Request Review Notification** - Used to send subject notifications upon privacy request review. Includes denial reason of the request, if applicable.
+- **Request Completion Notification** - Used to send subject notifications upon privacy request completion. Includes link to download data package, if applicable.
 
 
 ## Prerequisites
 
-Fides currently supports <a href="https://www.mailgun.com" target="_blank">Mailgun</a> for email messaging, and both <a href="https://www.mailgun.com" target="_blank">Mailgun</a> and <a href="https://www.twilio.com/en-us/messaging" target="_blank">Twilio</a> for SMS messaging.
+Fides currently supports Mailgun for email messaging, and both Mailgun and Twilio for SMS messaging.
 
 ### Mailgun
 When using Mailgun, ensure you register or use an existing Mailgun account in order to get up and running with email communications.
@@ -54,7 +54,7 @@ Alternatively the Mailgun private API key will also work for this option, but is
 
 ### Add necessary config variables
 
-You'll need to set up config variables to send out messages from Fides. Refer to [the configuration reference](../installation/configuration#configuration-variable-reference) for more details.
+You'll need to set up config variables to send out messages from Fides. Refer to [the configuration reference](../../installation/configuration#configuration-variable-reference) for more details.
 
 The following is an example set of relevant configuration options to enable all notification types, using a `mailgun` service type:
 
@@ -79,8 +79,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Mailgun Config
 
-
-```json filename="POST api/v1/messaging/config"
+```json filename="POST /api/v1/messaging/config"
 {
     "key": "{{messaging_config_key}}",
     "name": "mailgun",
@@ -93,7 +92,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Twilio SMS Config
 
-```json filename="POST api/v1/messaging/config"
+```json filename="POST /api/v1/messaging/config"
 {
     "key": "{{twilio_config_key}}",
     "name": "twilio",
@@ -116,7 +115,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Mailgun Secrets
 
-```json filename="PUT api/v1/messaging/config/{{messaging_config_key}}/secret"
+```json filename="PUT /api/v1/messaging/config/{{messaging_config_key}}/secret"
 {
     "mailgun_api_key": "{{mailgun_api_key}}",
 }
@@ -125,7 +124,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Twilio SMS Secrets
 
-```json filename="PUT api/v1/messaging/config/{{messaging_config_key}}/secret"
+```json filename="PUT /api/v1/messaging/config/{{messaging_config_key}}/secret"
 {
     "twilio_account_sid": "{{twilio_account_sid}}",
     "twilio_auth_token": "{{twilio_auth_token}}",
@@ -136,7 +135,7 @@ These service types must correspond to the `service_type` in one of your messagi
 
 #### Twilio Email Secrets
 
-```json filename="PUT api/v1/messaging/config/{{messaging_config_key}}/secret"
+```json filename="PUT /api/v1/messaging/config/{{messaging_config_key}}/secret"
 {
     "twilio_api_key": "{{twilio_api_key}}",
 }

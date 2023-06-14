@@ -26,7 +26,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Create a [Connection](../dsr_support/database_connectors) of type `saas`
 
-```json filename="PATCH api/v1/connection"
+```json filename="PATCH /api/v1/connection"
 [
   {
     "name": "SaaS Application",
@@ -39,7 +39,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Add a SaaS Config (in JSON format)
 
-```json filename="PATCH api/v1/connection/{saas_key}/saas_config"
+```json filename="PATCH /api/v1/connection/{saas_key}/saas_config"
 {
     "fides_key": "mailchimp_connector_example",
     "name": "Mailchimp SaaS Config",
@@ -50,7 +50,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Configure your secrets
 
-```json filename="PUT api/v1/connection/{saas_key}/secret"
+```json filename="PUT /api/v1/connection/{saas_key}/secret"
 {
   "domain": "{mailchimp_domain}",
   "username": "{mailchimp_username}",
@@ -60,7 +60,7 @@ When running the Fides webserver, you may navigate to the interactive API docs a
 
 ### Add a Dataset (in JSON format)
 
-```json filename="PUT api/v1/connection/{saas_key}/dataset"
+```json filename="PUT /api/v1/connection/{saas_key}/dataset"
 [
   {
     "fides_key":"mailchimp_connector_example",

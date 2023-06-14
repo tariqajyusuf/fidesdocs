@@ -101,7 +101,7 @@ A new `erasure` rule can be added to the same DSR request policy:
 ```
 This will create a Rule to hash an unspecified value with a SHA-512 hash. To add a value to hash, create a new Target for this Rule:
 
-```json filename="PATCH api/v1/policy/{policy_key}/rule/{rule_key}"
+```json filename="PATCH /api/v1/policy/{policy_key}/rule/{rule_key}"
   [
     {
       "data_category": "user.contact.email",

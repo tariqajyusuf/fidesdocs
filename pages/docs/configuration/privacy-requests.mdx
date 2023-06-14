@@ -47,7 +47,7 @@ With identify verification enabled, a user will be emailed a six-digit code when
 
 Until the Privacy Request identity is verified, it will have a status of `identity_unverified`:
 
-```json filename="POST api/v1/privacy-request/<privacy_request_id>/verify"
+```json filename="POST /api/v1/privacy-request/<privacy_request_id>/verify"
 {"code": "<verification code here>"}
 ```
 
@@ -58,7 +58,7 @@ Until the Privacy Request identity is verified, it will have a status of `identi
 
 To process pending privacy requests, a list of privacy request IDs must be sent to the `approve` or `deny` endpoints. Both endpoints support processing requests in bulk.
 
-```json filename="PATCH api/v1/privacy-request/administrate/approve"
+```json filename="PATCH /api/v1/privacy-request/administrate/approve"
 {
   "request_ids":[
     "pri_2d181f15-486d-4bcf-a871-f50ed9f95673",
@@ -68,7 +68,7 @@ To process pending privacy requests, a list of privacy request IDs must be sent 
 ```
 
 An optional denial reason can be provided when denying a privacy request:
-```json filename="PATCH api/v1/privacy-request/administrate/deny"
+```json filename="PATCH /api/v1/privacy-request/administrate/deny"
 {
   "request_ids":[
     "pri_2d181f15-486d-4bcf-a871-f50ed9f95673",
@@ -82,11 +82,11 @@ An optional denial reason can be provided when denying a privacy request:
 Privacy requests can be monitored at any time throughout their execution by calling either of the following endpoints:
 
 ```
-GET api/v1/privacy-request?request_id=<privacy_request_id>
+GET /api/v1/privacy-request?request_id=<privacy_request_id>
 ```
 
 ```
-GET api/v1/privacy-request?external_id=<external_id>
+GET /api/v1/privacy-request?external_id=<external_id>
 ```
 
 For more detailed examples and further privacy request filtering, see [Reporting on Privacy Requests](./reporting).
