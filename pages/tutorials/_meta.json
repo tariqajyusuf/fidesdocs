@@ -20,10 +20,10 @@
   },
   "privacy-requests-get-started":"Getting Started",
   "privacy-requests-fundamentals": "Privacy Request Fundamentals",
-  "privacy-requests-configure-connections": "Configuring Connections",
+  "privacy-requests-configure-integrations": "Configuring Integrations",
   "privacy-requests-configure-databases": "Configuring Databases",
   "privacy-requests-processing-requests": "Processing a Privacy Request",
-  "privacy-requests-fundamentals": "Privacy Requests Fundamentals",
+  "privacy-requests-debugging": "Debugging Request Errors",
 
   "separator-consent-management": {
     "title": "Consent Management",

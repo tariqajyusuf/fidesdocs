@@ -1,15 +1,23 @@
 import { Callout } from 'nextra-theme-docs'
+import KeyTutorialWrap, { TutorialFeat } from 'components/tutorialfeat'
+import TutorialKey from 'components/tutorialkey'
 
-# Get Started with DSR Automation
+# Getting Started with Privacy Requests
 
-## Getting started
-Ready to go from **zero** to **DSR automation**? This guide is designed to walk you through configuring Fides and automating your first Data Subject Request! 
+<TutorialKey duration="15" product="Fides" topic="Privacy Requests" video="true" interactive="true"/>
 
-<Callout>If you haven't already, make sure Fides is installed on your machine (or compute instance). Check out the [quickstart](../installation/quickstart) or [advanced installation](../installation/advanced) guides to ensure Fides is running.</Callout>
+In this series of tutorials, you'll configure integrations for processing privacy requests for your systems and walk through the steps to test a privacy request and check for issues that may occur in request process.
 
-This guide will walk you though you using the Fides UI to connect your [third-party services](./configure_connectors), and then [create datasets](./connect_databases) to represent their contained tables.
+By the end of this series, you'll be able to add privacy request integrations to your systems, review and process privacy requests and investigate issues if they occur.
 
-Finally, you'll customize and deploy the Fides [Privacy Center](./privacy_center), which serves as your central hub to allow your users to submit privacy requests, and then [process your first DSR](./dsr_processing).
+<KeyTutorialWrap>
+  <TutorialFeat title="01 | Privacy Request Fundamentals" link="./privacy-requests-fundamentals"   description="Get an overview of the fundamental terms, requirements and concepts of Privacy Requests." duration="5" video="true" interactive="true" />
+  <TutorialFeat title="02 | Configuring Integrations" link="./privacy-requests-configure-integrations"  description="Learn how to configure an integration for your systems." duration="5" video="true" interactive="true" />
+  <TutorialFeat title="03 | Configuring Databases" link="./privacy-requests-configure-databases"  description="Learn how to configure an integration for your database." duration="5" video="true" interactive="true" />
+  <TutorialFeat title="04 | Processing Privacy Requests" link="./privacy-requests-processing-requests"  description="Learn how to review, approve and process privacy requests automatically in Fides Control." duration="5" video="true" interactive="true" />
+  <TutorialFeat title="05 | Debugging Request Errors" link="./privacy-requests-debugging"  description="Learn how to review and debug issues with privacy request processing in Fides." duration="5" video="true" interactive="true" />
+  <TutorialFeat title="06 | Privacy Request Glossary" link="./privacy-requests-glossary"  description="A complete glossary of Privacy Request and Fides specific terms." duration="5" video="true" interactive="true" />
+</KeyTutorialWrap>
 
-## Next steps
-Need support? The Fides team is here to help! Our [community resources](../community/overview) are available to assist in answering questions and sharing ideas on Slack, Github, and more.
+
+

@@ -38,9 +38,9 @@ curl '{{FIDES_URL}}/api/v1/messaging/default' \
     }
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `service_type` should be `twilio_email` and `{{TWILIO_FROM_EMAIL}}` should be the "From Email" you'd like to send messages from.
+The `service_type` is `twilio_email` and `{{TWILIO_FROM_EMAIL}}` is the "From Email" you'd like to send messages from.
 
 The response to this request will return the configuration for the default messaging provider, including your `twilio_email_from` and a `key` as shown below:
 
@@ -70,9 +70,9 @@ curl '{{FIDES_URL}}/api/v1/messaging/default/twilio_email/secret' \
     "twilio_api_key": "{{TWILIO_API_KEY}}"
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `twilio_api_key` value should be either your Twilio API Key as created in [this section](#generate-your-twilio-sendgrid-api-key).
+The `{{TWILIO_API_KEY}}` is your Twilio API Key as created in [this section](#generate-your-twilio-sendgrid-api-key).
 
 The response to this request will be a confirmation message that the secret has been updated for the configuration identified by the `key` as shown in this example:
 
@@ -119,9 +119,9 @@ curl '{{FIDES_URL}}/api/v1/config' \
   }
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `notification_service_type` value should be `twilio_email` and for each of the notifications you wish to send via Twilio, set their value to `true`.
+The `notification_service_type` value is `twilio_email` and for each of the notifications you wish to send via Twilio, set their value to `true`.
 You can also enable or disable subject identify verification on privacy requests here by settting `execution.subject_identity_verification_required` to `true`. Learn more about [Subject Identify Verification](#LINK) here.
 
 The response to this request will confirm the service type and the current status for each notification as shown in the example below:

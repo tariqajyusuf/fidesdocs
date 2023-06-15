@@ -1,26 +1,85 @@
-# Create Datasets
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
 
-The Datasets panel allows you to easily view, add, edit, and configure _[datasets](https://ethyca.github.io/fideslang/resources/dataset/)_, which represent the information contained by databases and other systems. While Fides can create an internal dataset for standardized [SaaS connections](../saas_connectors/saas_config), your owned databases - and their custom schema - need to be scanned and annotated for personally identifiable information (PII).
+# Privacy Requests: Configuring Databases
 
-## Adding a dataset 
+<TutorialKey duration="4" product="Fides" topic="Privacy Requests" video="true" interactive="true"/>
 
-Datasets can be added to the Fides UI by connecting to your owned databases, which will automatically generate a dataset of the contained tables. To add a new dataset, select **Create new dataset** from the Datasets panel.
+## Introduction
+In this tutorial, you'll cofigure a privacy request integration for a database. By the end of this tutorial, you'll understand the relationship between systems, integrations, datasets and databases as well as how to connect, configure and test an integration.
 
-![Dataset UI](../../../public/assets/img/dsr_quickstart/datasets.png)
+## Prerequisites
 
-You will then be given a list of options for creating your new dataset:
+For this tutorial you will need:
 
-![Add A Dataset](../../../public/assets/img/dsr_quickstart/new_dataset.png)
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+* At least one system on your Data Map. Read how to [add systems to the Data Map](data-mapping-adding-systems-manually) now.
+* Connection information and credentials for the database you intend to integrate for privacy requests.
 
-### Connect to a database 
+You should also be familiar with the basics of [Fides Control](#LINK).
 
-To generate a dataset by connecting directly to a database, select **Connect a database using a connection URL**.
+## Integrating Privacy Requests to Databases
+In order to securely connect to a database and process privacy requests, Fides requires credentials to the database and a schema labeled with the personal information in the system. 
 
-![Add A Connection](../../../public/assets/img/dsr_quickstart/add_database.png)
+In Fides a database schema is referred to as a dataset. Read about [creating and maintaining datasets in Fides](#LINK) here.
 
-You will need to provide your **database type** from the dropdown, as well as the **database URL string.** 
+## Configuring a Database Integration
 
-Once the required information is entered, select **Create database**. Fides will display a success notification when the process is completed.
+To start, navigate to **Data map** → **View systems** to view a list of your current systems. 
 
-## Next steps
-With your databases connected and your SaaS applications configured, you're ready to [process a DSR](./dsr_processing)!
+If you have not already added your database to Fides, read how to [add systems to the Data Map](data-mapping-adding-systems-manually) now.
+
+### Select a System to Edit
+
+From here you can search for the system you want to edit, or select directly from the list. 
+
+To edit click the Kebab `...` menu and select **Edit** as shown below:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-view-systems.gif" description="View list of systems" />
+
+
+### View the System Integrations Tab
+
+From the System Information tab, navigate to the Integrations tab as shown below:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-view-integrations.gif" description="View integrations" />
+
+### Select the Integration to Configure
+On the System Integrations tab select the **Connection Type** dropdown and search for the integration you would like to add for the selected system. 
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-select-database.gif" description="Select the integration for your database" />
+
+### Configure the Database Integration
+
+Every database integration requires the following fields to be configured:
+
+* <span class="nx-absolute -nx-mt-20" id="integration-name"></span>[Integration Name](#integration-name) - The name of the database integration being configured.
+* <span class="nx-absolute -nx-mt-20" id="integration-description"></span>[Integration Description](#integration-description) - A description of the database integration being configured.
+* <span class="nx-absolute -nx-mt-20" id="connection-identifier"></span>[Connection Identifier](#connection-identifier) - A unique key to identify the database integration within Fides.
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-database-default-fields.gif" description="Complete the default fields for the database integration" />
+
+In addition to these common fields, every database type requires distinct connection and credential information. 
+
+The example below shows the credentials required for PostgreSQL:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-database-credentials.gif" description="Provide credentials for the database integration"/>
+
+### Selecting a Dataset
+
+To execute privacy requests on a database, Fides requires a schema of labeled personal data known as a Fides dataset. Read about [creating and maintaining datasets in Fides](#LINK) here.
+
+Select the dataset for the database being configured from the available list of datasets:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-select-dataset.gif" description="Select the dataset associated with the database"  mw="450" />
+
+When you have provided all the database connection information, **Save** your integration settings.
+
+### Test the Integration
+
+Once your integration credentials are saved you can verify the credentials are working by clicking **Test connection**.
+If the integration is working correctly you will be presented with a `Test suceeded` message.
+
+This example used the PostgreSQL integration, for a complete list of integrations and instructions on generating connection and credential information, visit the [integration registry](#LINK).

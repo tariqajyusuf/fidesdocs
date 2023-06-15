@@ -40,9 +40,9 @@ curl '{{FIDES_URL}}/api/v1/messaging/default' \
     }
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `service_type` should be `mailgun` and `{{MAILGUN_DOMAIN}}` should be the domain associated with your Mailgun account.
+The `service_type` is `mailgun` and `{{MAILGUN_DOMAIN}}` is the domain associated with your Mailgun account.
 
 The response to this request will return the configuration for the default messaging provider, including your `domain` and a `key` as shown below:
 
@@ -74,9 +74,9 @@ curl '{{FIDES_URL}}/api/v1/messaging/default/mailgun/secret' \
     "mailgun_api_key": "{{MAILGUN_API_KEY}}"
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `mailgun_api_key` value should be either your Mailgun Private API Key or Domain Sending Key as described in [this section](#generate-your-mailgun-api-key).
+The `{{MAILGUN_API_KEY}}` is either your Mailgun Private API Key or Domain Sending Key as described in [this section](#generate-your-mailgun-api-key).
 
 The response to this request will be a confirmation message that the secret has been updated for the configuration identified by the `key` as shown in this example:
 
@@ -123,9 +123,9 @@ curl '{{FIDES_URL}}/api/v1/config' \
   }
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `notification_service_type` value should be `mailgun` and for each of the notifications you wish to send via Mailgun, set their value to `true`.
+The `notification_service_type` value is `mailgun` and for each of the notifications you wish to send via Mailgun, set their value to `true`.
 You can also enable or disable subject identify verification on privacy requests here by settting `execution.subject_identity_verification_required` to `true`. Learn more about [Subject Identify Verification](#LINK) here.
 
 The response to this request will confirm the service type and the current status for each notification as shown in the example below:

@@ -143,6 +143,7 @@ article .screenshot {
 	border-radius: 7px;
 	display: block;
 	margin: 25px 0;
+	width: fit-content;
 }
 
 article .screenshot img{
@@ -317,6 +318,15 @@ thead tr, thead tr td{
 .HeroCTAVisual .branded-callout a:hover {
 	text-decoration: underline;
 	color: #ffffff !important;
+}
+
+/* Styling for call-outs */
+
+.nextra-callout h5 {
+	margin: 0 0;
+}
+.nextra-callout p{
+	margin: 0 0;
 }
 
 .HeroCTAVisual h1 {

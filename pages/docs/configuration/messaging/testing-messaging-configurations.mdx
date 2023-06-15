@@ -25,9 +25,9 @@ curl '{{FIDES_URL}}/api/v1/messaging/config/test' \
   "email": "{{RECIPIENT_EMAIL}}"
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `"{{RECIPIENT_EMAIL}}` should be the recipient email address you would like to send a test email to.
+The `{{RECIPIENT_EMAIL}}` is the recipient email address you would like to send a test email to.
 
 The response to this request will confirm that a message has been successfully sent as shown below:
 
@@ -52,9 +52,9 @@ curl '{{FIDES_URL}}/api/v1/messaging/config/test' \
   "phone_number": "{{RECIPIENT_PHONE}}"
 }'
 ```
-`{{FIDES_URL}}` should be the URL to your Fides server. The Authorization header should be Bearer, where `{{FIDES_ACCESS_TOKEN}}` is your Fides access token and the request Content-Type should be application/json. 
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
-The `"{{RECIPIENT_PHONE}}` should be the recipient phone number in the format `+19178300000`
+The `{{RECIPIENT_PHONE}}` is the recipient phone number in the format `+19178300000`
 
 The response to this request will confirm that a message has been successfully sent as shown below:
 
