@@ -20,8 +20,10 @@
   "privacy-requests-fundamentals": "Privacy Request Fundamentals",
   "privacy-requests-configure-integrations": "Configuring Integrations",
   "privacy-requests-configure-databases": "Configuring Databases",
+  "privacy-requests-dataset-annotation": "Annotating Datasets",
   "privacy-requests-processing-requests": "Processing a Privacy Request",
   "privacy-requests-debugging": "Debugging Request Errors",
+  "privacy-requests-glossary": "Privacy Request Glossary",
 
   "separator-consent-management": {
     "title": "Consent Management",
