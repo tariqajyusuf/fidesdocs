@@ -31,22 +31,22 @@ To enable the Google Tag Manager integration, call `Fides.gtm()` in your website
 
 ```html
 <head>
-  <script src="privacy.example.com/fides.js"></script>
+  <script src="https://privacy.example.com/fides.js"></script>
   <script>Fides.gtm()</script>
 
   <!-- Include Google Tag Manager's script below. -->
 <head>
 ```
 
-See the [end of this guide](#configure-consent-in-google-tag-manager-gtm) for more information on using Google Tag Manager.
+### Integrate Fides.js with Custom Javascript
+For tags that are managed _outside_ of Google Tag Manager, or any other custom code which requires user consent, you can now check a user’s consent map under the `Fides.consent` global variable.
 
-### Usage options
-In any code which requires user consent, you can now check a user’s consent map under the Fides global variable:
+For example, to check for an explicit opt-out from a user:
 ```js
-if (Fides.consent.data_sales_and_sharing) {
-  // User has opted in.
+if (Fides && !Fides.consent.data_sales_and_sharing) {
+  // User has opted out
 } else {
-  // User has opted out.
+  // User has not opted out
 }
 ```
 
