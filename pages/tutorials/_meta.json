@@ -30,8 +30,12 @@
     "type": "separator"
   },
   "consent-management-get-started":"Getting Started",
-  "consent-management-configuration": "Configuration",
-  "consent-management-fundamentals": "Privacy Requests Fundamentals",
+  "consent-management-fundamentals": "Consent Management Fundamentals",
+  "consent-management-data-use": "Data Use and Consent",
+  "consent-management-privacy-notices": "Configuring Privacy Notices",
+  "consent-management-privacy-experiences": "Configuring Privacy Experiences",
+  "consent-management-user-experience": "Consent User Experience",
+  "consent-management-glossary": "Consent Management Glossary",
 
   "separator-deployment": {
     "title": "Deploying Fides",
