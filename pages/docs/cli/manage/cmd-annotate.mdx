@@ -22,7 +22,7 @@ The command will start an interactive shell providing a guided flow to annotate 
 The command-line flags are all optional. The following flags are available:
 
 * <span class="nx-absolute -nx-mt-20" id="a"></span>[```-a```](#a), [```--all-members```](#a) - Annotate all dataset members, not just fields.
-* <span class="nx-absolute -nx-mt-20" id="v"></span>[```-v```](#v), [```--validate```](#v) - Strictly validate annotations to ensure they match availalable labels in the taxonomy.
+* <span class="nx-absolute -nx-mt-20" id="v"></span>[```-v```](#v), [```--validate```](#v) - Strictly validate annotations to ensure they match available labels in the taxonomy.
 
 
 ## Example: No options provided
@@ -50,8 +50,8 @@ This example provides a guided flow similar in behavior to the default command. 
 #REVIEW
 ```
 
-## Example: Stricly validate annotations against taxonomy
-This example provides a guided flow similar in behavior to the default command. However, here all data category labels provided will be stricly validated against the Fides taxonomy currently configured in your Fides instance.
+## Example: Strictly validate annotations against taxonomy
+This example provides a guided flow similar in behavior to the default command. However, here all data category labels provided will be strictly validated against the Fides taxonomy currently configured in your Fides instance.
 
 ```console
 $ fides annotate dataset -v .fides/dataset.yml 
@@ -67,7 +67,7 @@ Field [customer.email] has no data categories
 Enter comma separated data categories for [email] [s: skip, q: quit]: 
 ```
 
-In the example below, a nonexisting data category ```nonexistent_category``` has been provided for the ```customer.email``` field. The system responds with an error that the proposed category is invalid and will ask for a valid category again:
+In the example below, a nonexistent data category ```nonexistent_category``` has been provided for the ```customer.email``` field. The system responds with an error that the proposed category is invalid and will ask for a valid category again:
 
 ```console
 Enter comma separated data categories for [email] [s: skip, q: quit]: nonexistent_category

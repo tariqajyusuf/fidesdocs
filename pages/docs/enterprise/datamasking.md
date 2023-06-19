@@ -51,7 +51,7 @@ Successful calls to `/mask` will return a version of the input with the masked v
 ### Accuracy modes 
 The NLP service provides four accuracy modes to use when processing input text. The supported modes are `fast`, `standard`, `standard_high` and `high`. 
 
-These modes allow for tradeoffs between throughput (speed) and model accuracy, with `fast` being the fastest mode and `high` being the most accurate mode.
+These modes allow for trade-offs between throughput (speed) and model accuracy, with `fast` being the fastest mode and `high` being the most accurate mode.
 
 If no accuracy mode is specified, the accuracy mode will default to `fast` when `multilingual` is set to `true`. Otherwise, the default accuracy mode is `standard`. 
 
@@ -156,7 +156,7 @@ In the below example, the values are run against the NLP engine before being run
 {
    "values":[
       "tall male student",
-      "1 N Alabany Cir",
+      "1 N Albany Cir",
       "patient blood type is AB positive",
       "VA, 20402",
       "asdf",

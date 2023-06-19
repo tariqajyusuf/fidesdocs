@@ -16,7 +16,7 @@ For this tutorial you will need:
 
 * A Fides Cloud or Fides Enterprise account
 * The role of `Owner` or `Contributor` for your Fides organization.
-* Adequatedly scoped credentials for the scan target, such as Cloud Provider or Single Sign-On Provider. 
+* Adequately scoped credentials for the scan target, such as Cloud Provider or Single Sign-On Provider. 
 * If you are using Fides' Network Data Flow scanner this must be deployed in your cloud.
 
 You should also be familiar with the basics of the [Fides admin dashboard](#LINK).
@@ -77,7 +77,7 @@ These permissions can be manually configured via your AWS IAM policy management 
 ### Add Detected Systems to the Data Map
 When the scan has completed, you will be presented with a list of systems detected in your AWS cloud. You will see the scanner displays the system name, type and the resource's identifier which is typically the ARN (Amazon Resource Name) for the detected system:
 
-<Screenshot img="/assets/img/tutorials/data-mapping-scan-infrastructure-results.gif" description="Infrastructure scanner results of disovered systemss" />
+<Screenshot img="/assets/img/tutorials/data-mapping-scan-infrastructure-results.gif" description="Infrastructure scanner results of discovered systems" />
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
 
@@ -100,7 +100,7 @@ To automatically detect systems you must first authenticate the single sign-on s
 
 When the scan has completed, you will be presented with a list of systems detected in your Okta account. You will see the scanner displays the system name, type and the resource's identifier which is typically the unique ID in Okta for the detected system:
 
-<Screenshot img="/assets/img/tutorials/data-mapping-scan-sso-results.gif" description="Single sign-on provider scanner results of disovered systems" />
+<Screenshot img="/assets/img/tutorials/data-mapping-scan-sso-results.gif" description="Single sign-on provider scanner results of discovered systems" />
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
 
@@ -110,13 +110,13 @@ To start, navigate to **Data map** → **Add systems** and choose **Data flow sc
 
 <Callout emoji="ⓘ">The network data flow scanner is a deployed tool. If you see it in your Fides admin dashboard, it has already been deployed and configured for your organization and does not require additional authentication. To learn more, read about the <a href="#LINK" class="nx-text-primary-600 nx-underline nx-decoration-from-font">network data flow scanner</a> here.</Callout>
 
-The network data flow scaner works by analyzing data flowing between services in clusters such as Kubernetes (k8s). This network inspection means the data flow scanner can safely analyze the network traffic between services in your cloud and categorize the data flowing.
+The network data flow scanner works by analyzing data flowing between services in clusters such as Kubernetes (k8s). This network inspection means the data flow scanner can safely analyze the network traffic between services in your cloud and categorize the data flowing.
 
 <Screenshot img="/assets/img/tutorials/data-mapping-scan-dataflow.gif" description="Scan your network data flows to detect systems" />
 
 When the scan has completed, you will be presented with a list of systems detected from real-time analysis of dataflow in Kubernetes (k8s) clusters in your cloud. You will see the scanner displays the system name and type:
 
-<Screenshot img="/assets/img/tutorials/data-mapping-scan-dataflow-results.gif" description="Network data flow scanner results of disovered systems" />
+<Screenshot img="/assets/img/tutorials/data-mapping-scan-dataflow-results.gif" description="Network data flow scanner results of discovered systems" />
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**. 
 
