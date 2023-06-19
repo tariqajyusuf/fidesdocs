@@ -61,9 +61,14 @@ html {
 }
 
 :root{
---shiki-token-string-expression: #27BF66 !important;
---shiki-token-constant: #4898FF !important;
+  --shiki-token-constant: #4898FF !important;
+  --shiki-token-string-expression: #1fdf8f !important;
+  --shiki-token-punctuation: #bbbbbb !important;
+    --shiki-token-string: #fff !important;
+    --shiki-token-function: #B794F4 !important;
 }
+
+
 
 
 body {
