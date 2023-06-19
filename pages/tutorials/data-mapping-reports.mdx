@@ -16,61 +16,46 @@ In this tutorial, you'll explore your Data Map, filter the Map and Table views, 
 For this tutorial you will need:
 
 * A Fides Cloud or Fides Enterprise account
-* The role of `Owner` or `Contributor` for your Fides organization.
+* The role of `Owner`, `Contributor` or `Viewer` for your Fides organization.
 
 You should also be familiar with the basics of [Fides Control](#LINK).
 
 ## Exploring the Data Map
 
-There are two views for exploring the Data Map in Fides. The [Map]() view and the [Table]() view.
+There are two views for exploring the Data Map in Fides. The [Map](#map-view) view and the [Table](#table-view) view. Let's review each briefly:
 
-Both views share search, filters, settings and export functionality. This means that any search term, filter or setting applied in one view will affect the other if you toggle from Map to Table views.
+## Map View
+The map view is a visual graph of systems and data flows across your organization. The map view is ideal for investigating risks or reviewing exceptions and issues that you are alerted to by Fides.
+<Screenshot img="/assets/img/tutorials/data-mapping-map.gif" description="Map View" mw="700" />
 
-### Map View
+## Table View
+The table view is a grouped, tabular view of your systems ideally suited to filtering and building exportable reports based on specific regulations or information requirements.
+<Screenshot img="/assets/img/tutorials/data-mapping-table.gif" description="Map View" mw="700" />
 
-The Fides Map is a visual graph of systems in your organization, their relationships and data flow, or lineage. 
-In the Map view you can:
+Both the map and table views share search, filters, settings, system details and export functionality. This means that any search term, filter or setting applied in one view will affect the other if you toggle from Map to Table views.
 
-* Search for specific systems by name
-* Filter by privacy attributes of interest
-* Select a system to view detailed information
+We'll briefly review the option available on both the Map and Table views:
 
+### Search for Specific Systems
+Search will return systems based on the keyword provided for both the map and table view. Search interrogates all attributes of a system, including the name. For example, you can search for a specific system by name, such as _"customer support system"_, or you can search for the use of data, such as _"email marketing"_. As shown in the example below:
 
-Once you’ve inventoried your system and it is available on the data map, you must complete the system privacy activities information that will enable you to report on compliance, identify risks, and assist with processing privacy requests.
+<Screenshot img="/assets/img/tutorials/data-mapping-search.gif" description="Searching for systems on the data map" mw="700" />
 
-To add a data use, provide the following information and note that a system may have multiple data uses. Think of this as the various purposes for which you process data in the system:
+### Filter by Privacy Attributes
+You can filter the both the map and table view by selecting the filter options and checking the attributes to narrow the view to your requirements. For example, to filter the data map by systems that perform email marketing and process email and names, check those options, as shown in the example below:
 
-* <span class="nx-absolute -nx-mt-20" id="portal-data-use"></span>[Data Use](#portal-data-use) - A data use from the Fides taxonomy that represents what you are using the data for in the system.
-* <span class="nx-absolute -nx-mt-20" id="portal-processing-activity"></span>[Processing Activity](#portal-processing-activity) - A more detailed description of the use of the data; this is often used for reporting purposes.
-* <span class="nx-absolute -nx-mt-20" id="portal-data-categories"></span>[Data Categories](#portal-data-categories) - The categories of personal data being processed by this activity.
-* <span class="nx-absolute -nx-mt-20" id="portal-data-subjects"></span>[Data Subjects](#portal-data-subjects) - The types of user data being processed by this activity.
-* <span class="nx-absolute -nx-mt-20" id="portal-dataset-references"></span>[Dataset References](#portal-dataset-references) - An optional reference to a dataset contained in this system involved in this activity. For more information about Datasets read the [Guide to Datasets in Fides](#LINK).
+<Screenshot img="/assets/img/tutorials/data-mapping-filter.gif" description="Filtering systems on the data map" mw="700" />
 
-There are three methods to add or update privacy related information for your systems on your data map:
+### View Detailed System Information
+Simply click on any system on the map or table views to see detailed system information. Clicking on a system reveals the system tray which contains information such as descriptions, data use as well as data sources and destinations. If you have sufficient permissions you will also be able to edit or update system information from the system tray.
 
-1. [During manual system creation](#adding-system-privacy-information-during-system-creation)
-2. [From the system management portal](#editing-system-privacy-information-from-the-system-portal)
-3. [From the data map system tray](#editing-system-privacy-information-from-the-system-tray)
+<Screenshot img="/assets/img/tutorials/data-mapping-view-details.gif" description="View system details on the data map" mw="700" />
 
-### Adding system privacy information during system creation
-To add privacy information after creating a system manually, select the **Data uses** tab, from here you can add a **Data use** selecting the **Add a Data Use+** button.
+### Select Columns to Display
+On the table view you can also filter columns that are displayed. Colums that are shown on the table view are also applied to exported reports. This makes it easy to quickly toggle which columns you would like to view and then export a report as required. 
 
-<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-creation.gif" description="Adding system privacy information when creating a system manually" />
+<Screenshot img="/assets/img/tutorials/data-mapping-columns.gif" description="Toggle columns to display on data map" mw="700" />
 
-### Editing system privacy information from the system portal
-To edit a system, navigate to **Data map** → **View systems** where you can search existing systems. Click the kebab menu ```...``` for your chosen system and click **Edit**.
-
-On the system portal page, select the **Data uses** tab, from here you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
-
-<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-portal.gif" description="Editing system privacy information in the system portal" />
-
-### Editing system privacy information from the system tray
-
-To edit a system, navigate to **Data map**, you can browse the Data map in **Map** or **Table** view. The example below uses the table view.
-Select the system you are updating to see the **System tray**. 
-
-From the System tray you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
-
-<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-tray.gif" description="Editing system privacy information in the system tray" />
-
-Next you will learn to visualize, filter and build reports such as a RoPA (Record of Processing Activities).
+## Export Reports
+To export a report of the current view, click the "Download Report" button and select from the available options. 
+<Screenshot img="/assets/img/tutorials/data-mapping-export.gif" description="Export a report from the current data map view" mw="700" />

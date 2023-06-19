@@ -10,9 +10,7 @@
   "data-mapping-data-classification": "Automated Data Classification",
   "data-mapping-data-uses": "Data Use & Processing Activities",
   "data-mapping-reports": "Data Map & Inventory Reporting",
-  "data-mapping-ropa": "Record of Processing Activities",
   "data-mapping-glossary": "Data Mapping Glossary",
-  "data-mapping-configuration": "Configuration",
 
   "separator-privacy-requests": {
     "title": "Privacy Requests",
