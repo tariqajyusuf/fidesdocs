@@ -11,6 +11,7 @@
   "configuration": "Fides Configuration",
 
   "--1": {
+    "title": "Privacy Requests",
     "type": "separator"
   },
   "glossary": "Glossary"

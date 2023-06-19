@@ -1,20 +1,43 @@
-# Process a Data Subject Request
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
 
-You can now navigate to your hosted Privacy Center, and begin accepting data subject requests!
+# Privacy Requests: Identifying & Debugging Issues
 
-![Privacy Center](../../../public/assets/img/dsr_quickstart/delete-your-data.png)
+<TutorialKey duration="2" product="Fides" topic="Privacy Requests" interactive="true"/>
 
-## Using the Control Panel
+## Introduction
+In this tutorial you'll learn how to review the event logs for a privacy request and identify issues that may require debugging.
 
-Your administrator control panel allows you to view and process submitted privacy requests. The Privacy Request console provides search and sort capabilities, quick approve and deny functions, and in-depth details on individual request histories and statuses.
+## Prerequisites
 
-![Privacy Request Panel](../../../public/assets/img/dsr_quickstart/sr_overview.png)
+For this tutorial you will need:
 
-## View request details
+* A Fides Cloud or Fides Enterprise account
+* The role of either `Owner`, `View & Approver` or `Approver` to manage privacy requests.
+* At least one system integration configured for privacy requests. Read how to [configure an integration](privacy-requests-configure-integrations).
+* A privacy center to receive and process privacy requests. Read how to [configure a privacy center](#LINK).
 
-![Privacy Request Details](../../../public/assets/img/dsr_quickstart/subject_request_details.png)
+You should also be familiar with the basics of [Fides Control](#LINK).
 
-Double-clicking a request row will display the request detail page, which allows access to additional information about the request, including the request ID, request type, and current status.
+## Identifying Privacy Request Issues
+From time-to-time privacy requests can fail to process completely. This is often due to the sheer number of systems connected in a privacy process and how they depend on eachother to complete successfully. 
+A common reason for a privacy request to fail is expired credentials to a system, however there can be other reasons and identifying the cause as quickly as possible to remediate it is key.
 
-## Next steps
-Congratulations - you've gone from **0 to DSR Automation**! Fides offers many more tools help take control of your data privacy. To find out more, check out our guides on [data mapping](../data_mapping/overview), [privacy-as-code](../cli_support/cicd), and the [Fides Taxonomy](https://ethyca.github.io/fideslang/).
+Fides provides a detailed events and activities log for this very reason. Let's take a walk through of the feature now.
+
+## Viewing Request Logs
+
+To view the event logs for a given request, click the kebab menu `...` and select **View Details** as follows:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-view-details.gif" description="View Privacy Request Details" mw="500" />
+
+If the privacy request has already been processed, the event logs will show a list of the processed systems under **Events and Logs** as shown below:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-event-logs.gif" description="Privacy Request Logs" mw="600" />
+
+To view the the details of a specific system's privacy request processing, click on "View Details" and then "View log" to show the detailed processing log for the system:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-detailed-log.gif" description="Approve Privacy Request" />
+
+This detailed view of events shows exactly what action has been performed for each system and the available collections, so you can identify precisely where an issue occurs with a privacy request for debugging.
