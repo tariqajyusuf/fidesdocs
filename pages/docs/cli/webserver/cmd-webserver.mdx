@@ -6,9 +6,9 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 The ```fides webserver``` starts the Fides webserver using the available configuration and environment variables. By default, when Fides starts the webserver it:
 
 * Reads the configurations from one of the following three locations:
-	1. the config file passed via the CLI;
-	2. the path specified by the ```FIDES__CONFIG_PATH``` environment variable;
-	3. the current working directory ```.fides``` from the ```fides.toml``` file.
+	1. The config file passed via the CLI;
+	2. The path specified by the ```FIDES__CONFIG_PATH``` environment variable;
+	3. The current working directory ```.fides``` from the ```fides.toml``` file.
 * Configures the Fides database if it is not already setup.
 * Checks all current resources are valid.
 * Makes the hosted UI available at ```http://{server_url}/``` (e.g. ```http://localhost:8080/```).

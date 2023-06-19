@@ -3,7 +3,7 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
 # Command: evaluate
 
-The ```fides evaluate``` performs an automated privacy check on changes to resources to ensure they comply with Fides policies.
+The ```fides evaluate``` performs an automated privacy check on any change to a resource to ensure they comply with Fides policies.
 
 This is a powerful way to automatically check if changes to projects and data models comply with business policies. Fides achieves this by combining all local resources and annotations with remote resources on the Fides server and checking these against Fides policies. Fides policies are a customizable set of rules and conditions that can be used to define rules that new or system modifications must meet.
 
@@ -24,7 +24,7 @@ Usage: ```fides evaluate [options]```
 
 The command-line flags are all optional. The following flags are available:
 
-* <span class="nx-absolute -nx-mt-20" id="k"></span>[```-k```](#k), [```--fides-key```](#k) - The fides_key of the single policy that you wish to evaluate.
+* <span class="nx-absolute -nx-mt-20" id="k"></span>[```-k```](#k), [```--fides-key```](#k) - The ```fides_key``` of the single policy that you wish to evaluate.
 * <span class="nx-absolute -nx-mt-20" id="m"></span>[```-m```](#m), [```--message```](#m) - A message that you can supply to describe the context of this evaluation. This is stored as part of the record of the evaluation.
 * <span class="nx-absolute -nx-mt-20" id="a"></span>[```-a```](#a), [```--audit```](#a) - Output errors if any resources are missing attributes required for building a data map.
 * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Prevent the persistence of any changes to resources on the Fides server.
@@ -32,7 +32,7 @@ The command-line flags are all optional. The following flags are available:
 
 
 ## Example: Evaluate against all available policies
-This example executes an evaluation of all resources and all available policies. In this example, the resources are tested against two policies; a ```cpra_policy``` (California's Privacy Law) and a ```gdpr_policy``` (European Privacy Lawn). 
+This example executes an evaluation of all resources and all available policies. In this example, the resources are tested against two policies; a ```cpra_policy``` (California's Privacy Law) and a ```gdpr_policy``` (European Privacy Law). 
 
 ```console
 $ fides evaluate
@@ -120,8 +120,8 @@ Sending the evaluation results to the server...
 Evaluation passed!
 ```
 
-You can retrieve the results of this evaluation with either ```fides get [fides_key]``` wher the key is the identifier of the specific evaluation or with ```fides ls [evaluate]``` where evaluate is the list of resources to return.
-In the example below using the ```fides ls``` command has returned the final privacy evaluation showing the status and the provided message:
+You can retrieve the results of this evaluation with either ```fides get [fides_key]``` where the key is the identifier of the specific evaluation or with ```fides ls [evaluate]``` where evaluate is the list of resources to return.
+In the example below, using the ```fides ls``` command has returned the final privacy evaluation showing the status and the provided message:
 
 ```console
 $ fides ls evaluation

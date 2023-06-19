@@ -16,11 +16,11 @@ To learn more about dataset annotation in Fides see the [Dataset Annotation in F
 ## Usage
 Usage: ```fides push [options]```
 
-The command will first evaluate all local system and dataset YAMl documents in the working directory and then persist any changes to the Fides Server.
+The command will first evaluate all local system and dataset YAML documents in the working directory and then persist any changes to the Fides Server.
 
 The command-line flags are all optional. The following flags are available:
 
-* <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Only validate the syntax of system and dataset YAML but prevent persistance of any changes on the Server.
+* <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Only validate the syntax of system and dataset YAML but prevent persistence of any changes on the Server.
 * <span class="nx-absolute -nx-mt-20" id="diff"></span>[```-diff```](#diff) - Ouput any changes between server and local resources as part of the command output response.
 
 
@@ -42,7 +42,7 @@ PUSHED 1 dataset resource(s).
 ```
 
 ## Example: Validate resources only and do not persist to server
-This example validates all systems and datasets in the ```.fides``` working directory but does not persist these changes to the Fides server. This command outputs the changes to the server that would result from a push command without the ```--dry``` option.
+This example validates all systems and datasets in the ```.fides``` working directory but does not persist these changes to the Fides Server. This command outputs the changes to the server that would result from a push command without the ```--dry``` option.
 
 ```console
 $ fides push --dry
@@ -59,7 +59,7 @@ WOULD CREATE 0 dataset resource(s).
 WOULD UPDATE 3 dataset resource(s).
 ----------
 ```
-## Example: Output changes between the server and local resources
+## Example: Output changes between the server and any local resources
 This example validates all systems and datasets in the ```.fides``` working directory, pushes those changes to the Fides Server and outputs the differences as part of the command output response.
 
 ```console

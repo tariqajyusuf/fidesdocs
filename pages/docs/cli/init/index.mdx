@@ -8,7 +8,7 @@ The Fides working directory is typically a hidden ```.fides``` directory, which 
 ## Initialization
 Running the fides ```init``` command will initialize a working directory that contains a Fides configuration ```toml``` file . After that initializiation, you will be able to perform other commands, like ```fides push``` and ```fides evaluate```.
 
-If you try to run a command that relies on initialization without either first initializing or having environment variables in place, the command will fail with an error that you do not have environment variables configured.
+If you try to run a command that relies on initialization without either first initializing or having environment variables in place, the command will fail with an error, alerting you that you do not have environment variables configured.
 
 Initialization performs just the basic tasks of creating the ```.fides``` directory and a ```.toml``` configuration for your Fides project.
 

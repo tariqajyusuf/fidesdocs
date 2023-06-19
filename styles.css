@@ -616,6 +616,7 @@ a.featBlockWrap:hover, .CtaFeatWrap a:hover .ctaBlockWrap, a.tutorialBlockWrap:h
 /*** footer ***/
 footer{
 	border-top: 1px solid #E2E8F0;
+	background-color: white !important;
 }
 footer.bg-gray-100{
 	background: white !important;

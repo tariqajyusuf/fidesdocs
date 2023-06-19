@@ -23,14 +23,14 @@ For a Kubernetes deployment, the recommendation option is to use the Fides [Helm
 
 To install the Helm chart to an existing Kubernetes cluster, run the following commands:
 
-```
+```console
 helm repo add ethyca https://helm.ethyca.com
 helm pull ethyca/fides
 ```
 
 Then, set the required values in a values.yaml file and run 
 
-```
+```console
 helm install fides ethyca/fides --values values.yaml
 ```
 
@@ -104,11 +104,11 @@ The Fides webserver is a [FastAPI](https://fastapi.tiangolo.com/) application wi
 * OR Python 3.8 or newer (if installing via Python)
 * No persistent storage requirements (this is handled by the hosted database)
 
-### Using docker
+### Using Docker
 
 Ensure that Docker is running on your host, and satisfies the [minimum requirements](./installation/requirements).
 
-#### Pull the docker image
+#### Pull the Docker image
 Run the following command to pull the latest image from Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides):
 
 ```
@@ -139,7 +139,7 @@ At a minimum, you'll need to configure the following:
 
 Once pulled, you can start your server with:
 
-```
+```console
 docker run ethyca/fides -p 8080:8080
 ```
 

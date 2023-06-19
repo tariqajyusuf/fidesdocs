@@ -6,26 +6,26 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 > **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```scan``` command, check out the [Annotation Coverage tutorial](#LINK).
 
 
-The ```fides scan``` evaluates of all resources against their source systems and reports on any differences or gaps in annotation.
+The ```fides scan``` evaluates all resources against their source systems and reports on any differences or gaps in annotation.
 This is extremely helpful for:
 
-1. Identifying changes in a source systems schema that may require annotation.
+1. Identifying changes in a source system's schema that may require annotation.
 2. Reporting on the percentage of annotation coverage across one, or multiple systems.
 
-This command can be scheduled as an automated workflow to continuously check annotation coverage and report on proactively report where annotation coverage drops below an acceptable threshold.
+This command can be scheduled as an automated workflow to continuously check annotation coverage and proactively report where annotation coverage drops below an acceptable threshold.
 
 ## Usage
 Usage: ```fides scan <commands> [options] working/directory/```
 
 This command accepts several subcommands and options depending on the resource being scanned. For example:
 
-Scanning a dataset accepts db (database) as the type, followed by connection information and the working directory.
+Scanning a dataset accepts ```db``` (database) as the type, followed by connection information and the working directory.
 
 ```console
 fides scan dataset db {connection_information} working/directory/
 ```
 
-Scanning systems accepts either aws (Amazon Web Services) or okta (Okta Sign-on) as the type, followed by connection information and the working directory.
+Scanning systems accepts either ```aws``` (Amazon Web Services) or ```okta``` (Okta Sign-on) as the type, followed by connection information and the working directory.
 
 ```console
 fides scan system [aws || okta] {connection_information} working/directory/
@@ -56,7 +56,7 @@ Here are the full list of accepted commands, subcommands and arguments:
                 * <span class="nx-absolute -nx-mt-20" id="system-okta-include-null"></span>[```--include-null```](#system-okta-include-null) - Include attributes in the system YAML that would otherwise be null for this system.
 				* <span class="nx-absolute -nx-mt-20" id="system-okta-coverage-threshold"></span>[```-c```](#system-okta-coverage-threshold), [```--coverage-threshold```](#system-okta-coverage-threshold) - Specify a minimum threshold that annotation coverage must meet.
 
-Running this command should result in output that resembles the following:
+Running this command should result in output that resembles the examples below.
 
 ---
 

@@ -19,7 +19,7 @@ The export command requires at least one of the following subcommands to generat
 
 * <span class="nx-absolute -nx-mt-20" id="datamap"></span>[```datamap```](#datamap) - Export a datamap from Fides. The default export format is Excel, although other options are possible with the option flags below.
         * <span class="nx-absolute -nx-mt-20" id="d"></span>[```-d```](#d), [```--output-dir```](#d)  - The output directory for the data map to be exported to.
-        * <span class="nx-absolute -nx-mt-20" id="k"></span>[```-k```](#k), [```--org-key```](#k)  - The organization fides_key you wish to export resources for.
+        * <span class="nx-absolute -nx-mt-20" id="k"></span>[```-k```](#k), [```--org-key```](#k)  - The organization ```fides_key``` you wish to export resources for.
         * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Prints the report to the console directly and does not create a report document.
         * <span class="nx-absolute -nx-mt-20" id="csv"></span>[```--csv```](#csv) - Exports the report in CSV format intead.
 * <span class="nx-absolute -nx-mt-20" id="dataset"></span>[```dataset```](#dataset) - Export the specified dataset in a data map report format.
@@ -29,12 +29,12 @@ The export command requires at least one of the following subcommands to generat
 * <span class="nx-absolute -nx-mt-20" id="organization"></span>[```organization```](#organization) - Output errors if any resources are missing attributes required for building a data map.
         * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Export the specified organization in a data map report format.
 
-Running this command should result in output that resembles the following:
+Running this command should result in output that resembles the examples below.
 
 ---
 
 ## Examples: Export a full data map in Excel format
-This example exports a formatted data map in excel using the Fides template that matches the requirements for a Record of Processing Activity (RoPA) for the GDPR.
+This example exports a formatted data map in Excel using the Fides template that matches the requirements for a Record of Processing Activity (RoPA) for the GDPR.
 The command will respond with the exported file name which is written to the ```.fides``` working directory.
 
 ```console
@@ -43,8 +43,8 @@ Loaded config from: .fides/fides.toml
 2022-01-03-T013609_datamap.xlsx successfully exported.
 ```
 
-## Example: Export a full data map to a speecified location
-This example exports a formatted data map in excel using the Fides template and writes the file to the specified output directory, in this example ```data/```.
+## Example: Export a full data map to a specified location
+This example exports a formatted data map in Excel using the Fides template and writes the file to the specified output directory, in this example ```data/```.
 
 ```console
 $ fides export datamap --output-dir data/
@@ -53,7 +53,7 @@ Loaded config from: .fides/fides.toml
 ```
 
 ## Example: Export a full data map for a specified organization
-This example exports a formatted data map for a specified organization_key and generates an excel document using the standard Fides template.
+This example exports a formatted data map for a specified ```organization_key``` and generates an Excel document using the standard Fides template.
 
 ```console
 $ fides export datamap --org-key other_company

@@ -40,15 +40,15 @@ In this step, you'll add a system to your data map. Fides offers several options
 
 To start, navigate to **Data map** → **Add systems** and choose **Add a system** to add a system manually:
 
-![Add a system manually](/fides/assets/img/tutorials/data-mapping-manual-add-system.gif)
+![Add a system manually](/assets/img/tutorials/data-mapping-manual-add-system.gif)
 
 From here you can search the list of available system templates:
 
-![Search for system templates](/fides/assets/img/tutorials/data-mapping-manual-search-system.gif)
+![Search for system templates](/assets/img/tutorials/data-mapping-manual-search-system.gif)
 
 Alternatively, to create a custom system, select **Create system** from upper right corner:
 
-![Create a system manually](/fides/assets/img/tutorials/data-mapping-manual-create-system.gif)
+![Create a system manually](/assets/img/tutorials/data-mapping-manual-create-system.gif)
 
 <Callout emoji="ⓘ">Using a system template will speed up your privacy operations as it uses Fides built-in privacy intelligence to prepopulate and and pre-configure integrations for privacy request processing.</Callout>
 
@@ -58,7 +58,7 @@ Create your system by completing the required **System details** on the **System
 * <span class="nx-absolute -nx-mt-20" id="system-details-fides-key"></span>[System Fides key](#system-details-fides-key) - A unique key to represent this system across all Fides resources. This only accepts alphanumeric characters, hyphens and underscores, and may not contain spaces.
 * <span class="nx-absolute -nx-mt-20" id="system-details-description"></span>[System description](#system-details-description) - An optional description to help other users understand what this system is.
 
-![Complete your system information](/fides/assets/img/tutorials/data-mapping-manual-describe-system.gif)
+![Complete your system information](/assets/img/tutorials/data-mapping-manual-describe-system.gif)
 
 Next you will [add information to describe the ways in which you use data in this system](#adding-system-privacy-information-during-system-creation), these are typically called [data uses or processing activities](#adding-system-privacy-information-during-system-creation).
 
@@ -66,7 +66,7 @@ Next you will [add information to describe the ways in which you use data in thi
 
 To start, navigate to **Data map** → **Add systems** and choose **Scan your infrastructure** to scan automatically.
 
-![Scan your cloud to discover systems](/fides/assets/img/tutorials/data-mapping-scan-infrastructure.gif)
+![Scan your cloud to discover systems](/assets/img/tutorials/data-mapping-scan-infrastructure.gif)
 
 To automatically discover systems you must first authenticate the cloud infrastructure scanner to your AWS cloud by providing the following information:
 
@@ -74,7 +74,7 @@ To automatically discover systems you must first authenticate the cloud infrastr
 * <span class="nx-absolute -nx-mt-20" id="secret"></span>[Secret](#secret) - The secret associated with the Access Key ID used for authentication.
 * <span class="nx-absolute -nx-mt-20" id="default-region"></span>[Default Region](#default-region) - The geographic region of the cloud hosting provider you would like to scan.
 
-![Authenticate the infrastructure scanner](/fides/assets/img/tutorials/data-mapping-scan-infrastructure-authenticate.gif)
+![Authenticate the infrastructure scanner](/assets/img/tutorials/data-mapping-scan-infrastructure-authenticate.gif)
 
 The identity which is authenticated must have appropriate permissions to complete the scan:
 
@@ -104,7 +104,7 @@ These permissions can be manually configured via your AWS IAM policy management 
 ```
 When the scan has completed, you will be presented with a list of systems discovered in your AWS cloud. You will see the scanner displays the system name, type and the resource's identifier which is typically the ARN (Amazon Resource Name) for the discovered system:
 
-![Infrastructure scanner results of disovered systems](/fides/assets/img/tutorials/data-mapping-scan-infrastructure-results.gif)
+![Infrastructure scanner results of disovered systems](/assets/img/tutorials/data-mapping-scan-infrastructure-results.gif)
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
 
@@ -112,7 +112,7 @@ To add the scan results to your data map, check on the systems you would like to
 
 To start, navigate to **Data map** → **Add systems** and choose **Scan your Sign On Provider** to scan automatically.
 
-![Scan your single sign-on provider to discover systems](/fides/assets/img/tutorials/data-mapping-scan-sso.gif)
+![Scan your single sign-on provider to discover systems](/assets/img/tutorials/data-mapping-scan-sso.gif)
 
 To automatically discover systems you must first authenticate the single sign-on scanner to your Okta account by providing the following information. For more information on roles and generating API tokens, read Okta's guide to <a href="https://help.okta.com/en-us/Content/Topics/Security/API.htm?cshid=ext_API" class="nx-text-primary-600 nx-underline nx-decoration-from-font" target="_blank">API token management</a> here.
 
@@ -120,11 +120,11 @@ To automatically discover systems you must first authenticate the single sign-on
 * <span class="nx-absolute -nx-mt-20" id="org-url"></span>[Org URL](#org-url) - The URL for your organization's account on Okta.
 * <span class="nx-absolute -nx-mt-20" id="okta-token"></span>[Okta token](#okta-token) - The token generated by Okta for your account.
 
-![Authenticate the sign sign-on provider scanner](/fides/assets/img/tutorials/data-mapping-scan-sso-authenticate.gif)
+![Authenticate the sign sign-on provider scanner](/assets/img/tutorials/data-mapping-scan-sso-authenticate.gif)
 
 When the scan has completed, you will be presented with a list of systems discovered in your Okta account. You will see the scanner displays the system name, type and the resource's identifier which is typically the unique ID in Okta for the discovered system:
 
-![Single sign-on provider scanner results of disovered systems](/fides/assets/img/tutorials/data-mapping-scan-sso-results.gif)
+![Single sign-on provider scanner results of disovered systems](/assets/img/tutorials/data-mapping-scan-sso-results.gif)
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
 
@@ -136,11 +136,11 @@ To start, navigate to **Data map** → **Add systems** and choose **Data flow sc
 
 The network data flow scaner works by analyzing data flowing between services in clusters such as Kubernetes (k8s). This network inspection means the data flow scanner can safely analyze the network traffic between services in your cloud and categorize the data flowing.
 
-![Scan your network data flows to discover systems](/fides/assets/img/tutorials/data-mapping-scan-dataflow.gif)
+![Scan your network data flows to discover systems](/assets/img/tutorials/data-mapping-scan-dataflow.gif)
 
 When the scan has completed, you will be presented with a list of systems discovered from real-time analysis of dataflow in Kubernetes (k8s) clusters in your cloud. You will see the scanner displays the system name and type:
 
-![Network data flow scanner results of disovered systems](/fides/assets/img/tutorials/data-mapping-scan-dataflow-results.gif)
+![Network data flow scanner results of disovered systems](/assets/img/tutorials/data-mapping-scan-dataflow-results.gif)
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**. 
 
@@ -150,7 +150,7 @@ After registering your systems, you will be prompted to classify the data flow b
 
 The network data flow scanner will use Fides Classify, the machine learning classification engine to categorize the sensitive data flowing between systems and provide a report of findings for review.
 
-![Machine learning sensitive data flow classification awaiting review](/fides/assets/img/tutorials/data-mapping-scan-dataflow-classification-results.gif)
+![Machine learning sensitive data flow classification awaiting review](/assets/img/tutorials/data-mapping-scan-dataflow-classification-results.gif)
 
 Review each system by clicking on **Awaiting Review** to see a detailed analysis of sensitive data classification for any source system and any destination system.
 
@@ -159,7 +159,7 @@ Review each system by clicking on **Awaiting Review** to see a detailed analysis
 
 For each source and destination system, Fides will display the categories of sensitive data that have been detected flowing in network traffic:
 
-![Machine learning sensitive data flow classification awaiting review](/fides/assets/img/tutorials/data-mapping-scan-dataflow-classification-detail-results.gif)
+![Machine learning sensitive data flow classification awaiting review](/assets/img/tutorials/data-mapping-scan-dataflow-classification-detail-results.gif)
 
 After you have reviewed the list of systems, click **Finish** to complete the data flow analysis and return to the data map.
 
@@ -184,14 +184,14 @@ There are three methods to add or update privacy related information for your sy
 ### Adding system privacy information during system creation
 To add privacy information after creating a system manually, select the **Data uses** tab, from here you can add a **Data use** selecting the **Add a Data Use+** button.
 
-![Adding system privacy information when creating a system manually](/fides/assets/img/tutorials/data-mapping-data-use-system-creation.gif)
+![Adding system privacy information when creating a system manually](/assets/img/tutorials/data-mapping-data-use-system-creation.gif)
 
 ### Editing system privacy information from the system portal
 To edit a system, navigate to **Data map** → **View systems** where you can search existing systems. Click the kebab menu ```...``` for your chosen system and click **Edit**.
 
 On the system portal page, select the **Data uses** tab, from here you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
 
-![Editing system privacy information in the system portal](/fides/assets/img/tutorials/data-mapping-data-use-system-portal.gif)
+![Editing system privacy information in the system portal](/assets/img/tutorials/data-mapping-data-use-system-portal.gif)
 
 ### Editing system privacy information from the system tray
 
@@ -200,6 +200,6 @@ Select the system you are updating to see the **System tray**.
 
 From the System tray you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
 
-![Editing system privacy information in the system tray](/fides/assets/img/tutorials/data-mapping-data-use-system-tray.gif)
+![Editing system privacy information in the system tray](/assets/img/tutorials/data-mapping-data-use-system-tray.gif)
 
 

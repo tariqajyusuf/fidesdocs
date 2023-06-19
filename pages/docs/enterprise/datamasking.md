@@ -1,6 +1,6 @@
 # Enhanced Data Masking
 
-Along with the default masking engine provided by the [open source edition](../fides/dsr_quickstart/dsr_support/masking_strategies), Fides for Enterprise customers enables NLP and regex-powered masking strategies to safeguard data at scale. These masking strategy can be used on their own or combined to identify and replace personal information in free-text fields. 
+Along with the default masking engine provided by the [open source edition](../fides/dsr_quickstart/dsr_support/masking_strategies), Fides for Enterprise customers enables NLP and regex-powered masking strategies to safeguard data at scale. These masking strategies can be used on their own or combined to identify and replace personal information in free-text fields. 
 
 The available Enterprise masking strategies are an extension of the open source masking engine. To review standard implementation options, see the [open source documentation](../fides/dsr_quickstart/dsr_support/masking_strategies).
 
@@ -68,7 +68,7 @@ As with the open source masking strategy, NLP data masking can be invoked by cal
 ```json
 {
    "values":[
-      "tall male suspect",
+      "tall male student",
       "1 N Albany Cir",
       "patient blood type is AB positive",
       "VA, 20402",
@@ -88,7 +88,7 @@ Successful calls to `/mask` will return a version of the input with the masked v
 ```json
 {
     "plain": [
-        "tall male suspect",
+        "tall male student",
         "1 N Alabany Cir",
         "patient blood type is AB positive",
         "VA, 20402",
@@ -96,7 +96,7 @@ Successful calls to `/mask` will return a version of the input with the masked v
         "berros"
     ],
     "masked_values": [
-        "tall gender suspect",
+        "tall gender student",
         "street",
         "patient blood type is AB positive",
         "MASKED",
@@ -117,7 +117,7 @@ Fides supports defining your regex_replace configuration as YAML. For more infor
 | `default_mask` | _(Optional.)_ The string that will automatically replace the entire value when the language is identified with low confidence, and when regular expressions are not configured for that language. Default is `MASKED`. |
 | `required_confidence` | _(Optional.)_ The minimum confidence that the language identified is correct. If the confidence is below this threshold, the entire value will be replaced and regular expressions bypassed. Default is `0.25`. To force an entire list of regular expressions to be run for the given language, set required_confidence to `0.0`. To skip every regular expression and mask every value by default, set the required_confidence to `1.0`. |
 | `multiprocessing` | _(Optional.)_  Allow regular expression masking to utilize multiple processes on the host machine. Default is `false`. |
-| `cpu_cores` | _(Optional.)_  The number of cpu cores Fides will use for regex processing, supplied as an integer. Set to a lower number than your max to keep some processes free. Only applicable when `multiprocessing` is `true`. Default is `all`.
+| `cpu_cores` | _(Optional.)_  The number of CPU cores Fides will use for regex processing, supplied as an integer. Set to a lower number than your max to keep some processes free. Only applicable when `multiprocessing` is `true`. Default is `all`.
 | `universal_regex` | _(Optional.)_  Any universal regular expressions that will be run against the input by default, in addition to the regular expressions identified for that language. See [universal regular expressions](#universal-regular-expressions) below.
 | Other regular expressions | _(Optional.)_ Regular expressions  that will be run against the input based on language code. Regular expression search is case-insensitive. See [other regular expressions](#other-regular-expressions) below.
 | `identified_language` | _(Optional.)_  If you are certain of the language of every supplied value, you can provide a language code with your request. This will evaluate every value against the defined regular expressions for that language. For example, if all values are in English, you can supply the English code `EN`. Default is `""`.
@@ -155,7 +155,7 @@ In the below example, the values are run against the NLP engine before being run
 ```json
 {
    "values":[
-      "tall male suspect",
+      "tall male student",
       "1 N Alabany Cir",
       "patient blood type is AB positive",
       "VA, 20402",
@@ -186,7 +186,7 @@ Response:
 ```json
 {
     "plain": [
-        "tall male suspect",
+        "tall male student",
         "1 N Albany Cir",
         "patient blood type is AB positive",
         "VA, 20402",
@@ -194,7 +194,7 @@ Response:
         "berros"
     ],
     "masked_values": [
-        "tall gender suspect",
+        "tall gender student",
         "addr:street_num",
         "patient blood type is [BLOOD_TYPE_1]",
         "MASKED",
