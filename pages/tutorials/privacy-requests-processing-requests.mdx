@@ -14,63 +14,71 @@ In this tutorial you'll learn about the flow of privacy requests from start to f
 For this tutorial you will need:
 
 * A Fides Cloud or Fides Enterprise account
-* The role of `Owner` or `Contributor` for your Fides organization.
-* At least one system on your Data Map. Read how to [add systems to the Data Map](data-mapping-adding-systems-manually) now.
-* Credentials for the system you intend to integrate for privacy requests.
+* The role of either `Owner`, `View & Approver` or `Approver` to manage privacy requests.
+* At least one system integration configured for privacy requests. Read how to [configure an integration](privacy-requests-configure-integrations).
+* A privacy center to receive and process privacy requests. Read how to [configure a privacy center](#LINK).
 
 You should also be familiar with the basics of [Fides Control](#LINK).
 
-## Configuring a System Integration
+## Privacy Request Flows
 
-Integrations are used to securely connect to systems and process privacy requests. 
+Before processing a privacy request, we'll look briefly at the steps and flow of a typical request:
 
-Typically these are API integrations to allow you to simplify and automate each request. For systems that do not have APIs and only accept privacy requests by email, Fides has an integration to automate email notifications to the vendor. Read about [automated email notifcations](#LINK) here.
+<Screenshot img="/assets/img/tutorials/privacy-requests-request-flow.gif" description="Typical data privacy request flow" />
 
-To start, navigate to **Data map** → **View systems** to view a list of your current systems. 
+1. **Subject Submits Privacy Request**: The user (subject) submits a privacy request through the privacy center.
+2. **Identity Verification**: Fides sends a code to the user's email address or phone number to verify their identity.
+3. **Subject Confirms Identity**: The subject confirms their identity using the code provided.
+4. **Privacy Request Received**: The privacy request is recorded on Fides with the subject's identity verification.
+5. **Privacy Request Reviewed**: Privacy requests are reviewed by an appointed request manager.
+6. **Rejected**: Where a privacy request is rejected, the reason for rejecting the request is recorded for reporting.
+7. **Email Confirmation Sent**: An email confirming that the request has been rejected is sent to the subject.
+8. **Approved**: Where a privacy request is approved, Fides commences processing the request.
+9. **Fides Processes Request**: Fides processes the privacy request programmatically across all integrated systems.
+10. **Email Confirmation Sent**: An email confirming the request has been completed is setn to the subject.
 
-### Select a System to Edit
+Let's look at each step in the flow in detail.
 
-From here you can search for the system you want to edit, or select directly from the list. 
+## Submitting a Privacy Request
 
-To edit click the Kebab `...` menu and select **Edit** as shown below:
+Fides provides a pre-built privacy center for your subjects to submit privacy requests. Read about [configuring your privacy center](#LINK) here.
 
-<Screenshot img="/assets/img/tutorials/privacy-requests-view-systems.gif" description="View list of systems" />
+Typically your privacy center is configured to be available on a subdomain of your brand website, such as: `https://privacy.your-brand.com`.
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-privacy-center.gif" description="Standard Privacy Center" />
+
+The example below shows a sample privacy center for the "Cookie House" sample project.
+
+To submit a privacy request the subject must provide an identifier, such as their email address or phone number as shown in the example below:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-submit-identity.gif" description="Submitting a Privacy Request" />
 
 
-### View the System Integrations Tab
+## Subject Identity Verification
+With subject identity verification enabled, when the subject submits their privacy request, they will receive a code to their email address or phone number to confirm their identity. 
 
-From the System Information tab, navigate to the Integrations tab as shown below:
+Below is an example of the email received for the "Cookie House" sample project.
 
-<Screenshot img="/assets/img/tutorials/privacy-requests-view-integrations.gif" description="View integrations" />
+<Screenshot img="/assets/img/tutorials/privacy-requests-identity-verification.gif" description="Submitting a Privacy Request" mw="600"/>
 
-### Select the Integration to Configure
-On the System Integrations tab select the **Connection Type** dropdown and search for the integration you would like to add for the selected system. 
+The subject provides the code when prompted on the privacy center to verify their identity as shown below:
 
-<Screenshot img="/assets/img/tutorials/privacy-requests-select-integrations.gif" description="Select the integration for your system" />
+<Screenshot img="/assets/img/tutorials/privacy-requests-identy-modal.gif" description="Submitting a Privacy Request" mw="400"/>
 
-### Configure the Integration
+You can configure whether you would like to have identity verification on your privacy center. Read about [configuring identity verification](#LINK) here.
 
-Every integration requires the following fields to be configured:
+## Reviewing Privacy Requests
 
-* <span class="nx-absolute -nx-mt-20" id="integration-name"></span>[Integration Name](#integration-name) - The name of the integration being configured.
-* <span class="nx-absolute -nx-mt-20" id="integration-description"></span>[Integration Description](#integration-description) - A description of the integration being configured.
-* <span class="nx-absolute -nx-mt-20" id="connection-identifier"></span>[Connection Identifier](#connection-identifier) - A unique key to identify the integration within Fides.
+When privacy requests are received they are registered in Fides and availalbe for review in Fides Control's privacy request administration view. 
 
-<Screenshot img="/assets/img/tutorials/privacy-requests-default-fields.gif" description="Complete the default fields for the system integration" />
+To start, navigate to **Privacy requests** → **Add systems** and choose **Add a system** to add a system manually:
 
-In addition to these common fields, each integration will require credential information specific to that system's authentication requirements.
+Typically your privacy center is configured to be available on a subdomain of your brand website, such as: `https://privacy.your-brand.com`.
 
-The example below shows the different credentials required for Hubspot and Gorgias.
+<Screenshot img="/assets/img/tutorials/privacy-requests-privacy-center.gif" description="Standard Privacy Center" />
 
-<Screenshot img="/assets/img/tutorials/privacy-requests-credentials.gif" description="Provide credentials for the system integration"/>
+The example below shows a sample privacy center for the "Cookie House" sample project.
 
-When you have provided the integration credentials, **Save** your integration settings.
+To submit a privacy request the subject must provide an identifier, such as their email address or phone number as shown in the example below:
 
-### Test the Integration
-
-Once your integration credentials are saved you can verify the credentials are working by clicking **Test connection**.
-If the integration is working correctly you will be presented with a `Test suceeded` message like the one shown below:
-
-<Screenshot img="/assets/img/tutorials/privacy-requests-testing.gif" description="Provide credentials for the system integration"  mw="450" />
-
-This example used the Hubspot integration, for a complete list of integrations and instructions on generating credentials, visit the [integration registry](#LINK).
+<Screenshot img="/assets/img/tutorials/privacy-requests-submit-identity.gif" description="Submitting a Privacy Request" />

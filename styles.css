@@ -142,7 +142,7 @@ article .screenshot {
 	padding: 12px;
 	border-radius: 7px;
 	display: block;
-	margin: 25px 0;
+	margin: 25px auto;
 	width: fit-content;
 }
 
