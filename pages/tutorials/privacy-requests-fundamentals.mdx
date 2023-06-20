@@ -1,50 +1,90 @@
 import { Callout } from 'nextra-theme-docs'
-import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import TutorialKey from 'components/tutorialkey'
 
-# Command: init
+# Privacy Requests: Fundamentals
 
-> **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```init``` command, check out the [Initialize Fides Configuration tutorial](#LINK).
+<TutorialKey duration="5" product="Fides" topic="Privacy Requests"/>
+
+In this tutorial we will briefly walk through what a privacy request is, why they are important and, how to maintain compliance with privacy request requirements.
+
+After reading this, you will be familiar with the key terms and concepts of privacy requests.
+
+## What are Privacy Requests?
+
+Privacy requests, also sometimes called Data Subject Requests (DSR or DSAR) are the rights afforded to a users who's data is processed by an organization. 
+<Callout type="info" emoji="ℹ️">The rights afforded to your users are based on their location and not your organization's location.</Callout>
+
+## Common Privacy Request Rights
+The rights for privacy requests afforded to a user are typically the following:
+
+| Right                                 | Description                                                                                                               |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------	|
+| **Access**    						| Access the personal data collected and processed about the user and understand what purposes it was used for.          |
+| **Erasure**    						| Delete all personal data or data that readily identifies the user across the entire organization.            |
+| **Rectification**    					| Update, or correct personal information the user believes to be incorrect about them.                      	|
+| **Portability**    					| Obtain a machine-readable copy of the users personal data such that it might be imported to another system. |
+
+## Users or Data Subjects
+In privacy parlance, the owner of the personal data collected by your organization is commonly known as a **subject*.
+
+<Callout type="info" emoji="ℹ️">A Data Subject is any type of user on whom you collect and process data, such as **customers** or **employees**.</Callout>
+
+## Subject Identity Verification
+When you receive a privacy request, you are responsible for confirming the identity of the subject to ensure that you do not incorrectly disclose data. To verify the identify of a subject, you may not request additional information you do not already retain about the subject. For example, you cannot request a copy of a subject's drivers license if you do not already have this information. 
+
+<Callout emoji="💡">Ethyca recommends using multi-factor authentication (MFA) for identify verification. Fides has built-in subject identity verifiation via MFA.  Learn more about [Subject Identify Verification](#LINK) here.</Callout>
 
 
-The ```fides init``` command initializes a working directory called ***.fides*** and automatically creates a default configuration file called ```fides.toml```  using default values.
-This is the first command that should run if you intend to configure Fides via a toml file rather than via environment variables.
+## Authorized Agents
+In some locations, an individual user (subject), may submit a privacy request themselves directly or appoint a third party, typically known as an ** authorized agent** to submit the privacy request on their behalf.
+In the event you receive a privacy request from an agent, you must honor it provided you are satsified that the authorized agent has been appointed by the subject.
 
-Both methods can be used simultaneously, but note that environment variables take precedence over the ```toml``` file values. You can read more about [How to configure Fides](#LINK) here.
+<Callout emoji="💡">You should provide two publicly available, easy to find methods for your users to submit privacy requests.</Callout>
 
-## Usage
-Usage: ```fides init```
+The most common methods to receive privacy requests are:
 
-This command creates the default ```.fides``` directory and ```fides.toml``` config file using default configuration values.
 
-Running this command should result in output that resembles the following:
+## Receiving Privacy Requests
+Although there are exceptions, for most global privacy regulations you must provide two methods to receive privacy requests. The methods by which you accept and process privacy requests should be easily obtainable and are typically listed on your privacy policy.
 
-```console
-$ fides init
+<Callout emoji="💡">You should provide two publicly available, easy to find methods for your users to submit privacy requests.</Callout>
 
-No config file found
-Using default configuration values.
-Loading config from: .fides/fides.toml
-No config file found
-Using default configuration values.
-----------
-Created a './.fides' directory.
-Created a fides config file: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
+The most common methods to receive privacy requests are:
 
-███████╗██╗██████╗ ███████╗███████╗
-██╔════╝██║██╔══██╗██╔════╝██╔════╝
-█████╗  ██║██║  ██║█████╗  ███████╗
-██╔══╝  ██║██║  ██║██╔══╝  ╚════██║
-██║     ██║██████╔╝███████╗███████║
-╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝
+| Method                                 | Description                                                                                                               |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------	|
+| **Form**    						| A publicly available form on your website or application where a user may submit their privacy request.          |
+| **Email**    						| A publicly available email address where a user may submit their privacy request. |
+| **Phone**    						| A publicly available phone number where a user may contact you to submit their privacy request.           |
 
-Initializing fides...
-----------
-----------
-Directory './.fides' already exists.
-Configuration file already exists: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-----------
-```
+
+## Privacy Request Processing Timeframe
+The subjects location determines the regulation that applies and with it, the time limit for when a privacy request must be completed. You may request an extension in some locations, provided you notify the subject promptly of the extension - typically within 28 days (Europe) and within 45 days (USA).
+
+| Regulation                        | Timeframe                     | Extension                             | 
+| :-------------------------------- | :-----------------------------| :------------------------------------	|
+| **GDPR (EEA & UK)**				| 28 days (one calendar month)  | 56 days (three calendar month total)	|
+| **US State Regulations**			| 45 days 						| 45 days (90 days total)				|
+| **LGPD (Brazil)**    				| 15 days						| --									|											
+
+## Exceptions to Privacy Requests
+There are some situations where you may not be able, or required to complete a privacy request. It's important to know when these might apply and how to manage them. In each case yoou should evaluate the circumstances and risks for your specific organization to ensure you are complying at all times.
+
+### Legal / Compliance Obligation
+There are certaincategories of personal data that you may be required to retain in order to fulfill legal or compliance obligations, in such cases you are permittd to retain that data event when an erasure request is received provided you restrict the use of the data to that purpose.
+
+<Callout type="info" emoji="">
+##### Example
+To correctly calculate and file tax liabilities an e-commerce company will need to use order history information and the user's location. If the customer makes a subject erasure request to the company, the order history and zip code may be exempt from deletion provided they are used only for this purpose.
+</Callout>
+
+### Confidentiality Risk
+In circumstances where returning data to a subject might reveal confidential or sensitive information about any organization or another individual, you are not required to return that specific piece of information. 
+
+<Callout type="info" emoji="">
+##### Example
+A Company provides an employment reference in confidence for one of their employees to another Company. If the employee makes a subject access request to either company, the reference is exempt from disclosure.
+</Callout>
+
+
+Now that we've covered the basics, let's dive into how to configuring and managing privacy requests with Fides.

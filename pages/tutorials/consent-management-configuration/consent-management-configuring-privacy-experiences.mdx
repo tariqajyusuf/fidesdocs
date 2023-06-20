@@ -1,0 +1,47 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+
+# Data Mapping: Fundamentals
+
+<TutorialKey duration="4" product="Fides" topic="Data Mapping"/>
+
+In this tutorial we will briefly walk through what a data map is, why they are important and, how to efficiently build and maintain your data map.
+
+After reading this, you will be familiar with the key terms and concepts of data mapping.
+
+## What is Data Mapping?
+
+Data mapping for data governance purposes, such as data privacy compliance, is the process of labeling any system, business process or external vendor that processes sensitive or personal data for your business activities. 
+
+You can think of the goal of data mapping as:
+* **what** kind of personal data you are collecting and processing;
+* **how** you are using the data;
+* **who** the data belongs to, and;
+* what your **policies and security procedures** are to adequately safeguard the use of that data.
+
+Data mapping is also sometimes known as a *Data Catalogue* or a *System Inventory*.
+
+## How to Data Map
+
+In its simplest form, you can think of a data mapping process as:
+
+1. Identifying all of the systems and teams that process data in, or for your organization.
+2. Defining the purposes for which the data is being used in each system.
+3. Categorizing the types of personal data being processed across these systems.
+4. Review and mitigate any new data processing risks.
+
+Typically this information is best known by the team responsible for a system in your organization. For example, your marketing department will be able to confirm what systems are used in marketing activities and what categories of personal data are processed.
+
+### 1. Identify all of the systems in your organization
+First you should identify all systems. You can do this by either [manually adding them to your data map](./data-mapping-adding-systems-manually), or using [Fides' Detection tools to automatically identify systems](./data-mapping-scanning-discovery).
+
+### 2. Assign systems to the responsible teams
+With your systems identified, you should assign each system to the appropriate Data Steward. Once assigned to the Steward, they will be responsible for reviewing information about the system and personal data use.
+
+### 3. Periodically reviewing system privacy activities
+Data Stewards should periodically review data processing activities for the systems they are assigned. A review can be a periodically scheduled activity or  triggered automatically based on changes to data use in your systems.
+
+### 4. Review and mitigate data processing risks
+Using the Data Map, its possible to proactively identify possible data processing risks and take action to prevent any potential compliance failures or risks to your user's personal data.
+
+Now that we've covered the basics, let's dive into how to use Fides to create and manage a Data Map.

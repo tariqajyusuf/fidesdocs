@@ -154,7 +154,8 @@ article .screenshot {
 	padding: 12px;
 	border-radius: 7px;
 	display: block;
-	margin: 25px 0;
+	margin: 25px auto;
+	width: fit-content;
 }
 
 article .screenshot img{
@@ -382,6 +383,15 @@ table tr td,table tr th {
 .HeroCTAVisual .branded-callout a:hover {
 	text-decoration: underline;
 	color: #ffffff !important;
+}
+
+/* Styling for call-outs */
+
+.nextra-callout h5 {
+	margin: 0 0;
+}
+.nextra-callout p{
+	margin: 0 0;
 }
 
 .HeroCTAVisual h1 {

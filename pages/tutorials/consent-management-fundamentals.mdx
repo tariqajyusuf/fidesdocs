@@ -1,50 +1,35 @@
 import { Callout } from 'nextra-theme-docs'
-import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
 
-# Command: init
+# Consent Management: Fundamentals
 
-> **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```init``` command, check out the [Initialize Fides Configuration tutorial](#LINK).
+<TutorialKey duration="5" product="Fides" topic="Consent Management"/>
 
+In this tutorial we will briefly walk through what consent management is, how consent is served, why it's important and, how to automatically serve the approriate notices and gather consent for your users.
 
-The ```fides init``` command initializes a working directory called ***.fides*** and automatically creates a default configuration file called ```fides.toml```  using default values.
-This is the first command that should run if you intend to configure Fides via a toml file rather than via environment variables.
+After reading this, you will be familiar with the key terms and concepts of consent management.
 
-Both methods can be used simultaneously, but note that environment variables take precedence over the ```toml``` file values. You can read more about [How to configure Fides](#LINK) here.
+## What is Consent?
 
-## Usage
-Usage: ```fides init```
+Consent in the context of data privacy and data governance is the need to collect consent from your visitors (data subjects) in order to process their data. 
 
-This command creates the default ```.fides``` directory and ```fides.toml``` config file using default configuration values.
+For your organization to correctly comply with data privacy regulations you must ensure that you:
+1. **Serve your users the appropriate notices** for how you process their data and,
+2. Where necessary, based on location ensure that you **collect a record of consent**,
+3. **Enforce consent** on all internal systems, business process and third party vendors
 
-Running this command should result in output that resembles the following:
+The full definition of consent under the GDPR is complex to understand but might be more simply stated as:
 
-```console
-$ fides init
+<Callout type="info" emoji="">
+**Consent** is any freely given, specific and informed indication that a Data Subject agrees to the processing of their personal data for that given purpose.
+</Callout>
 
-No config file found
-Using default configuration values.
-Loading config from: .fides/fides.toml
-No config file found
-Using default configuration values.
-----------
-Created a './.fides' directory.
-Created a fides config file: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
+## Components of Consent in Fides
+To simplify and further automate consent, Fides breaks configuration into three components:
 
-███████╗██╗██████╗ ███████╗███████╗
-██╔════╝██║██╔══██╗██╔════╝██╔════╝
-█████╗  ██║██║  ██║█████╗  ███████╗
-██╔══╝  ██║██║  ██║██╔══╝  ╚════██║
-██║     ██║██████╔╝███████╗███████║
-╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝
+1. **[Privacy Notices](consent-management-fundamentals/consent-management-privacy-notices)**: the text notification presented to your visitors about your data processing activities.
+2. **[Methods of Consent](consent-management-fundamentals/consent-management-consent-methods)**: the type of consent you must collect, depending on the visitors location.
+3. **[Privacy Experiences](consent-management-fundamentals/consent-management-privacy-experiences)**: the way the privacy notice and consent are displayed to the visitor on your website.
 
-Initializing fides...
-----------
-----------
-Directory './.fides' already exists.
-Configuration file already exists: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-----------
-```
+In the following pages we'll break Download privacy notices, methods of consent and privacy experiences.

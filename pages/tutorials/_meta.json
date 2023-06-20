@@ -9,24 +9,39 @@
   "data-mapping-system-detection": "Automated System Detection",
   "data-mapping-data-uses": "Data Use & Processing Activities",
   "data-mapping-reports": "Data Map & Inventory Reporting",
-  "data-mapping-ropa": "Record of Processing Activities",
   "data-mapping-glossary": "Data Mapping Glossary",
-  "data-mapping-configuration": "Configuration",
 
   "separator-privacy-requests": {
     "title": "Privacy Requests",
     "type": "separator"
   },
   "privacy-requests-get-started":"Getting Started",
-  "privacy-requests-configuration": "Configuration",
-  "privacy-requests-fundamentals": "Privacy Requests Fundamentals",
+  "privacy-requests-fundamentals": "Privacy Request Fundamentals",
+  "privacy-requests-configuration": "Configuring Privacy Requests",
+  "privacy-requests-workflow": "Privacy Request Workflow",
+  "privacy-requests-debugging": "Debugging Request Errors",
+  "privacy-requests-glossary": "Privacy Request Glossary",
 
   "separator-consent-management": {
     "title": "Consent Management",
     "type": "separator"
   },
   "consent-management-get-started":"Getting Started",
-  "consent-management-configuration": "Configuration",
-  "consent-management-fundamentals": "Privacy Requests Fundamentals"
+  "consent-management-fundamentals": "Consent Management Fundamentals",
+  "consent-management-configuration": "Configuring Consent",
+  "consent-management-user-experience": "Consent User Experience",
+  "consent-management-glossary": "Consent Management Glossary",
 
+  "separator-deployment": {
+    "title": "Deploying Fides",
+    "type": "separator"
+  },
+  "deployment-prerequisites": "Prerequisites",
+  "deployment-get-started": "Getting Started",
+  "deployment-quickstart": "Quick Start",
+  "deployment-advanced": "Advanced Deployment",
+  "deployment-configuration": "Deployment Configurations",
+  "deployment-configuring-privacy-center": "Privacy Center Configuration",
+  "deployment-security-practices": "Security Best Practices",
+  "deployment-sample-project": "Fides Sample Project"
 }

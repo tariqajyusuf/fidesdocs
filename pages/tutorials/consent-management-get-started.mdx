@@ -1,50 +1,22 @@
 import { Callout } from 'nextra-theme-docs'
-import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import KeyTutorialWrap, { TutorialFeat } from 'components/tutorialfeat'
+import TutorialKey from 'components/tutorialkey'
 
-# Command: init
+# Getting Started with Consent Management
 
-> **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```init``` command, check out the [Initialize Fides Configuration tutorial](#LINK).
+<TutorialKey duration="25" product="Fides" topic="Consent Management" interactive="true"/>
+
+In this series of tutorials ou'll learn how the data map and data uses power consent, walk through configuring privacy notices and finally configuring privacy experiences for your users.
+
+By the end of this series, you'll understand how data maps, data use and consent work together to automatically serve privacy notices and collect consent based on a users location anywhere in the world.
+
+<KeyTutorialWrap>
+  <TutorialFeat title="01 | Consent Management Fundamentals" link="./consent-management-fundamentals"   description="Get an overview of the fundamental terms, requirements and concepts of Consent Management." duration="5" />
+  <TutorialFeat title="02 | Data Use and Consent" link="./consent-management-data-use"  description="Learn how data uses automate and power your consent management." duration="5" interactive="true" />
+  <TutorialFeat title="03 | Configuring Privacy Notices" link="./consent-management-privacy-notices"  description="Learn how to configure and manage privacy notices." duration="5" interactive="true" />
+  <TutorialFeat title="04 | Configuring Privacy Experiences" link="./consent-management-privacy-experiences"  description="Learn how to configure and manage privacy experiences." duration="5" interactive="true" />
+  <TutorialFeat title="05 | Consent User Experience" link="./consent-management-user-experience"  description="See the user facing consent experiences" duration="5" video="true" interactive="true" />
+  <TutorialFeat title="06 | Consent Managmeent Glossary" link="./consent-management-data-use"  description="A complete glossary of Privacy Request and Fides specific terms."  />
+</KeyTutorialWrap>
 
 
-The ```fides init``` command initializes a working directory called ***.fides*** and automatically creates a default configuration file called ```fides.toml```  using default values.
-This is the first command that should run if you intend to configure Fides via a toml file rather than via environment variables.
-
-Both methods can be used simultaneously, but note that environment variables take precedence over the ```toml``` file values. You can read more about [How to configure Fides](#LINK) here.
-
-## Usage
-Usage: ```fides init```
-
-This command creates the default ```.fides``` directory and ```fides.toml``` config file using default configuration values.
-
-Running this command should result in output that resembles the following:
-
-```console
-$ fides init
-
-No config file found
-Using default configuration values.
-Loading config from: .fides/fides.toml
-No config file found
-Using default configuration values.
-----------
-Created a './.fides' directory.
-Created a fides config file: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-
-███████╗██╗██████╗ ███████╗███████╗
-██╔════╝██║██╔══██╗██╔════╝██╔════╝
-█████╗  ██║██║  ██║█████╗  ███████╗
-██╔══╝  ██║██║  ██║██╔══╝  ╚════██║
-██║     ██║██████╔╝███████╗███████║
-╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝
-
-Initializing fides...
-----------
-----------
-Directory './.fides' already exists.
-Configuration file already exists: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-----------
-```

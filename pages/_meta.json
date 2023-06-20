@@ -8,10 +8,6 @@
   "title": "Tutorials",
   "href": "/tutorials"
  },
-"install": {
-  "title": "Install",
-  "href": "/install"
- },
  "--": {
   "type": "separator",
   "title": "Resources"
@@ -20,12 +16,12 @@
   "title": "Regulations",
   "href": "/regulations"
  },
-"community": {
+ "community": {
   "title": "Community",
   "href": "/community"
- },
+},
 "slack": {
-  "title": "Join Our Slack",
+  "title": "Slack",
   "href": "https://fid.es/join",
   "newWindow": true
 },
@@ -52,13 +48,13 @@
   "title": "Documentation",
   "type": "menu",
   "items": {
-    "about": {
-      "title": "Test",
-      "href": "/about"
+    "docs-cli": {
+      "title": "Fides CLI",
+      "href": "/docs/cli"
     },
-    "contact": {
-      "title": "Contact Us",
-      "href": "mailto:hi@example.com"
+    "docs-control": {
+      "title": "Fides Control",
+      "href": "/docs/control"
     }
   }
 },
@@ -70,11 +66,6 @@
 "main-tutorials": {
   "href":"/tutorials",
   "title": "Tutorials",
-  "type": "page"
-},
-"main-install": {
-  "href":"/install",
-  "title": "Install",
   "type": "page"
 },
 "main-regulations": {

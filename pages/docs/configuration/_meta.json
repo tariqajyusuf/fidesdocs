@@ -1,4 +1,11 @@
 {
-    "messaging_services": "Configure Messaging Services",
-    "storage": "Configure DSR Storage"
+    "oauth": "Authenticating with OAuth",
+    "messaging": "Messaging & Notifications",
+    "storage": "Configure DSR Storage",
+    "policy-webhooks": "Policy Webhooks",
+    "privacy-requests": "Privacy Requests",
+    "query-execution": "Query Execution",
+    "reporting": "Reporting",
+    "request-execution": "Request Execution",
+    "storage-destinations": "Storage Destinations"
 }

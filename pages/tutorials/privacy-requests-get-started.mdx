@@ -1,50 +1,24 @@
 import { Callout } from 'nextra-theme-docs'
-import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+import KeyTutorialWrap, { TutorialFeat } from 'components/tutorialfeat'
+import TutorialKey from 'components/tutorialkey'
 
-# Command: init
+# Getting Started with Privacy Requests
 
-> **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```init``` command, check out the [Initialize Fides Configuration tutorial](#LINK).
+<TutorialKey duration="40" product="Fides" topic="Privacy Requests" interactive="true"/>
+
+In this series of tutorials, you'll configure integrations for processing privacy requests for your systems and walk through the steps to test a privacy request and check for issues that may occur in request process.
+
+By the end of this series, you'll be able to add privacy request integrations to your systems, review and process privacy requests and investigate issues if they occur.
+
+<KeyTutorialWrap>
+  <TutorialFeat title="01 | Privacy Request Fundamentals" link="./privacy-requests-fundamentals"   description="Get an overview of the fundamental terms, requirements and concepts of Privacy Requests." duration="5" />
+  <TutorialFeat title="02 | Configuring Integrations" link="./privacy-requests-configure-integrations"  description="Learn how to configure a system integration for privacy request processing." duration="10" interactive="true" />
+  <TutorialFeat title="03 | Configuring Databases" link="./privacy-requests-configure-databases"  description="Learn how to configure a database integration for privacy request processing." duration="10" interactive="true" />
+  <TutorialFeat title="04 | Annotating Datasets" link="./privacy-requests-dataset-annotation"  description="Learn how to create and label a dataset of your database for privacy request processing." duration="4" interactive="true" />
+  <TutorialFeat title="05 | Privacy Request Workflows" link="./privacy-requests-workflow"  description="Learn how to review, approve and process privacy requests automatically in Fides Control." duration="20" video="true" interactive="true" />
+  <TutorialFeat title="06 | Debugging Request Errors" link="./privacy-requests-debugging"  description="Learn how to review and debug issues with privacy request processing in Fides." duration="2" video="true" interactive="true" />
+  <TutorialFeat title="07 | Privacy Request Glossary" link="./privacy-requests-glossary"  description="A complete glossary of Privacy Request and Fides specific terms."  />
+</KeyTutorialWrap>
 
 
-The ```fides init``` command initializes a working directory called ***.fides*** and automatically creates a default configuration file called ```fides.toml```  using default values.
-This is the first command that should run if you intend to configure Fides via a toml file rather than via environment variables.
 
-Both methods can be used simultaneously, but note that environment variables take precedence over the ```toml``` file values. You can read more about [How to configure Fides](#LINK) here.
-
-## Usage
-Usage: ```fides init```
-
-This command creates the default ```.fides``` directory and ```fides.toml``` config file using default configuration values.
-
-Running this command should result in output that resembles the following:
-
-```console
-$ fides init
-
-No config file found
-Using default configuration values.
-Loading config from: .fides/fides.toml
-No config file found
-Using default configuration values.
-----------
-Created a './.fides' directory.
-Created a fides config file: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-
-███████╗██╗██████╗ ███████╗███████╗
-██╔════╝██║██╔══██╗██╔════╝██╔════╝
-█████╗  ██║██║  ██║█████╗  ███████╗
-██╔══╝  ██║██║  ██║██╔══╝  ╚════██║
-██║     ██║██████╔╝███████╗███████║
-╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝
-
-Initializing fides...
-----------
-----------
-Directory './.fides' already exists.
-Configuration file already exists: ./.fides/fides.toml
-To learn more about configuring fides, see:
-	https://docs.ethyca.com/fides/tutorials#getting-started
-----------
-```
