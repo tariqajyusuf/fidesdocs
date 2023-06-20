@@ -19,108 +19,17 @@ For your organization to correctly comply with data privacy regulations you must
 2. Where necessary, based on location ensure that you **collect a record of consent**,
 3. **Enforce consent** on all internal systems, business process and third party vendors
 
+The full definition of consent under the GDPR is complex to understand but might be more simply stated as:
+
+<Callout type="info" emoji="">
+**Consent** is any freely given, specific and informed indication that a Data Subject agrees to the processing of their personal data for that given purpose.
+</Callout>
+
 ## Components of Consent in Fides
 To simplify and further automate consent, Fides breaks configuration into three components:
 
-1. **[Privacy Notices](#privacy-notices)**: the text notification presented to your visitors about your data processing activities.
-2. **[Method of Consent](#method-of-consent)**: the type of consent you must collet, depending on the visitors location.
-3. **[Privacy Experiences](#privacy-experiences)**: the way the privacy notice and consent are displayed to the visitor on your website.
+1. **[Privacy Notices](consent-management-fundamentals/consent-management-privacy-notices)**: the text notification presented to your visitors about your data processing activities.
+2. **[Methods of Consent](consent-management-fundamentals/consent-management-consent-methods)**: the type of consent you must collect, depending on the visitors location.
+3. **[Privacy Experiences](consent-management-fundamentals/consent-management-privacy-experiences)**: the way the privacy notice and consent are displayed to the visitor on your website.
 
-Let's briefly look at privacy notices, methods of consent and privacy experiences.
-
-## Privacy Notices
-A privacy notice typically describes an organization's data processing practices and what website visitors can expect. 
-
-Often this is the privacy policy of a website, however where you serve a visitor information about your data processing activities as part of gathering consent, this is also a notice of your privacy practises. 
-
-<Callout type="white" emoji="">
-##### Example of Privacy Notice
-_"This website uses marketing cookies and services to deliver personalized advertisements, promotions, and offers that are relevant to you. They help optimize ad delivery, measure campaign effectiveness, and enable advertisers to reach specific target audiences."_
-</Callout>
-
-**Note**: another option which must be supported is _"notice only"_. In this configuration a visitor is presented with a privacy notice but not required to give explicit consent, only to be presented with your data processing activities. 
-
-<Callout type="info" emoji="">
-**Privacy Notices** are text based messages that explain your data processing activities and practices.
-</Callout>
-
-## Method of Consent
-
-There are several methods for gathering consent based on the location of the visitor and the applied regulations. Below are the most common:
-
-* **Explicit, informed consent** is when a user is properly informed about the use of their data in order to give consent.
-	* **Opt-In**: the user must opt-in the processing of data _before_ any of their data can be processed.
-	* **Opt-Out**: the user may opt-out at any time in the future at which point data process must stop.
-
-<Screenshot img="/assets/img/tutorials/consent-management-optin-optout.gif" description="Consent Management - Opt-in vs. Opt-out" mw="400" />
-
-As shown above, opt-in consent requires the user to explicitly opt-in, while opt-out consent allows the user to opt-out at any time.
-
-<Callout type="info" emoji="">
-**Methods of Consent** are the method used to collect consent, such as _implicit_, _explicit opt-in_ or _opt-out_ consent.
-</Callout>
-
-
-
-### Opt-In Consent
-Opt-In consent is more common in Europe (EEA) and is sometimes known as _"cookie consent"_ or a _"cookie banner"_, however this can be misleading as it implies the requirement is to manage cookies or that it rquires a banner. 
-
-<Screenshot img="/assets/img/tutorials/consent-management-newsletter-optin.gif" description="Consent Management - Opt-in Example" mw="350" />
-
-The goal is to ensure personal data is only proessed for the express uses that are agreed by the visitor and is not about cookies, or about banners! Examples of opt-in consent include:
-* **E-mail marketing**: opting in to receive a newsletter or other marketing materials.
-* **Health care**: opting in to processing of personal medical data for healthcare purposes.
-
-### Opt-Out Consent
-Opt-Out consent is more common in the United States, particularly in response to new data privacy regulations such as CCPA and VCDPA. Read about [US Privacy Regulations](/regulations) here.
-
-<Screenshot img="/assets/img/tutorials/consent-management-datasharing-optout.gif" description="Consent Management - Opt-out Example" mw="350" />
-
-Opt-Out consent provides the visitor the ability to opt-out at any time, now or in the future of a data processing activity such as advertising if they no longer agree. Examples of opt-out consent include:
-* **Data Sales**: opting out of the processing of personal data for purposes that consistute a "sale" under the CCPA.
-* **Targeted Advertising**: opting out of processing of personal data for the purpose of targeted advertising.
-
-## Privacy Experiences
-If notices are the text that is displayed to the user about your organization's data processing activities and the method of consent is the type of consent collected, you can think of the privacy experience in Fides as the way the notice and consent are displayed to the visitor - _their experience_.
-
-<Callout type="info" emoji="">
-**Privacy Experiences** are the user experience for how a visitor is presented with a privacy notice and consent.
-</Callout>
-
-
-The most common privacy experiences are:
-* **Banner**: is more common in Europe (EEA) and is displayed to the user when they first visit the site, typically clicking on the banner allows a user to open a popup to personalize their consent setttings.
-* **Privacy Center**: is more common in the United States and is available as a link in in the footer of all pages of a website, allowing a visitor to quickly access and personalize their consent and privacy settings.
-
-### Banner Experience
-The banner experience is most common in Europe (EEA) as a result of the ePrivacy Directive and the GDPR, however it is also required for notice-only regulations in some other locations.
-
-A banner ensures that the visitor takes action before any data processing occurs on site and as such is seen as good practice for collected explicity, opt-in consent.
-
-<Screenshot img="/assets/img/tutorials/consent-management-banner.gif" description="Consent Management - Opt-in Banner" />
-
-An Opt-In consent banner features a text based noticed about your data processing activities, and three links that the visitor can use to interact:
-
-* **Opt-In**: The "Accept All" option is where the visitor can agree and consent to all of the data processing activities.
-* **Opt-Out**: The "Reject All"" option is where the visitor can object to all forms of data processing activities.
-* **Manage Preferences**: The "Manage Preferences" option allows a user to customize their consent preferences for each data processing activity.
-
-When a visitor clicks "Manage Preferences" a popup opens to display all privacy notices for your organization and a set of controls to allow the visitor to set their preferences, similar to the example below:
-
-<Screenshot img="/assets/img/tutorials/consent-management-popup.gif" description="Consent Management - Opt-in Popup" mw="420"/>
-
-### Privacy Center Experience
-The privacy center experience is more common in the United States as a result of the primarily opt-out nature of privacy regulations across US states.
-
-Typically, the privacy center is paired with a link available in the footer across all pages of the web site. The text of this link may vary by location, however common labels include **"Manage Privacy Preferences"** and **"Do Not Sell or Share my Personal Information"** as shown in the example below:
-
-<Screenshot img="/assets/img/tutorials/consent-management-dns-link.gif" description="Consent Management - Do Not Sell or Share My Personal Information" />
-
-Clicking on the link takes the visitor to the privacy center, typically on subdomain of your brand website, such as: `https://privacy.your-brand.com`.
-
-From here the visitor can view and update their privacy preferences:
-
-<Screenshot img="/assets/img/tutorials/consent-management-privacy-center.gif" description="Consent Management - Privacy Center" mw="550" />
-
-Now that we've covered the fundamentals of privacy notices, methods of consent and privacy experiences, let's go through step-by-step configuration for each of these.
-
+In the following pages we'll break Download privacy notices, methods of consent and privacy experiences.
