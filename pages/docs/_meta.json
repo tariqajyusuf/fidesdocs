@@ -1,17 +1,10 @@
 {
+  "get_started": "Get Started",
   "cli": "Fides CLI",
-  "control": "Fides Control",
-  "privacy-center": "Fides Privacy Center",
-  "data-mapping": "Data Mapping",
   "privacy-requests": "Privacy Requests",
   "connectors": "Connectors",
   "databases": "Databases",
   "policies": "Policies",
   "configuration": "Fides Configuration",
-
-  "--1": {
-    "title": "Privacy Requests",
-    "type": "separator"
-  },
   "glossary": "Glossary"
 }
