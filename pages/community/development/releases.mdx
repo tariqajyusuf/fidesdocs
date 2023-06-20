@@ -188,7 +188,7 @@ Next, run the following checks via the test environment:
 
 #### API
 
-* [ ] Verify that the generated API docs are correct @ <http://localhost:8080/docs>
+* [ ] Verify that the generated API docs are correct @ ```http://localhost:8080/docs```
 
 #### CLI
 
@@ -232,10 +232,10 @@ When publishing the release, be sure to include the following sections in the re
 
 ### Post-Release Steps
 
-* [ ] Verify the ethyca-fides release is published to PyPi: <https://pypi.org/project/ethyca-fides/#history>
-* [ ] Verify the fides release is published to DockerHub: <https://hub.docker.com/r/ethyca/fides>
-* [ ] Verify the fides-privacy-center release is published to DockerHub: <https://hub.docker.com/r/ethyca/fides-privacy-center>
-* [ ] Verify the fides-sample-app release is published to DockerHub: <https://hub.docker.com/r/ethyca/fides-sample-app>
+* [ ] Verify the ethyca-fides release is [published to PyPi](https://pypi.org/project/ethyca-fides/#history)
+* [ ] Verify the fides release is [published to DockerHub](https://hub.docker.com/r/ethyca/fides)
+* [ ] Verify the fides-privacy-center release is [published to DockerHub](https://hub.docker.com/r/ethyca/fides-privacy-center)
+* [ ] Verify the fides-sample-app release is [published to DockerHub](https://hub.docker.com/r/ethyca/fides-sample-app)
 * [ ] Smoke test the PyPi & DockerHub releases:
     * [ ] Create a fresh venv with `python3 -m venv 2_12_0_venv`
     * [ ] Activate the venv `source 2_12_0_venv/bin/activate`
