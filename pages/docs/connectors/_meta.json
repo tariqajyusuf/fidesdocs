@@ -1,8 +1,5 @@
 {
-  "overview": "Overview",
-  "connector-configuration": "Connector Configuration",
-  "connector-configuration": "Connector Configuration",
-  "saas-connectors": "Third-Party Connectors",
+  "saas-connectors": "Third-Party Connections",
   "saas-config": "SaaS Configuration Reference",
   "saas-oauth2": "OAuth2 Configuration",
   "saas-pagination": "Pagination",
