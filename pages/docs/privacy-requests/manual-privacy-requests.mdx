@@ -1,27 +1,27 @@
-# Manual Webhooks
+# Manual Privacy Requests
 
-Manual webhooks are a simple way for data to be manually uploaded for an access request. Erasure requests are not supported at this time.
+Manual privacy requests are a simple way for data to be manually uploaded for an access request. Erasure requests are not supported at this time.
 They differ from the more complex [manual connections](./datasets#configure-a-manual-dataset) that integrate directly with the graph.
-Manual webhooks gather data *outside* of the graph as a first step, and are more similar to [policy_webhooks](policy_webhooks).
+Manual privacy requests gather data *outside* of the graph as a first step, and are similar to [privacy request webhooks](../privacy-requests/privacy-request-webhooks).
 
 
-If you have manual webhooks defined, privacy request execution will exit early and remain in a state of `requires_input`.
-Once data has been manually uploaded for all the manual webhooks, then the privacy request can be resumed. Data uploaded
-for manual webhooks is passed on directly to the data subject alongside the data package. It is
+If you have manual privacy requests defined, privacy request execution will exit early and remain in a state of `requires_input`.
+Once data has been manually uploaded for all the manual privacy requests, then the privacy request can be resumed. Data uploaded
+for manual privacy requests is passed on directly to the data subject alongside the data package. It is
 not filtered on data category.  Any manual data uploaded is passed on as-is.
 
 
 
 ## Configuration
 
-### Create a connection config of type `manual_webhook`
+### Create a connection config of type `manual_request`
 
 
 ```json filename="POST /api/v1/connection"
 [
-    {"name": "Manual Webhook ConnectionConfig",
-    "key": "manual_webhook_key",
-    "connection_type": "manual_webhook",
+    {"name": "Manual privacy request ConnectionConfig",
+    "key": "manual_request_key",
+    "connection_type": "manual_request",
     "access": "read"
     }
 ]
@@ -30,17 +30,17 @@ not filtered on data category.  Any manual data uploaded is passed on as-is.
 | Field | Description |
 |----|----|
 | `key` | *Optional.* A unique key used to manage your connection config. This is auto-generated from `name` if left blank. Accepted values are alphanumeric, `_`, and `.`. |
-| `name` | A unique user-friendly name for your connection config. This key will also be used to identity the manual webhook|
-| `connection_type` | Should be `manual_webhook` for the resource described here. |
+| `name` | A unique user-friendly name for your connection config. This key will also be used to identity the manual request|
+| `connection_type` | Should be `manual_request` for the resource described here. |
 | `access` | One of `read` or `write` |
 
 
-### Define the fields expected for your `manual_webhook`
+### Define the fields expected for your `manual_request`
 
 Submit a list of fields that will need to be manually uploaded.
 
 
-```json filename="PATCH /api/v1/connection/{{manual_webhook_key}}/access_manual_webhook"
+```json filename="PATCH /api/v1/connection/{{manual_request_key}}/access_manual_request"
 {
     "fields": [
         {"pii_field": "First Name", "dsr_package_label": "first_name"},
@@ -56,16 +56,16 @@ Submit a list of fields that will need to be manually uploaded.
 | `fields` | *Required.* A list of field mappings with `pii_field` and `dsr_package_label` keys. The `pii_field` is the label Fides will display when it solicits manual input, and the `dsr_package_label` is the identifier Fides will use when it uploads the data to the data subject.  If no `dsr_package_label` is supplied, it will be created from the `pii_field`.
 
 
-### Upload manual webhook data for a given privacy request
+### Upload manual request data for a given privacy request
 
-Privacy request execution will exit early with a status of `requires_input` if we're missing data for `manual_webhooks`.
-A request will need to be made for each manual_webhook to upload the requested data before request execution can proceed.
+Privacy request execution will exit early with a status of `requires_input` if we're missing data for `manual_requests`.
+A request will need to be made for each manual_request to upload the requested data before request execution can proceed.
 
-Note that the fields here are dynamic and should match the fields specified on the manual webhook. All fields are optional.
+Note that the fields here are dynamic and should match the fields specified on the manual request. All fields are optional.
 If no data exists, an empty dictionary should be uploaded. Fidesops treats this upload as confirmation that the
 system was searched for data related to the data subject.
 
-```json filename="PATCH /privacy-request/{{privacy_request_id}}/access_manual_webhook/{{manual_webhook_key}}"
+```json filename="PATCH /privacy-request/{{privacy_request_id}}/access_manual_request/{{manual_request_key}}"
 {
     "first_name": "Jane",
     "last_name": "Customer"
@@ -82,7 +82,7 @@ Once a PrivacyRequest with `requires_input` has had all of its manual data uploa
 #### Example Upload
 
 In this example, we visited one postgres collection automatically and retrieved Jane's `name`, `email`, and `id`.
-Her `first_name` and `last_name` were manually uploaded as part of the `manual_webhook_key` Manual Webhook
+Her `first_name` and `last_name` were manually uploaded as part of the `manual_request_key` Manual privacy request
 and directly included here.
 
 ```json
@@ -95,7 +95,7 @@ and directly included here.
       "id": 1
     }
   ],
-  "manual_webhook_key": [
+  "manual_request_key": [
     {
       "first_name": "Jane",
       "last_name": "Customer"

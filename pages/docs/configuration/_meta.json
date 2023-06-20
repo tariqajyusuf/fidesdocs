@@ -1,11 +1,8 @@
 {
     "oauth": "Authenticating with OAuth",
     "messaging": "Messaging & Notifications",
-    "storage": "Configure DSR Storage",
-    "policy-webhooks": "Policy Webhooks",
-    "privacy-requests": "Privacy Requests",
-    "query-execution": "Query Execution",
+    "storage-destinations": "Storage Destinations",
     "reporting": "Reporting",
-    "request-execution": "Request Execution",
-    "storage-destinations": "Storage Destinations"
+    "deployment": "Deploying Fides to Production",
+    "security-practices": "Security Best Practices"
 }
