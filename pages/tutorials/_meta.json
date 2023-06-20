@@ -29,8 +29,6 @@
   "consent-management-get-started":"Getting Started",
   "consent-management-fundamentals": "Consent Management Fundamentals",
   "consent-management-configuration": "Configuring Consent",
-  "consent-management-user-experience": "Consent User Experience",
-  "consent-management-glossary": "Consent Management Glossary",
 
   "separator-deployment": {
     "title": "Deploying Fides",

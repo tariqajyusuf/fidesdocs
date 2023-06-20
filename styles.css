@@ -324,6 +324,7 @@ thead tr, thead tr td{
 
 .nextra-callout h5 {
 	margin: 0 0;
+	color: rgba(30,58,138);
 }
 .nextra-callout p{
 	margin: 0 0;
@@ -660,7 +661,7 @@ footer > div.py-12 > div{
 	}
 }
 /* title for code blocks */
-.nextra-code-block [data-language="console"], .nextra-code-block [data-language="json"], .nextra-code-block [data-language="toml"], .nextra-code-block [data-language="curl"] {
+.nextra-code-block [data-language="console"], .nextra-code-block [data-language="javascript"], .nextra-code-block [data-language="json"], .nextra-code-block [data-language="toml"], .nextra-code-block [data-language="curl"] {
 	background-color: #252937;
 	--shiki-color-text: #efeff0;
 }
