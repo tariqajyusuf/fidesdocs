@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function CtaTileWrap({ children }) {
   return (
@@ -11,6 +12,8 @@ export default function CtaTileWrap({ children }) {
 
 export function CtaTile({ title, link }) {
   return (
+
+    <Link legacyBehavior href={link}>
     <a
     key={title}
     href={link}
@@ -26,5 +29,6 @@ export function CtaTile({ title, link }) {
           
     </div>
     </a>
+    </Link>
   );
 }

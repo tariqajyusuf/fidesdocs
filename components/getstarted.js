@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function GetStartedWrap({ children }) {
   return (
@@ -14,6 +15,8 @@ export default function GetStartedWrap({ children }) {
 export function GetStarted({ title, link, description }) {
   return (
     <div className="overviewBlockWrap">
+
+    <Link legacyBehavior href={link}>
       <a
         key={title}
         href={link}
@@ -27,6 +30,7 @@ export function GetStarted({ title, link, description }) {
       
     </span>
     </a>
+    </Link>
     </div>
   );
 }
