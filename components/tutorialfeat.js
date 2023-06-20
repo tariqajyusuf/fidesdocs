@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function KeyTutorialWrap({ children }) {
   return (
@@ -24,6 +25,8 @@ export function TutorialFeat({ title, link, description, duration, video, intera
     }
 
   return (
+
+    <Link legacyBehavior href={link}>
     <a
         key={title}
         href={link}
@@ -43,5 +46,6 @@ export function TutorialFeat({ title, link, description, duration, video, intera
     </div>
     </div>
     </a>
+    </Link>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function KeyFeatWrap({ children }) {
   return (
@@ -11,9 +12,11 @@ export default function KeyFeatWrap({ children }) {
 
 export function KeyFeat({ title, link, description }) {
   return (
+
+    <Link legacyBehavior href={link}>
     <a
         key={title}
-        href={link}
+        href=""
         className="featBlockWrap"
       >
     <div className="">
@@ -29,5 +32,6 @@ export function KeyFeat({ title, link, description }) {
     
     </div>
     </a>
+    </Link>
   );
 }
