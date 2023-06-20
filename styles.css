@@ -389,6 +389,7 @@ table tr td,table tr th {
 
 .nextra-callout h5 {
 	margin: 0 0;
+	color: rgba(30,58,138);
 }
 .nextra-callout p{
 	margin: 0 0;
@@ -732,6 +733,7 @@ footer > div.py-12 > div, footer .nx-mx-auto.nx-py-12{
 }
 /* title for code blocks */
 .nextra-code-block [data-language="console"], .nextra-code-block [data-language="json"], .nextra-code-block [data-language="toml"], .nextra-code-block [data-language="python"], .nextra-code-block{
+
 	background-color: #252937;
 	--shiki-color-text: #efeff0;
 	border-radius: 7px;

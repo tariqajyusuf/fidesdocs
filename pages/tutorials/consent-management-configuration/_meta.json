@@ -1,6 +1,8 @@
 {
-  "consent-management-configuring-data-use-for-consent": "Configuring Data Uses for Consent",
-  "consent-management-configuring-privacy-notices": "Configuring Privacy Notices",
-  "consent-management-configuring-privacy-experiences": "Configuring Privacy Experiences",
-  "consent-management-configuring-global-privacy-control": "Configuring Global Privacy Control (GPC)"
+  "data-use-for-consent": "Configuring Data Uses for Consent",
+  "privacy-notices": "Configuring Privacy Notices",
+  "privacy-experiences": "Configuring Privacy Experiences",
+  "install-fides": "Install Fides on your Website",
+  "google-tag-manager": "Configuring Google Tag Manager",
+  "global-privacy-control": "Configuring Global Privacy Control (GPC)"
 }

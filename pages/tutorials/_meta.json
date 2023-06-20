@@ -28,20 +28,5 @@
   },
   "consent-management-get-started":"Getting Started",
   "consent-management-fundamentals": "Consent Management Fundamentals",
-  "consent-management-configuration": "Configuring Consent",
-  "consent-management-user-experience": "Consent User Experience",
-  "consent-management-glossary": "Consent Management Glossary",
-
-  "separator-deployment": {
-    "title": "Deploying Fides",
-    "type": "separator"
-  },
-  "deployment-prerequisites": "Prerequisites",
-  "deployment-get-started": "Getting Started",
-  "deployment-quickstart": "Quick Start",
-  "deployment-advanced": "Advanced Deployment",
-  "deployment-configuration": "Deployment Configurations",
-  "deployment-configuring-privacy-center": "Privacy Center Configuration",
-  "deployment-security-practices": "Security Best Practices",
-  "deployment-sample-project": "Fides Sample Project"
+  "consent-management-configuration": "Configuring Consent"
 }
