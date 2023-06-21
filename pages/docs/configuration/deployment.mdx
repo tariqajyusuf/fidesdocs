@@ -63,7 +63,7 @@ Follow the documentation for the option of your choice to configure a production
 Once your database is up and running, create a **unique user** and **database** for Fides to use, and assign your Fides user a secure password.  
 
 ### Update your Fides configuration
-Use your database information to set the following values in your Fides [configuration](./get_started/configuration). The options for the `[postgres]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
+Use your database information to set the following values in your Fides [configuration](../configuration). The options for the `[postgres]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
 
 | Name | Default | Description |
 | :---- | :------- | :----------- |
@@ -85,7 +85,7 @@ Follow the documentation for the option of your choice to configure a production
 Once your cache is available, ensure you enable a password (via Redis [`AUTH`](https://redis.io/commands/auth)) to provide additional security, and keep track of your connection credentials.
 
 ### Update your Fides configuration
-Use your database information to set the following values in your Fides [configuration](./get_started/configuration). The options for the `[redis]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
+Use your database information to set the following values in your Fides [configuration](../configuration). The options for the `[redis]` section of the `fides.toml` file are outlined below, but may be substituted with environment variables.
 
 | Config Variable | Example | Description |
 | :--- | :--- | :--- | 
@@ -116,7 +116,7 @@ docker pull ethyca/fides
 ``` 
 
 #### Configure Fides
-A number of environment variables are required for a minimum working [configuration](./get_started/configuration). You can provide a configuration by creating an `.env` file and passing it in via the [`--env-file {file}` option](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file), by providing individual variables with the `--env {VAR}` option, or directly to your docker host.
+A number of environment variables are required for a minimum working [configuration](../configuration). You can provide a configuration by creating an `.env` file and passing it in via the [`--env-file {file}` option](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file), by providing individual variables with the `--env {VAR}` option, or directly to your docker host.
 
 At a minimum, you'll need to configure the following:
 
