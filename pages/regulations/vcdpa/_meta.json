@@ -1,0 +1,13 @@
+{
+  "overview": "Introduction",
+  "what_is_vcdpa": "What is the VCDPA?",
+  "what_reqs_vcdpa": "What are requirements of the VCDPA?",
+  "addtl_reqs_vcdpa": "Additional Business Obligations of VCDPA",
+  "data_map_vcdpa": "01: Data Mapping",
+  "access_requests_vcdpa": "02: Access Requests for VCDPA",
+  "correction_requests_vcdpa": "03: Correction Requests for VCDPA",
+  "erasure_vcdpa": "04: Erasure Requests for VCDPA",
+  "portability_vcdpa": "05: Portability Requests",
+  "dpa_vcdpa": "06: Data Protection Assessments",
+  "conclusion_vcdpa": "Summary"
+}
