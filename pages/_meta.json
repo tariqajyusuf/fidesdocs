@@ -35,6 +35,10 @@
   "href": "https://ethyca.com",
   "newWindow": true
 },
+"releases": {
+  "title": "Releases",
+  "href": "/releases/overview"
+},
 "ethyca": {
   "title": "About Ethyca",
   "href": "/ethyca"
