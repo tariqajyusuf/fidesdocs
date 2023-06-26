@@ -2,7 +2,7 @@ import { Callout } from 'nextra-theme-docs'
 
 # Advanced Installation Options
 
-<Callout emoji="ⓘ">Want to quickly experiment with Fides? Clone the [source repository](https://github.com/ethyca/fides) to utilize the built-in Docker Compose file, check out the lightweight [start-up guide](./quickstart), or use the [demo application](./sample_project) to go from "Zero to DSR Automation" in minutes!</Callout>
+<Callout emoji="ⓘ">Want to quickly experiment with Fides? Clone the [source repository](https://github.com/ethyca/fides) to utilize the built-in Docker Compose file, check out the lightweight [start-up guide](./quickstart), or use the [demo application](./sample-project) to go from "Zero to DSR Automation" in minutes!</Callout>
 
 ## Minimum requirements
 See the the [project requirements](requirements) page to get started.
@@ -50,7 +50,7 @@ pip install ethyca-fides
 ```
 
 ## Set up your database
-Fides uses an application database for persistent storage. Configure your own Postgres database according to the configuration of your choice, ensuring it satisfies the [minimum requirements](./requirements).
+Fides uses an application database for persistent storage. Configure your own Postgres database according to the configuration of your choice, ensuring it satisfies the [minimum requirements](/docs/get-started/requirements).
 
 Options include:
 * Managed PostgreSQL database services (e.g. AWS RDS, GCP Cloud SQL, Azure Database)
@@ -69,7 +69,7 @@ Ensure you make note of your connection credentials, as those values will be use
 ## Set up your cache
 To ensure personal data is never retained erroneously, Fides collects privacy request result data in a temporary Redis cache that automatically expires.
 
-Any hosted Redis database that meets the [project requirements](./requirements) work for this purpose. Follow the deployment documentation of your choice to get set up your Redis cache.
+Any hosted Redis database that meets the [project requirements](/docs/get-started/requirements) work for this purpose. Follow the deployment documentation of your choice to get set up your Redis cache.
 
 Options include: 
 * A simple Docker redis container (https://hub.docker.com/_/redis)
@@ -83,7 +83,7 @@ Ensure you make note of your connection credentials, as those values will be use
 
 
 ## Configure Fides
-Fides [configuration variables](./configuration) are maintained in either a `fides.toml` file, or environment variables. These should be replaced with the connection credentials for your Postgres and Redis instances, as well as any other information unique to your deployment. 
+Fides [configuration variables](/docs/configuration/configuration) are maintained in either a `fides.toml` file, or environment variables. These should be replaced with the connection credentials for your Postgres and Redis instances, as well as any other information unique to your deployment. 
 
 The minimum configuration variables are as follows: 
 
@@ -143,4 +143,4 @@ fides webserver
 With the Fides webserver running, the hosted UI is available at `http://{server_url}/` (e.g. `http://localhost:8080/`). 
 
 ## Next steps
-Now that Fides is up and running, you're ready to get started with [DSR automation](../dsr_quickstart/overview) and [data mapping](../data_mapping/overview)!
+Now that Fides is up and running, you're ready to get started with [privacy request automation](/tutorials/privacy-requests-get-started) and [data mapping](/tutorials/data-mapping-get-started)!

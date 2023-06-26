@@ -3,9 +3,9 @@ import { Callout } from 'nextra-theme-docs'
 # Overview
 ## What is a Privacy Request?
 
-A privacy request represents an ask from a user to perform an action on their identity data. The request itself identifies the user by email address, phone number, social security number, or other identifiable information. The data that will be affected, and how it's affected, is described in an execution policy associated with the request.
+A privacy request represents an ask from a user to perform an action on their identity data. The request itself identifies the user by email address, phone number, social security number, or other identifiable information. The data that will be affected, and how it's affected, is described in a privacy request policy associated with the request.
 
-For more information on policies, see the [execution policies](./execution_policies#rule-attributes) guide.
+For more information on policies, see the [privacy request policies](/docs/privacy-requests/privacy-request-graphs) guide.
 
 ## Submit a privacy request
 
@@ -31,9 +31,9 @@ The above request will apply the `a-demo-policy` execution policy to all target 
 
 | Attribute | Description |
 |---|---|
-| `external_id` | *Optional.* An identifier that lets you track the privacy request. See [Report on Privacy Requests](./reporting) for more information. |
+| `external_id` | *Optional.* An identifier that lets you track the privacy request. |
 | `requested_at` | *Optional.* An ISO8601 timestamp that specifies the moment that the request was submitted. Defaults to the `created_at` time if not specified. |
-| `policy_key` | Identifies the [execution policy](./execution_policies) applied to this request. |
+| `policy_key` | Identifies the [privacy request policy](/docs/privacy-requests/privacy-request-graphs) applied to this request. |
 | `identities` | An array of objects. These objects identify any users whose data will be affected by the execution policy. Each object identifies a single user.  |
 
 
@@ -41,7 +41,7 @@ The above request will apply the `a-demo-policy` execution policy to all target 
 Verifying user identity prior to processing their privacy request requires the following:
 
 1. Set the `subject_identity_verification_required` variable in your `fides.toml` to `TRUE`. 
-2. [Configure Emails](./messaging) that lets Fides send automated emails to your users.
+2. [Configure Emails](/docs/privacy-requests/privacy-request-execution#send-email-notifications) that lets Fides send automated emails to your users.
 
 With identify verification enabled, a user will be emailed a six-digit code when they submit a privacy request. They must supply that verification code to Fides to continue privacy request execution.  
 
@@ -158,4 +158,4 @@ a similar process for each CSV file.
 
 ## Privacy request integrations
 
-* **Generic API interoperability**: Third party services can be authorized by creating additional OAuth clients. Tokens obtained from OAuth clients can be managed and revoked at any time. See [authenticating with OAuth](./oauth) for more information.
+* **Generic API interoperability**: Third party services can be authorized by creating additional OAuth clients. Tokens obtained from OAuth clients can be managed and revoked at any time. See [authenticating with OAuth](/docs/configuration/oauth/overview) for more information.

@@ -7,7 +7,7 @@ import Screenshot from 'components/screenshot'
 <TutorialKey duration="10" product="Fides" topic="Privacy Requests" interactive="true"/>
 
 ## Introduction
-In this tutorial, you'll cofigure a privacy request integration for a database. By the end of this tutorial, you'll understand the relationship between systems, integrations, datasets and databases as well as how to connect, configure and test an integration.
+In this tutorial, you'll configure a privacy request integration for a database. By the end of this tutorial, you'll understand the relationship between systems, integrations, datasets, and databases as well as how to connect, configure and test an integration.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ For this tutorial you will need:
 
 * A Fides Cloud or Fides Enterprise account
 * The role of `Owner` or `Contributor` for your Fides organization.
-* At least one system on your Data Map. Read how to [add systems to the Data Map](../data-mapping-adding-systems-manually) now.
+* At least one system on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
 * Connection information and credentials for the database you intend to integrate for privacy requests.
 
 
@@ -23,7 +23,7 @@ For this tutorial you will need:
 ## Integrating Privacy Requests to Databases
 In order to securely connect to a database and process privacy requests, Fides requires credentials to the database and a schema labeled with the personal information in the system. 
 
-In Fides a database schema is referred to as a dataset. Read about [creating and maintaining datasets in Fides](#LINK) here.
+In Fides, a database schema is referred to as a dataset. Read about [creating and maintaining datasets in Fides](#LINK) here.
 
 ## Configuring a Database Integration
 
@@ -47,7 +47,7 @@ From the System Information tab, navigate to the Integrations tab as shown below
 <Screenshot img="/assets/img/tutorials/privacy-requests-view-integrations.gif" description="View integrations" />
 
 ### Select the Integration to Configure
-On the System Integrations tab select the **Connection Type** dropdown and search for the integration you would like to add for the selected system. 
+On the System Integrations tab select the **Connection Type** dropdown and search for the integration you'd like to add for the selected system. 
 
 <Screenshot img="/assets/img/tutorials/privacy-requests-select-database.gif" description="Select the integration for your database" />
 
@@ -55,9 +55,9 @@ On the System Integrations tab select the **Connection Type** dropdown and searc
 
 Every database integration requires the following fields to be configured:
 
-* <span class="nx-absolute -nx-mt-20" id="integration-name"></span>[Integration Name](#integration-name) - The name of the database integration being configured.
-* <span class="nx-absolute -nx-mt-20" id="integration-description"></span>[Integration Description](#integration-description) - A description of the database integration being configured.
-* <span class="nx-absolute -nx-mt-20" id="connection-identifier"></span>[Connection Identifier](#connection-identifier) - A unique key to identify the database integration within Fides.
+* <span class="nx-absolute -nx-mt-20" id="integration-name"></span>**Integration Name** - The name of the database integration being configured.
+* <span class="nx-absolute -nx-mt-20" id="integration-description"></span>**Integration Description** - A description of the database integration being configured.
+* <span class="nx-absolute -nx-mt-20" id="connection-identifier"></span>**Connection Identifier**- A unique key to identify the database integration within Fides.
 
 <Screenshot img="/assets/img/tutorials/privacy-requests-database-default-fields.gif" description="Complete the default fields for the database integration" />
 
@@ -75,11 +75,11 @@ Select the dataset for the database being configured from the available list of 
 
 <Screenshot img="/assets/img/tutorials/privacy-requests-select-dataset.gif" description="Select the dataset associated with the database"  mw="450" />
 
-When you have provided all database connection information including a dataset, **Save** your integration settings.
+When you've provided all database connection information, including a dataset, **Save** your integration settings.
 
 ### Test the Integration
 
-Once your integration credentials are saved you can verify the credentials are working by clicking **Test connection**.
-If the integration is working correctly you will be presented with a `Test suceeded` message.
+Once your integration credentials are saved, you can verify the credentials are working by clicking **Test connection**.
+If the integration is working correctly, you will be presented with a `Test succeeded` message.
 
-This example used the PostgreSQL integration, for a complete list of integrations and instructions on generating connection and credential information, visit the [integration registry](#LINK).
+This example used the PostgreSQL integration, for a complete list of integrations and instructions, visit the [integration registry](#LINK).

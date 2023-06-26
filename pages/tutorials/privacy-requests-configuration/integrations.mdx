@@ -7,7 +7,7 @@ import Screenshot from 'components/screenshot'
 <TutorialKey duration="10" product="Fides" topic="Privacy Requests" interactive="true"/>
 
 ## Introduction
-In this tutorial, you'll add and configure a privacy request integration for a system on the Data Map. By the end of this tutorial, you'll understand the relationship between systems and integrations as well as how to connect, configure and test an integration.
+In this tutorial, you'll add and configure a privacy request integration for a system on the [Data Map.](/tutorials/data-mapping-get-started) By the end of this tutorial, you'll understand the relationship between systems and integrations as well as how to connect, configure, and test an integration.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ For this tutorial you will need:
 
 * A Fides Cloud or Fides Enterprise account
 * The role of `Owner` or `Contributor` for your Fides organization.
-* At least one system on your Data Map. Read how to [add systems to the Data Map](../data-mapping-adding-systems-manually) now.
+* At least one system on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
 * Credentials for the system you intend to integrate for privacy requests.
 
 
@@ -24,13 +24,13 @@ For this tutorial you will need:
 
 Integrations are used to securely connect to systems and process privacy requests. 
 
-Typically these are API integrations to allow you to simplify and automate each request. For systems that do not have APIs and only accept privacy requests by email, Fides has an integration to automate email notifications to the vendor. Read about [automated email notifcations](#LINK) here.
+Typically, these are API integrations to allow you to simplify and automate each request. For systems that do not have APIs and only accept privacy requests by email, Fides has an integration to automate email notifications to the vendor. Read about [automated email notifications](#LINK) here.
 
 To start, navigate to **Data map** → **View systems** to view a list of your current systems. 
 
 ### Select a System to Edit
 
-From here you can search for the system you want to edit, or select directly from the list. 
+From here, you can search for the system you want to edit, or select directly from the list. 
 
 To edit click the Kebab `...` menu and select **Edit** as shown below:
 
@@ -52,25 +52,25 @@ On the System Integrations tab select the **Connection Type** dropdown and searc
 
 Every integration requires the following fields to be configured:
 
-* <span class="nx-absolute -nx-mt-20" id="integration-name"></span>[Integration Name](#integration-name) - The name of the integration being configured.
-* <span class="nx-absolute -nx-mt-20" id="integration-description"></span>[Integration Description](#integration-description) - A description of the integration being configured.
-* <span class="nx-absolute -nx-mt-20" id="connection-identifier"></span>[Connection Identifier](#connection-identifier) - A unique key to identify the integration within Fides.
+* <span class="nx-absolute -nx-mt-20" id="integration-name"></span>**Integration Name** - The name of the integration being configured.
+* <span class="nx-absolute -nx-mt-20" id="integration-description"></span>**Integration Description** - A description of the integration being configured.
+* <span class="nx-absolute -nx-mt-20" id="connection-identifier"></span>**Connection Identifier** - A unique key to identify the integration within Fides.
 
 <Screenshot img="/assets/img/tutorials/privacy-requests-default-fields.gif" description="Complete the default fields for the system integration" />
 
-In addition to these common fields, each integration will require credential information specific to that system's authentication requirements.
+In addition to these common fields, each integration requires credential information specific to that system's authentication requirements.
 
 The example below shows the different credentials required for Hubspot and Gorgias.
 
 <Screenshot img="/assets/img/tutorials/privacy-requests-credentials.gif" description="Provide credentials for the system integration"/>
 
-When you have provided the integration credentials, **Save** your integration settings.
+Upon providing the integration credentials, **Save** your integration settings.
 
 ### Test the Integration
 
-Once your integration credentials are saved you can verify the credentials are working by clicking **Test connection**.
-If the integration is working correctly you will be presented with a `Test suceeded` message like the one shown below:
+Once your integration credentials are saved, you can verify the credentials are working by clicking **Test connection**.
+If the integration is working correctly, you will be presented with a `Test succeeded` message like the one shown below:
 
 <Screenshot img="/assets/img/tutorials/privacy-requests-testing.gif" description="Provide credentials for the system integration"  mw="450" />
 
-This example used the Hubspot integration, for a complete list of integrations and instructions on generating credentials, visit the [integration registry](#LINK).
+This example used the Hubspot integration. For a complete list of integrations and instructions on generating credentials, visit the [integration registry](#LINK).
