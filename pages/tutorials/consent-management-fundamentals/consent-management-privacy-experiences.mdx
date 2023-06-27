@@ -6,7 +6,7 @@ import Screenshot from 'components/screenshot'
 
 <TutorialKey duration="5" product="Fides" topic="Consent Management"/>
 
-In this page we will outline what privacy experiences are and the various types of privacy experiences available in Fides.
+In this page, we'll outline what privacy experiences are and the various types of privacy experiences available in Fides.
 
 ## Privacy Experiences
 If notices are the text that is displayed to the user about your organization's data processing activities and the method of consent is the type of consent collected, you can think of the privacy experience in Fides as the way the notice and consent are displayed to the visitor - _their experience_.
@@ -16,39 +16,40 @@ If notices are the text that is displayed to the user about your organization's 
 </Callout>
 
 
-The most common privacy experiences are:
-* **Banner**: is more common in Europe (EEA) and is displayed to the user when they first visit the site, typically clicking on the banner allows a user to open a popup to personalize their consent setttings.
+Fides provides the following privacy experiences:
+* **Overlay**: is more common in Europe (EEA) and is displayed to the user when they first visit the site. Often, this a consent banner that appears at the bottom of the page. Typically, clicking on the overlay allows a user to open a popup to personalize their consent setttings.
 * **Privacy Center**: is more common in the United States and is available as a link in in the footer of all pages of a website, allowing a visitor to quickly access and personalize their consent and privacy settings.
 
-### Banner Experience
-The banner experience is most common in Europe (EEA) as a result of the ePrivacy Directive and the GDPR, however it is also required for notice-only regulations in some other locations.
+### Overlay Experience
+The overlay experience is most common in Europe (EEA) as a result of the ePrivacy Directive and the GDPR. However, it's also required for notice-only regulations in some other locations.
 
-A banner ensures that the visitor takes action before any data processing occurs on site and as such is seen as good practice for collected explicity, opt-in consent.
+An overlay ensures that the visitor takes action before any data processing occurs on site and as a result is seen as good practice for collecting explicity opt-in consent.
 
 <Screenshot img="/assets/img/tutorials/consent-management-banner.gif" description="Consent Management - Opt-in Banner" />
 
-An Opt-In consent banner features a text based noticed about your data processing activities, and three links that the visitor can use to interact:
+The Fides opt-in consent overlay features a text based notice about your data processing activities, and three links that the visitor can use to interact:
 
-* **Opt-In**: The "Accept All" option is where the visitor can agree and consent to all of the data processing activities.
-* **Opt-Out**: The "Reject All"" option is where the visitor can object to all forms of data processing activities.
-* **Manage Preferences**: The "Manage Preferences" option allows a user to customize their consent preferences for each data processing activity.
+* **Opt-In**: The "Accept All" option, where the visitor can agree and consent to all of the data processing activities.
+* **Opt-Out**: The "Reject All"" option, where the visitor can object to all forms of data processing activities.
+* **Manage Preferences**: The "Manage Preferences" option, where a user can customize their consent preferences for each data processing activity.
 
-When a visitor clicks "Manage Preferences" a popup opens to display all privacy notices for your organization and a set of controls to allow the visitor to set their preferences, similar to the example below:
+When a visitor clicks "Manage Preferences", a popup opens to display all privacy notices for your organization and a set of controls to allow the visitor to set their preferences. The example below demonstrates a possible popup:
 
 <Screenshot img="/assets/img/tutorials/consent-management-popup.gif" description="Consent Management - Opt-in Popup" mw="420"/>
 
 ### Privacy Center Experience
-The privacy center experience is more common in the United States as a result of the primarily opt-out nature of privacy regulations across US states.
 
-Typically, the privacy center is paired with a link available in the footer across all pages of the web site. The text of this link may vary by location, however common labels include **"Manage Privacy Preferences"** and **"Do Not Sell or Share my Personal Information"** as shown in the example below:
+The privacy center experience is more common in the US, as a result of most state privacy regulations being primarily opt-out in nature.
+
+Typically, the privacy center is paired with a link to it available in the footer across all pages of your brand website. The text of this link may vary by location. Common labels include **"Manage Privacy Preferences"** and **"Do Not Sell or Share my Personal Information"** as shown in the example below:
 
 <Screenshot img="/assets/img/tutorials/consent-management-dns-link.gif" description="Consent Management - Do Not Sell or Share My Personal Information" />
 
-Clicking on the link takes the visitor to the privacy center, typically on subdomain of your brand website, such as: `https://privacy.your-brand.com`.
+Clicking on the link takes the visitor to the privacy center, typically on a subdomain of your brand website, such as: `https://privacy.your-brand.com`.
 
-From here the visitor can view and update their privacy preferences:
+From here, the visitor can view and update their privacy preferences:
 
 <Screenshot img="/assets/img/tutorials/consent-management-privacy-center.gif" description="Consent Management - Privacy Center" mw="550" />
 
-Now that we've covered the fundamentals of privacy notices, methods of consent and privacy experiences, let's go through step-by-step configuration for each of these.
+Now that we've covered the fundamentals of privacy notices, methods of consent, and privacy experiences, let's go  step-by-step through the configuration for each of these.
 

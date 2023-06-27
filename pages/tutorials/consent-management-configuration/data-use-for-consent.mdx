@@ -6,36 +6,38 @@ import Screenshot from 'components/screenshot'
 
 <TutorialKey duration="5" product="Fides" topic="Consent Management"/>
 
-In this tutorial we will briefly walk through data uses, what they are, and how Fides uses them to automatically generate the right privacy notices based on a visitors location.
+In this tutorial, we'll briefly walk through data uses, what they are, and how Fides uses them to automatically generate the right privacy notices based on a visitors location.
 
-After reading this, you will be familiar with how systems on the data map and their data uses directly affect consent management.
+After reading this, you'll be familiar with how systems on the data map and their data uses directly affect consent management.
 
 ## Prerequisites
 
-For this tutorial you will need:
+For this tutorial you'll need:
 
 * A Fides Cloud or Fides Enterprise account
 * The role of `Owner` or `Contributor` for your Fides organization.
-* At least one system on your Data Map. Read how to [add systems to the Data Map](../data-mapping-adding-systems-manually) now.
+* At least one system on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
 
 
 
 ## What are Data Uses?
 
-Data uses are the purpose for which your organization uses data. For example, if you use customer's email address to send marketing information, the data use might be _"Email Marketing"_.
+Data uses are the purpose for which your organization uses data. For example, if you use a customer's email address to send marketing information, the data use might be _"Email Marketing."_
 
-Data uses, or _"purposes of processing"_ as they are referred to in the GDPR are typically use in data mapping activities to describe how an organization uses data. 
+Data uses, or _"purposes of processing"_ as they are referred to in the GDPR, are used in data mapping activities to describe how an organization uses data. 
 
 ### Data Uses and Consent
-Because Fides automatically converts data uses on the data map into privacy and consent notices, by keeping your map up to date, Fides simplifies complex consent management for your organization. 
+
+By keeping your data map up-to-date, you can ensure that Fides simplifies complex consent management for your organization by automatically converting data uses on the data map into privacy and consent notices. 
 
 Let's take a look at how this works with the diagram below:
 <Screenshot img="/assets/img/tutorials/consent-management-uses-to-notices.gif" description="Data Uses converted to Privacy Notices & Consent" />
 
-1. **New System Added to Data Map**: each new system added to the data map requires data uses.
-2. **Review and Confirm Data Uses**: you can review and edit data uses at any time.
-3. **Automatically Generated Consent**: Fides continuously monitors data uses and generates new privacy notices.
-4. **Geo-targeted Consent**: Fides automatically targets notices to visitors based on their location.
+
+1. **Add a new system to the data map**: Add a system and its associated data uses to the data map. 
+2. **Review and confirm data uses**: Upon adding the system, review the associated data uses. You can review and edit these at any time. 
+3. **Automatically generated consent**: Fides, while continously monitoring, detects the new data uses and automatically generates new privacy notices. 
+4. **Geo-targeted consent**: A visitor is automatically served the correct privacy notice based on their location. 
 
 ## Configuring Data Uses for Consent
 To configure data uses for consent, ensure that each system on your data map has one or more data uses assigned to it and Fides will generate the recommended notices. Read the detailed [data use and data mapping guide](../data-mapping-data-uses) here.
