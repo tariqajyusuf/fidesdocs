@@ -1,5 +1,5 @@
 {
-  "privacy-requests-configure-integrations": "Configuring Integrations",
-  "privacy-requests-configure-databases": "Configuring Databases",
-  "privacy-requests-dataset-annotation": "Annotating Datasets"
+  "integrations": "Configuring Integrations",
+  "databases": "Configuring Databases",
+  "dataset-annotation": "Annotating Datasets"
 }
