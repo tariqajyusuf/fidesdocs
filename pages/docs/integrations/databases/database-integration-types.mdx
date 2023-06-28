@@ -1,9 +1,9 @@
-# Connection Types
+# Connection types
 
 
-## Available Connection Types
+## Available integrations
 
-To view a list of all available connection types, visit `GET /api/v1/connection_type`.
+To view a list of all available integrations, visit `GET /api/v1/connection_type`.
 This endpoint can be filtered with a `search` query param or a `system_type` query param 
 and is subject to change.  We include database options and third party API services with 
 which Fides can communicate.
@@ -128,9 +128,9 @@ which Fides can communicate.
 }
 ```
 
-## Required Connection Secrets
+## Required integration secrets
 
-To view the secrets needed to authenticate with a given connection, visit `GET /api/v1/connection_type/<connection_type>/secret`.
+To view the secrets needed to authenticate with a given integration, visit `GET /api/v1/connection_type/<connection_type>/secret`.
 
 ### Example
 ```json filename="GET /api/v1/connection_type/sentry/secret"
@@ -156,14 +156,14 @@ To view the secrets needed to authenticate with a given connection, visit `GET /
 }
 ```
 
-## Setting up a SaaS Connector from a Template
+## Setting up a SaaS integration from a template
 
-To create all the resources necessary to set up a SaaS Connector in one request, you can create a connector from 
+To create all the resources necessary to set up a SaaS integration in one request, you can create an integration from 
 a template.
 
 This creates a `saas` ConnectionConfig for you with your supplied name and description, with your supplied `secrets`.
-In the example below, we're creating a `mailchimp` saas connector, so you should supply the relevant mailchimp `secrets`.
-Your `instance_key` will become the identifier for the related `DatasetConfig` resource.  By default, the saas connection config
+In the example below, we're creating a `mailchimp` saas integration, so you should supply the relevant mailchimp `secrets`.
+Your `instance_key` will become the identifier for the related `DatasetConfig` resource.  By default, the saas integration config
 is enabled, with write access.
 
 

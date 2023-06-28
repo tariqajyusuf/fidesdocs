@@ -2,11 +2,11 @@ import { Callout } from 'nextra-theme-docs'
 
 # Connect to SQL and NoSQL Databases
 
-## What is a Connection?
+## What is an integration?
 
-A _Connection_ links your owned databases and [third-party applications](../saas_connectors/saas_connectors) to Fides, allowing Fides to execute privacy requests against your collections and fields.
+An _Integration_ links your owned databases and [third-party applications](../saas-integrations/overview) to Fides, allowing Fides to execute privacy requests against your collections and fields.
 
-Fides currently supports connections to the following databases:
+Fides currently supports integrations to the following databases:
 
 * PostgreSQL
 * MongoDB
@@ -19,24 +19,24 @@ Fides currently supports connections to the following databases:
 
 Other platforms will be added in future releases.
 
-## How do Connections differ from Datasets?
+## How do integrations differ from datasets?
 
-A _[Dataset](./datasets)_ is model of a service that describes the data contained within each field. A _Connection_ stores the secrets to connect to the database. After Fides connects to your database, it dynamically generates queries to fulfil privacy requests by consulting the annotations in the Dataset.
+A _[Dataset](./datasets)_ is model of a service that describes the data contained within each field. An _Integration_ stores the secrets to connect to the database. After Fides connects to your database, it dynamically generates queries to fulfil privacy requests by consulting the annotations in the Dataset.
 
 
-## Create a new Connection 
-The connection between Fides and your database is represented by a _Connection_. To create a new Connection, issue a request to the Connection endpoint, passing a payload that contains the properties listed below. 
+## Create a new integration 
+The connection between Fides and your database is represented by an _Integration_. To create a new Integration, issue a request to the connection endpoint, passing a payload that contains the properties listed below. 
 
 | Field | Description |
 | --- | --- |
 | `name` | A human-readable name for your database. |
-| `key` | A string token that uniquely identifies this Connection. If you don't supply a `key`, the `name` value, converted to snake-case, is used. |
+| `key` | A string token that uniquely identifies this Integration. If you don't supply a `key`, the `name` value, converted to snake-case, is used. |
 | `connection-type` | Specifies the type of database. Valid values are `postgres`, `mongodb`, `mysql`, `mariadb`, `mssql`, `redshift`, `snowflake`, and `bigquery`. |
-| `access` | The connection's permissions, either `read` (Fides may only read from your database) or `write` (Fides can read from and write to your database). |
-| `disabled` | determines whether the Connection is active.  If `True`, Fides will skip running queries for any collection associated with that Connection. |
-| `description` | _Optional._  An extra field to add further details about your Connection. |
+| `access` | The integration's permissions, either `read` (Fides may only read from your database) or `write` (Fides can read from and write to your database). |
+| `disabled` | determines whether the Integration is active.  If `True`, Fides will skip running queries for any collection associated with that Integration. |
+| `description` | _Optional._  An extra field to add further details about your Integration. |
 
-While the Connection contains meta information about the database, it does not identify the database itself.
+While the Integration contains meta information about the database, it does not identify the database itself.
 
 ### Examples
 
@@ -114,10 +114,10 @@ All of the following are `PATCH` requests to `api/v1/connection`.
 ]
 ``` 
 
-## Set the Connection secrets
-After creating a new Connection, you explain how to connect to it by setting its "secrets": the host, port, user, and password. These values are specific to each database, and should reference the user and password you would like Fides to use when accessing your database.
+## Set the integration secrets
+After creating a new Integration, you explain how to connect to it by setting its "secrets": the host, port, user, and password. These values are specific to each database, and should reference the user and password you would like Fides to use when accessing your database.
 
-Call the Connection Secrets endpoint. You can set the Connection attributes separately, or supply a single `url` string that encodes them all.
+Call the Connection Secrets endpoint. You can set the attributes separately, or supply a single `url` string that encodes them all.
 
 <Callout>Fides encrypts all Connection secrets values before they're stored.</Callout>
 
@@ -186,14 +186,14 @@ Google BigQuery requires two parameters:
 `keyfile_creds` - The credentials from your service account JSON keyfile, accessible for download from the GCP console.  
 
 
-### Test your connection 
-When setting your Connection secrets, setting the `verify` query parameter to `true` allows you to test the Connection by issuing a trivial request to the database. 
+### Test your integration 
+When setting your Integration secrets, setting the `verify` query parameter to `true` allows you to test the Integration by issuing a trivial request to the database. 
 
 The `test_status` response property announces the test result as `succeeded` or `failed`. If the attempt has failed, the `failure_reason` property gives further details about the failure.
 
-To skip the connection test, set `verify` to `false`.
+To skip the integration test, set `verify` to `false`.
 
-You can verify that a Connection's secrets are valid at any time by calling the connection's `/secret/` endpoint:
+You can verify that a Integration's secrets are valid at any time by calling the connection's `/secret/` endpoint:
 
 
 ```
@@ -218,7 +218,7 @@ Test failures can be resolved by calling the connection's `/secret/` endpoint, a
 ```
 
 ## Associate a Dataset
-Once you have a working Connection, it must be associated to an existing [dataset](datasets). This enables Fides to map and access the contents of your database. 
+Once you have a working Integration, it must be associated to an existing [dataset](datasets). This enables Fides to map and access the contents of your database. 
 
 Call the `/dataset` endpoint with a JSON version of your dataset as the request body:
 
@@ -231,11 +231,11 @@ Call the `/dataset` endpoint with a JSON version of your dataset as the request 
 }]
 ```
 
-## Filtering your Connections
+## Filtering your Integrations
 
-Fides can filter and return matching Connections based on the `connection_type`, the `testing_status`, the `system_status`, and whether the connection is `disabled`.
+Fides can filter and return matching Integrations based on the `connection_type`, the `testing_status`, the `system_status`, and whether the integration is `disabled`.
 
-### Connection type filter
+### Integration type filter
 
 Including multiple `connection_type` query parameters and values will result in a query that looks for *any* connections with that type:
 
@@ -327,7 +327,7 @@ The `test_status` filter queries on the status of the last successful test:
 ```
 
 ### System_Status filter
-The `system_status` filter surfaces either `database` or [`saas`-type](../saas_connectors/saas_connectors) connectors:
+The `system_status` filter surfaces either `database` or [`saas`-type](../saas-connectors/overview) connectors:
 
 ```json
 {
@@ -351,8 +351,8 @@ The `system_status` filter surfaces either `database` or [`saas`-type](../saas_c
 }
 ```
 
-## Search your Connections
-You can search the `name`, `key`, and `description` fields of your Connections with the `search` query parameter.
+## Search your integrations
+You can search the `name`, `key`, and `description` fields of your integrations with the `search` query parameter.
 
 ```json
 {
@@ -376,8 +376,8 @@ You can search the `name`, `key`, and `description` fields of your Connections w
 ```
 
 
-## View available connection types
-To view a list of all available connection types, visit `GET /api/v1/connection_type`. This endpoint can be filtered with a `search` query parameter, and is subject to change.  Both database options and third party API services are included.
+## View available integration types
+To view a list of all available integration types, visit `GET /api/v1/connection_type`. This endpoint can be filtered with a `search` query parameter, and is subject to change.  Both database options and third party API services are included.
 
 ```json filename="GET /api/v1/connection_type"
 {
@@ -469,8 +469,8 @@ To view a list of all available connection types, visit `GET /api/v1/connection_
 }
 ```
 
-## View required connection secrets
-To view the secrets needed to authenticate with a given connection, visit `GET /api/v1/connection_type/<connection_type>/secret`.
+## View required integration secrets
+To view the secrets needed to authenticate with a given integration, visit `GET /api/v1/connection_type/<connection_type>/secret`.
 
 ```json filename="GET /api/v1/connection_type/sentry/secret"
 {

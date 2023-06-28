@@ -20,7 +20,7 @@ For this tutorial you will need:
 * At least one system with a data use on your Data Map. Read how to [add systems to the Data Map](../data-mapping-adding-systems-manually) now.
 * At least one privacy notice configured. Read how to [configure privacy notices](privacy-notices) now.
 * At least one privacy experience onfigured. Read how to [configure privacy experiences](privacy-experiences) now.
-* Installed `Fides.js` on your web site. REad how to [install fides.js](install-fides) now.
+* Installed `Fides.js` on your web site. Read how to [install fides.js](install-fides) now.
 
 
 
@@ -36,7 +36,7 @@ For this tutorial you will need:
 <Screenshot img="/assets/img/tutorials/gtm-data-layer-variable-named.gif" description="Name the Data Layer Variable" />
 
 <Callout type="info" emoji="">
-Repeat this step to create a GTM variable for each of the cookie keys assigned to your privacy notices. You can define as many as you require but it's common to have varialbes for `data sales and sharing`, `analytics`, `marketing`, `functional` and so on.
+Repeat this step to create a GTM variable for each of the cookie keys assigned to your privacy notices. You can define as many as you require but it's common to have variables for `data_sales_and_sharing`, `analytics`, `marketing`, `functional` and so on.
 </Callout>
 
 ## Configure a Trigger
@@ -97,13 +97,3 @@ If your Meta pixel is using the `<noscript></noscript>` for non-javascript brows
 </Callout>
 
 Save your changes. Your Limited Data Use is now configured!
-
-## Configuring Restricted Data Processing for Google Ads
-In order to configure Google's Restricted Data Processing flag, minor updates are required for the Google Ads pixel. Make sure you have completed your custom [consent triggers](#configure-a-trigger) before proceeding.
-
-1. Edit your Google Ads Pixel:
-2. In the dropdown list labeled _"Enable Restricted Data Processing"_, select the appropriate variable that you created [at the start](#create-a-gtm-variable) (e.g. `Fides.DataSalesAndSharing`).
-
-<Screenshot img="/assets/img/tutorials/gtm-google-ads.gif" description="Google Ads Restricted Data Processing Example" />
-
-Save your changes, and repeat for any other Google Adsense (or similar Google integrations) that allow for restricted data processing options.

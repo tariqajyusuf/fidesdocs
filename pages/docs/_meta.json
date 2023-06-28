@@ -1,8 +1,7 @@
 {
   "get-started": "Get Started",
   "privacy-requests": "Privacy Requests",
-  "connectors": "Connectors",
-  "databases": "Databases",
+  "integrations": "Integrations",
   "policies": "Policies",
   "cli": "Fides CLI",
   "configuration": "Fides Configuration"

@@ -1,6 +1,6 @@
 # OAuth2 
 
-SaaS connectors support two OAuth2 flows:
+SaaS integrations support two OAuth2 flows:
 
 - [Authorization Code](https://oauth.net/2/grant-types/authorization-code/): `oauth2_authorization_code`
 - [Client Credentials](https://oauth.net/2/grant-types/client-credentials/): `oauth2_client_credentials`
@@ -14,7 +14,7 @@ This Authentication Code flow has the following configuration values:
 
 The Client Credential flow has all these values except for `authorization_request` since it is not required for this flow.
 
-## Sample Configuration
+## Sample configuration
 
 Each OAuth2 request is fully configurable to account for the different ways the parameters can be mapped to a request. The following examples demonstrate the requests generated from sample configuration files.
 
@@ -30,7 +30,7 @@ authentication:
       ...
 ```
 
-### Authorization Request
+### Authorization request
 
 ```yaml
 authorization_request:
@@ -63,7 +63,7 @@ The `<state>` placeholder is generated automatically with each authorization req
 https://{{domain}}/api/v1/connection/{{connection_key}}/authorize
 ```
 
-### Token Request
+### Token request
 
 ```yaml
 token_request:
@@ -90,7 +90,7 @@ https://<domain>/oauth_token?client_id=<client_id>&client_secret=<client_secret>
 
 This request is called automatically after Fides receives a callback response to the `https://{{domain}}/api/v1/oauth/callback` endpoint.
 
-#### Refresh Request
+#### Refresh request
 
 ```yaml
 refresh_request:
@@ -130,31 +130,31 @@ authentication:
       ...
 ```
 
-## Usage Checklist
+## Usage checklist
 
 To use OAuth2 as a connection strategy, the following must be configured first:
 
-### For All OAuth2 Flows
+### For all OAuth2 flows
 
-#### Per-connector Configuration
+#### Per-connector configuration
 
 - Fides must be able to connect to the SaaS provider (Outreach, Salesforce, etc.).
 - A **Client ID** and **Client Secret** must be generated within the SaaS provider’s admin console.
   - This is dependent on the individual SaaS provider. Refer to the provider's documentation.
-- The connector using OAuth2 is configured using the steps for [how to configure a SaaS connector](./saas_connectors/#how-to-configure-a-saas-connector).
+- The connector using OAuth2 is configured using the steps for [how to configure a SaaS connector](./overview/#configure-a-saas-connector).
 
-### Additional Steps for Authentication Code Flow
+### Additional steps for authentication code flow
 
-#### One-time Configuration
+#### One-time configuration
 
 - A callback server or network rules are required to forward the callback response from the SaaS providers to an instance of Fides. This is dependent on the user environment where Fides is deployed, and is out of scope for this documentation.
 - These incoming requests must be routed to `https://{{host}}/api/v1/oauth/callback`.
 
-#### Per-connector Configuration
+#### Per-connector configuration
 
 - The **Redirect URI** must be registered within the SaaS provider's admin console.
 - The OAuth2 workflow is initialized by following the URL returned from `https://{{domain}}/api/v1/connection/{{connection_key}}/authorize`.
 
-## OAuth2 Authentication Code Flow Diagram
+## OAuth2 authentication code flow diagram
 
-![OAuth2 Workflow](/assets/img/saas_connections/oauth2_workflow.png "OAuth2 Workflow")
+![OAuth2 Workflow](/assets/img/saas-connections/oauth2_workflow.png "OAuth2 Workflow")

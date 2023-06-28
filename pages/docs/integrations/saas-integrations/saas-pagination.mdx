@@ -1,4 +1,4 @@
-# SaaS Pagination
+# SaaS pagination
 
 These pagination strategies allow Fides to incrementally retrieve content from SaaS APIs. APIs can vary in the way subsequent pages are accessed so these configurable options aim to cover a majority of common use cases.
 
@@ -70,7 +70,7 @@ pagination:
 ### Cursor
 This strategy is used when a specific value from a response object is used as a cursor to determine the starting point for the next set of results.
 
-#### Configuration Details
+#### Configuration details
 - `cursor_param` (_str_): The name of the query param to assign the cursor value to.
 - `field` (_str_): The field to read from the most recently retrieved object to use as the cursor value.
 
