@@ -1,7 +1,7 @@
 {
-    "overview": "Overview",
+    "index": "Overview",
     "generating-tokens": "Generating OAuth Access Tokens",
+    "api-authentication": "API Authentication",
     "token-expiration": "OAuth Token Expiration",
-    "calling-api": "Calling the API",
     "creating-clients": "Creating OAuth Clients"
 }
