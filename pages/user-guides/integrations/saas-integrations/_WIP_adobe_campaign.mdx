@@ -1,0 +1,48 @@
+
+import { Callout } from 'nextra-theme-docs'
+
+# Adobe Campaign
+[Adobe Campaign](https://business.adobe.com/products/campaign/adobe-campaign.html) is a marketing automation platform offered by Adobe Systems that helps businesses and organizations manage and execute multi-channel marketing campaigns. 
+
+## Prerequisites
+
+In order to integrate with Adobe Campaign, you'll need to collect the following information:
+
+- `Organization ID`: The ID assigned to your organization's Adobe Campaign instance. This can typically be found by logging into your Adobe Campaign instanece and going to **Administration** → **Platform** and then viewing the **Console** section. 
+- `Technical Account ID`: The technical account ID given to you by Adobe (ex. ***@techacct.adobe.com). This can be found in the **Service Account Integration** section of the [Adobe Developer Console](https://console.adobe.io).
+- The `Client ID` & `Client Secret` used for OAuth 2.0 authentiation. These can typically be found by logging into your Adobe Campaign instanece and going to **Administration** → **Security** → **OAuth Credentials**.
+
+You may optionally configure the following information:
+- `Namespace`: the schema or partition in the data where the personal data resides.
+- `Regulation`: this sets the regulation that will apply for request processing and the options are GDPR, CCPA, PDPA, and LGPD. To learn more about activating these regulations please see the [Adobe Docs](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en).
+
+
+## Integrating with Adobe Campaign
+To integrate an existing system with Adobe Campaign: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](../manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information.
+
+### Adobe Campaign Endpoints
+Below, you will find a description of the supported endpoints and their corresponding support for privacy functions.
+
+|Endpoint | Right to Access | Right to Delete |
+|----|----|----|
+|[Profile](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Yes | Yes |
+|[History](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Yes | Yes |
+|[Privacy Tool](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Yes | Yes |
+
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

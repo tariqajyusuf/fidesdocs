@@ -1,0 +1,71 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Manage integrations using the UI
+<TutorialKey duration="4" product="Fides" topic="Integrations" video="true" interactive="true"/>
+
+<Callout emoji="ⓘ">Fides recently deprecated the _Connection Manager_ UI. For steps to migrate your connectors to system integrations, please see the [Migrate from the Connection manager section](#migrate-from-the-connection-manager).</Callout>
+
+To integrate with a new system, you must first follow the steps to [add a system to the data map](../tutorials/data-mapping-get-started).
+
+## Integrate with an existing system 
+
+To integrate with a system that's already in your data map:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+[video of action]
+
+Details about each field in the template are available in the vendor guides:
+* [SaaS vendor guides](saas-integrations/saas-configs)
+* [Database vendor guides](databases/db-configs)
+
+Some systems require that you authenticate using OAuth2. Our guide for doing this is _coming soon_ but please reach out in the meantime for assistance.
+
+If you are working with a database, you will need to configure a dataset. To learn more, please see our guide for [Managing datasets](databases/datasets).
+
+## Enable or disable an integration
+_Coming soon!_ 
+
+## Delete an integration
+To delete an integration:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to delete the integration from. 
+2. Click on the **Integrations** tab.
+3. Scroll to the bottom of the form and click **Delete**.
+
+[video of action]
+
+## Upload a connector template
+
+To add a new custom integration, use the **Upload connector** button. This will open a modal where you can upload a custom connector template in the form of a _Zip_ file:
+
+[video of action]
+
+Steps for creating a custom config can be found in the [Custom connector templates](saas-integrations/custom-config/custom-template) guide.
+
+## Migrate from the Connection manager
+
+Fides recently moved from supporting standalone connectors to treating connectors as System Integrations. To ease the migration to the new system, the **Connection manager** UI will remain accessible as long as there are unlinked connectors available. 
+
+To link a connector to a system:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to link a connector to. 
+2. Click on the **Integrations** tab.
+3. Click **Link connector**.
+4. Select the connection from the list of unlinked connections.
+5. Click **Link connector**
+6. Click **Save**
+
+[video of action]
+
+This connector will no longer appear in the **Connection manager** UI. 
+
+
+
