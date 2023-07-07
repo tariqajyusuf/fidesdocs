@@ -1,0 +1,50 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: worker
+
+> **Hands-on:** To understand workers in Fides try the [Product Deployment](#LINK) tutorials.
+
+The ```fides worker``` starts a celery worker listening to Fides server.
+This is extremely helpful for:
+
+1. Scaling the concurrent privacy requests that Fides can process.
+2. Avoiding asynchronous race conditions and performance issues.
+
+## Usage
+Usage: ```fides workers```
+
+Running this command will start a [Celery Worker](https://docs.celeryq.dev/en/stable/userguide/workers.html#starting-the-worker). As you can see in the example below, the worker is configured to listen for privacy request tasks and execute privacy requests. For more in-depth information on privacy requests read the [Fides Privacy Requests](#LINK) guide.
+
+
+```console
+$ fides worker
+Loaded config from: .fides/fides.toml
+2023-02-26 11:19:55.400 | INFO     | fides.api.ops.tasks:_create_celery:48 - Creating Celery app...
+2023-02-26 11:19:55.401 | INFO     | fides.api.ops.tasks:_create_celery:66 - Autodiscovering tasks...
+2023-02-26 11:19:55.764 | INFO     | fides.api.ops.worker:start_worker:8 - Running Celery worker...
+ 
+ -------------- celery@127.0.0.1 v5.2.7 (dawn-chorus)
+--- ***** ----- 
+-- ******* ---- 
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         fides.api.ops.tasks:0x107e2aa00
+- ** ---------- .> transport:   redis://:**@127.0.0.1:6379//
+- ** ---------- .> results:     redis://:**@127.0.0.1:6379/
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> fides            exchange=fides(direct) key=fides
+                .> fidesops.messaging exchange=fidesops.messaging(direct) key=fidesops.messaging
+
+[tasks]
+  . fides.api.ops.service.messaging.message_dispatch_service.dispatch_message_task
+  . fides.api.ops.service.privacy_request.request_runner_service.run_privacy_request
+
+[2023-02-26 11:19:56,119: INFO/MainProcess] Connected to redis://:**@127.0.0.1:6379//
+[2023-02-26 11:19:56,121: INFO/MainProcess] mingle: searching for neighbors
+[2023-02-26 11:19:57,127: INFO/MainProcess] mingle: all alone
+[2023-02-26 11:19:57,135: INFO/MainProcess] celery@127.0.0.1 ready.
+```

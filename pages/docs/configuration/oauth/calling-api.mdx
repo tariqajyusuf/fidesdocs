@@ -1,0 +1,40 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Calling the API
+
+The Fides API requires authentication via OAuth using a valid access token. In this document we'll walk through calling the Fides API with a valid access token and the appropriate scopes.
+ 
+
+## Prerequisites
+
+In order to complete this, you will need:
+
+* A valid `access_token` created from a valid `client_id` and `client_secret`. Read how to [generate access tokens](generating-tokens) here.
+
+## Example: Calling the API with an Access Token
+
+To call the Fides API your request must include an access token with valid _scopes_ for the given API request. The access token should be passed as an `Authorization` header similar to the sample request below that retrieves the active storage configuration.
+
+```curl filename="GET /api/v1/storage/default/active"
+curl '{{FIDES_URL}}/api/v1/storage/default/active' \
+-H 'Authorization: Bearer {{FIDES_ACCESS_TOKEN}}'
+```
+
+In the above example, `{{FIDES_URL}}` is the URL to your Fides server and `{{FIDES_ACCESS_TOKEN}}` is the access token generated with your client credentials. 
+
+If this is working correctly, a successful reponse will show the current storage configurations similar to the below output:
+```json filename="Example authenticated request response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "name": "Default Storage Config [local]",
+    "type": "local",
+    "details": {
+        "naming": "request_id"
+    },
+    "key": "default_storage_config_local",
+    "format": "json",
+    "is_default": true
+}
+```

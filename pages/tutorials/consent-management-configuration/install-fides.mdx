@@ -1,0 +1,82 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Consent Management: Install Fides JS on your Website
+
+<TutorialKey duration="10" product="Fides" topic="Consent Management"/>
+
+In this tutorial we will install Fides JS, the Fides JavaScript Components, to your website so that your visitors are served the appropriate privacy and consent notices.
+
+After reading this, you'll be familiar with how to add `Fides.js` to your website.
+
+## Prerequisites
+
+For this tutorial you'll need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+* Access to the source code of your website to add JavaScript.
+* At least one system with a data use on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
+* At least one privacy notice configured. Read how to [configure privacy notices](privacy-notices) now.
+* At least one privacy experience configured. Read how to [configure privacy experiences](privacy-experiences) now.
+
+
+
+## Install Fides.js Script on your Website
+
+`Fides.js` is the JavaScript package that powers Fides privacy and consent experiences on your website. To install `fides.js`, first get the `fides` script from your Fides installation. 
+
+To do this, navigate to the Privacy Experiences by going to **Privacy requests** → **Consent** → **Privacy experiences** where you will see a list of currently configured privacy experiences. 
+
+Click the button labeled **Get JavaScript tag** to reveal the `fides` script tags for your Fides installation as shown below:
+<Screenshot img="/assets/img/tutorials/consent-management-fides-js.gif" description="Copy Fides.js Scripts" />
+
+The Fides script tags are typically in the format:
+
+```javascript filename="Fides.js Script Tags"
+<head>
+  <!-- Include before any scripts which need consent. -->
+  <script src="{{PRIVACY_CENTER_URL}}/fides.js"></script>
+</head>
+```
+
+Replace `{{PRIVACY_CENTER_URL}}` with the URL of your privacy center, such as `https://privacy.your-brand.com`.
+
+<Callout type="info" emoji="">
+##### Installation Location
+It's important that Fides.js is loaded as early as possible on your site. For this reason, it's recommended to place these tags ahead of all other JavaScript in the `<head>` of your website.
+</Callout>
+
+## Integrating Fides.js with Google Tag Manager
+
+When using Google Tag Manager, calling `fides.gtm()` will ensure any consent choices made by a site visitor are added to the GTM Data Layer under a variable named `fides.consent`.
+
+To enable the Google Tag Manager integration, call `Fides.gtm()` in your website code, similar to the following:
+
+```javascript filename="Fides.js for Google Tag Manager"
+<head>
+  <script src="https://privacy.example.com/fides.js"></script>
+  <script>Fides.gtm()</script>
+
+  <!-- Include Google Tag Manager's script below. -->
+<head>
+```
+
+## Integrating Fides.js with Custom JavaScript
+
+For tags that are managed outside of a Tag Manager, or any other custom code which requires user consent, you can check the user’s consent directly in the `Fides.consent` global variable.
+
+For example, to check for an explicit opt-out from a user you can do the following:
+
+```javascript filename="Fides.js for Custom JavaScript"
+if (Fides && !Fides.consent.data_sales_and_sharing) {
+  // User has opted out
+} else {
+  // User has not opted out
+}
+```
+
+Note that, in the above example, `data_sales_and_sharing` matches a cookie key for a privacy notice created when configuring consent management in Fides Control. The cookie key can be any unique identifier you choose when creating a privacy notice. 
+
+Read about [creating cookie keys as part of privacy notices](privacy-notices#cookie-key) here.

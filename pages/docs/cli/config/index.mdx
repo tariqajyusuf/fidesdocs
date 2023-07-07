@@ -1,0 +1,13 @@
+# Fides Configuration
+
+Fides can be configured in two different ways: either via a ```toml``` file or via environment variables. Both methods can be used simultaneously, with environment variables taking precedence over the ```toml``` file values.
+
+We've designed Fides so that an average user running Fides CLI interactively won't need to interact with any of the global Fides settings. As a result, most of the global settings relate to configuring the Fides server, providing credentials to systems, advanced CI integrations, configuring messaging service providers, storage destinations and advanced automation tools.
+
+## Viewing Fides Configuration
+As part of configuring or debugging Fides it may be necessary to view the current configurations of the Fides CLI and Fides Server together. 
+The ```fides view``` command is designed specifically to output the current configurations of a Fides instance for review.
+
+For details, see:
+
+[The ```fides view``` command](config/cmd-view)

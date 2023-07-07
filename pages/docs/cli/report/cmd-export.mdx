@@ -1,0 +1,115 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: export
+
+> **Hands-on:** Try the [Building and Exporting Reports in Fides](#LINK) tutorials.
+
+The ```fides export``` allows you to automatically build reports to demonstrate compliance with various privacy regulations as well as for internal team use.
+This is extremely helpful for:
+
+1. Generating RoPA (Records of Processing Activity) reports for compliance with the GDPR Article 30.
+2. Generating categories of processing for adding to privacy policies.
+3. Reporting on system and data inventory completeness for internal purposes.
+
+## Usage
+Usage: ```fides export <command>```
+
+The export command requires at least one of the following subcommands to generate a report:
+
+* <span class="nx-absolute -nx-mt-20" id="datamap"></span>[```datamap```](#datamap) - Export a datamap from Fides. The default export format is Excel, although other options are possible with the option flags below.
+        * <span class="nx-absolute -nx-mt-20" id="d"></span>[```-d```](#d), [```--output-dir```](#d)  - The output directory for the data map to be exported to.
+        * <span class="nx-absolute -nx-mt-20" id="k"></span>[```-k```](#k), [```--org-key```](#k)  - The organization ```fides_key``` you wish to export resources for.
+        * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Prints the report to the console directly and does not create a report document.
+        * <span class="nx-absolute -nx-mt-20" id="csv"></span>[```--csv```](#csv) - Exports the report in CSV format instead.
+* <span class="nx-absolute -nx-mt-20" id="dataset"></span>[```dataset```](#dataset) - Export the specified dataset in a data map report format.
+        * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Prints the report to the console directly and does not create a report document.
+* <span class="nx-absolute -nx-mt-20" id="system"></span>[```system```](#system) - Export the specified system in a data map report format.
+        * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Prints the report to the console directly and does not create a report document.
+* <span class="nx-absolute -nx-mt-20" id="organization"></span>[```organization```](#organization) - Output errors if any resources are missing attributes required for building a data map.
+        * <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Export the specified organization in a data map report format.
+
+Running this command should result in output that resembles the examples below.
+
+---
+
+## Examples: Export a full data map in Excel format
+This example exports a formatted data map in Excel using the Fides template that matches the requirements for a Record of Processing Activity (RoPA) for the GDPR.
+The command will respond with the exported file name which is written to the ```.fides``` working directory.
+
+```console
+$ fides export datamap
+Loaded config from: .fides/fides.toml
+2022-01-03-T013609_datamap.xlsx successfully exported.
+```
+
+## Example: Export a full data map to a specified location
+This example exports a formatted data map in Excel using the Fides template and writes the file to the specified output directory, in this example ```data/```.
+
+```console
+$ fides export datamap --output-dir data/
+Loaded config from: .fides/fides.toml
+2022-01-03-T013609_datamap.xlsx successfully exported.
+```
+
+## Example: Export a full data map for a specified organization
+This example exports a formatted data map for a specified ```organization_key``` and generates an Excel document using the standard Fides template.
+
+```console
+$ fides export datamap --org-key other_company
+Loaded config from: .fides/fides.toml
+2022-01-03-T014326_datamap.xlsx successfully exported.
+```
+
+## Example: Print the full data map to the console
+This example exports prints the data map to the console and does not export a document. This example could be used to pipe the output to another destination or for another purpose.
+
+```console
+$ fides export datamap --dry
+Loaded config from: .fides/fides.toml
+Output would contain:
+('system.fides_key', 'system.name', 'system.description', 'system.data_responsibility_title', 'system.administrating_department', 'system.third_country_transfers', 'system.system_dependencies', 'system.ingress', 'system.egress', 'system.privacy_declaration.data_use.name', 'system.privacy_declaration.data_use.legal_basis', 'system.privacy_declaration.data_use.special_category', 'system.privacy_declaration.data_use.recipients', 'system.privacy_declaration.data_use.legitimate_interest', 'system.privacy_declaration.data_use.legitimate_interest_impact_assessment', 'system.privacy_declaration.data_subjects.name', 'system.privacy_declaration.data_subjects.rights_available', 'system.privacy_declaration.data_subjects.automated_decisions_or_profiling', 'system.privacy_declaration.data_qualifier', 'system.data_protection_impact_assessment.is_required', 'system.data_protection_impact_assessment.progress', 'system.data_protection_impact_assessment.link', 'dataset.fides_key', 'dataset.name', 'dataset.third_country_transfers', 'third_country_combined', 'unioned_data_categories', 'unioned_data_qualifiers', 'dataset.retention', 'dataset.data_qualifier', 'system.joint_controller', 'system.third_country_safeguards', 'system.link_to_processor_contract', 'organization.link_to_security_policy', 'dataset.source_name')
+('redshift-cluster-1', 'redshift-cluster-1', 'Fides Generated Description for Redshift Cluster: redshift-cluster-1', 'Controller', 'Not defined', '', '', '', '', 'Improve the capability', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Customer', 'No data subject rights listed', 'N/A', 'aggregated.anonymized.unlinked_pseudonymized.pseudonymized.identified', False, 'N/A', 'N/A', 'public_c94f8a9702', 'N/A', '', 'N/A', 'system.operations', 'aggregated.anonymized.unlinked_pseudonymized.pseudonymized.identified', 'N/A', 'N/A', '', '', '', '', 'N/A')
+('database-1', 'database-1', 'Fides Generated Description for RDS Instance: database-1', 'Controller', 'Not defined', '', '', '', '', 'First Party Advertising', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Customer', 'No data subject rights listed', 'N/A', 'aggregated.anonymized.unlinked_pseudonymized.pseudonymized.identified', False, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'system.operations', 'aggregated.anonymized.unlinked_pseudonymized.pseudonymized.identified', 'N/A', 'N/A', '', '', '', '', 'N/A')
+```
+## Example: Export a full data map in CSV format
+This example exports the data map in CSV format rather than default Excel. By default this export is written to the working directory.
+
+```console
+$ fides export datamap --csv
+Loaded config from: .fides/fides.toml
+2022-01-03-T015041_datamap.csv successfully exported.
+```
+
+## Example: Export datasets as a summary data map
+This example exports a summary of all datasets as a CSV file in the working directory.
+
+```console
+$ fides export dataset
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+2022-01-03-T015316_dataset.csv successfully exported.
+```
+
+## Example: Export systems as a summary data map
+This example exports a summary of all systems as a CSV file in the working directory.
+
+```console
+$ fides export system
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+2022-01-03-T015915_system.csv successfully exported.
+```
+
+## Example: Export organizations as a summary data map
+This example exports a summary of all organizations as a CSV file in the working directory.
+
+```console
+$ fides export organization
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+2022-01-03-T020021_organization.csv successfully exported.
+```

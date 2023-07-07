@@ -1,0 +1,37 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Generating Access Tokens
+
+This document explains how to generate a valid OAuth token using a set of existing Fides credentials.
+
+## Prerequisites
+
+In order to complete this, you will need one of the following:
+
+* A client ID and client secret for Fides Cloud provided by your Ethyca Support team. [Contact them now](mailto:support@ethyca.com) to get credentials, or;
+* A valid client ID and client secret for a self-hosted instance of Fides. Read the [access configuration guide](#LINK) to set this up now.
+
+## Example: Creating an OAuth Access Token
+
+To create an OAuth access token, make a **POST** request to the `/api/v1/oauth/token` endpoint with a valid client ID and client secret in the following format:
+
+```console filename="POST /api/v1/oauth/token"
+curl '{{FIDES_URL}}/api/v1/oauth/token' \
+-d 'client_id={{FIDES_ID}}' \
+-d 'client_secret={{FIDES_SECRET}}' \
+-d 'grant_type=client_credentials'
+```
+In the above example, `{{FIDES_URL}}` is the URL to your Fides server and `{{FIDES_ID}}` and `{{FIDES_SECRET}}` are your Fides client ID and client secret.
+
+The response to this request will return an access token in the `access_token` property as shown below:
+
+```json filename="OAuth Access Token Response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "access_token":"eyJhbGciOiJka....wWHX6t-wCQULvTsc4rRtXA"
+}
+```
+
+From here you can [authenticate to the API with this access token](authentication) and the appropriate scopes.

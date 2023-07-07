@@ -1,0 +1,64 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: parse
+
+The ```fides parse``` validates the syntax of all local resources in the ```.fides``` working directory and outputs any errors to the CLI.
+
+When the ```parse``` command is run, it will:
+
+1. Retrieve all local resources by their Fides key from the ```.fides``` working directory.
+2. Validate the syntax and structure of all files, reporting errors if any occur.
+
+To learn more about resources in Fides see the [Resources in Fides](#LINK) guide.
+
+## Usage
+Usage: ```fides parse [options]```
+
+The command will retrieve all local resources in the ```.fides``` working directory and validate their syntax and structure.
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="v"></span>[```-v```](#v), [```--verbose```](#v) - Output results of validation in detail to the command line.
+
+## Example: No options provided
+This example validates all systems and datasets in the ```.fides``` working directory.
+
+```console
+$ fides parse
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+```
+
+## Example: Output validation process verbosely
+This example outputs all details of the validation of all systems and datasets in the ```.fides``` working directory.
+
+```console
+$ fides parse --verbose
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+{    fides_key: postgres,
+    organization_fides_key: acme_inc,
+    name: postgres,
+    description: 'Fides Generated Description for Schema: postgres',
+    { meta:,
+        database_host: 127.0.0.1,
+        database_name: postgres, }
+    {   data_categories: {
+            user,
+            system
+        }
+        data_qualifier: aggregated.anonymized.unlinked_pseudonymized.pseudonymized.identified,
+        retention: No retention or erasure policy,
+        collections: {
+            name: accessmanualwebhook
+                description: 'Fides Generated Description for Table: accessmanualwebhook'
+                data_categories {
+                    - system
+                }
+                data_qualifier: aggregated. 
+                }
+            }
+        }
+```

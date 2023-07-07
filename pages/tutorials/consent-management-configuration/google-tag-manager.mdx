@@ -1,0 +1,99 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Consent Management: Configuring Google Tag Manager
+
+<TutorialKey duration="10" product="Fides" topic="Consent Management"/>
+
+In this tutorial, we'll configure Fides consent to ensure tags only fire with consent from a Tag Manager. In this example, we'll use Google Tag Manager, however, these steps are also applicable to similar tag managers such as Adobe Tag Manager and Tealium.
+
+After reading this, you'll be familiar with how to configure tags to respect consent.
+
+## Prerequisites
+
+For this tutorial you'll need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+* Update and publisher permissions on your Google Tag Manager account.
+* At least one system with a data use on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
+* At least one privacy notice configured. Read how to [configure privacy notices](privacy-notices) now.
+* At least one privacy experience onfigured. Read how to [configure privacy experiences](privacy-experiences) now.
+* Installed `Fides.js` on your web site. Read how to [install fides.js](install-fides) now.
+
+
+
+## Create a GTM Variable
+1. Navigate to **Variables** → **New** to create a new GTM Variable.
+2. From the **Choose variable type** menu, select **Data Layer Variable** as the type:
+
+<Screenshot img="/assets/img/tutorials/gtm-data-layer-variable.gif" description="Create Data Layer Variable" />
+
+3. Set the Data Layer Variable Name to the corresponding cookie key of the privacy notice you configured. In this example, we use `Fides.consent.data_sales_and_sharing`. Read about [creating cookie keys as part of privacy notices](privacy-notices#cookie-key) here.
+4. Give the variable a suitable, identifiable name, such as `Fides.DataSalesAndSharing`, as in the example below:
+
+<Screenshot img="/assets/img/tutorials/gtm-data-layer-variable-named.gif" description="Name the Data Layer Variable" />
+
+<Callout type="info" emoji="">
+Repeat this step to create a GTM variable for each of the cookie keys assigned to your privacy notices. You can define as many as you require but it's common to have variables for `data_sales_and_sharing`, `analytics`, `marketing`, `functional` and so on.
+</Callout>
+
+## Configure a Trigger
+Many third-party tools rely on you to correctly configure their tags to fire depending on user consent. A single consent trigger tag ensures that a third-party tag only fires when a user’s consent is appropriately set.
+
+1. Navigate to **Triggers** → **New** to create a new Trigger.
+2. From the **Choose a trigger type** menu, select the appropriate trigger, this can be anything you choose but is typically **Page View** or **Custom Event**:
+
+<Screenshot img="/assets/img/tutorials/gtm-trigger-type.gif" description="Select Trigger Type" />
+
+<Callout type="info" emoji="">
+Ensure you use the appropriate trigger type for your tag. If your primary firing trigger is Page View based, use the Page View exception trigger. If your primary firing trigger is Custom Event based, use the Custom Event exception trigger.
+</Callout>
+
+3. Give the trigger a suitable, identifiable name, such as `Fides.DataSalesAndSharing.OptOut`
+4. Set “This trigger fires on” to _**Some Page Views**_.
+5. In the “Fire this trigger when…” option, set the following:
+    * The event field to match your user-defined variable earlier (e.g. `Fides.DataSalesAndSharing`)
+    * The evaluation to `equals`
+    * The value to `false`
+
+<Screenshot img="/assets/img/tutorials/gtm-trigger-config.gif" description="Trigger Configuration" />
+
+To suppress tags from firing where the user hasn't given consent, you can add your newly created trigger using the following steps:
+
+1. Navigate to **Tags** and select the Tag you would like to add a consent trigger to.
+2. Under **Triggering** you can add, remove or combine triggers. In this case, you are adding an exception that will suppress firing where you do not have consent. Select **Add Exception** to add your newly created trigger.
+
+<Screenshot img="/assets/img/tutorials/gtm-pinterest-example.gif" description="Pinterest Sample Tag" />
+
+3. Select the consent trigger created earlier (e.g. `Fides.DataSales.Consent`), which will add it as an exception to your tag:
+
+<Screenshot img="/assets/img/tutorials/gtm-trigger-selection.gif" description="Select Exception Tag" />
+
+You should now see your trigger listed in your tag as an Exception. When configured as outlined in this tutorial, this tag will no longer fire if a user has opted out of Data Sales.
+
+<Screenshot img="/assets/img/tutorials/gtm-exception-trigger.gif" description="GTM Exception Tag" />
+
+<Callout type="info" emoji="">
+Repeat this step for any other tag you would like to apply consent to for any privacy notices you have configured for your organization in Fides.
+</Callout>
+
+## Configure Limited Data Use for Meta (Facebook)
+Meta's implementation of data sales is unique to their platform, and requires specific configuration in Google Tag Manager.
+
+To implement the Limited Data Use flag, the following modifications to your pixel are required:
+
+<Screenshot img="/assets/img/tutorials/gtm-fb-pixel.gif" description="GTM Exception Tag" />
+
+1. Add the line below before the Facebook pixel is initialized `fbq('init', '{{YOUR_FACEBOOK_PIXEL_ID}}');`
+
+```javascript filename="Facebook Pixel Updates"
+{{Fides.DataSalesAndSharing}} ? fbq('dataProcessingOptions', []) : fbq('dataProcessingOptions', ['LDU'], 0, 0);
+```
+<Callout type="info" emoji="">
+##### Note about `<noscript>` tags
+If your Meta pixel is using the `<noscript></noscript>` for non-javascript browsers, remove this from your pixel. Consent management solutions, like Fides, rely on JavaScript; this pixel would risk firing, causing noncompliance.
+</Callout>
+
+Save your changes. Your Limited Data Use is now configured!

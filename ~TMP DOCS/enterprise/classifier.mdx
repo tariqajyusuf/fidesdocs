@@ -1,0 +1,43 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Data Classification
+
+The Fides Classifier is an extensible machine-learning classification engine, built on natural language processing and named-entity recognition. Fides utilizes these classification strategies to label potential sources of personally identifiable information with Fides' human-readable description taxonomy, and help automate the complex task of identifying PII in your application.
+
+## Running the classifier
+
+Fides represents the schema of a given database as a *dataset,* which allows the contained information to be accessed in a standardized, consumable format. When adding a new dataset to your instance of Fides, premium users are provided the option to classify the dataset at the same time it is generated.
+
+![Classify a Dataset](../../public/assets/img/enterprise/classify_dataset.png)
+
+To use the classifier, leave *Classify dataset* selected when connecting to your database via a connection string. Fides will automatically scan the provided resource to determine where the data resides, and then list what type of information the given database contains. 
+
+## Classification results
+
+Once connected successfully, Fides will create a series of datasets to represent the database, accessible via *Datasets* in the UI. Using several machine learning strategies, these datasets are then classified into categories based on the column names and contained content. 
+
+![Classification In Progress](../../public/assets/img/enterprise/classify_inprogress.png)
+
+<Callout emoji="⚠️">
+  Depending on the size of your database, classification may take several minutes.
+</Callout>
+
+You will then be asked to review and approve the generated classification labels. Datasets which have been fully scanned, but not approved, will be listed as **Awaiting Review**.
+
+To continue, select **Load Dataset** with any dataset row highlighted, and review the data categories assigned to the results:
+
+![Classification Results](../../public/assets/img/enterprise/classify_results.png)
+
+## Approve classification categories
+
+Selecting any row will allow you to review the categories assigned by Fides, as well as Fides' percent certainty of classification. 
+
+Confirm the final classification from the drop-down list, and select **Save** to continue. 
+
+![Classification Review](../../public/assets/img/enterprise/classify_review.png)
+
+You are now ready to approve your results by selecting **Approve dataset classification**, and move on to the next dataset.
+
+![Classification Status](../../public/assets/img/enterprise/classify_status.png)
+
+Congratulations! You've fully classified your first dataset, and are now ready to learn how a fully-classified dataset can help empower your [visual datamap](./datamaps).

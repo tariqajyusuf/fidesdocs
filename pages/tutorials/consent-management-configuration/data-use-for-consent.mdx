@@ -1,0 +1,53 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Consent Management: Configuring Data Uses
+
+<TutorialKey duration="5" product="Fides" topic="Consent Management"/>
+
+In this tutorial, we'll briefly walk through data uses, what they are, and how Fides uses them to automatically generate the right privacy notices based on a visitors location.
+
+After reading this, you'll be familiar with how systems on the data map and their data uses directly affect consent management.
+
+## Prerequisites
+
+For this tutorial you'll need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+* At least one system on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
+
+
+
+## What are Data Uses?
+
+Data uses are the purpose for which your organization uses data. For example, if you use a customer's email address to send marketing information, the data use might be _"Email Marketing."_
+
+Data uses, or _"purposes of processing"_ as they are referred to in the GDPR, are used in data mapping activities to describe how an organization uses data. 
+
+### Data Uses and Consent
+
+By keeping your data map up-to-date, you can ensure that Fides simplifies complex consent management for your organization by automatically converting data uses on the data map into privacy and consent notices. 
+
+Let's take a look at how this works with the diagram below:
+<Screenshot img="/assets/img/tutorials/consent-management-uses-to-notices.gif" description="Data Uses converted to Privacy Notices & Consent" />
+
+
+1. **Add a new system to the data map**: Add a system and its associated data uses to the data map. 
+2. **Review and confirm data uses**: Upon adding the system, review the associated data uses. You can review and edit these at any time. 
+3. **Automatically generated consent**: Fides, while continously monitoring, detects the new data uses and automatically generates new privacy notices. 
+4. **Geo-targeted consent**: A visitor is automatically served the correct privacy notice based on their location. 
+
+## Configuring Data Uses for Consent
+To configure data uses for consent, ensure that each system on your data map has one or more data uses assigned to it and Fides will generate the recommended notices. Read the detailed [data use and data mapping guide](../data-mapping-data-uses) here.
+
+### Adding a Data Use to a System
+To add data uses to a system, navigate to **Data map** → **View systems** where you can search existing systems. Click the kebab menu ```...``` for your chosen system and click **Edit**.
+
+On the system portal page, select the **Data uses** tab, from here you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
+
+<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-portal.gif" description="Editing system privacy information in the system portal" />
+
+As you add data uses to your systems, Fides will automatically update your privacy notices which you can review on the next step.
+

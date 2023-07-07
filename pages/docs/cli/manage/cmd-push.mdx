@@ -1,0 +1,81 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: push
+
+The ```fides push```  validates the syntax and structure of the Fides YAML documents in the working directory before persisting those validated documents to the Fides Server. This is ideal for centralizing resources and collaboration with other teams.
+
+When the ```push``` command is run, it will:
+
+1. Validate all system and dataset YAML documents in the ```.fides``` working directory
+2. Push the validated documents and changes to the Fides Server.
+
+
+To learn more about dataset annotation in Fides see the [Dataset Annotation in Fides](#LINK) guide.
+
+## Usage
+Usage: ```fides push [options]```
+
+The command will first evaluate all local system and dataset YAML documents in the working directory and then persist any changes to the Fides Server.
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Only validate the syntax of system and dataset YAML but prevent persistence of any changes on the Server.
+* <span class="nx-absolute -nx-mt-20" id="diff"></span>[```-diff```](#diff) - Output any changes between server and local resources as part of the command output response.
+
+
+## Example: No options provided
+This example validates all systems and datasets in the ```.fides``` working directory and pushes them to the Fides server.
+
+```console
+$ fides push
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing system resource(s)...
+PUSHED 4 system resource(s).
+----------
+Processing dataset resource(s)...
+PUSHED 1 dataset resource(s).
+----------
+```
+
+## Example: Validate resources only and do not persist to server
+This example validates all systems and datasets in the ```.fides``` working directory but does not persist these changes to the Fides Server. This command outputs the changes to the server that would result from a push command without the ```--dry``` option.
+
+```console
+$ fides push --dry
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing system resource(s)...
+WOULD CREATE 19 system resource(s).
+WOULD UPDATE 0 system resource(s).
+----------
+Processing dataset resource(s)...
+WOULD CREATE 0 dataset resource(s).
+WOULD UPDATE 3 dataset resource(s).
+----------
+```
+## Example: Output changes between the server and any local resources
+This example validates all systems and datasets in the ```.fides``` working directory, pushes those changes to the Fides Server and outputs the differences as part of the command output response.
+
+```console
+$ fides push --diff
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing dataset resource(s)...
+
+Updated resource with fides_key: postgres
+{'values_changed': {"root['collections'][0]['fields'][1]['data_categories'][0]": {'new_value': 'user',
+                                                                                  'old_value': 'user.contact.email'}}}
+PUSHED 1 dataset resource(s).
+----------
+Processing system resource(s)...
+PUSHED 4 system resource(s).
+----------
+```

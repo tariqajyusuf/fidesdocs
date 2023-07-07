@@ -1,0 +1,8 @@
+{
+  "saas-connectors": "Third-Party Connections",
+  "saas-config": "SaaS Configuration Reference",
+  "saas-oauth2": "OAuth2 Configuration",
+  "saas-pagination": "Pagination",
+  "saas-postprocessors": "Postprocessing",
+  "example-connectors": "Example Connectors"
+}
