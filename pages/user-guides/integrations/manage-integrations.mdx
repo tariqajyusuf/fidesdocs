@@ -2,33 +2,45 @@ import { Callout } from 'nextra-theme-docs'
 import TutorialKey from 'components/tutorialkey'
 import Screenshot from 'components/screenshot'
 
-# Manage integrations using the UI
-<TutorialKey duration="4" product="Fides" topic="Integrations" video="true" interactive="true"/>
-
 <Callout emoji="ⓘ">Fides recently deprecated the _Connection Manager_ UI. For steps to migrate your connectors to system integrations, please see the [Migrate from the Connection manager section](#migrate-from-the-connection-manager).</Callout>
 
-To integrate with a new system, you must first follow the steps to [add a system to the data map](../tutorials/data-mapping-get-started).
 
-## Integrate with an existing system 
+# Integrations: managing integations
+
+## Introduction
+
+In this guide, you'll learn how to:
+1. [Integrate with existing systems](#integrate-with-existing-systems)
+2. [Enable or disable an integration](#enable-or-disable-an-integration)
+3. [Delete an integration](#delete-an-integration)
+4. [Upload a custom connector template](#upload-a-connector-template)
+
+To learn more about _Integrations_ are and to see which vendors we currently support, please see the [Overview](index).
+
+## Integrate with existing systems
+<Callout emoji="ⓘ">This guide assumes you've already added the systems to your data map that you are integrating with. If this is not the case, please follow the steps in the Data Mapping guide to add these sytems to the Data Map.</Callout>
 
 To integrate with a system that's already in your data map:
 
-1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
-2. Click on the **Integrations** tab.
-3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
-4. Complete the required fields for the integration and click **Save**. 
-
-You may confirm your connection is working using the **Test connection** button, if desired.
-
-[video of action]
-
-Details about each field in the template are available in the vendor guides:
+### 1. Collect the information that you will need to connect to the system
+For each vendor, you'll need to provide unique connection credentials. Our vendor guides, outline the information you need to collect, making it easier to gather the required credentials and set up the connections:
 * [SaaS vendor guides](saas-integrations/saas-configs)
 * [Database vendor guides](databases/db-configs)
 
-Some systems require that you authenticate using OAuth2. Our guide for doing this is _coming soon_ but please reach out in the meantime for assistance.
+### 3. Configure the connection information and test the integration
 
-If you are working with a database, you will need to configure a dataset. To learn more, please see our guide for [Managing datasets](databases/datasets).
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to integrate with.
+2. Click on the **Integrations** tab.
+3. Select the appropriate vendor from the **Connection type** drop-down menu.
+4. Enter the information collected in Step 3 and click **Save**. 
+5. Test the integration using the **Test connection** button, if desired.
+
+![Integrate with system](../../../public/assets/img/integrations/manage-integrations.gif)
+
+<Callout emoji="ⓘ">Some systems require that you authenticate using OAuth2. Our guide for doing this is _coming soon_ but please reach out in the meantime for assistance.</Callout>
+
+### 4. Configure the dataset
+If you are connecting to a database, you will need to create a dataset in order to process Data Subject Requests (DSRs).  For detailed steps, please see our guide for [Managing datasets using the UI](manage-datasets).
 
 ## Enable or disable an integration
 _Coming soon!_ 
@@ -36,23 +48,27 @@ _Coming soon!_
 ## Delete an integration
 To delete an integration:
 
-1. Navigate to **Data map** → **View Systems** and choose the system that you want to delete the integration from. 
+1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to delete the integration from. 
 2. Click on the **Integrations** tab.
 3. Scroll to the bottom of the form and click **Delete**.
 
-[video of action]
+![Delete integration](../../../public/assets/img/integrations/delete-integrations.gif)
 
-## Upload a connector template
+## Upload a custom template
 
-To add a new custom integration, use the **Upload connector** button. This will open a modal where you can upload a custom connector template in the form of a _Zip_ file:
+To add a new custom integration:
+1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
+2. Click on the **Integrations** tab.
+3. Click on the **Upload connector** button.
+4. Upload the custom template, in the form of a _Zip_ file, using the resulting modal.
 
-[video of action]
+![Upload integration](../../../public/assets/img/integrations/upload-integrations.gif)
 
-Steps for creating a custom config can be found in the [Custom connector templates](saas-integrations/custom-config/custom-template) guide.
+Steps for creating a custom config are _coming soon_!
 
 ## Migrate from the Connection manager
 
-Fides recently moved from supporting standalone connectors to treating connectors as System Integrations. To ease the migration to the new system, the **Connection manager** UI will remain accessible as long as there are unlinked connectors available. 
+Fides recently moved from supporting standalone connectors to System-based Integrations. To ease the migration to the new system, the **Connection manager** UI will remain accessible as long as there are unlinked connectors available. 
 
 To link a connector to a system:
 
@@ -63,7 +79,7 @@ To link a connector to a system:
 5. Click **Link connector**
 6. Click **Save**
 
-[video of action]
+![Link integration](../../../public/assets/img/integrations/link-integrations.gif)
 
 This connector will no longer appear in the **Connection manager** UI. 
 
