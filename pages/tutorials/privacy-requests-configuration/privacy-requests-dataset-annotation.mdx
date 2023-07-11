@@ -4,19 +4,198 @@ import TutorialKey from 'components/tutorialkey'
 
 # Privacy Requests: Annotating Datasets
 
-<TutorialKey duration="4" product="Fides" topic="Privacy Requests" interactive="true"/>
+<TutorialKey duration="20" product="Fides" topic="Privacy Requests" interactive="true"/>
 
 ## Introduction
+
 In this tutorial you'll learn about...
 
 ## Prerequisites
 
 For this tutorial you will need:
 
-* A Fides Cloud or Fides Enterprise account
+- A Fides Cloud or Fides Enterprise account
+- Credentials to connect to your database of choice
 
 You should also be familiar with the basics of [Fides Control](#LINK) and [datasets in Fides](#LINK).
 
 ## Creating a Dataset
 
-...
+To work with a `Dataset`, we first need to generate one. The best way to do this is to navigate to **Data map** → **Manage Datasets** and choose **Create new dataset**.
+
+### YAML vs Database Connection
+
+While a `Fideslang` compliant YAML can be uploaded directly that represents your database, for this tutorial we are going to generate the `Dataset` by choosing to **Connect to a database**.
+
+At this point we will require the credentials for the database, building a connection string to generate the Dataset. Each string will be dialect specific, as notated at [Link to docs](#LINK)
+
+- Postgres example: `postgresql://<user>:<password>@<hostname>:<port>/<database>`
+- Snowflake example: `snowflake://<user>:<password>@<account_identifier>/<database>`
+
+We can paste that connection string directly into the provided field, and then click **Generate dataset**.
+
+> **Note:** Fidesplus users can also take advantage of our ML Classifier, which will be toggled on by default if available for your account.
+
+### Annotating your Dataset
+
+We have now successfully generated a dataset from our database! This should contain a Dataset per schema found within your database.
+
+The dropdown will allow you to flip between `Collections` and annotate their `Fields`
+
+Detail out the steps to annotate a datasets
+
+### Adding the metadata required to process a DSR
+
+Now that we have a fully annotated `Dataset`, the last step concerns providing the necessary metadata for `Fides` to generate a valid DAG to execute queries against your Dataset with.
+
+This step currently involves editing YAML, and may best be served by the Data or Engineering team representatives.
+
+The best way to do this today, is via the CLI. To get started, create a virtual environment and install your version of `ethyca-fides` using the [Local install instructions](#LINK)
+
+#### Pull the generated Dataset locally
+
+Now that we have Fides installed, our first task will be to have the Dataset available locally.
+We can create a `.fides` directory and configure our connection to the server.
+
+Replace `<your_host_url>` with the base url from your deployment.
+
+```bash
+$ mkdir .fides
+$ cat > .fides/fides.toml << EOF
+[cli]
+server_host = "<your_host_url>"
+server_port = 443
+server_protocol = "https"
+EOF
+```
+
+Verify the cli is configured properly
+
+```bash
+$ fides status
+```
+
+```bash
+> Loaded config from: .fides/fides.toml
+Getting server status...
+Server is reachable and the client/server application versions match.
+```
+
+then login to the CLI, using your username and password for the UI
+
+```bash
+$ fides login
+```
+
+For the next step, we want to populate a YAML using the fides_key of the dataset we want to provide metadata for.
+
+#TODO clean this up
+Replace `<dataset_fides_key>` with the Dataset fides_key found in the UI
+
+```bash
+$ cat > .fides/<your_dataset>.yaml << EOF
+dataset:
+  - fides_key: <your_dataset>
+    collections: []
+EOF
+```
+
+Then we can pull the fully populated generated dataset from the server to manipulate locally using the `pull` command
+
+```bash
+$ fides pull
+```
+
+#### Adding required metadata
+
+To illustrate the required metadata for a Dataset, we are going to use a slimmed down example that contains two collections.
+
+A `user` table, and an `address` table. The minimal annotated YAML for this looks like
+
+```yaml
+dataset:
+  - fides_key: sample_dataset
+    collections: [
+    - name: user
+      fields:
+      - name: id
+        data_categories:
+        - system.operations
+      - name: email
+        data_categories:
+        - user.contact.email
+      - name: first_name
+        data_categories:
+        - user.name
+      - name: last_name
+        data_categories:
+        - user.name
+    - name: address
+      fields:
+      - name: id
+        data_categories:
+        - system.operations
+      - name: user_id
+        data_categories:
+        - system.operations
+      - name: street
+        data_categories:
+        - user.contact.address.street
+      - name: city
+        data_categories:
+        - user.contact.address.city
+      - name: state
+        data_categories:
+        - user.contact.address.state
+      - name: zip_code
+        data_categories:
+        - user.contact.address.postal_code
+    ]
+```
+
+The starting off point for adding required metadata will be the identity marker. In our sample dataset, this will be email which is found in the `user` Collection.
+
+```yaml
+dataset:
+  - fides_key: sample_dataset
+    collections: [
+    - name: user
+      fields:
+      ...
+      - name: email
+        data_categories:
+        - user.contact.email
+        fides_meta:
+          identity: email
+      ...
+```
+
+Just like that, we provided the necessary metadata to perform access and erasure requests on our user collection!
+However, if we wanted to validate our Dataset we would still get a traversal error. This is because there is no identity for us to use in the `address` collection, but we do have a `user_id` in there to reference. Let's add it!
+
+```yaml
+dataset:
+  - fides_key: sample_dataset
+    collections: [
+    - name: user
+      fields:
+      - name: id
+        data_categories:
+        - system.operations
+      ...
+    - name: address
+      fields:
+      ...
+      - name: user_id
+        data_categories:
+        - system.operations
+        fides_meta:
+          references:
+          - dataset: sample_dataset
+            field: user.id
+            direction: from
+      ...
+    ]
+```
+
+Now testing the Dataset validity again will pass, and we are ready to process a DSR against the Dataset!
