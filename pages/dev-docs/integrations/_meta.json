@@ -1,4 +1,5 @@
 {
+  "index": "Overview",
   "saas-integrations": "Third-Party Integrations",
-  "databases": "Database Integrations"
+  "database-integrations": "Database Integrations"
 }

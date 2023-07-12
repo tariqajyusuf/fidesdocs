@@ -1,0 +1,35 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Google BigQuery
+[Google BigQuery](https://cloud.google.com/bigquery/) is a fully managed, highly scalable, and serverless data warehouse and analytics platform that enables organizations to store, query, and analyze massive amounts of data with ease.
+
+## Prerequisites
+In order to integrate with Google BigQuery, you'll need to download or copy a `Service Account Key` file. 
+
+To find this file, please:
+1. Log into the [Google Cloud Console](https://console.cloud.google.com/).
+2. Navigate to `IAM & Admin` → `Service Accounts` and locate an account with appropriate permissions.
+3. In the `Actions` column for the account, click on the three dots icon (⋮) and select `Manage keys`.
+4. Create a new key (JSON) for use with Fides and the key file will be downloaded to your computer.
+5. Open the file and copy the contents to paste into the integration form.
+
+
+## Integrating with Google BigQuery
+To integrate an existing system with Google BigQuery: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Configuring a dataset
+A dataset is required to configure an integration to this database. A dataset is a configuration file that tell Fides how to query and update data in the database. To learn more about how to create and manage datasets, please see our [Managing datasets](user-guides/integrations/manage-datasets) guide.
+
+An example BigQuery dataset can be viewed in [Github](https://github.com/ethyca/fides/blob/main/data/dataset/bigquery_example_test_dataset.yml).
+
+
+

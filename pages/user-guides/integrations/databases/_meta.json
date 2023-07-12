@@ -1,0 +1,12 @@
+{
+    "dynamodb":"Amazon DynamoDB",
+    "redshift": "Amazon Redshift",
+    "bigquery":"Google BigQuery",
+    "mariadb": "MariaDB",
+    "mongodb": "MongoDB",
+    "mssql": "Microsoft SQL Server",
+    "mysql": "MySQL",
+    "postgresql": "PostgreSQL",
+    "snowflake": "Snowflake"
+  }
+  
