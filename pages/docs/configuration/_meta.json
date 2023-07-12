@@ -1,9 +1,0 @@
-{
-    "oauth": "Authenticating with OAuth",
-    "messaging": "Messaging & Notifications",
-    "storage-destinations": "Storage Destinations",
-    "reporting": "Reporting",
-    "deployment": "Deploying Fides to Production",
-    "security-practices": "Security Best Practices",
-    "configuration": "Configuration Variables"
-}

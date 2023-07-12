@@ -1,0 +1,31 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Amazon DynamoDB
+[Amazon DynamoDB](https://www.amazonaws.cn/en/dynamodb/) is a fully managed NoSQL database service provided by Amazon Web Services (AWS) that touts seamless scalability, high availability, and low latency for handling large amounts of structured and semi-structured data.
+
+## Prerequisites
+In order to integrate with DynamoDB, you'll need to collect the following information: 
+
+- `Region name`: The AWS region where your DynamoDB table is located (ex. us-west-2). This is visible when logging into the [AWS Management Console](https://console.aws.amazon.com/).
+- `Access Key` & `Access Key ID`: The credentials that provide access to your AWS account. These can be found or created in a IAM user's `Security credentials` tab. 
+
+
+## Integrating with Amazon DynamoDB
+To integrate an existing system with DynamoDB: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Configuring a dataset
+A dataset is required to configure an integration to this database. A dataset is a configuration file that tell Fides how to query and update data in the database. To learn more about how to create and manage datasets, please see our [Managing datasets](/user-guides/integrations/manage-datasets) guide.
+
+An example DynamoDB dataset can be viewed in [Github](https://github.com/ethyca/fides/blob/main/data/dataset/dynamodb_example_test_dataset.yml).
+
+
+
