@@ -2,7 +2,7 @@
 
 Along with the default masking engine provided by the open source edition, Fides for Enterprise customers enables NLP and regex-powered masking strategies to safeguard data at scale. These masking strategy can be used on their own or combined to identify and replace personal information in free-text fields. 
 
-The available Enterprise masking strategies are an extension of the open source masking engine. Read about [Fides masking strategies](/docs/privacy-requests/privacy-request-masking-strategies) here.
+The available Enterprise masking strategies are an extension of the open source masking engine. Read about [Fides masking strategies](/dev-docs/configuration/privacy-requests/masking-strategies) here.
 
 ## NLP data masking
 
@@ -41,7 +41,7 @@ Successful calls to `/mask` will return a version of the input with the masked v
 
 | Attribute | Description |
 | --- | -------- |
-| `strategy` | Set to `nlp` to use the natural language processing engine. Read about [Fides masking strategies](/docs/privacy-requests/privacy-request-masking-strategies) here.
+| `strategy` | Set to `nlp` to use the natural language processing engine. Read about [Fides masking strategies](/dev-docs/configuration/privacy-requests/masking-strategies) here.
 | `configuration` |
 |  `multilingual` | _(Optional.)_ `bool` that specifies whether the input text is English-only (`false`), or contains other languages (`true`). Default is `false`, or English-only. _Note: If the input text is known to be English, this flag should be set to false for optimal performance._ Supported languages are listed in the [supported languages](#supported-languages) section below. |
 | `accuracy_mode` | _(Optional.)_ `str` that specifies which of the NLP service's accuracy modes to use when processing the input text. Supported modes are `fast`, `standard`, `standard_high` and `high`. See [accuracy modes](#accuracy-modes) below. |
@@ -111,7 +111,7 @@ Fides supports defining your regex_replace configuration as YAML. For more infor
 
 | Attribute | Description |
 | --- | -------- |
-| `strategy` | Set to `regex_replace` to use the regular expression masking strategy.  Read about [Fides masking strategies](/docs/privacy-requests/privacy-request-masking-strategies) here.
+| `strategy` | Set to `regex_replace` to use the regular expression masking strategy.  Read about [Fides masking strategies](/dev-docs/configuration/privacy-requests/masking-strategies) here.
 | `configuration` | 
 | `log_results` | _(Optional.)_ `bool` that specifies whether the masking agent should log the de-identification results that are obtained from the regex service. Fides will log regular expression replacement text when patterns are matched, when the entire value is replaced due to low language confidence, and when the entire is replaced because regular expressions are not defined for the identified language. Default is `true`. |
 | `default_mask` | _(Optional.)_ The string that will automatically replace the entire value when the language is identified with low confidence, and when regular expressions are not configured for that language. Default is `MASKED`. |

@@ -107,13 +107,13 @@ The following step-by-step implementation will use the cookieKeys created during
 
 2. Select **Data Layer Variable** (beneath Page Variables) as the type:
 
-![Page Variables](../../../public/assets/img/google_tag_manager/image6.png)
+![Page Variables](/assets/img/google_tag_manager/image6.png)
 
 3. Set the **Data Layer Variable Name** to the corresponding `consentKey` configured in your Privacy Center (Fides.consent.data_sales in this guide’s examples).
 
 4. Give the variable a suitable, identifiable name, such as Fides.DataSalesSharing, as in the example below:
 
-![Data Layer](../../../public/assets/img/google_tag_manager/image4.png)
+![Data Layer](/assets/img/google_tag_manager/image4.png)
 
 ### Configure a Trigger Tag for consent
 Many third-party tools rely on you to correctly configure their tags to fire depending on user consent. A single consent trigger tag ensures that a third-party tag only fires when a user’s consent is appropriately set.
@@ -122,7 +122,7 @@ Many third-party tools rely on you to correctly configure their tags to fire dep
 
 2. Select the appropriate tag type (e.g. Page View):
 
-![Trigger Type](../../../public/assets/img/google_tag_manager/image8.png)
+![Trigger Type](/assets/img/google_tag_manager/image8.png)
 
 
 <Callout> Ensure you use the appropriate trigger type for your tag. If your primary firing trigger is Page View based, use the **Page View** exception trigger. If your primary firing trigger is Custom Event based, use the **Custom Event** exception trigger.</Callout>
@@ -136,7 +136,7 @@ Many third-party tools rely on you to correctly configure their tags to fire dep
     * The **evaluation** to `equals`
     * The **value** to `false`
 
-![Trigger Settings](../../../public/assets/img/google_tag_manager/image9.png)
+![Trigger Settings](/assets/img/google_tag_manager/image9.png)
 
 This new trigger event can now be added to your tags, and will ensure the tag is suppressed where the user has opted out (e.g. when a user’s consent preference has set **DataSalesSharing** to false.)
 
@@ -149,15 +149,15 @@ To suppress tags from firing where user consent has not been given, you can add 
 
 2. Under **Triggering** you can add, remove or combine triggers. In this case, you are adding an _exception_ that will suppress firing where you do not have consent. Select **Add Exception** to add your newly created trigger.
 
-![Add Exception](../../../public/assets/img/google_tag_manager/image7.png)
+![Add Exception](/assets/img/google_tag_manager/image7.png)
 
 3. Select the consent trigger created earlier (e.g. Fides.DataSales.Consent), which will add it as an exception to your tag:
 
-![Choose a Trigger](../../../public/assets/img/google_tag_manager/image1.png)
+![Choose a Trigger](/assets/img/google_tag_manager/image1.png)
 
 You should now see your trigger listed in your tag as an Exception. If configured according to this guide, this tag will no longer fire if a user has opted out of Data Sales. 
 
-![Choose a Trigger](../../../public/assets/img/google_tag_manager/image5.png)
+![Choose a Trigger](/assets/img/google_tag_manager/image5.png)
 
 You can now repeat this on any tag in your GTM container.
 
@@ -167,7 +167,7 @@ Meta's implementation of data sales is unique to their platform, and requires sp
 
 To implement the Limited Data Use flag, the following modifications to your pixel are required:
 
-![Pixel Edits](../../../public/assets/img/google_tag_manager/image10.png)
+![Pixel Edits](/assets/img/google_tag_manager/image10.png)
 
 1. Add the line below _before_ `fbq('init', '00000000000');`
 
@@ -189,7 +189,7 @@ In order to configure Google's Restricted Data Processing flag, minor updates ar
 
 2. In the drop-down list labeled "Enable Restricted Data Processing", select the appropriate variable that you created [at the start](#set-up-a-gtm-variable) (e.g. Fides.DataSaleSharing).
 
-![Restricted Data Processing](../../../public/assets/img/google_tag_manager/image11.png)
+![Restricted Data Processing](/assets/img/google_tag_manager/image11.png)
 
 
 3. Save your changes, and repeat for any other Google Adsense (or similar Google integrations) that allow for restricted data processing options.

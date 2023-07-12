@@ -1,0 +1,44 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Integrations
+In this section, we will explore _Integrations_ which are an essential elements of data mapping required to process Data Subject Requests (DSRs) and more!
+
+## What is an integration?
+
+An _Integration_ connects Fides to your [databases](databases) and [third-party SaaS applications](saas-integrations), allowing Fides to execute privacy requests against all data in your organization.
+
+Currently, Fides offers supported integrations for commonly used databases such as PostreSQL, BigQuery, and Snowflake, as well as popular SaaS applications including Adobe Campaign and Google Analytics, among many others! To view the list of currently supported vendors, please refer to the [Supported integrations](#supported_integrations)section below.
+
+We're constantly adding new integrations and you can request additional integrations from your customer support team!
+
+
+## How to manage integrations
+This guide will get you started quickly with integrating your systems:
+
+### 1. Identify the system you want to integrate with
+We support many common [databases](./integrations/databases) and [third-party SaaS applications](./integrations/saas-integrations) and we're always adding more! 
+If you don't see the vendor that you need, you can request additional integrations from your customer support team or, even, build a custom integration (tutorial coming soon!). 
+
+### 2. Collect the information that you will need to connect to the system
+For each vendor, you'll need to provide unique connection credentials. Our vendor guides, linked below, outline the information you need to collect, making it easier to gather the required credentials and set up the connections.
+
+### 3. Configure the connection information and test the integration
+We recommend using the UI to fill in the connection information you collected in Step 3 and test the integration. For detailed steps, please see our guide for [Managing integrations using the UI](manage-integrations).
+
+### 4. Configure the dataset
+If you are connecting to a database, you will need to create a dataset in order to process Data Subject Requests (DSRs).  For detailed steps, please see our guide for [Managing datasets using the UI](manage-datasets).
+
+
+## Supported integrations
+
+### Supported databases
+
+| ------------ | ------------ | ------------ | 
+| ------------ | ------------ | ------------ | 
+| [Amazon DynamoDB](databases/dynamodb) | [Amazon Redshift](databases/redshift) | [Google BigQuery](databases/bigquery) | 
+| [MariaDB](databases/mariadb) | [MongoDB](databases/mongodb) | [Microsoft SQL Server](databases/mssql) | 
+| [MySQL](databases/mysql) | [PostgreSQL](databases/postgresql) | [Redshift](databases/redshift) |
+| [Snowflake](databases/snowflake) | 
+
+### Supported SaaS applications
+Coming soon!

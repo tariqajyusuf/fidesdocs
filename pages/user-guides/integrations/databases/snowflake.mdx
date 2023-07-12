@@ -1,0 +1,37 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Snowflake 
+[Snowflake](https://www.snowflake.com/en/) is a cloud-based data platform that provides a highly scalable and fully managed solution for storing, processing, and analyzing large volumes of structured and semi-structured data.
+
+## Prerequisites
+In order to integrate with Snowflake, you'll need to collect the following information from the database adminstrator:
+- `Account name`: The unique identifier for your Snowflake account.
+- `Username`: The username for your Snowflake account.
+- `Password`: The password associated with the Snowflake account user.
+
+
+You may optionally configure the following information:
+- `Warehouse`: The name of the Snowflake warehouse where your queries will be executed. If not provided, Snowflake will use the default warehouse.
+- `Database`: The name of the Snowflake database you want to connect to. If not specified, Snowflake will use the default database.
+- `Schema`: The name of the Snowflake schema within the selected database. If not provided, the default schema will be used.
+- `Role`: The Snowflake role to assume for the session. If not specified, the default role for the user will be used.
+
+
+## Integrating with Snowflake
+To integrate an existing system with Snowflake: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Configuring a dataset
+A dataset is required to configure an integration to this database. A dataset is a configuration file that tell Fides how to query and update data in the database. To learn more about how to create and manage datasets, please see our [Managing datasets](/user-guides/integrations/manage-datasets) guide.
+
+An example Snowflake dataset can be viewed in [Github](https://github.com/ethyca/fides/blob/main/data/dataset/snowflake_example_test_dataset.yml)
+
+

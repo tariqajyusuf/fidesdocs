@@ -1,9 +1,13 @@
 {
 "index":"Fides",
-"docs": {
- "title": "Documentation",
- "href": "/docs"
+"user-guides": {
+ "title": "User Guides",
+ "href": "/user-guides"
 },
+"dev-docs": {
+  "title": "Developer Docs",
+  "href": "/dev-docs"
+ },
 "tutorials": {
   "title": "Tutorials",
   "href": "/tutorials"
@@ -43,26 +47,31 @@
   "title": "About Ethyca",
   "href": "/ethyca"
 },
-"main-index": {
-  "href":"/",
-  "title": "Fides",
-  "type": "page"
-  },
-"main-docs": {
-  "title": "Documentation",
+"main-user-guides": {
+  "title": "User Guides",
   "type": "menu",
   "items": {
     "docs-quickstart": {
       "title": "Quickstart Guide",
-      "href": "/docs/get-started/quickstart"
+      "href": "/user-guides/get-started/quickstart"
+    }
+  }
+},
+"main-dev-docs": {
+  "title": "Developer Docs",
+  "type": "menu",
+  "items": {
+    "docs-quickstart": {
+      "title": "Quickstart Guide",
+      "href": "/dev-docs/get-started"
     },
     "docs-cli": {
       "title": "Fides CLI",
-      "href": "/docs/cli"
+      "href": "/dev-docs/cli"
     },
     "docs-config": {
       "title": "Fides Configuration",
-      "href": "/docs/configuration/configuration"
+      "href": "/dev-docs/configuration/configuration"
     }
   }
 },
