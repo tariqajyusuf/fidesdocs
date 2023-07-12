@@ -8,12 +8,23 @@ import { Callout } from 'nextra-theme-docs'
 
 In order to integrate with Adobe Campaign, you'll need to collect the following information:
 
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `Domain`                   | Unique URL used to access your Adobe Campaign instance. |
+| `Organization`             | Organization name in Adobe Campaign. Follow [Adobe's docs to find Organization information](https://experienceleague.adobe.com/docs/core-services/interface/administration/organizations.html). |
+| `Organization ID`          | Organization ID in Adobe Campaign. Follow [Adobe's docs to find Organization information](https://experienceleague.adobe.com/docs/core-services/interface/administration/organizations.html?lang=en#concept_EA8AEE5B02CF46ACBDAD6A8508646255). |
+| `Technical Account ID`     | Technical Account ID provided by your Adobe administrator using [Adobe's guide on tehcnical accounts](https://helpx.adobe.com/sign/using/sign-technical-accounts.html).  |
+| `Client ID`                | OAuth client ID located in Adobe Campaign under **Administration** → **Security** → **OAuth Credentials**. |
+| `Client Secret`            | OAuth secret located in Adobe Campaign under **Administration** → **Security** → **OAuth Credentials**. |
+| `Private Key`              | Personal access key. Read [Adobe's guide on generating GPG keys here](https://experienceleague.adobe.com/docs/control-panel/using/instances-settings/gpg-keys-management.html?lang=en). |
+| `Regulation`               | Legal regulation to apply to request processing. Read [Adobe's guide on request processing here](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en). |
+| `Namespace`                | **[OPTIONAL]** You can specify the schema or partition where personal data resides . |
+
 - `Domain`: The specific URL used to access your organization's Adobe Campaign instance.
 - `Organization` and `Organization ID`: The name & ID of the organization used in Adobe Campaign. This can typically be found by logging into your Adobe Campaign instanece and going to **Administration** → **Platform** and then viewing the **Console** section. 
 - `Technical Account ID`: The account ID that is assigned by Adobe (ex. ***@techacct.adobe.com). This can be found in the **Service Account Integration** section of the [Adobe Developer Console](https://console.adobe.io).
 - Client ID` & `Client Secret`: The credentials used for OAuth 2.0 authentiation. These can be in the **Administration** → **Security** → **OAuth Credentials** section of your Adobe Campaign instance.
-- `Private Key`: The personal access key used to encrypt and decrypt data in transit. A key may be generated using the *GPG Keys* tab of the Adobe Campaign instance.
-- `Regulation`: The regulation to apply for request processing where the options are GDPR, CCPA, PDPA, and LGPD. To learn more about activating these regulations please see the [Adobe Docs](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en).
 
 You may optionally configure the following information:
 - `Namespace`: the schema or partition in the data where the personal data resides.
