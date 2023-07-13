@@ -70,7 +70,7 @@ For security reasons, sensitive configuration values will not be shown here.
 
 ## Configuration File Example as of v2.6.6
 
-```toml title="fides.toml"
+```toml filename="fides.toml"
 [admin_ui]
 enabled = true
 
@@ -162,6 +162,7 @@ encryption_key = "test_encryption_key"
 
 ### Application Database
 
+Environment variable prefix: `FIDES__DATABASE__`
 | Name                       | Type   | Default    | Description                                                                                                                             |
 | :------------------------- | :----- | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 | `user`                     | String | `postgres` | The database user with which to login to the application database.                                                                      |
@@ -177,6 +178,7 @@ encryption_key = "test_encryption_key"
 
 ### Redis cache
 
+Environment variable prefix: `FIDES__REDIS__`
 | Name                  | Type   | Default  | Description                                                                                                                                                                           |
 | :-------------------- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `host`                | string | N/A      | The network address for the application Redis cache.                                                                                                                                  |
@@ -192,6 +194,7 @@ encryption_key = "test_encryption_key"
 
 ### Logging
 
+Environment variable prefix: `FIDES__LOGGING__`
 | Name            | Type          | Default | Description                                                                                                                                                                |
 | :-------------- | :------------ | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `destination`   | String        | `""`    | The output location for log files. Accepts any valid file path. If left unset, log entries are printed to `stdout` and log files are not produced.                         |
@@ -201,6 +204,7 @@ encryption_key = "test_encryption_key"
 
 ### CLI
 
+Environment variable prefix: `FIDES__CLI__`
 | Name              | Type    | Default     | Description                                                                                                          |
 | :---------------- | :------ | :---------- | :------------------------------------------------------------------------------------------------------------------- |
 | `local_mode`      | Boolean | `False`     | When set to `True`, forbids the Fides CLI from making calls to the Fides webserver.                                  |
@@ -211,6 +215,7 @@ encryption_key = "test_encryption_key"
 
 ### Security
 
+Environment variable prefix: `FIDES__SECURITY__`
 | Name                                        | Type                 | Default              | Description                                                                                                                                                                                                                                                         |
 | :------------------------------------------ | :------------------- | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `app_encryption_key`                        | string               | N/A                  | The key used to sign Fides API access tokens.                                                                                                                                                                                                                       |
@@ -230,6 +235,7 @@ encryption_key = "test_encryption_key"
 
 ### Execution
 
+Environment variable prefix: `FIDES__EXECUTION__`
 | Name                                     | Type | Default | Description                                                                                                                                                                                                                                   |
 | :--------------------------------------- | :--- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `privacy_request_delay_timeout`          | int  | `3600`  | The amount of time to wait for actions which delay privacy requests (e.g., pre- and post-processing webhooks).                                                                                                                                |
@@ -242,12 +248,15 @@ encryption_key = "test_encryption_key"
 
 ### User
 
+Environment variable prefix: `FIDES__USER__`
 | Name                | Type    | Default               | Description                                                                                                    |
 | :------------------ | :------ | :-------------------- | :------------------------------------------------------------------------------------------------------------- |
 | `encryption_key`    | String  | `test_encryption_key` | An arbitrary string used to encrypt the user data stored in the database. Encryption is implemented using PGP. |
 | `analytics_opt_out` | Boolean | `""`                  | When set to `true`, prevents sending anonymous analytics data to Ethyca.                                       |
 
 ### Credentials
+
+Environment variable prefix: `FIDES__CREDENTIALS__`
 
 The credentials section uses custom keys which can be referenced in specific commands that take the `--credentials-id` option.
 For example, a command that uses a credential might look like `fides scan dataset db --credentials-id app_postgres`.
@@ -267,12 +276,14 @@ The following is an example of what a credentials section might look like in a g
 
 ### Admin UI
 
+Environment variable prefix: `FIDES__ADMIN_UI__`
 | Name      | Type | Default | Description                                     |
 | --------- | ---- | ------- | ----------------------------------------------- |
 | `enabled` | bool | `True`  | Toggle whether the Admin UI is served from `/`. |
 
 ### Notifications
 
+Environment variable prefix: `FIDES__NOTIFICATIONS__`
 | Name                                   | Type   | Default | Description                                                                                                        |
 | :------------------------------------- | :----- | :------ | :----------------------------------------------------------------------------------------------------------------- |
 | `send_request_completion_notification` | bool   | `False` | When set to `True`, enables subject notifications upon privacy request completion.                                 |
