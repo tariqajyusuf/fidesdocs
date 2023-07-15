@@ -1,23 +1,28 @@
 
 import { Callout } from 'nextra-theme-docs'
 
-# Adobe Campaign
+## Integrating with Adobe Campaign
 [Adobe Campaign](https://business.adobe.com/products/campaign/adobe-campaign.html) is a marketing automation platform offered by Adobe Systems that helps businesses and organizations manage and execute multi-channel marketing campaigns. 
 
-## Prerequisites
+An _Integration_ connects Fides to your [databases](databases) and [third-party SaaS applications](saas-integrations), allowing Fides to execute privacy requests against all data in your organization.
 
-In order to integrate with Adobe Campaign, you'll need to collect the following information:
+### Prerequisites
 
-- `Organization ID`: The ID assigned to your organization's Adobe Campaign instance. This can typically be found by logging into your Adobe Campaign instanece and going to **Administration** → **Platform** and then viewing the **Console** section. 
-- `Technical Account ID`: The technical account ID given to you by Adobe (ex. ***@techacct.adobe.com). This can be found in the **Service Account Integration** section of the [Adobe Developer Console](https://console.adobe.io).
-- The `Client ID` & `Client Secret` used for OAuth 2.0 authentiation. These can typically be found by logging into your Adobe Campaign instanece and going to **Administration** → **Security** → **OAuth Credentials**.
+In order to integrate with Adobe Campaign, you'll need to collect the following required information:
 
-You may optionally configure the following information:
-- `Namespace`: the schema or partition in the data where the personal data resides.
-- `Regulation`: this sets the regulation that will apply for request processing and the options are GDPR, CCPA, PDPA, and LGPD. To learn more about activating these regulations please see the [Adobe Docs](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en).
+| Information | Description | Where to find it |
+|----|----|----|
+| `Organization ID` | The ID assigned to your organization's Adobe Campaign instance. | This can be found by logging into your Adobe Campaign instance and going to: **Administration** → **Platform** and then viewing the **Console** section. |
+| `Technical Account ID` | The ID assigned to your organization's Adobe Campaign instance. | This can be found in the **Service Account Integration** section of the [Adobe Developer Console](https://console.adobe.io). |
+| `Client ID` & `Client Secret` | The Credentials used for OAuth 2.0 authentiation. | These can be found by logging into your Adobe Campaign instanece and going to **Administration** → **Security** → **OAuth Credentials**. |
 
 
-## Integrating with Adobe Campaign
+| Information | Description | Where to find it |
+|----|----|----|
+| `Namespace` | The schema or partition in which the data where the personal data resides. |  This can be found by logging into your Adobe Campaign instance and looking at the organization details. | 
+| `Regulation` | The regulation that will apply for request processing and the options are `GDPR`, `CCPA`, `PDPA`, and `LGPD`. | To learn more about activating these regulations please see the [Adobe Docs](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en).| 
+ 
+### Integration
 To integrate an existing system with Adobe Campaign: 
 
 1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect to
@@ -36,7 +41,7 @@ Fides utilizes _API endpoints_ to access the _API service_ for a SaaS applicatio
 ### Adobe Campaign Endpoints
 Below, you will find a description of the supported endpoints and their corresponding support for privacy functions.
 
-|Endpoint | Right to Access | Right to Delete |
+| Endpoint | Right to Access | Right to Delete |
 |----|----|----|
 |[Profile](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Yes | Yes |
 |[History](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Yes | Yes |
