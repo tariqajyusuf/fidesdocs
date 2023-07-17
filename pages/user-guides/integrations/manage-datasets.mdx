@@ -1,0 +1,39 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Datasets 
+
+In this section, we will explore _Datasets_ which are an essential component for integrating with datastores like [databases](databases). 
+
+## What is a dataset?
+
+A _Dataset_ is a configuration file that you provide when integrating with a database that defines how Fides should interact with your data. 
+
+Within this configuration file, the following pieces of critical information are defined:
+
+- `Table or collection schemas`: the list of fields inside tables or collections that exist within the database so that Fides can construct the appropriate queries for DSR privacy request execution.
+- `Relationship mappings`:  so that Fides knows how to traverse the data and fulfill privacy requests
+- `Advanced configuration parameters`: metadata that allows you to fine-tune your organizations's DSR privacy request execution.
+
+## How to manage a dataset in the UI
+
+Datasets are required when creating an integration to a system in your data map. Datasets can be linked to database integrations in a few ways:
+
+### 1. Creating a new dataset using the dataset editor
+
+When creating a new [database integration](manage-integrations#3-configure-the-connection-information-and-test-the-integration), you may create a new dataset using our _dataset editor_ by:
+1. Clicking on the editor icon.
+2. Pasting or typing in the YAML configuration.
+
+![Create a dataset](/assets/img/integrations/create-datasets.gif)
+
+You may edit an existing dataset at any time by returning to the database integation and selecting the dataset editor icon.
+
+
+### 2. Linking an existing dataset to a database integration
+When creating or editing a database integration, you may link the integration to an existing dataset by selecting the appropriate dataset from the drop-down menu.
+
+![Link a dataset](/assets/img/integrations/link-datasets.gif)
+
+<Callout type="info" emoji=""> We will be publishing developer-focused docs for supporting integrations and datasets using the API shortly - stay tuned! </Callout>

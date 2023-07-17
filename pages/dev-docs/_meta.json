@@ -1,8 +1,8 @@
 {
   "index": "Overview",
   "get-started": "Get Started",
+  "integrations": "Integrations",
   "cli": "Fides CLI",
   "configuration": "Fides Configuration",
-  "poc": "Proof of Concept Guides"
-
+  "poc": "Proof of Concept"
 }
