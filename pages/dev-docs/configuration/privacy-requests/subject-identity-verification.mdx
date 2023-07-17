@@ -1,0 +1,44 @@
+# Subject Identity Verification
+When you receive a privacy request, you are responsible for confirming the identity of the subject to ensure that you do not incorrectly disclose data. To verify an identity, you may only request additional information you already retain about the subject. For example, you can't request a copy of a subject's drivers license if you don't already have this information.
+
+Ethyca recommends using multi-factor authentication (MFA) for identify verification and Fides offers built-in subject identity verifiation via MFA.
+
+## Configuring Subject Identity Verification
+To enable Subject Identity Verification, you need to set
+
+1. [Configure a messaging service](#configuring-a-messaging-service)
+2. [Configure Fides to use this service for Subject Identity Verification](#configure-fides)
+
+### Configure a messaging service
+The available messaging services for Subject Identity Verification are:
+* [Mailgun for email](../messaging/mailgun-email)
+* [Twilio for email](../messaging/twilio-email)
+* [Twilio for SMS](../messaging/twilio-sms)
+
+Click on the service you want to configure above to view the setup guide.
+
+
+### Configure Fides 
+Fides needs to be configured to enable Subject Identity Verification and to use the correct messaging service for this purpose. This can be configured using environment variables or the Fides configuration file. 
+
+#### Using the Fides configuration file
+To set this in the Fides Configuration file, please locate the variable within the appropirate `fides.toml` file. To learn more about where to find this file, please see the [Fides Configuration](../configuration) guide.  
+
+The two variables that must be set are:
+
+```console
+[execution]
+subject_identity_verification_required = true
+
+[notifications]
+notification_service_type = "mailgun"
+```
+
+#### Using environment variables
+To configure Subject Identity Verification using Environment variables, please run the following commands from your Fides environment replacing `service` with the correct setting for your environment. The options are: `mailgun`, `twilio_text`, or `twilio_email`
+
+
+```console
+EXPORT FIDES__EXECUTION__SUBJECT_IDENTITY_VERIFICATION_REQUIRED = true
+EXPORT FIDES__NOTIFICATIONS__NOTIFICATION_SERVICE_TYPE = "service"
+```

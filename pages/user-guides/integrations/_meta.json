@@ -1,7 +1,6 @@
 {
   "index": "Overview", 
-  "manage-integrations":"Manage integrations",
-  "manage-datasets":"Manage datasets",
+  "manage-integrations":"Integrating systems",
   "saas-integrations": "SaaS applications",
   "databases":"Databases"
 }

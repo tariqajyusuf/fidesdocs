@@ -1,6 +1,8 @@
 {
     "index": "Overview",
-    "execution": "Privacy Request Excution",
+    "privacy-center": "Privacy Center",
+    "subject-identity-verification": "Subject Identification Verification",
+    "execution": "Privacy Request Execution",
     "graphs": "Privacy Request Graphs",
     "webhooks": "Webhooks for Privacy Requests",
     "manual-requests": "Manual Privacy Requests",

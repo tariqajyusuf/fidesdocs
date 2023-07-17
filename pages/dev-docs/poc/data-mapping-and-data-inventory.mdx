@@ -1,18 +1,18 @@
 # POC: Data Mapping with Fides
-Our POC (proof of concept) guides are intended for enterprise organiations evaluating Fides deployed in their environment and are a helpful way to guide you through deploying and evaluating the world's leading privacy engineering platform.
+Our POC (Proof of Concept) guides are intended for enterprise organiations evaluating Fides deployed in their environment and are a helpful way to guide you through deploying and evaluating the world's leading privacy engineering platform.
 
 ## Prerequisites Guide for AWS Data Mapping and Data Inventory
-Systems and information you'll need when getting started with a Fides POC (Proof of Concept).
+Please follow these guides, in order, for the appropriate environment to get started quickly with your Fides POC (Proof of Concept):
 
 ### In-House Systems
 
 | Step | Description | Notes |
 | --- | --- | --- |
 | AWS Provisioning | Provision AWS Credentials | [AWS Guide to provisioning Access Key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html) |
-| SQL Database Provisioning (Database we will be classifying) | Provision a service account for Database Access | Fides requires read-only permissions for classification. |
+| SQL Database Credential Provisioning | Provision a service account for Database Access | Fides requires read-only permissions for classification. |
 | Kubernetes Deployment (If Self-Deploying) | Access to deploy to AKS | [AWS Guide to setting up Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html) |
 
-### Third Party Systems
+### Third Party SaaS
 
 | Step | Description | Notes |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ Systems and information you'll need when getting started with a Fides POC (Proof
 | Seed Test Data | Evaluator will provision sandbox data in a non-production environment | [Example: Stripe - Generating test data](https://github.com/stripe-samples/test-data)  |
 
 
-## POC Checklist for AWS Data Mapping and Data Inventory
+## POC Checklist for Data Mapping
 ### In-House Systems
 
 | Step | Description | Notes |
@@ -30,8 +30,8 @@ Systems and information you'll need when getting started with a Fides POC (Proof
 | Create a System in Fides and link MySQL Dataset | Linking the dataset to a system. | [Adding Data Uses and Processing Acitivites](https://docs.ethyca.com/tutorials/data-mapping-data-uses) |
 | Visualize Datamap, Filter Data, and Export a Report | See, explore, and understand your Datamap. | [Data Mapping and Report Exporting](https://docs.ethyca.com/tutorials/data-mapping-reports) |
 
-### Third Party Systems
+### Third Party SaaS
 
 | Step | Description | Notes |
 | --- | --- | --- |
-| Integrate Third Party System | Fides will use it's data dictionary to identify PII. | [Example: Stripe - Configuring the integration](http://localhost:3000/docs/connectors/example-connectors/stripe) |
+| Integrate Third Party System | Fides will use it's data dictionary to identify PII. | [Example: Stripe - Configuring the integration](/dev-docs/integrations/saas-integrations/example-configs/stripe) |

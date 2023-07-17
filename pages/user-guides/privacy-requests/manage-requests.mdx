@@ -1,0 +1,102 @@
+
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Managing privacy requests
+Once privacy requests have been [submitted](submit-requests) and [received](receive-requests), they must be reviewed. 
+
+The data subject's location determines the regulation that applies and with it, the time limit for when a privacy request must be completed. This table descibes some of the timeframes for common privacy regulations:
+
+| Regulation                        | Timeframe                     | Extension                             | 
+| :-------------------------------- | :-----------------------------| :------------------------------------	|
+| **GDPR (EEA & UK)**				| 28 days (one calendar month)  | 56 days (three calendar month total)	|
+| **US State Regulations**			| 45 days 						| 45 days (90 days total)				|
+| **LGPD (Brazil)**    				| 15 days						| --									|	
+
+<Callout emoji="" type="info">You may request an extension in some locations, provided you notify the subject promptly of the extension within 28 days (Europe) or within 45 days (USA).</Callout>
+
+### Exceptions
+There are some situations where you may not be able to, or required to, complete a privacy request. It's important to know when these might apply and how to manage them. In each case you should evaluate the circumstances and risks for your specific organization to ensure you're complying at all times.
+
+#### Legal obligation
+There are certain categories of personal data that you may be required to retain in order to fulfill legal or compliance obligations. In such cases, you're permitted to retain that data in the event when an erasure request is received- provided you restrict the use of the data to that purpose.
+
+<Callout emoji="" type="info">
+**Example**: To correctly calculate and file tax liabilities, an e-commerce company, Cookie House, will need to use order history information and the user's location. If the customer makes a subject erasure request to Cookie House, the order history and zip code may be exempt from deletion provided they are used _only_ to file taxes, and not for any other business purpose.
+</Callout>
+
+#### Confidentiality risk
+In circumstances where returning data to a subject might reveal confidential or sensitive information about any organization or another individual, you're not required to return that specific piece of information. 
+
+<Callout emoji="" type="info">
+**Example**: E-commerce company, Cookie House, provides an employment reference in confidence for one of their employees to another company. If the employee makes a subject access request to _either_ company, the reference is exempt from disclosure.
+</Callout>
+
+## Reviewing privacy requests
+
+When privacy requests are received, they're registered in Fides as a _New_ request available to view in the **Request Manager** :
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-admin.gif" description="Fides Control Privacy Request Review Panel" />
+
+A privacy request can be approved or rejected from the **Request Manager** or from the details panel of the privacy request.  
+
+To _approve_ or _reject_ a privacy request: 
+1. Navigate to **Privacy Requests** → **Request Manager** 
+2. Hover over kebab menu `...` for the request and select the appropriate action from the menu.
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-approve.gif" description="Approve Privacy Request" mw="550"/>
+
+If a request has been **approved**, the data subject will be notified by email. If the request is an [_access_](../tutorials/privacy-requests-glossary#access-request) request, the confirmatiom email will include a download link to retrieve a copy of their personal data.
+
+If a privacy request has been **rejected**, the reviwer will be prompted to provide a reason for rejecting the request. This reason is stored in the Fides audit trail for reporting purposes and also communicated to the subject via email.
+
+### Viewing request details
+
+To view the details of a specific privacy request, click the kebab menu `...` and select **View Details**:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-view-details.gif" description="View Privacy Request Details" mw="500"/>
+
+The Privacy Request Details page displays:
+* **Request ID**: The unique ID for the privacy request.
+* **Request Type**: The privacy request type, such as access or erasure.
+* **Policy Key**: The privacy request policy being applied to the privacy request.
+* **Status**: The current status of the privacy request, including a countdown timer by when the request must be completed.
+* **Subject Identities**: The related identifiers for the subject that made the request.
+* **Events Log**: An activity log related to the privacy request.
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-details.gif" description="Privacy Request Details Page"/>
+
+## Exploring the Request Manager
+
+The privacy request admin panel features a set of controls to filter, search, and create reports. 
+
+### Filtering requests
+Privacy requests can be filtered by `status` or `date range`:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-dates.gif" description="Filter Privacy Requests by Date Range" mw="420" />
+
+Each privacy request is assigned a uniquely identifiable **Request ID** and you can search for the request using this ID:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-search.gif" description="Search for Privacy Request by ID" mw="500" />
+
+### Reporting
+To download a report of the currently filtered view of privacy requests click the **Download** button.
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-download.gif" description="Download Privacy Request Report" mw="500" />
+
+
+
+### Revealing personal identifiers
+
+To minimize personal data risks, obfuscates personal identifiers in the UI by default. To reveal personal identifiers, you can toggle the **Reveal PII** switch as shown:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-toggle-pii.gif" description="Toggle on PII" mw="500" />
+
+
+
+
+
+
+
+
+
