@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-
 import { Callout } from 'nextra-theme-docs'
 
 # Adobe Campaign
@@ -11,23 +5,6 @@ import { Callout } from 'nextra-theme-docs'
 
 ## Prerequisites
 
-<<<<<<< Updated upstream
-In order to integrate with Adobe Campaign, you'll need to collect the following information:
-
-
-| Name                       | Description                                                                                                                             |
-| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| `Domain`                   | Unique URL for your Adobe Campaign instance. |
-| `Organization`             | Organization name in Adobe Campaign. Follow Adobe's docs to locate your [Organization information](https://experienceleague.adobe.com/docs/core-services/interface/administration/organizations.html). |
-| `Organization ID`          | Organization ID in Adobe Campaign. Follow Adobe's docs to locate your [Organization information](https://experienceleague.adobe.com/docs/core-services/interface/administration/organizations.html?lang=en#concept_EA8AEE5B02CF46ACBDAD6A8508646255). |
-| `Technical Account ID`     | Technical Account ID provided by your Adobe administrator using Adobe's guide on [technical accounts](https://helpx.adobe.com/sign/using/sign-technical-accounts.html).  |
-| `Client ID`                | OAuth client ID from Adobe Campaign. Follow Adobe's guide for [creating and managing credentials](https://developer.adobe.com/developer-console/docs/guides/credentials/). |
-| `Client Secret`            | OAuth secret from Adobe Campaign. Follow Adobe's guide for [creating and managing credentials](https://developer.adobe.com/developer-console/docs/guides/credentials/). |
-| `Private Key`              | Personal access key. Follow Adobe's guide on [generating GPG keys here](https://experienceleague.adobe.com/docs/control-panel/using/instances-settings/gpg-keys-management.html?lang=en). |
-| `Regulation`               | Legal regulation to apply to request processing. Read Adobe's guide on [privacy management here](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en). |
-| `Namespace`                | You can specify a namespace to target for privacy requests. Watch Adobe's video guide on [creating namespaces for privacy requests](https://experienceleague.adobe.com/docs/campaign-standard-learn/tutorials/privacy/namespaces-for-privacy-requests.html?lang=en). |
-
-=======
 In order to [integrate](../) with Adobe Campaign, you'll need to collect the following information:
 
 | Name                       | Description                                                                                                                             |
@@ -41,7 +18,6 @@ In order to [integrate](../) with Adobe Campaign, you'll need to collect the fol
 | **Private Key***            | A Personal access key. Follow Adobe's guide on [generating GPG keys here](https://experienceleague.adobe.com/docs/control-panel/using/instances-settings/gpg-keys-management.html?lang=en). |
 | **Regulation***             | The legal regulation to apply to request processing. Read Adobe's guide on [privacy management here](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en). |
 | **Namespace***              | You can specify a namespace to target for privacy requests. Watch Adobe's video guide on [creating namespaces for privacy requests](https://experienceleague.adobe.com/docs/campaign-standard-learn/tutorials/privacy/namespaces-for-privacy-requests.html?lang=en). |
->>>>>>> Stashed changes
 
 ## Integrating with Adobe Campaign
 To integrate an existing system with Adobe Campaign: 
@@ -64,22 +40,11 @@ In the table below, you can find which endpoints are used for each type of priva
 
 | Privacy function | Endpoint | Description |
 |----|----|----|
-<<<<<<< Updated upstream
-| Access Requests | [Profile](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to interact with profiles from Campaign database. | 
-| Access Requests | [Marketing History](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to read a profile's marketing history |
-| Update or Delete Requests | [Privacy Tool](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to automate the processing of privacy requests |
-=======
 | **Access Requests** | [Profile](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to interact with profiles from Campaign database. | 
 | **Access Requests** | [Marketing History](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to read a profile's marketing history |
 | **Update or Delete Requests** | [Privacy Tool](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to automate the processing of privacy requests |
->>>>>>> Stashed changes
 
 
 <Callout type="info" emoji="">
 By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
-<<<<<<< Updated upstream
 </Callout>
-=======
-</Callout>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
