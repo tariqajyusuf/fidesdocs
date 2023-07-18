@@ -26,7 +26,7 @@ In order to configure privacy requests using an API, you will need to:
 1. [Gather credentials with the appropriate permissions](#gathering-credentials).
 2. [Generate & annotate a dataset to describe the data store](#generating-datasets) (if the application is a database).
 3. [Configure an integration to the application or database.](#configuring-integrations)
-4. [Review and update the privacy request execution policy](#managing-execution-policies) (if desired).
+4. [Review and update the privacy request execution policy](#managing-policies) (if desired).
 
 ### Gathering credentials
 Fides uses [_Integations_](../integrations) to submit privacy requests to databases and third party SaaS applications. In order to execute the appropriate queries to satisfy privacy requests against a data store, Fides will need credentials for an account with permission to perform these operations.
@@ -44,10 +44,10 @@ In order to generate an actionable dataset, you will need to:
 2. [Annotate the dataset with data categories](../datasets/annotate-datasets#annotating-data-categories)
 3. [Establish which fields contain identities](/datasets/annotate-datasets#annotating-data-categories#adding-an-identity-key)
 
-Once the dataset configuration complete, you can move to the next step and link the dataset to an [_Integation_](../integrations/).
+Once the dataset configuration complete, you can move to the next step and link the dataset to an [_Integation_](/user-guides/integrations/).
 
 ### Configuring integrations
-An [_Integation_](../integrations/) connects Fides to your databases and third-party SaaS applications, allowing Fides to execute privacy requests against all data in your organization. To learn how to configure integrations in Fides, please see our guide for [Integrating systems](../integrations/manage-integrations).
+An [_Integation_](/user-guides/integrations/) connects Fides to your databases and third-party SaaS applications, allowing Fides to execute privacy requests against all data in your organization. To learn how to configure integrations in Fides, please see our guide for [Integrating systems](/user-guides/integrations/manage-integrations).
 
 ### Managing policies
 A privacy request policy is a set of rules that are executed when a _data subject_ submits a privacy request. The policy describes how Fides should return or erase data to satisfy the privacy request.
@@ -92,7 +92,7 @@ To configure Fides to send erasure requests via email, follow these steps:
 ## Manual requests
 Manual privacy requests allow vendors to upload personal data using an API to satisfy [Access](/tutorials/privacy-requests-glossary#access-request) requests. To enable these requests, a `manual process` integration must be configured.
 
-To configure the `manual process` [_integation_](../integrations/):
+To configure the `manual process` [_integation_](/user-guides/integrations/):
 1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
 2. Click on the **Integrations** tab.
 3. Select `Manual process` from the drop-down menu.
@@ -144,7 +144,7 @@ To configure Fides to send erasure requests via email, follow these steps:
 ## Manual requests
 Manual privacy requests allow vendors to upload personal data using the API to satisfy an [_Access_](../../tutorials/privacy-requests-glossary#access-request) request. To enable these requests,`manual process` connection must be created.
 
-To configure the `manual process` [_integation_](../integrations/):
+To configure the `manual process` [_integation_](/user-guides/integrations/):
 1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
 2. Click on the **Integrations** tab.
 3. Select `Manual process` from the drop-down menu.
