@@ -20,6 +20,10 @@
   "title": "Regulations",
   "href": "/regulations"
  },
+ "releases": {
+  "title": "Release Notes",
+  "href": "/releases/"
+ },
  "community": {
   "title": "Community",
   "href": "/community"
@@ -38,10 +42,6 @@
   "title": "Support",
   "href": "https://ethyca.com",
   "newWindow": true
-},
-"releases": {
-  "title": "Releases",
-  "href": "/releases/overview"
 },
 "ethyca": {
   "title": "About Ethyca",
