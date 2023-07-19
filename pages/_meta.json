@@ -51,9 +51,17 @@
   "title": "User Guides",
   "type": "menu",
   "items": {
-    "docs-quickstart": {
-      "title": "Quickstart Guide",
-      "href": "/user-guides/get-started/quickstart"
+    "privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/user-guides/privacy-requests"
+    },
+    "datasets": {
+      "title": "Datasets",
+      "href": "/user-guides/datasets"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "href": "/user-guides/integrations"
     }
   }
 },
