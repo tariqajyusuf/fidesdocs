@@ -1,0 +1,36 @@
+# Mailchimp Transactional
+[Mailchimp Transactional (Mandrill)](https://mailchimp.com/features/transactional-email/) is a transactional email service that sends automated and personalized transactional emails.
+
+## Prerequisites
+
+In order to [integrate](../) with Mailchimp Transactional, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Mailchimp Transactional's API URL (default: mandrillapp.com/api/1.0) |
+| **API Key***               | Your Mailchimp Transactional API Key. Follow Mailchimp's docs to [retrieve your key](https://mailchimp.com/developer/transactional/docs/fundamentals/#authentication). |
+
+## Integrating with Mailchimp Transactional
+To integrate an existing system with Mailchimp Transactional:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Mailchimp Transactional endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Consent Requests** | [Allowlist Additions](https://mailchimp.com/developer/transactional/api/allowlists/add-email-to-allowlist/) | Allows users to receive emails by adding them to the Allowlist |
+| **Consent Requests** | [Allowlist Removals](https://mailchimp.com/developer/transactional/api/allowlists/remove-email-from-allowlist/) | Prevents users from receiving emails by removing them from the Allowlist |
+| **Consent Requests** | [Denylist Additions](https://mailchimp.com/developer/transactional/api/rejects/add-email-to-denylist/) | Prevents users from receiving emails by adding them to the Denylist |

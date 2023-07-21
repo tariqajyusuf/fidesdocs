@@ -1,6 +1,11 @@
 {
     "index": "Overview",
     "adobe-campaign": "Adobe Campaign",
-    "jira": "JIRA"
+    "domo": "Domo",
+    "gorgias": "Gorgias",
+    "jira": "Jira",
+    "mailchimp-transactional": "Mailchimp Transactional",
+    "segment": "Segment",
+    "sentry": "Sentry",
+    "wunderkind": "Wunderkind"
 }
-  
