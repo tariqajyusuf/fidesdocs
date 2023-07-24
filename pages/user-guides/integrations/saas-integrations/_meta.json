@@ -1,10 +1,12 @@
 {
     "index": "Overview",
     "adobe-campaign": "Adobe Campaign",
+    "datadog": "Datadog",
     "domo": "Domo",
     "gorgias": "Gorgias",
     "jira": "Jira",
     "mailchimp-transactional": "Mailchimp Transactional",
+    "outreach": "Outreach",
     "segment": "Segment",
     "sentry": "Sentry",
     "wunderkind": "Wunderkind"
