@@ -4,10 +4,15 @@
     "datadog": "Datadog",
     "domo": "Domo",
     "gorgias": "Gorgias",
+    "hubspot": "Hubspot",
     "jira": "Jira",
     "mailchimp-transactional": "Mailchimp Transactional",
+    "mailchimp": "Mailchimp",
     "outreach": "Outreach",
+    "recharge": "Recharge",
+    "rollbar": "Rollbar",
     "segment": "Segment",
     "sentry": "Sentry",
+    "shippo": "Shippo",
     "wunderkind": "Wunderkind"
 }

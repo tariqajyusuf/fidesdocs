@@ -1,0 +1,42 @@
+# HubSpot
+[HubSpot](https://www.hubspot.com/) is a customer relationship management (CRM) platform that helps customers with
+inbound marketing, sales, and customer service.
+
+## Prerequisites
+
+In order to [integrate](../) with HubSpot, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain**                 | Your HubSpot API URL (default:`api.hubapi.com`) |
+| **Private App Token***     | Your HubSpot App's access token. Follow HubSpot docs to [create a private app and retrieve the token](https://developers.hubspot.com/docs/api/private-apps) |
+
+## Integrating with HubSpot
+To integrate an existing system with HubSpot:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### HubSpot Endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests** | [Contacts](https://developers.hubspot.com/docs/api/crm/search#make-a-search-request) | Returns information about a contact in your CRM |
+| ****Update or Delete Requests**** | [Contacts](https://developers.hubspot.com/docs/api/crm/contacts#update-contacts) | Used to mask information about a contact in your CRM |
+| **Access Requests** | [Owners](https://developers.hubspot.com/docs/api/crm/owners#retrieve-a-list-of-owners) | Returns information about an owner in your account |
+| **Access Requests** | [Subscription preferences](https://developers.hubspot.com/docs/api/marketing-api/subscriptions-preferences) | Returns information about a contact's subscriptions and their statuses  |
+| ****Update or Delete Requests**** | [Subscription preferences](https://developers.hubspot.com/docs/api/marketing-api/subscriptions-preferences#:~:text=Unsubscribe%20contact) | Used to unsubscribe a contact from subscriptions  |
+| **Access Requests** | [Users](https://developers.hubspot.com/docs/api/settings/user-provisioning#:~:text=Endpoints) | Returns information about a user in your account  |
+| ****Update or Delete Requests**** | [Users](https://developers.hubspot.com/docs/api/settings/user-provisioning#:~:text=Endpoints) | Used to remove a user from your account  |
+
