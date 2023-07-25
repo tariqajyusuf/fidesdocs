@@ -1,0 +1,39 @@
+# Mailchimp
+[Mailchimp](https://mailchimp.com/) is a marketing automation platform, primarily focused on email marketing.
+
+## Prerequisites
+
+In order to [integrate](../) with Mailchimp, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Mailchimp URL |
+| **Username***              | Your Mailchimp username |
+| **API Key***               | Your API Key. Follow Mailchimp's docs to [generate an API Key](https://mailchimp.com/help/about-api-keys/) |
+
+
+## Integrating with Mailchimp
+To integrate an existing system with Mailchimp:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Mailchimp endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests**            | [Messages](https://mailchimp.com/developer/marketing/api/conversation-messages/list-messages/) | Returns customer messages |
+| **Access Requests**            | [Conversations](https://mailchimp.com/developer/marketing/api/conversations/list-conversations/) | Returns customer conversations |
+| **Access Requests**            | [Member](https://mailchimp.com/developer/marketing/api/search-members/search-members/) | Returns information about a member |
+| **Update or Erasure Requests** | [Member](https://mailchimp.com/developer/marketing/api/list-members/add-or-update-list-member/) | Used to mask information about a member |
