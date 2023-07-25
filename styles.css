@@ -263,6 +263,22 @@ table tr {
     padding: 0
 }
 
+table ul {
+	list-style:disc;
+	padding: 0 0 0 20px ;
+}
+table.dataflows thead{
+	font-weight: 700;
+}
+
+table.dataflows col{
+	width: 30%;
+}
+table.dataflows td {
+	vertical-align: top;
+}
+
+
 .dark table tr {
     --tw-border-opacity: 1;
     border-color: rgb(75 85 99/var(--tw-border-opacity))
