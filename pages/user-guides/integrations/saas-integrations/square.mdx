@@ -1,0 +1,39 @@
+# Square
+[Square](https://squareup.com/us/) is a financial technology company offering payment processing, point-of-sale solutions,
+e-commerce tools, invoicing, peer-to-peer payments, and small business financing.
+
+## Prerequisites
+
+In order to [integrate](../) with Square, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Square URL  |
+| **Access Token***          | Your Square Access Token. Follow Square's docs to [generate an OAuth Access Token](https://developer.squareup.com/docs/build-basics/access-tokens#get-an-oauth-access-token) |
+
+
+## Integrating with Square
+To integrate an existing system with Square:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Square endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests**            | [Customers](https://developer.squareup.com/reference/square/customers-api/search-customers) | Returns a customer profile |
+| **Update or Erasure Requests** | [Customers](https://developer.squareup.com/reference/square/customers-api/update-customer) | Used to mask or erase information in a customer profile  |
+| **Access Requests**            | [Locations](https://developer.squareup.com/reference/square/locations-api/list-locations) | Returns details about seller locations to automate the processing of privacy requests|
+| **Access Requests**            | [Orders](https://developer.squareup.com/reference/square/orders-api/search-orders) | Returns customer orders for multiple locations |
