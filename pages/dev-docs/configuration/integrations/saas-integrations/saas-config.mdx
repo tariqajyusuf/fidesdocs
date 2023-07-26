@@ -2,7 +2,7 @@ import { Callout } from 'nextra-theme-docs'
 
 # What is a SaaS configuration?
 
-A [SaaS connector](saas-connectors) is defined in two parts: the [Dataset](/user-guides/integrations/database-integrations/datasets), and the SaaS configuration. The Dataset describes the data that is available from the connector, and the SaaS config describes how to connect to, and retrieve or update the data in the connector.
+A [SaaS connector](saas-connectors) is defined in two parts: the [Dataset](/user-guides/datasets), and the SaaS configuration. The Dataset describes the data that is available from the connector, and the SaaS config describes how to connect to, and retrieve or update the data in the connector.
 
 When accessing data from APIs, each application (and different endpoints within the same application) can follow different patterns, making their requirements different from [Database connectors](/docs/databases/database-connections). Fides provides a flexible configuration to define different access/update patterns.
 
@@ -263,7 +263,7 @@ The `requests` configuration further contains the following fields:
 | `headers.value`, `query_params.value` | This can be a static value, one or more of `<dynamic_value>`, or a mix of static and dynamic values (prefix `<value>`) which will be replaced with the value sourced from the `param_value` with a matching name. |
 | `body` | *Optional.* A static or dynamic request body, with dynamic portions enclosed in brackets, just like `path`. These dynamic values will be replaced with values from `param_values`. |
 | `param_values.name` | Used as the key to reference this value from dynamic values in the path, headers, query, or body params.
-| `param_values.references` | These are the same as `references` in a [Dataset](/user-guides/integrations/database-integrations/datasets). It is used to define the source of the value for the given `param_value`.
+| `param_values.references` | These are the same as `references` in a [Dataset](/user-guides/datasets). It is used to define the source of the value for the given `param_value`.
 | `param_values.identity` | Used to access the identity values passed into the privacy request such as email or phone number.
 | `param_values.connector_param` | Used to access the user-configured secrets for the connection.
 | `ignore_errors` | A boolean. If true, we will ignore non-200 status codes.

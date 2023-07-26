@@ -3,7 +3,7 @@
 ## What is a SaaS integration?
 
 
-A Fides SaaS (Software as a Service) Integration allows a user to connect to a third-party application (e.g., Mailchimp, Stripe, Hubspot), and execute data access and erasure requests against that application. Fides represents your SaaS connections as a [Dataset](/user-guides/integrations/database-integrations/datasets), accessed via a [Connection](/docs/databases/database-connections), and configured by a [SaaS config](/docs/connectors/saas-config).
+A Fides SaaS (Software as a Service) Integration allows a user to connect to a third-party application (e.g., Mailchimp, Stripe, Hubspot), and execute data access and erasure requests against that application. Fides represents your SaaS connections as a [Dataset](/user-guides/datasets), accessed via a [Connection](/docs/databases/database-connections), and configured by a [SaaS config](/docs/connectors/saas-config).
 
 ## Supported SaaS applications
 
@@ -91,7 +91,7 @@ a template. This creates a `saas` Integration with your supplied name and descri
 
 The example below creates a [mailchimp](/docs/connectors/example-connectors/mailchimp) saas connector, and would need the relevant mailchimp `secrets`.
 
-Your `instance_key` will become the identifier for the related [Dataset](/user-guides/integrations/database-integrations/datasets). By default, the saas connection config is enabled with write access.
+Your `instance_key` will become the identifier for the related [Dataset](/user-guides/datasets). By default, the saas connection config is enabled with write access.
 
 ```json filename="POST /connection/instantiate/mailchimp"
 {

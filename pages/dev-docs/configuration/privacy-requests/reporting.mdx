@@ -213,7 +213,7 @@ The request below is in a `paused` state as it waits on manual input from the us
 
 The `action_needed.locators` field shows the user they should fetch the record in the filing cabinet with a `customer_id` of `72909`, and pull the `authorized_user`, `customer_id`, `id`, and `payment_card_id` fields from that record. These values should be manually uploaded to the `resume_endpoint`. 
 
-See the [manual data guides](/user-guides/integrations/database-integrations/datasets#resume-a-paused-access-privacy-request) for more information on resuming a paused access request.
+See the [manual data guides](/dev-docs/configuration/integrations/database-integrations/datasets#resume-a-paused-erasure-privacy-request) for more information on resuming a paused access request.
                           
 
 ```json
@@ -259,7 +259,7 @@ The request below is in a `paused` state for user to confirm they've masked the 
 
 The `stopped_collection_details` shows that the request paused execution during the `erasure` step of the `manual_key:filing_cabinet` collection. Looking at `action_needed.locators` field shows that the user should find the record in the filing cabinet with an `id` of 2, and replace its `authorized_user` with `None`. 
 
-A confirmation of the masked records count should be uploaded to the `resume_endpoint`. See the [manual data guides](/user-guides/integrations/database-integrations/datasets#resume-a-paused-access-privacy-request) for more information on resuming a paused erasure request.
+A confirmation of the masked records count should be uploaded to the `resume_endpoint`. See the [manual data guides](/dev-docs/configuration/integrations/database-integrations/datasets#resume-a-paused-erasure-privacy-request) for more information on resuming a paused erasure request.
               
 ```json
 {
