@@ -10,7 +10,7 @@ A _Dataset_ is the configuration you provide for a database or other queryable d
 ## Configure a Dataset
 Fides uses a YAML manifest file to represent your datastores, and requires information beyond table names and fields to fully configure a Dataset. Datastores connected in this way will be automatically traversed when Fides executes a privacy request, and will either return or update the requested data according to the associated [privacy request policy](/dev-docs/configuration/privacy-requests/graphs).
 
-Ensure you have created a [Connection](/docs/databases/database-connections) for the datastore you would like to map. The Dataset defined by the following process should be [associated to the Connection](/docs/databases/database-connections#associate-a-dataset).
+Ensure you have created a [Connection](/user-guides/integrations) for the datastore you would like to map. The Dataset defined by the following process should be [linked to the Connection](/user-guides/datasets/link-datasets).
 
 ### Describe a datastore 
 
@@ -140,7 +140,7 @@ In the following example, the manual Dataset is a physical location, which conta
 defined as the unit's [identity](#field-members), which will then be used to retrieve the `box_id` in the storage unit.
 
 
-To add a Manual Dataset, first create a [Manual Connection](/docs/databases/database-connections#examples). The following Manual Dataset can then be [added to](/docs/databases/database-connections#associate-a-dataset) the new ConnectionConfig:
+To add a Manual Dataset, first create a [Manual Connection](/dev-docs/configuration/integrations/database-integrations/datasets#configure-a-manual-dataset). The following Manual Dataset can then be added to the new ConnectionConfig:
 
 ```yaml filename="PATCH {{host}}/connection/<manual_key>/dataset"
 dataset:
