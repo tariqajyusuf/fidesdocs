@@ -15,5 +15,10 @@
     "segment": "Segment",
     "sentry": "Sentry",
     "shippo": "Shippo",
+    "shopify": "Shopify",
+    "stripe": "Stripe",
+    "survey-monkey": "Survey Monkey",
+    "twilio-conversations": "Twilio Conversations",
+    "vend": "Vend",
     "wunderkind": "Wunderkind"
 }
