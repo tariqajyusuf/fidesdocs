@@ -1,0 +1,42 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Kustomer
+
+[Kustomer](https://www.kustomer.com) helps businesses grow by delivering exceptional customer service via phone, email, chat, text, social, messaging and more.
+
+## Prerequisites
+
+In order to [integrate](../) with Kustomer, you'll need to collect the following information:
+
+| Name          | Description                                                                                                                                                                                                                            |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***  | Your Kustomer API URL (default: api.kustomerapp.com)                                                                                                                                                                                  |
+| **API Key*** | Your API Key. Follow Kustomer's docs to [manage API keys](https://developer.kustomer.com/kustomer-api-docs/reference/authentication) | 
+
+## Integrating with Kustomer
+
+To integrate an existing system with Kustomer:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Kustomer Endpoints
+
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function              | Endpoint                                                                                        | Description                                          |
+| ----------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **Access Requests**           | [Customer Email](https://developer.kustomer.com/kustomer-api-docs/reference/getcustomerbyemail) | Returns customer profiles by email.         |
+| **Access Requests**           | [Customer Phone](https://developer.kustomer.com/kustomer-api-docs/reference/getcustomerbyphone) | Returns customer profiles by phone number.       |
+| **Update or Delete Requests** | [Delete Customer](https://developer.kustomer.com/kustomer-api-docs/reference/deletecustomer)    | Used to mask or erase customer records. |
+
