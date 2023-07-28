@@ -1,0 +1,41 @@
+import { Callout } from 'nextra-theme-docs'
+
+
+# Slack Enterprise
+[Slack Enterprise](https://app.slack.com/plans/) is the premium tier of Slack's collaboration and communication platform for teams and workspaces.
+
+## Prerequisites
+
+In order to [integrate](../) with Slack Enterprise, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Slack Enterprise URL (default:`slack.com`) |
+| **Access token***      | Your User OAuth2 Token. Follow Slack's docs to [create a new slack app and retrive an authentication token](https://api.slack.com/start/quickstart)|
+
+<Callout emoji="" type="info"> Your Slack Enterprise access token will need the following permissions: `users:read`, `users:read.email`, and `admin.users:write`</Callout>
+
+
+## Integrating with Slack Enterprise
+To integrate an existing system with Slack Enterprise:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Slack Enterprise endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests**            | [User](https://api.slack.com/methods/users.lookupByEmail) | Returns information about a user |
+| **Update or Erasure Requests** | [User](https://api.slack.com/methods/admin.users.remove) | Used to remove a user from a workspace |
