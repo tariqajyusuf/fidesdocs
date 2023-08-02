@@ -87,6 +87,10 @@
   "title": "Tutorials",
   "type": "menu",
   "items": {
+    "tutorials-byPersona": {
+      "title": "By Persona",
+      "href": "/tutorials/by-persona-get-started"
+    },
     "tutorials-datamapping": {
       "title": "Data Mapping",
       "href": "/tutorials/data-mapping-get-started"
