@@ -1,0 +1,41 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Klaviyo
+
+[Klaviyo](https://www.klaviyo.com) is an email marketing platform that empowers businesses to create and manage targeted email campaigns, track customer engagement, and drive sales through personalized marketing strategies.
+
+## Prerequisites
+
+In order to [integrate](../) with Klaviyo, you'll need to collect the following information:
+
+| Name           | Description                                                                                                                                                             |
+| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain\***   | Your Klaviyo API URL (default: a.klaviyo.com)                                   |
+| **API key\***  | Your Private API key. Follow Klaviyo's docs to [obtain private API keys](https://developers.klaviyo.com/en/docs/retrieve_api_credentials#private-key)                   |
+| **Revision\*** | The API revision provided as an ISO 8601 date (ex. 2023-02-03). To learn more about available versions, please see [Klaviyo docs](https://developers.klaviyo.com/en/docs/api_versioning_and_deprecation_policy#versioning) |
+
+## Integrating with Klaviyo
+
+To integrate an existing system with Klaviyo:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Klaviyo Endpoints
+
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function              | Endpoint                                                                                | Description                                 |
+| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Access Requests**           | [Profiles](https://developers.klaviyo.com/en/reference/get_profiles)                    | Returns information about a person.         |
+| **Update or Delete Requests** | [Delete Profiles](https://developers.klaviyo.com/en/reference/request_profile_deletion) | Used to mask or erase records for a person. |
