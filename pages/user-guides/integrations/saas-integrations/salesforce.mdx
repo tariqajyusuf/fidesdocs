@@ -1,18 +1,20 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Salesforce
 [Salesforce](https://www.salesforce.com/) is a cloud-based customer relationship management (CRM) platform that helps businesses manage sales, marketing, and customer service interactions in a unified system..
 
 ## Prerequisites
 
-In order to [integrate](../) with your Salesforce org, you'll first need to create a Connected App. To learn more about how to set this up, please see the [Salesforce docs](https://developer.salesforce.com/docs/atlas.en-us.236.0.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm).
+<Callout emoji="" type="info" title="Connected apps"> To integrate with Salesforce, we require our customers to use a _Connected App_. This ensures exclusive data control, enhances security by reducing unauthorized access risks, and allows customization of scopes and permissions to suit your business needs and policies.</Callout>
 
-Next, you'll need to collect the following information:
+To configure a Connected App, please follow the [Salesforce guide](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5). Once you have this configured, you'll need to collect the following information:
 
 | Name                       | Description                                                                                                                             |
 | :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 | **Domain***                | Your Salesforce URL. To find this, please follow the Salesforce guide for [viewing instance information](https://help.salesforce.com/s/articleView?id=000384755&type=1).  |
 | **Client ID***             | Your OAuth client ID. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
 | **Client Secret***         | Your OAuth client secret. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
-| **Redirect URL***           | The URL to which Fides will be redirected after successful authentication. Typically your Salesforce App. |
+| **Redirect URL***           | The URL to which Fides will be redirected after successful authentication (ex. `https://fides-host.com/oauth/callback`) |
 
 ## Integrating with Salesforce
 To integrate an existing system with Salesforce:
@@ -20,9 +22,13 @@ To integrate an existing system with Salesforce:
 1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
 2. Click on the **Integrations** tab.
 3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
-4. Complete the required fields for the integration and click **Save**. 
+4. Complete the required fields for the integration and click **Save**.
 
-You may confirm your connection is working using the **Test connection** button, if desired.
+To authorize the integration so that it can connect to Salesforce:
+1. Click on **Authorize integration** to be redirected to the Salesforce authorization screen
+2. Enter your Salesforce credentials and click **Log in**. You will automatically be redirected back to the Fides UI using the `Redirect URL` that was provided in the form in the previous step.
+
+You may now confirm your connection is working using the **Test connection** button, if desired.
 
 To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
 
