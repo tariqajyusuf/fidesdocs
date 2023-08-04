@@ -1,0 +1,45 @@
+# Zendesk
+[Zendesk](https://www.zendesk.com/) is a customer service software platform that provides tools for managing customer support tickets, inquiries, and interactions across various communication channels, helping businesses deliver better customer experiences.
+
+## Prerequisites
+
+In order to [integrate](../) with Zendesk, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Zendesk URL |
+| **Username***                | Your Zendesk username, typically an email address |
+| **API key***               | Your Zendesk API key. Follow Zendesk's docs to [generate an API key](https://support.zendesk.com/hc/en-us/articles/4408889192858-Generating-a-new-API-token#:~:text=To%20generate%20an%20API%20token,be%20enabled%20in%20your%20account.&text=an%20API%20token-,In%20Admin%20Center%2C%20click%20Apps%20and%20integrations%20in%20the%20sidebar,token%20is%20generated%20and%20displayed) |
+
+
+## Integrating with Zendesk
+To integrate an existing system with Zendesk:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Zendesk endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests**            | [Users](https://developer.zendesk.com/api-reference/sales-crm/resources/users/) | Returns information about account users |
+| **Access Requests**            | [User_identities](https://developer.zendesk.com/api-reference/ticketing/users/user_identities/) | Returns identifiable information about account users |
+| **Access Requests**            | [Tickets](https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/) | Returns communications between agents and users |
+| **Access Requests**            | [Ticket_comments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_comments/) | Returns comments from communications between agents and users |
+| **Update or Erasure Requests** | [Users](https://developer.zendesk.com/api-reference/ticketing/users/users/#delete-user) | Used to erase information about account users |
+| **Update or Erasure Requests** | [Tickets](https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/) | Used to erase communications between users and agents |
+
+
+
+

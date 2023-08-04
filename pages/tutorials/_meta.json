@@ -1,4 +1,11 @@
 {
+  "separator-by-persona": {
+    "title":"By Persona",
+    "type": "separator"
+  },
+  "by-persona-get-started": "Gettting Started",
+  "by-persona-legal": "Legal and Compliance",
+  "by-persona-engineering": "Engineering and IT",
   "separator-data-mapping": {
     "title":"Data Mapping",
     "type": "separator"
