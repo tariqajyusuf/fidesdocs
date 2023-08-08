@@ -1,0 +1,42 @@
+import { Callout } from 'nextra-theme-docs'
+
+# FullStory
+[FullStory](https://www.fullstory.com/) is a customer experience analytics platform that analyzes user behavior.
+
+## Prerequisites
+
+<Callout emoji="" type="info">An owned database must be configured to store FullStory data for privacy request processing. To learn how to integrate with a database, please see our guide for [integrating with databases](../databases). </Callout>
+
+
+In order to [integrate](../) with FullStory, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain**                 | Your FullStory API Domain (default: api.fullstory.com) |
+| **API Key***               | Your FullStory API Key. Follow FullStory docs to [manage your API Keys](https://help.fullstory.com/hc/en-us/articles/360052021773-Managing-API-Keys) |
+| **Fullstory User ID***     | The location in your owned database where you store FullStory User IDs. Format: `dataset.collection.field` |
+
+
+## Integrating with FullStory
+To integrate an existing system with FullStory:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### FullStory Endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests** | [User](https://developer.fullstory.com/server/v1/users/get-user/) | Returns information about a user |
+| **Update or Delete Requests** | [User](https://developer.fullstory.com/server/v1/users/set-user-properties/) | Used to mask or erase user details |
