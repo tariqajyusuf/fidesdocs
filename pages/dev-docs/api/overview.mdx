@@ -1,0 +1,24 @@
+# Fides REST API Documentation
+
+Welcome to the Fides REST API documentation. Fides, crafted for developers, offers a simple yet powerful platform for integrating and configuring its features through REST APIs. Navigate to `/docs` in your browser for API access, or visit the [OpenAPI Endpoints](/dev-docs/api/list) page for a complete list.
+
+It's worth noting that all of Fides's UIs are written using the REST APIs. This means if you can do it in the UI, you can definitely do it in the API. Each section contains examples of key workflows and how you would achieve this in the APIs. 
+
+## Managing Privacy Resources with Fides
+
+Fides's primary functions are to assist with Data Mapping and fulfilling Privacy/Consent Requests across Systems, 3rd party SaaS, and Databases. 
+
+Fides has several types of key resources, however below is the overarching concepts: 
+1. [`System`](/dev-docs/api/manage/system) - This is the highest level resource that can contain data uses, data categories, and even datasets.
+2. [`Dataset`](/dev-docs/api/manage/dataset) - This is a sub-mechanism of a [`System`](/dev-docs/api/manage/system) that granularly describes the different data categories a system can have. 
+3. [`Privacy Request`](/dev-docs/api/manage/privacy-request) - This is used to fulfill Access and Erasure requests across a variety of `System` and `Dataset` using the [Fides Graph](/dev-docs/configuration/privacy-requests/graphs)
+4. [`Consent Request`](/dev-docs/api/manage/privacy-experience) - This is used to submit and fulfill Consent Management Requests across a variety of different `Systems` for different `Data Uses`. Note - different jurisdictions require different [`Privacy Experience`](/dev-docs/api/manage/privacy-experience)
+
+
+## Navigating the REST API Documentation
+This API documentation is broken into a few sections:
+
+1. [Authenticating](/dev-docs/api/auth) - This page contains infomration for creating and managing OAuth tokens with Fides API.
+2. [OpenAPI Endpoints](/dev-docs/api/list) - This contains all API endpoints on a single page. 
+3. [Managing Resources](/dev-docs/api/system) - This section contains API documentation by resource type. 
+
