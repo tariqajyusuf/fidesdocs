@@ -1,55 +1,59 @@
 import { Callout } from 'nextra-theme-docs'
 
 # Integrations
+
 In this section, we will explore _Integrations_ which are an essential elements of data mapping required to process Data Subject Requests (DSRs) and more!
 
 ## What are integrations?
 
-An _Integration_ connects Fides to your [databases](integrations/databases) and [third-party SaaS applications](integrations/saas-integrations), allowing Fides to execute [privacy requests](privacy-requests) against all data in your organization.
+An _Integration_ connects Fides to your [databases](integrations/databases) and [third-party SaaS applications](integration./integrations/saas-integrations), allowing Fides to execute [privacy requests](privacy-requests) against all data in your organization.
 
 Currently, Fides offers supported integrations for commonly used databases such as [PostgreSQL](integrations/databases/postgresql), [BigQuery](integrations/databases/bigquery), and [Snowflake](integrations/databases/snowflake), as well as popular SaaS applications including Adobe Campaign and Google Analytics, among many others! To view the list of currently supported vendors, please refer to the [Supported integrations](#supported_integrations) section below.
 
 We're constantly adding new integrations and you can request additional integrations from your customer support team!
 
-
 ## How to manage integrations
+
 This guide will get you started quickly with integrating your systems:
 
 ### 1. Identify the system you want to integrate with
-We support many common [databases](./integrations/databases) and [third-party SaaS applications](./integrations/saas-integrations) and we're always adding more! 
-If you don't see the vendor that you need, you can request additional integrations from your customer support team or, even, build a custom integration (tutorial coming soon!). 
+
+We support many common [databases](./integrations/databases) and [third-party SaaS applications](./integration./integrations/saas-integrations) and we're always adding more!
+If you don't see the vendor that you need, you can request additional integrations from your customer support team or, even, build a custom integration (tutorial coming soon!).
 
 ### 2. Collect the information that you will need to connect to the system
+
 For each vendor, you'll need to provide unique connection credentials. Our vendor guides, linked below, outline the information you need to collect, making it easier to gather the required credentials and set up the connections.
 
 ### 3. Configure the connection information and test the integration
+
 We recommend using the UI to fill in the connection information you collected in Step 3 and test the integration. For detailed steps, please see our guide for [Managing integrations using the UI](integrations/manage-integrations).
 
 ### 4. Configure the dataset
-If you are connecting to a database, you will need to generate and link dataset in order to process Data Subject Requests (DSRs).  For detailed steps, please see our guide for [Linking datasets](/user-guides/datasets/link-datasets).
 
+If you are connecting to a database, you will need to generate and link dataset in order to process Data Subject Requests (DSRs). For detailed steps, please see our guide for [Linking datasets](/user-guides/datasets/link-datasets).
 
 ## Supported integrations
 
 ### Supported databases
 
-| [**Amazon DynamoDB**](/user-guides/integrations/databases/dynamodb) | [**Amazon Redshift**](/user-guides/integrations/databases/redshift) | [**Google BigQuery**](/user-guides/integrations/databases/bigquery) | 
-| ------------ | ------------ | ------------ | 
-| [**MariaDB**](/user-guides/integrations/databases/mariadb) | [**MongoDB**](/user-guides/integrations/databases/mongodb) | [**Microsoft SQL Server**](/user-guides/integrations/databases/mssql) | 
-| [**MySQL**](/user-guides/integrations/databases/mysql) | [**PostgreSQL**](/user-guides/integrations/databases/postgresql) | [**Redshift**](/user-guides/integrations/databases/redshift) |
-| [**Snowflake**](/user-guides/integrations/databases/snowflake) | 
+| [**Amazon DynamoDB**](/user-guides/integrations/databases/dynamodb) | [**Amazon Redshift**](/user-guides/integrations/databases/redshift) | [**Google BigQuery**](/user-guides/integrations/databases/bigquery)   |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [**MariaDB**](/user-guides/integrations/databases/mariadb)          | [**MongoDB**](/user-guides/integrations/databases/mongodb)          | [**Microsoft SQL Server**](/user-guides/integrations/databases/mssql) |
+| [**MySQL**](/user-guides/integrations/databases/mysql)              | [**PostgreSQL**](/user-guides/integrations/databases/postgresql)    | [**Redshift**](/user-guides/integrations/databases/redshift)          |
+| [**Snowflake**](/user-guides/integrations/databases/snowflake)      |
 
 ### Supported SaaS applications
 
-| [**Adobe**]() | [**Aircall**]()    | [**Amplitude**]() | [**Auth0**]() | 
-| ------------ | ------------ | ------------ | ------------ | 
-| [**Braintree**]() | [**Braze**]()      | [**Datadog**]()          | [**Delighted**]() | 
-| [**Domo**](domo) | [**Doordash**]()   | [**Firebase**]() | [**Friendbuy**]() | 
-| [**Friendbuy Nextgen**]() | [**Full Story**]() | [**Google Analytics**]() | [**Gorgias**]()   | 
-| [**Hubspot**]() | [**Jira**](jira)  | [**Klaviyo**]()  | [**Kustomer**]()  |
-| [**Mailchimp**]()  | [**Mailchimp Transactional**]() | [**OneSignal**]() | [**Outreach**]() | 
-| [**Recharge**]() | [**Rollbar**]() | [**Salesforce**]() | [**Segment**]() | 
-| [**Sendgrid**]() | [**Sentry**](sentry) | [**Shippo**]() | [**Shopify**]() | 
-| [**Slack Enterprise**]() | [**Square**]() | [**Stripe**]() | [**SurveyMonkey**]() | 
-| [**Twilio conversations**]() | [**Unbounce**]() | [**Vend**]() | [**Wunderkind**]() | 
-| [**Yotpo Loyalty**]() | [**Yotpo Reviews**]() | [**Zendesk**]() |
+| [**Adobe**](./integrations/saas-integrations/adobe-campaign)                      | **Aircall**                                                                             | [**Amplitude**](./integrations/saas-integrations/amplitude)               | [**Auth0**](./integrations/saas-integrations/auth0)                |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Braintree**                                                                     | **Braze**                                                                               | [**Datadog**](./integrations/saas-integrations/datadog)                   | [**Delighted**](./integrations/saas-integrations/delighted)        |
+| [**Domo**](./integrations/saas-integrations/domo)                                 | [**Doordash**](./integrations/saas-integrations/doordash)                               | **Firebase**                                                              | [**Friendbuy**](./integrations/saas-integrations/friendbuy)        |
+| [**Friendbuy Nextgen**](./integrations/saas-integrations/friendbuy-nextgen)       | [**FullStory**](./integrations/saas-integrations/fullstory)                             | [**Google Analytics**](./integrations/saas-integrations/google-analytics) | [**Gorgias**](./integrations/saas-integrations/gorgias)            |
+| [**Hubspot**](./integrations/saas-integrations/hubspot)                           | [**Jira**](./integrations/saas-integrations/jira)                                       | [**Klaviyo**](./integrations/saas-integrations/klaviyo)                   | [**Kustomer**](./integrations/saas-integrations/kustomer)          |
+| [**Mailchimp**](./integrations/saas-integrations/mailchimp)                       | [**Mailchimp Transactional**](./integrations/saas-integrations/mailchimp-transactional) | [**OneSignal**](./integrations/saas-integrations/onesignal)               | [**Outreach**](./integrations/saas-integrations/outreach)          |
+| [**Recharge**](./integrations/saas-integrations/recharge)                         | [**Rollbar**](./integrations/saas-integrations/rollbar)                                 | [**Salesforce**](./integrations/saas-integrations/salesforce)             | [**Segment**](./integrations/saas-integrations/segment)            |
+| [**Sendgrid**](./integrations/saas-integrations/sendgrid)                         | [**Sentry**](./integrations/saas-integrations/sentry)                                   | [**Shippo**](./integrations/saas-integrations/shippo)                     | [**Shopify**](./integrations/saas-integrations/shopify)            |
+| [**Slack Enterprise**](./integrations/saas-integrations/slack-enterprise)         | **Square**                                                                              | [**Stripe**](./integrations/saas-integrations/stripe)                     | [**SurveyMonkey**](./integrations/saas-integrations/survey-monkey) |
+| [**Twilio conversations**](./integrations/saas-integrations/twilio-conversations) | **Unbounce**                                                                            | [**Vend**](./integrations/saas-integrations/vend)                         | [**Wunderkind**](./integrations/saas-integrations/wunderkind)      |
+| **Yotpo Loyalty**                                                                 | **Yotpo Reviews**                                                                       | [**Zendesk**](./integrations/saas-integrations/zendesk)                   |
