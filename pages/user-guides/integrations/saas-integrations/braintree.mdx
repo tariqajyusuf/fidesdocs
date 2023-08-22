@@ -1,0 +1,40 @@
+# Braintree
+[Braintree](https://www.braintreepayments.com/) is a full-stack payment platform, owned by Paypal, that provides tools for businesses to accept, process, and manage online and mobile payments
+
+## Prerequisites
+
+In order to [integrate](../) with Braintree, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | The unique URL for your Braintree instance |
+| **Public key***                 | Your Braintree public API key. Follow Braintree's docs for [steps to retrieve this key](https://developer.paypal.com/braintree/articles/control-panel/important-gateway-credentials#public-key) |
+| **Private key***                | Your Braintree private API key. Follow Braintree's docs for [steps to retrieve this key](https://developer.paypal.com/braintree/articles/control-panel/important-gateway-credentials#private-key)  |
+
+
+## Integrating with Braintree
+To integrate an existing system with Braintree:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Braintree endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access & erasure requests**            | [Customers](https://graphql.braintreepayments.com/guides/concepts/#transactions) | Retrieve and erase customer information |
+| **Access & erasure requests**            | [Transactions](https://graphql.braintreepayments.com/guides/concepts/#customers) | Retrieve and erase transaction information |
+
+
+

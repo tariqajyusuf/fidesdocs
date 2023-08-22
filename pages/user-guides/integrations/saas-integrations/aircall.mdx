@@ -1,0 +1,39 @@
+# Aircall
+[Aircall](https://aircall.io) is a cloud-based phone system and call center software that enables businesses to manage their phone communications and customer interactions effectively.
+
+## Prerequisites
+
+In order to [integrate](../) with Aircall, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Aircall URL |
+| **API ID***                 | Your Aircall API ID. Follow Aircall's docs for [steps to retrieve this ID](https://developer.aircall.io/tutorials/basic-authentication/) |
+| **API token***                | Your Aircall secret token. Follow Aircall's docs for [steps to retrieve this key](https://developer.aircall.io/tutorials/basic-authentication/)  |
+
+
+## Integrating with Aircall
+To integrate an existing system with Aircall:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Aircall endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access & erasure requests**            | [Contact](https://developer.aircall.io/api-references/#contact) | Returns and erases information about users. |
+| **Access & erasure requests**            | [Calls](https://developer.aircall.io/api-references/#call-overview) | Returns and erases information about calls, including user information. |
+
+

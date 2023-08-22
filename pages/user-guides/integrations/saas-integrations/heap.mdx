@@ -1,0 +1,41 @@
+# Heap
+[Heap](https://heap.io/) is an analytics platform that automatically captures and measures user interactions on websites and mobile apps for data-driven insights.
+
+## Prerequisites
+
+In order to [integrate](../) with Heap, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | The unique URL for your Heap instance |
+| **App ID***                 | Your Heap custom App ID. Follow Heap's docs for [steps to retrieve this from the project](https://developers.heap.io/docs/web#base-installation) |
+| **API key***                 | Your Heap custom App ID. Follow Heap's docs for [steps to generate and retrieve this key](https://help.heap.io/data-privacy/data-deletion/user-deletion-with-postman/) |
+
+
+
+## Integrating with Heap
+To integrate an existing system with Heap:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Heap endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Erasure requests**            | [User](https://help.heap.io/data-privacy/data-deletion/user-deletion-with-postman/) | Erase user information |
+
+
+
+
