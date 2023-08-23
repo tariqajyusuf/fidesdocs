@@ -2,7 +2,7 @@ import { Callout } from 'nextra-theme-docs'
 import TutorialKey from 'components/tutorialkey'
 import Screenshot from 'components/screenshot'
 
-# Consent Management: Language Localization
+# Consent Management: Optional: Configuring Custom Notices for Localization
 
 <TutorialKey duration="10" product="Fides" topic="Consent Management"/>
 
@@ -47,12 +47,14 @@ As shown in the screenshot below, you can configure:
 
 <Screenshot img="/assets/img/tutorials/consent-management-privacy-notice-details-french.png" description="Privacy Notice Details in FrenchCON" mw="500" />
 
-### Privacy Notice Configuration
-The privacy notice configuration is used to configure: data uses associated with the privacy notice, locations in which to display the notice, a unique key for cookie consent configuration, and which privacy experience to use to display the notice.
-
 #### Location
 Defines the locations in which this privacy notice will be displayed. You would select the regions the localization applies. Locations are based on [ISO country and state codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
 <Screenshot img="/assets/img/tutorials/consent-management-config-location-France.png" description="Privacy Notice Configure Locations" mw="500" />
 
-Next, we'll configure privacy experiences for our available notices.
+### Privacy Notice Configuration
+The privacy notice configuration is used to configure: data uses associated with the privacy notice, locations to display the notice, as well as the key that is used in your tag manager or Javascript integrations.
+
+Ethyca recommends using the same `Fides Cookie Key` across all localized versions of a Privacy Notice. This way, the opt-in and opt-out integration works the same regardless of the location and language used in the notice.
+
+For example, if you wanted to have one notice in English and another notice in French, you should create the two notices in the respective languages and locations, and use the same `data_sales_and_sharing` key for Fides Cookie.
