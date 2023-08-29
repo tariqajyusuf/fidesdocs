@@ -1,0 +1,24 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Adding Allowed Domains for Consent
+
+<Callout emoji="" type="info">This guide is for Fides Cloud, hosted edition. For alternative information about deploying Fides to your cloud [read the quickstart guide](/dev-docs/get-started/) here.</Callout>
+
+## Prerequisites
+For this guide you should already have a Fides Cloud hosted account.
+
+## Allowed Domains for Consent
+To ensure the security of consent management, `fides.js` can only be served on sites have have been added to allowed list of domains. As such, you must add each domain individually to ensure consent will function for yoru domains.
+
+To learn more about installing `fides.js` on your website and [configuring consent](/tutorials/consent-management-configuration/install-fides) read the tutorial.
+
+## Adding a Domain to Fides Cloud Allowed List
+To add a domain to Fides Cloud, notify your Customer representative or email support@ethyca.com with the full domain you would like to use, such as [https://yourdomain.com](http://yourdomain.com).
+
+Note, you should specify for each domain whether you would like to use a wildcard, such as [*.yourdomain.com](http://*.yourdomain.com) or a fully qualified subdomain. Fides.js will only work on those domains that have been added.
+
+Your Customer representative will confirm when your domain has been added and allow you to complete testing steps separately.
+
+## Verification complete
+You will receive email notification as soon as your domain has been added to Fides Cloud allow list.

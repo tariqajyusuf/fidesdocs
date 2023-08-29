@@ -2,5 +2,6 @@
   "index": "Quickstart Guide",
   "installation": "Basic Installation",
   "advanced": "Advanced Installation",
-  "requirements": "Fides Requirements"
+  "requirements": "Fides Requirements",
+  "domains": "Managing Domains"
 }
