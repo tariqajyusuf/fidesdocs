@@ -1,62 +1,6 @@
 /**
 * Default CSS styles for the banner
 */
-:root {
-  /* Colors */
-  --fides-overlay-primary-color: #8243f2;
-  --fides-overlay-background-color: #f7fafc;
-  --fides-overlay-font-color: #4a5568;
-  --fides-overlay-font-color-dark: #2d3748;
-  --fides-overlay-hover-color: #edf2f7;
-  --fides-overlay-gpc-applied-background-color: #38a169;
-  --fides-overlay-gpc-applied-text-color: white;
-  --fides-overlay-gpc-overridden-background-color: #e53e3e;
-  --fides-overlay-gpc-overridden-text-color: white;
-  --fides-overlay-background-dark-color: #e2e8f0;
-  /* Buttons */
-  --fides-overlay-primary-button-background-color: var(
-    --fides-overlay-primary-color
-  );
-  --fides-overlay-primary-button-background-hover-color: #9569f4;
-  --fides-overlay-primary-button-text-color: #ffffff;
-  --fides-overlay-primary-button-border-color: transparent;
-  --fides-overlay-secondary-button-background-color: var(
-    --fides-overlay-background-color
-  );
-  --fides-overlay-secondary-button-background-hover-color: var(
-    --fides-overlay-hover-color
-  );
-  --fides-overlay-secondary-button-text-color: #2d3748;
-  --fides-overlay-secondary-button-border-color: var(
-    --fides-overlay-primary-color
-  );
-  /* Text */
-  --fides-overlay-title-font-color: var(--fides-overlay-font-color);
-  --fides-overlay-body-font-color: var(--fides-overlay-font-color);
-  --fides-overlay-link-font-color: var(--fides-overlay-font-color-dark);
-  /* Switches */
-  --fides-overlay-primary-active-color: var(--fides-overlay-primary-color);
-  --fides-overlay-primary-active-disabled-color: #bda4f7;
-  --fides-overlay-inactive-color: #cbd5e0;
-  --fides-overlay-disabled-color: #e1e7ee;
-  /* Dividers */
-  --fides-overlay-row-divider-color: #e2e8f0;
-  --fides-overlay-row-hover-color: var(--fides-overlay-hover-color);
-  /* Badge */
-  --fides-overlay-badge-background-color: #718096;
-
-  /* Everything else */
-  --fides-overlay-font-family: Inter, sans-serif;
-  --fides-overlay-font-size-body-small: 0.875em;
-  --fides-overlay-font-size-body: 0.95em;
-  --fides-overlay-font-size-title: 1.2em;
-  --fides-overlay-font-size-buttons: 1.05em;
-  --fides-overlay-padding: 1.5em;
-  --fides-overlay-button-border-radius: 4px;
-  --fides-overlay-button-padding: 0.5em 1em;
-  --fides-overlay-component-border-radius: 4px;
-  --fides-overlay-banner-offset: 48px;
-}
 
 div#fides-overlay {
   font-family: var(--fides-overlay-font-family);
