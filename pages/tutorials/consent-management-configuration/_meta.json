@@ -5,5 +5,6 @@
   "install-fides": "Install Fides on your Website",
   "google-tag-manager": "Configuring Google Tag Manager",
   "global-privacy-control": "Configuring Global Privacy Control (GPC)",
+  "css-styling": "Customizing Appearance with CSS",
   "privacy-notices-localization": "Optional: Configuring Custom Notices for Localization"
 }
