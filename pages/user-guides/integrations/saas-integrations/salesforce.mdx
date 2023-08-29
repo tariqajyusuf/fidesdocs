@@ -7,13 +7,19 @@ import { Callout } from 'nextra-theme-docs'
 
 <Callout emoji="" type="info" title="Connected apps"> To integrate with Salesforce, we require our customers to use a _Connected App_. This ensures exclusive data control, enhances security by reducing unauthorized access risks, and allows customization of scopes and permissions to suit your business needs and policies.</Callout>
 
-To configure a Connected App, please follow the [Salesforce guide](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5). Once you have this configured, you'll need to collect the following information:
+To configure a Connected App, please follow this [Salesforce guide](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5) and complete the following steps, at minimum:
+1. Configure Basic Connected App Settings
+2. Enable OAuth Settings for API Integration including assigning, at least, the scope for `Manage user data via APIs` to your connected app for API access.
+3. Enter the callback URL using your Fides Redirect URL (typically `https://fides-host.com/oauth/callback`)
+
+
+Once you have this configured, you'll need to collect the following information:
 
 | Name                       | Description                                                                                                                             |
 | :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 | **Domain***                | Your Salesforce URL. To find this, please follow the Salesforce guide for [viewing instance information](https://help.salesforce.com/s/articleView?id=000384755&type=1).  |
-| **Client ID***             | Your OAuth client ID. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
-| **Client Secret***         | Your OAuth client secret. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
+| **Consumer Key***             | Your OAuth client ID. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
+| **Consumer Secret***         | Your OAuth client secret. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
 | **Redirect URL***           | The Fides URL to which users will be redirected upon successful authentication (ex. `https://fides-host.com/oauth/callback`) |
 
 ## Integrating with Salesforce
