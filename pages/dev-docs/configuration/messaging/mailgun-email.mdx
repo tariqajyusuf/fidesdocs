@@ -175,10 +175,15 @@ Mailgun can be setup to either use customized Mailgun templates, or the generic 
 <Callout emoji="">When sending emails Fides will check to see if the `fides` template exists and use it. If a fides template is not found, the message will be sent using the the generic Fides email template.</Callout>
 
 ### Create a Mailgun fides Template
+
+For detailed step-by-step instructions on configuring the template, please visit the [configure email style customization](/user-guides/privacy-requests/configure-email/style-customizatons.mdx) section. Below is a brief summary on making the template.
+
+
 1. In Mailgun create a template named `fides`. You can follow Mailgun's documentation on [creating templates](https://documentation.mailgun.com/en/latest/user_manual.html#templates) here.
 2. Templates can be customized to your requirements, just remember it must contain a `{{{fides_email_body}}}` variable as this is where the Fides email text will be placed.
 
 **Note**: In order to use this custom `fides` template you must use the Mailgun Private API Key and not a Mailgun Domain Sending Key.
+
 
 ### Using the Default Template
 If you do not create a `fides` template in Mailgun, Fides will automatically use the built-in default template.
