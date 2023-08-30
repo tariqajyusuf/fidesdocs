@@ -18,45 +18,66 @@ For this tutorial you will need:
 * A Fides Cloud or Fides Enterprise account
 * The role of `Owner` or `Contributor` for your Fides organization.
 
-
-
 ## Adding data uses and processing activities
+<Callout emoji="" type="info">If you're a Fides Enterprise customer, you can use our built-in privacy dictionary, Fides Compass, to pre-populate system info and data use information. Learn more at [Fides Privacy Dictionary](./data-mapping-dictionary)</Callout>
 
-Once you’ve inventoried your system and it's available on the data map, you *must* complete the system privacy activities information that will enable you to report on compliance, identify risks, and assist with processing privacy requests.
-
-To add a data use, provide the following information. Note that a system may have multiple data uses. Think of this as the various purposes for which you process data in the system:
-
-* <span class="nx-absolute -nx-mt-20" id="portal-data-use"></span>[Data Use](#portal-data-use) - A data use from the Fides taxonomy that represents what you are using the data for in the system.
-* <span class="nx-absolute -nx-mt-20" id="portal-processing-activity"></span>[Processing Activity](#portal-processing-activity) - A more detailed description of the use of the data; this is often used for reporting purposes.
-* <span class="nx-absolute -nx-mt-20" id="portal-data-categories"></span>[Data Categories](#portal-data-categories) - The categories of personal data being processed by this activity.
-* <span class="nx-absolute -nx-mt-20" id="portal-data-subjects"></span>[Data Subjects](#portal-data-subjects) - The types of user data being processed by this activity.
-* <span class="nx-absolute -nx-mt-20" id="portal-dataset-references"></span>[Dataset References](#portal-dataset-references) - An optional reference to a dataset contained in this system involved in this activity. For more information about Datasets read the [Guide to Datasets in Fides](#LINK).
+Once you've inventoried your system and it's available on the data map, you *must* complete the system privacy activities information that will enable you to report on compliance, identify risks, and assist with processing privacy requests.
 
 There are three methods to add or update privacy related information for your systems on your data map:
 
 1. [During manual system creation](#adding-system-privacy-information-during-system-creation)
 2. [From the system management portal](#editing-system-privacy-information-from-the-system-portal)
-3. [From the data map system tray](#editing-system-privacy-information-from-the-system-tray)
+
 
 ### Adding system privacy information during system creation
 To add privacy information after creating a system manually, select the **Data uses** tab, from here you can add a **Data use** selecting the **Add a Data Use+** button.
 
-<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-creation.gif" description="Adding system privacy information when creating a system manually" />
+<Screenshot img="/assets/img/tutorials/data-mapping-data-use-creation.gif" description="Add data uses" />
+
 
 ### Editing system privacy information from the system portal
 To edit a system, navigate to **Data map** → **View systems** where you can search existing systems. Click the kebab menu ```...``` for your chosen system and click **Edit**.
 
-On the system portal page, select the **Data uses** tab, from here you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
+On the system portal page, select the **Data uses** tab. From here, you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
 
-<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-portal.gif" description="Editing system privacy information in the system portal" />
+<Screenshot img="/assets/img/tutorials/data-mapping-data-use-creation.gif" description="Add data uses" />
 
-### Editing system privacy information from the system tray
 
-To edit a system, navigate to **Data map**, you can browse the Data map in **Map** or **Table** view. The example below uses the table view.
-Select the system you are updating to see the **System tray**. 
+## Completing data use declarations
 
-From the System tray you can add or edit a **Data use** by either clicking on an existing Data use or the **Add a Data Use+** button.
+The following information should be provided for each data use that applies to this system. Think of data uses as the various purposes for which you process data in the system and the following info as more detail about how the data is processed for this purpose.
 
-<Screenshot img="/assets/img/tutorials/data-mapping-data-use-system-tray.gif" description="Editing system privacy information in the system tray" />
+#### Data use declaration
 
-Next you will learn to visualize, filter and build reports such as a RoPA (Record of Processing Activities).
+* **Declaration name (optional)**: An optional name for this data use declaration.
+* **Data use***: a business purpose for which this system processes data.
+* **Data categories**: the categories of data that are processed by this system for the indicated data use.
+* **Data subjects**: the types of user data being processed by this system for the indicated data use.
+* **Legal basis for processing**: the legal basis under which data is processed by this system for the indicated data use.
+* **Retention period (days)**: the period of time for which data is retained by this system for the indicated data use.
+
+<Screenshot img="/assets/img/tutorials/data-mapping-data-use-configure.gif" description="Add data uses" />
+
+
+#### Features
+Features are descriptions of processing activities, primarily used for compliance with the [IAB's Transparency & Consent Framework (TCF)](https://iabeurope.eu/transparency-consent-framework/).
+
+#### Data use dataset references
+A dataset reference is a link to a [dataset configuration](../user-guides/datasets) that will typically describe the schema of a data store, often including annotations for data categories. When datasets are referenced by a system, the categories annotated in the dataset will appear in the data map under the applicable data use.
+
+
+#### Special category data
+If the system processes special category data for this purpose, as defined by [GDPR Article 9](https://gdpr-info.eu/art-9-gdpr/), a legal basis for processing these categories of data for this purpose must be declared.
+
+<Screenshot img="/assets/img/tutorials/data-mapping-data-use-special-category.gif" description="Add data uses" />
+
+#### Third parties
+If the system shares data with third parties for this purpose, the following information should be declared:
+* **Third parties**: the types of third parties the data is shared with.
+* **Shared categories**: the specific categories of data that are shared with those parties.
+
+<Screenshot img="/assets/img/tutorials/data-mapping-data-use-third-parties.gif" description="Add data uses" />
+
+
+
+Next you will learn how to accelerate data entry by using [Fides Compass, a privacy intelligence dictionary](./data-mapping-dictionary).
