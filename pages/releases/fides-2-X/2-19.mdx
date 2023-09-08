@@ -13,7 +13,7 @@ September 5, 2023
 - **Adobe Sign integration**: added an integration for access requests for Adobe Sign.  Learn more [here](/user-guides/integrations/saas-integrations/adobe-sign).
 
 
-### Fixes, developer updates, and deprecations
+### Fixes and developer updates
 - Resolved an issue where the integration dropdown input lost focus during typing. #3917
 - The integration search dropdown is now case-insensitive #3916
 - Fixed dataset issue that was preventing the Vend connector from loading during server startup #3923
@@ -22,5 +22,30 @@ September 5, 2023
 - Fixed issue when generating masked values for invalid data paths #3906
 - Updated PyMSSQL version (2.2.8) #3996
 
+### Security
+- Remediated [CVE-2023-41319](https://github.com/ethyca/fides/security/advisories/GHSA-p6p2-qq95-vq5h), a high-severity security vulnerability related to custom integration uploads.
+
+### Migration Notes
+In Fides 2.19, we did some updates to how we handle fields across the product for better user experience. 
+The following fields, which were part of the data uses on the Fides taxonomy, have moved to the data use declarations on systems:
+- `Legal basis` is now `Legal basis for processing`
+- `Special category` is now `Special category data` > `Legal basis for processing`
+- `Recipients` is now `Third parties` and accompanied by a new field, `Shared categories`
+
+If any of these fields were populated on the taxonomy data uses, their values are automatically migrated to the system data use declarations when updating your system to version 2.19.
+
+The following fields, which were part of a dataset, have been deprecated or moved. Where possible, the values will be migrated during upgrade:
+- `Dataset` > `Joint controller` is now `System` > `Joint controller`
+- `Dataset` > `Geographic Location` is now used to set `This system transfers data` to `true`
+- `Dataset` > `Identifiability` has been deprecated
+- `Dataset` > `Retention period` is now the `Retention period` on data use declarations
+
+
+The following fields have been changed as indicated but values should be automatically migrated:
+- `System` > `Geographic Location` is now a boolean called `This system transfers data` but there's a sub-field to specify the legal basis for transfer.
+- `System` > `Data protection impact assessment` > `Is required` has been moved to `This system requires Data Privacy Assessments` and `System` > `Data protection impact assessment` > `Link`  has been migrated to `DPIA/DPA location`
+- `System` > `Data Responsibility Title` has been moved to `System` > `Responsibility`
+- `Data Use` > `Legitimate interest` is deprecated.
+- `Data Use` > `Legitimate interest impact assessment` is deprecated, but existing value caused `Legal basis for processing` to be set to `Legitimate interests` and was also migrated to `Impact Assessment Location`
 
 
