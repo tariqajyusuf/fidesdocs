@@ -31,9 +31,9 @@ For this tutorial you'll need:
 <Screenshot img="/assets/img/tutorials/gtm-data-layer-variable.gif" description="Create Data Layer Variable" />
 
 3. Set the Data Layer Variable Name to the corresponding cookie key of the privacy notice you configured. In this example, we use `Fides.consent.data_sales_and_sharing`. Read about [creating cookie keys as part of privacy notices](privacy-notices#cookie-key) here.
-4. Give the variable a suitable, identifiable name, such as `Fides.DataSalesAndSharing`, as in the example below:
+4. Give the variable a suitable, identifiable name, such as `Fides.DataSalesAndSharing`. In certain cases, you may want to set a default value. For example, in opt-out consent, you would set the default value to `true`. See the example below:
 
-<Screenshot img="/assets/img/tutorials/gtm-data-layer-variable-named.gif" description="Name the Data Layer Variable" />
+<Screenshot img="/assets/img/tutorials/gtm-data-layer-variable-named-with-default-value.png" description="Name the Data Layer Variable" />
 
 <Callout type="info" emoji="">
 Repeat this step to create a GTM variable for each of the cookie keys assigned to your privacy notices. You can define as many as you require but it's common to have variables for `data_sales_and_sharing`, `analytics`, `marketing`, `functional` and so on.
