@@ -19,17 +19,18 @@ For this tutorial you will need:
 ## Using Fides Compass to autocomplete information
 To use Fides Compass to autocomplete system information, you must:
 1. [Specify the type of vendor](#specifying-a-vendor-profile)
-2. [Retrieve suggestions](#retrieving-suggestions)
-3. [Save updated information](#saving-suggestions)
+2. [Retrieve system info](#retrieve-system-information)
+3. [Retrive data uses and cookies](#retrive-data-use-and-cookie-information)
 
-### Specifying a vendor profile
+
+### Specify a vendor profile
 When adding a new system or editing an existing system, you may associate a vendor profile with the system in order to retrieve suggestions from Compass.
 
 To link a vendor profile to a new system:
 1. Navigate to **Data map** → **Add systems**.
 2. Click **Add a system**.
 3. Locate the **Vendor** drop-down menu in the **System details** section.
-4. Select the correct vendor and suggestions will be automatically populated.
+4. Select the correct vendor and then select **Show suggestions**.
 
 <Screenshot img="/assets/img/tutorials/data-mapping-dictionary-add-system.gif" description="Use dictionary when adding system" />
 
@@ -43,22 +44,35 @@ To link a vendor profile to an existing system:
 
 <Screenshot img="/assets/img/tutorials/data-mapping-dictionary-update-systems.gif" description="Use dictionary when updating systems" />
 
-
-
-### Retrieving suggestions 
-Once a vendor profile has been associated with a system, suggestions may be retrieved (or hidden) using the Fides Compass button. 
+### Retrieve system information
+Once a vendor profile has been associated with a system, suggestions for system information may be retrieved (or hidden) using the Fides Compass button. 
 
 <Callout emoji="" type="info">Suggestions are not persisted until saved and the **Reset suggestions** option will revert any edits that have been made to the original suggestion before saving.</Callout>
 
 <Screenshot img="/assets/img/tutorials/data-mapping-dictionary-reset-suggestions.gif" description="Reset dictioary suggestions" />
 
+### Retrieve data use and cookie information
+Compass contains a comprehensive list of business purposes for each vendor describing which types of personal data are collected, complete with commonly used legal bases, data categories, cookies, and other relevant information. 
 
-### Saving suggestions
-Suggestions are not saved until the *Save* button is clicked at the bottom of the form. 
+To retrieve these suggestions for a new system, please:
 
-<Callout emoji="" type="info">Edits can be made to suggestions before saving and erroneous edits can be discarded by clicking on the Fides Compass button and selecting **Reset suggestions**. </Callout>
+1. Click on the **Data uses** tab
+2. Click on the button titled **Generate data uses automatically**
+3. Pick the data uses that you want to populate or choose **Accept all** to populate all of them
 
-<Screenshot img="/assets/img/tutorials/data-mapping-dictionary-reset-suggestions.gif" description="Reset dictioary suggestions" />
+<Screenshot img="/assets/img/tutorials/data-mapping-dictionary-add-data-uses.gif" description="Add data uses" />
+
+To retrieve these suggestions for an existing system, please:
+1. Navigate to **Data map** → **View systems** and locate the system
+2. Click on the system to enter its information portal
+3. Click on the **Data uses** tab
+4. Click the Fides Compass button
+5. Pick the data uses that you want to populate or choose **Accept all** to populate all of them
+
+
+<Callout emoji="" type="warning">Retrieving data use suggestions for an existing system will overwrite any existing data uses configured on the system.</Callout>
+
+<Screenshot img="/assets/img/tutorials/data-mapping-dictionary-data-uses-override.gif" description="Add data uses" />
 
 
 Next you will learn to visualize, [filter and build reports such as a RoPA (Record of Processing Activities)](./data-mapping-reports).
