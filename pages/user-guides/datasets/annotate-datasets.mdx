@@ -7,7 +7,7 @@ import Screenshot from 'components/screenshot'
 In this guide, we will explore the process of annotating datasets which involves describing, to Fides, where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests. 
 
 ## Annotating data categories
-In order to process privacy requests, Fides needs to know how to find the applicable categories of personal data. For example, if a data subject submits a request to have their personal data removed, Fides has to know where to find categories of personal data like _user contact info_, _demographic info_, or _purchase history_. 
+In order to process privacy requests, Fides needs to know how to find and process the applicable categories of personal data. For example, if a data subject submits a request to have their personal data removed, Fides has to know where to find categories of personal data like _user contact info_, _demographic info_, or _purchase history_. 
 
 The way we instruct Fides to locate this data is to attach labels to fields in your database tables to indicate where a particular type of personal data can be found. 
 
@@ -15,10 +15,9 @@ For example, if you have a table with fields that contain _user contact data_, y
 
 <Screenshot img="/assets/img/privacy-requests/sample_annotations.gif" description="Sample annotations" /> 
 
-Datasets may be annotated manually or using FidesClassify to automate the annotation. To learn more about using FidesClassify, please see our [Classiying datasets](#LINK) guide.
+Datasets may be annotated manually or using FidesClassify to automate the annotation. 
 
-
-### Annotating in the UI
+### Annotating categories using the UI
 
 To annotate a dataset using the UI:
 1. Navigate to *Data map* → *Manage datasets*.
@@ -29,9 +28,9 @@ To annotate a dataset using the UI:
 
 <Screenshot img="/assets/img/privacy-requests/annotate_manually.gif" description="Manually annotate data categories" /> 
 
-### Annotating in the file
+### Annotating categories in a file editor
 
-To directly annotate a dataset with data categories, you may use our _dataset editor_ or a tool of your choice. 
+To directly annotate a dataset with data categories or configure DSR processing, you may use our _dataset editor_ or a tool of your choice. 
 The dataset fields that will need to be configured are: 
 * `fides_key`: the name of the dataset
 * `collections`: a list of the tables or collections within the database.
@@ -92,6 +91,45 @@ dataset:
               - user.name
 ```
 
+### Skipping collections
+Sometimes, it will be necessary to skip over particular data collections or SaaS application endpoints. This can be useful if there's an error processing data in a particular collection or if the collection is known to not contain personal data. 
 
+In order to skip a collection, please use the flag `skip_processing: True` as shown in this example:
+
+```yaml
+dataset:
+  - fides_key: postgres_example_dataset
+    name: Postgres Example Dataset
+    description: Example of a Postgres dataset containing a variety of related tables like customers, products, addresses, etc.
+    collections:
+      - name: address
+        fides_meta:
+          skip_processing: True
+```
+
+In order to skip an endpoint, please use the flag `skip_processing: True` as shown in this example:
+
+```yaml
+saas_config:
+  fides_key: saas_connector_example
+  name: SaaS Example Config
+  type: custom
+  description: A sample schema representing a SaaS for Fides
+  version: 0.0.1
+
+  endpoints:
+    - name: skipped_collection
+      skip_processing: True
+      requests:
+        read:
+          method: GET
+          path: /v1/misc_endpoint/<list_id>
+          param_values:
+            - name: list_id
+              references:
+                - dataset: saas_connector_example
+                  field: users.list_ids
+                  direction: from
+```
 
 To learn more about advanced coniguration options and how Fides traverses databases, please see our guide for [Query execution](../../dev-docs/configuration/privacy-requests/graphs)
