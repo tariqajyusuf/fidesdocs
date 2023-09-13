@@ -39,9 +39,8 @@
   "newWindow": true
 },
 "support": {
-  "title": "Support",
-  "href": "https://ethyca.com",
-  "newWindow": true
+  "title": "Contact Support",
+  "href": "mailto:support@ethyca.com"
 },
 "ethyca": {
   "title": "About Ethyca",
