@@ -1,7 +1,7 @@
 {
-    "overview": "Overview",
-    "auth": "Authenticating",
-    "manage": "Managing Resources",
-    "list": "List of API Endpoints"
+  "overview": "Overview",
+  "auth": "Authenticating",
+  "manage": "Managing resources",
+  "list": "List of API endpoints",
+  "system_history_api": "System history API"
 }
-  
