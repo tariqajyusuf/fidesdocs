@@ -1,0 +1,55 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Overview
+
+This document explains how to configure configure custom fields that will be collected for privacy requests. 
+
+## Enable custom fields 
+To enable custom fields for privacy requests, please add following section to your `fides.toml` file:
+
+```bash
+[execution]
+allow_custom_privacy_request_field_collection = true
+allow_custom_privacy_request_fields_in_request_execution = true
+```
+
+## Configure custom fields
+To add custom fields that will be collected for privacy requests, please add them to the Privacy Center's `config.json` file. 
+You may specify:
+* A `label`
+* Whether or not the field is `required` for submission
+
+Below is an example for adding the following 3 fields: *first name*, *last name*, and *order id*. 
+
+```bash
+"custom_privacy_request_fields": {
+  "first_name": {
+    "label": "First name",
+    "required": true
+  },
+  "last_name": {
+    "label": "Last name",
+    "required": false
+  },
+  "order_id": {
+    "label": "Order ID",
+    "required": true
+  }
+}
+```
+
+## Collecting custom field information
+Once custom fields have been configured, your consumer will be presented with the new options when filing a privacy request. 
+
+For example, the configuration above would result in the following form options:
+
+<Screenshot img="/assets/img/privacy-requests/privacy-requests-intake-custom-fields.gif" description="Privacy Notice Consent Enforcement" mw="500" />
+
+
+## Reviewing custom field information
+When reviewing privacy requests, the custom fields that were collected from the Privacy Center will appear in the privacy requeset detail. 
+
+Here is an example using the configuration above:
+
+<Screenshot img="/assets/img/privacy-requests/privacy-request-manager-custom-fields.gif" description="Privacy Notice Consent Enforcement" mw="500" />

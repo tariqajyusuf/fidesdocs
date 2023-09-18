@@ -1,14 +1,15 @@
 {
     "index": "Overview",
-    "privacy-center": "Privacy Center",
-    "subject-identity-verification": "Subject Identification Verification",
-    "execution": "Privacy Request Execution",
-    "graphs": "Privacy Request Graphs",
-    "webhooks": "Webhooks for Privacy Requests",
-    "manual-requests": "Manual Privacy Requests",
-    "complex-fields": "Annotate Complex Fields",   
-    "masking-strategies": "Data Masking for Privacy Requests",
-    "storage-destinations": "Storage Destinations",
-    "reporting": "Reporting for Privacy Requests",
-    "data-rights-protocol": "Data Rights Protocol"
+    "privacy-center": "Privacy center",
+    "subject-identity-verification": "Subject identification verification",
+    "custom-request-fields": "Custom request fields",
+    "execution": "Privacy request execution",
+    "graphs": "Privacy request graphs",
+    "webhooks": "Webhooks for privacy requests",
+    "manual-requests": "Manual privacy requests",
+    "complex-fields": "Annotate complex fields",   
+    "masking-strategies": "Data masking for privacy requests",
+    "storage-destinations": "Storage destinations",
+    "reporting": "Reporting for privacy requests",
+    "data-rights-protocol": "Data Rights Protocol (DRP)"
 }
