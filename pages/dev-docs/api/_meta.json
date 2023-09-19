@@ -3,5 +3,5 @@
   "auth": "Authenticating",
   "manage": "Managing resources",
   "list": "List of API endpoints",
-  "system_history_api": "System history API"
+  "system-history-api": "System history API"
 }

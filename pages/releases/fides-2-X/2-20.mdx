@@ -1,0 +1,104 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.20 Release notes
+September 19, 2023
+
+### New features & Enhancements
+- **System history UI, API, digest moves into GA**: Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. [Read more](https://docs.ethyca.com/user-guides/data-mapping/review-history). 
+- **Fides Compass upgrades**: Fides Compass now suggests both data uses & cookies and has added 500 more vendors. [Read more](https://docs.ethyca.com/tutorials/data-mapping-dictionary)
+- **Fideslang 2.0**: Fideslang has been updated to 2.0 with changes intended to better support consent use cases. Read more below in the [Taxonomy updates](#taxonomy-updates) section.
+- **Consent notices UI updated**: Our consent notices UI has a new look, human readable geographies, and status indicators for all notices. [Read more](https://docs.ethyca.com/tutorials/consent-management-configuration/privacy-notices)
+- **Skipping collections and endpoints for DSR**: when configuring DSR processing, you can now choose to skip specific collections or endpoints. [Read more](https://docs.ethyca.com/user-guides/datasets/annotate-datasets#skipping-collections)
+- **Gather custom fields in privacy requests**: custom fields can now be configured and collected for use in privacy requests. [Read more](https://docs.ethyca.com/dev-docs/configuration/privacy-requests/custom-request-fields)
+- **DNS records page**: there is a new page called *DNS records* under the management menu where you can review and copy the CNAME records required to allow communication between customer networks and Fides.
+
+
+
+### Fixes and developer updates
+- Fides embeds CDN URLs in `fides.js` when they have been provided to Fides
+- Privacy notice templates are now disabled by default 
+- Added case-insensitive privacy experience region filtering 
+- Ensured that fides.js toggles are not hidden by other CSS libraries
+- An error toast has been added to toggles in various tables
+- Fixed a bug where an unsaved changes notification modal would appear even without unsaved changes 
+
+
+### Taxonomy updates
+We released a major update to our Fideslang taxonomy in 2.20. To explore the updated taxonomy using our visual explorer, please [go here](https://ethyca.github.io/fideslang/explorer/). 
+
+<Callout emoji="" type="info">For updated taxonomy elements, your information will be migrated when upgrading your application and any references to these elements throughout the application will be automatically updated in data use declarations, datasets, systems, privacy notices, consent components, policies, and rule targets.</Callout>
+
+#### Changes to data uses
+**Added**:
+- *Analytics for Content Performance*: `analytics.reporting.content_performance`
+- *Essential for Security*: `essential.service.security`
+- *Essential for Serving Ads*: `marketing.advertising.serving`
+- *Profiling for Advertising*: `marketing.advertising.profiling`
+- *Personalized Profiling*: `personalize.profiling`
+
+**Changed**:
+- ***Improve.**** is now ***Functional.**** : Used for specific, necessary, and legitimate purposes
+    - As a result, *Improve service* is moving: `improve.system` → `functional.service.improve`
+- Moved `essential.service.operations.support.optimization` → `essential.service.operations.improve`
+- Updated human labels and descriptions for: `essential.service.operations`, `essential.service.operations.support`, and `essential.service.payment_processing`
+
+[Read more](https://ethyca.github.io/fideslang/taxonomy/data_uses/)
+
+#### Changes to data categories
+**Added**:
+- ***Account information***: `user.account.*`
+    - *Account settings*: `user.account.settings`
+    - *Account username*: `user.account.username`
+- ***Authorization information***: `user.authorization`
+    - *Account password*: `user.authorization.credentials.unencrypted`
+- ***User content***: `user.content.*`
+    - *Private content*: `user.content.private`
+    - *Public content*: `user.content.public`
+    - *User image*: `user.content.self_image`
+- ***Purchase history***: `user.behavior.purchase_history`
+- ***Fingerprint***: `user.biometric.fingerprint`
+- ***Retina scan***: `user.biometric.retinal`
+- ***Voice recording***: `user.biometric.voice`
+- ***Criminal history***: `user.criminal_history`
+- ***Fax number***: `user.contact.fax_number`
+- ***User website***: `user.contact.url`
+- ***Language***: `user.demographic.language`
+- ***Marital status***: `user.demographic.marital_status`
+- ***Device cookie***: `user.device.cookie`
+- ***Credit card information***: `user.financial.credit_card`
+- ***Birth certificate***: `user.government_id.birth_certificate`
+- ***Immigration ID***: `user.government_id.immigration`
+- ***Vehicle registration***: `user.government_id.vehicle_registration`
+- ***Medical insurance ID***: `user.health_and_medical.insurance_beneficiary_id`
+- ***Medical record ID***: `user.health_and_medical.record_id`
+- ***User ID***: `user.unique_id`
+- ***Pseudonymous user ID***: `user.id.pseudonymous`
+- ***Imprecise subject location***: `user.location.imprecise`
+- ***Precise subject location***: `user.location.precise`
+- ***First name***: `user.name.first`
+- ***Last name***: `user.name.last`
+- ***Privacy preferences***: `user.privacy_preferences`
+
+
+**Changed**:
+- Updated `user.credentials` → `user.authorization.credentials`
+- Updated `user.observed` → `user.behavior`
+- Updated `user.browsing_history` → `user.behavior.browsing_history`
+- Updated `user.media_consumption` → `user.behavior.media_consumption`
+- Updated `user.search_history` → `user.behavior.search_history`
+- Updated `user.organization` → `user.contact.organization`
+- Updated `user.non_specific_age` → `user.demographic.age_range`
+- Updated `user.date_of_birth` → `user.demographic.date_of_birth`
+- Updated `user.gender` → `user.demographic.gender`
+- Updated `user.political_opinion` → `user.demographic.political_opinion`
+- Updated `user.profiling` → `user.demographic.profile`
+- Updated `user.race` → `user.demographic.race_ethnicity`
+- Updated `user.religious_belief` → `user.demographic.religious_belief`
+- Updated `user.sexual_orientation` → `user.demographic.sexual_orientation`
+- Updated `user.financial.account_number` → `user.financial.bank_account`
+- Updated `user.genetic` → `user.health_and_medical.genetic`
+
+
+[Read more](https://ethyca.github.io/fideslang/taxonomy/data_categories/)
+
+
