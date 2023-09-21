@@ -824,3 +824,45 @@ main h2{
 	font-family: 'SourceSansPro', sans-serif;
 }
 }
+
+
+
+/** FEature tag styling ***/
+div.enterprise, div.os{
+	display: inline-block;
+    position: relative;
+    height: 18px;
+    margin-bottom: 1px;
+}
+
+div.enterprise{
+	width: 66px;
+}
+
+div.os{
+	width: 78px;
+}
+
+div.enterprise::after{
+	content: 'Enterprise';
+	font-weight: 400;
+    color: #2D3748;
+    font-size: 10px;
+    background: #E9E1FF;
+    padding: 5px 11px;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+}
+
+div.os::after{
+	content: 'Open-Source';
+	font-weight: 400;
+    color: #2D3748;
+    font-size: 10px;
+    background:     #FECEE7;
+    padding: 5px 11px;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+}
