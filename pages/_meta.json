@@ -1,37 +1,48 @@
 {
 "index":"Fides",
+"----": {
+  "type": "separator",
+  "title": "Tutorials"
+},
+"persona": {
+  "title": "By persona",
+  "href": "/persona"
+ },
+ "activity": {
+  "title": "By activity",
+  "href": "/activity"
+ },
+ "regulations": {
+  "title": "By regulation",
+  "href": "/regulations"
+ },
+ "-----": {
+  "type": "separator",
+  "title": "Guides"
+},
 "user-guides": {
- "title": "User Guides",
+ "title": "User guides",
  "href": "/user-guides"
 },
 "dev-docs": {
-  "title": "Developer Docs",
+  "title": "Developer docs",
   "href": "/dev-docs"
- },
-"tutorials": {
-  "title": "Tutorials",
-  "href": "/tutorials"
  },
  "--": {
   "type": "separator",
   "title": "Resources"
 },
-"regulations": {
-  "title": "Regulations",
-  "href": "/regulations"
- },
  "releases": {
-  "title": "Release Notes",
+  "title": "Release notes",
   "href": "/releases/"
  },
  "community": {
   "title": "Community",
   "href": "/community"
 },
-"slack": {
-  "title": "Slack",
-  "href": "https://fid.es/join",
-  "newWindow": true
+"kb": {
+  "title": "Knowledge base",
+  "href": "/kb"
 },
 "github": {
   "title": "Github",
@@ -39,19 +50,41 @@
   "newWindow": true
 },
 "support": {
-  "title": "Contact Support",
+  "title": "Contact support",
   "href": "mailto:support@ethyca.com"
 },
 "ethyca": {
   "title": "About Ethyca",
   "href": "/ethyca"
 },
+"main-tutorials": {
+  "title": "Tutorials",
+  "type": "menu",
+  "items": {
+    "tutorials-byPersona": {
+      "title": "By persona",
+      "href": "/persona"
+    },
+    "tutorials-datamapping": {
+      "title": "Data mapping",
+      "href": "/tutorials/data-mapping-get-started"
+    },
+    "tutorials-privacy-requests": {
+      "title": "Privacy requests",
+      "href": "/tutorials/privacy-requests-get-started"
+    },
+    "tutorials-consent": {
+      "title": "Consent management",
+      "href": "/tutorials/consent-management-get-started"
+    }
+  }
+},
 "main-user-guides": {
-  "title": "User Guides",
+  "title": "User guides",
   "type": "menu",
   "items": {
     "privacy-requests": {
-      "title": "Privacy Requests",
+      "title": "Privacy requests",
       "href": "/user-guides/privacy-requests"
     },
     "datasets": {
@@ -65,11 +98,11 @@
   }
 },
 "main-dev-docs": {
-  "title": "Developer Docs",
+  "title": "Developer docs",
   "type": "menu",
   "items": {
     "docs-quickstart": {
-      "title": "Quickstart Guide",
+      "title": "Quickstart guide",
       "href": "/dev-docs/get-started"
     },
     "docs-cli": {
@@ -77,33 +110,12 @@
       "href": "/dev-docs/cli"
     },
     "docs-config": {
-      "title": "Fides Configuration",
+      "title": "Fides configuration",
       "href": "/dev-docs/configuration/configuration"
     }
   }
 },
-"main-tutorials": {
-  "title": "Tutorials",
-  "type": "menu",
-  "items": {
-    "tutorials-byPersona": {
-      "title": "By Persona",
-      "href": "/tutorials/by-persona-get-started"
-    },
-    "tutorials-datamapping": {
-      "title": "Data Mapping",
-      "href": "/tutorials/data-mapping-get-started"
-    },
-    "tutorials-privacy-requests": {
-      "title": "Privacy Requests",
-      "href": "/tutorials/privacy-requests-get-started"
-    },
-    "tutorials-consent": {
-      "title": "Consent Management",
-      "href": "/tutorials/consent-management-get-started"
-    }
-  }
-},
+
 "main-regulations": {
   "title": "Regulations",
   "type": "menu",

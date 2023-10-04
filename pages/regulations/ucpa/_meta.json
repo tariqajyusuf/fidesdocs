@@ -1,12 +1,12 @@
 {
-  "overview": "Introduction",
+  "overview": "Get started",
   "what_is_ucpa": "What is the UCPA?",
-  "what_reqs_ucpa": "What are requirements of the UCPA?",
-  "addtl_reqs_ucpa": "Additional Business Obligations of UCPA",
-  "data_map_ucpa": "01: Data Mapping",
-  "access_requests_ucpa": "02: Access Requests for UCPA",
-  "erasure_ucpa": "03: Erasure Requests for UCPA",
-  "portability_ucpa": "04: Portability Requests",
+  "what_reqs_ucpa": "UCPA requirements",
+  "addtl_reqs_ucpa": "Additional business obligations",
+  "data_map_ucpa": "01: Create data map",
+  "access_requests_ucpa": "02: Access requests",
+  "erasure_ucpa": "03: Erasure requests",
+  "portability_ucpa": "04: Portability requests",
   "dpa_ucpa": "05: Data Protection Assessments",
   "conclusion_ucpa": "Summary"
 }
