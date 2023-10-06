@@ -1,9 +1,9 @@
 {
   "index": "Overview",
-  "data-mapping": "Data Mapping",
-  "privacy-requests": "Privacy Requests",
-  "consent": "Consent Management",
+  "data-mapping": "Data mapping",
+  "privacy-requests": "Privacy requests",
+  "consent": "Consent management",
   "datasets": "Datasets",
   "integrations": "Integrations",
-  "security": "Security"
+  "configuration": "Managing Fides"
 }

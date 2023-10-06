@@ -1,3 +1,9 @@
 {
+  "data-mapping-get-started": "Getting started",
+  "data-mapping-adding-systems-manually": "Adding systems",
+  "data-mapping-system-detection": "Scanning for systems",
+  "data-mapping-data-uses": "Adding data uses",
+  "data-mapping-dictionary":"Using Fides Compass",
+  "data-mapping-reports": "Creating reports",
   "review-history": "Reviewing system history"
 }

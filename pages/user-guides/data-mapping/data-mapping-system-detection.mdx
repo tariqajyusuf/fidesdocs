@@ -3,7 +3,7 @@ import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 import TutorialKey from 'components/tutorialkey'
 import Screenshot from 'components/screenshot'
 
-# Data Mapping: Automated System Detection
+# Automated system detection
 
 <TutorialKey duration="8" product="Fides" topic="Data Mapping" video="true" interactive="true"/>
 
@@ -19,7 +19,7 @@ For this tutorial you will need:
 * Adequately scoped credentials for the scan target, such as Cloud Provider or Single Sign-On Provider. 
 * If you are using Fides' Network Data Flow scanner this must be deployed in your cloud.
 
-## Automated System Detection
+## Automated system detection
 
 In this step, you'll add a system to your data map using Fides' automated scanning and detection tools:
 
@@ -28,13 +28,13 @@ In this step, you'll add a system to your data map using Fides' automated scanni
 3. [Detect systems by scanning network data flows](#network-data-flow-detection)
 
 
-## Cloud System Detection for AWS
+## Cloud system detection for AWS
 
 To start, navigate to **Data map** → **Add systems** and choose **Scan your infrastructure** to scan automatically.
 
 <Screenshot img="/assets/img/tutorials/data-mapping-scan-infrastructure.gif" description="Scan your cloud to detect systems" />
 
-### Authenticate Fides to your Cloud
+### Authenticate fides to your cloud
 To automatically detect systems you must first authenticate the cloud infrastructure scanner to your AWS cloud by providing the following information:
 
 * <span class="nx-absolute -nx-mt-20" id="access-key-id"></span>[Access Key ID](#access-key-id) - The Access Key ID created by the cloud hosting provider.
@@ -43,7 +43,7 @@ To automatically detect systems you must first authenticate the cloud infrastruc
 
 <Screenshot img="/assets/img/tutorials/data-mapping-scan-infrastructure-authenticate.gif" description="Authenticate the infrastructure scanner" />
 
-### Required Scopes for Fides
+### Required scopes for fides
 
 The identity which is authenticated must have appropriate permissions to complete the scan:
 
@@ -72,7 +72,7 @@ These permissions can be manually configured via your AWS IAM policy management 
 }
 ```
 
-### Add Detected Systems to the Data Map
+### Add detected systems to the data map
 When the scan has completed, you will be presented with a list of systems detected in your AWS cloud. You will see the scanner displays the system name, type and the resource's identifier which is typically the ARN (Amazon Resource Name) for the detected system:
 
 <Screenshot img="/assets/img/tutorials/data-mapping-scan-infrastructure-results.gif" description="Infrastructure scanner results of disovered systemss" />
@@ -80,13 +80,13 @@ When the scan has completed, you will be presented with a list of systems detect
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
 
-## Single Sign-on Detection for Okta
+## Single Sign-On (SSO) detection for Okta
 
 To start, navigate to **Data map** → **Add systems** and choose **Scan your Sign On Provider** to scan automatically.
 
 <Screenshot img="/assets/img/tutorials/data-mapping-scan-sso.gif" description="Scan your single sign-on provider to detect systems" />
 
-### Authenticate Fides to your Single Sign-on Provider
+### Authenticate Fides to your Single Sign-On provider
 To automatically detect systems you must first authenticate the single sign-on scanner to your Okta account by providing the following information. For more information on roles and generating API tokens, read Okta's guide to <a href="https://help.okta.com/en-us/Content/Topics/Security/API.htm?cshid=ext_API" class="nx-text-primary-600 nx-underline nx-decoration-from-font" target="_blank">API token management</a> here.
 
 
@@ -95,7 +95,7 @@ To automatically detect systems you must first authenticate the single sign-on s
 
 <Screenshot img="/assets/img/tutorials/data-mapping-scan-sso-authenticate.gif" description="Authenticate the sign sign-on provider scanner" />
 
-### Add Detected Systems to the Data Map
+### Add detected systems to the data map
 
 When the scan has completed, you will be presented with a list of systems detected in your Okta account. You will see the scanner displays the system name, type and the resource's identifier which is typically the unique ID in Okta for the detected system:
 
@@ -104,7 +104,7 @@ When the scan has completed, you will be presented with a list of systems detect
 
 To add the scan results to your data map, check on the systems you would like to add and click **Register selected systems**.
 
-## Network Data Flow Detection
+## Network data flow detection
 
 To start, navigate to **Data map** → **Add systems** and choose **Data flow scan** to scan automatically.
 
@@ -123,7 +123,7 @@ To add the scan results to your data map, check on the systems you would like to
 
 After registering your systems, you will be prompted to classify the data flow between the systems. Your systems have already been registered to your map and you can complete or leave this flow without concern. If you wish to classify data flows, proceed to the step below.
 
-### Classify Sensitive Data Flowing Between Systems
+### Classify sensitive data flowing between systems
 
 The network data flow scanner will use Fides Classify, the machine learning classification engine, to categorize the sensitive data flowing between systems and provide a report of findings for review.
 
