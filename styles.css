@@ -852,11 +852,28 @@ main h2{
 
 .FeatureList{
 	margin-top: 15px;
+	border: 1px solid #f5f5f5;
+	border-radius: 10px;
 }
 
 .featureItem{
 	display: flex;
-	margin-bottom: 10px;
+	padding: 15px  10px; 
+	background-color: #fafafa;
+
+}
+
+.featureItem:first-child{
+	border-radius: 10px 10px 0px 0px;
+}
+
+.featureItem:last-child{
+	border-radius: 0px 0px 10px 10px;
+}
+
+
+.featureItem:nth-child(2n){
+	background-color: #fff;
 }
 
 .featureItem h3{
