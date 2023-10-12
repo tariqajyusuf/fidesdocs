@@ -848,7 +848,36 @@ main h2{
 
 
 
-/** FEature tag styling ***/
+/** Feature tag styling ***/
+
+.FeatureList{
+	margin-top: 15px;
+}
+
+.featureItem{
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.featureItem h3{
+	font-weight: 600;
+}
+
+.featureCopy{
+	width: 70%;
+	padding-right: 0px;
+}
+
+.tagsWrap{
+	width: 30%;
+	display: flex;
+	justify-content: flex-end;
+    
+}
+
+.tagsWrap div{
+	margin-right: 10px;
+}
 div.enterprise, div.os{
 	display: inline-block;
     position: relative;

@@ -1,4 +1,6 @@
 import { Callout } from 'nextra-theme-docs'
+import FeatureList, { FeatureItem } from 'components/featurelist'
+
 
 # Fides 2.20/2.20.1/2.20.2 Release notes
 - 2.20.0: September 19, 2023
@@ -7,7 +9,18 @@ import { Callout } from 'nextra-theme-docs'
 
 ### New features & Enhancements (2.20)
 
--  <div class="enterprise"/> <div class="os"/>  **System history UI, API, digest moves into GA:** Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. [Read more](https://docs.ethyca.com/user-guides/data-mapping/review-history). 
+<FeatureList>
+
+  <FeatureItem title="System history UI, API, digest moves into GA:"   description="Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. " enterprise="true" openSource="true"/>
+    <FeatureItem title="Fides Compass upgrades"  description="Fides Compass now suggests both data uses & cookies and has added 500 more vendors." enterprise="true" />
+  <FeatureItem title="System history UI, API, digest moves into GA:"   description="Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. " enterprise="true" openSource="true"/>
+    <FeatureItem title="Fides Compass upgrades"  description="Fides Compass now suggests both data uses & cookies and has added 500 more vendors." openSource="true"/>
+</FeatureList>
+
+
+
+.
+-   <div class="enterprise"/> <div class="os"/>  **System history UI, API, digest moves into GA:** Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. [Read more](https://docs.ethyca.com/user-guides/data-mapping/review-history). 
 - <div class="enterprise"/>  **Fides Compass upgrades**: Fides Compass now suggests both data uses & cookies and has added 500 more vendors. [Read more](https://docs.ethyca.com/tutorials/data-mapping-dictionary)
 -  <div class="os"/>  **Fideslang 2.0**: Fideslang has been updated to 2.0 with changes intended to better support consent use cases. Read more below in the [Taxonomy updates](#taxonomy-updates) section.
 - <div class="enterprise"/> <div class="os"/>  **Consent notices UI updated**: Our consent notices UI has a new look, human readable geographies, and status indicators for all notices. [Read more](https://docs.ethyca.com/tutorials/consent-management-configuration/privacy-notices)
