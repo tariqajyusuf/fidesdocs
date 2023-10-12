@@ -1,8 +1,9 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Fides 2.20/2.21 Release notes
+# Fides 2.20/2.20.1/2.20.2 Release notes
 - 2.20.0: September 19, 2023
 - 2.20.1: September 20, 2023
+- 2.20.2: September 26, 2023
 
 ### New features & Enhancements (2.20)
 
@@ -22,8 +23,13 @@ import { Callout } from 'nextra-theme-docs'
 - An error toast has been added to toggles in various tables
 - Fixed a bug where an unsaved changes notification modal would appear even without unsaved changes 
 
-### Fixes and developer updates (2.21)
+### Fixes and developer updates (2.20.1)
 - Fixed performance issue where adding integrations slowed the data map response time, particularly when viewing a list of systems
+
+### Fixes and developer updates (2.20.2)
+- Added version_added, version_deprecated, and replaced_by to data use, data subject, and data category APIs #4135
+- Update fides.js to not fetch experience client-side if pre-fetched experience is empty #4149
+- Erasure privacy requests now pause for input if there are any manual process integrations #4115
 
 ### Taxonomy updates
 We released a major update to our Fideslang taxonomy in 2.20. To explore the updated taxonomy using our visual explorer, please [go here](https://ethyca.github.io/fideslang/explorer/). 

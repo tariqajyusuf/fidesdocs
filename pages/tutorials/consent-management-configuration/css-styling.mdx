@@ -22,14 +22,27 @@ For this tutorial, you'll need:
 
 ## Styling Consent in Fides
 
-You can fully customize your visitors consent experience with Fides. To do this, you can use CSS with CSS custom variable properties as outlined below. 
+You can fully customize your visitors consent experience with Fides. To do this, you can upload a CSS stylesheet using our Consent Experiences UI. 
 
 ## Adding CSS to your website
-Fides relies on a set of predefined CSS values to style the consent experience. To use these on your site, you will need to add these values to an existing CSS stylesheet or include a new CSS stylesheet on your website with these values.
+Fides relies on a set of predefined CSS values to style the consent experience. To download a stylesheet template to use for a starting point, please click [here](https://raw.githubusercontent.com/ethyca/fides/main/clients/fides-js/src/components/fides.css) or copy [below](#fides-css-stylesheet).
+
+To upload the stylesheet, please follow these steps:
+
+1. Navigate to **Consent** in the top menu.
+2. Click on **Privacy experience** in the lefthand menu.
+3. Click on the **Upload stylesheet** button.
+4. Click in the pane to upload the stylesheet and select the appropriate file.
+5. Click **Submit**. 
+
+<Screenshot img="/assets/img/tutorials/consent_management_css_styling.gif" description="Upload a CSS stylesheet" />
+
+
+<Callout type="info" emoji="">In order to see the updates quickly, you may have to clear your browser cache.</Callout>
 
 
 ## Example: Interactive CSS Codepen
-You can preview and adjust the CSS in [this interactive codepen](https://codepen.io/cilliank/pen/xxmVGxr).
+You can preview and adjust your CSS using [this interactive codepen](https://codepen.io/cilliank/pen/xxmVGxr).
 
 <iframe height="600" width="100%" scrolling="no" title="Fides CSS Styling" src="https://codepen.io/cilliank/embed/xxmVGxr?default-tab=result&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/cilliank/pen/xxmVGxr">
@@ -38,7 +51,7 @@ You can preview and adjust the CSS in [this interactive codepen](https://codepen
 </iframe>
 
 
-## Fides CSS Stylesheet
+## Fides CSS Stylesheet 
 Fides ships with an existing set of predefined stylesheet values to simplify customization, which you can view below:
 
 ```css filename="Fides CSS"
@@ -46,12 +59,13 @@ Fides ships with an existing set of predefined stylesheet values to simplify cus
 * Fides Banner CSS styles
 */
 :root {
-  
+
   /* Base Colors */
   /* Base Color: Primary color that sets default component and button color */
-  --fides-overlay-primary-color: #cc0000;
+  --fides-overlay-primary-color: #8243f2;
   /* Base Color: Color for backgrounds of notices and components */
   --fides-overlay-background-color: #f7fafc;
+  --fides-overlay-background-dark-color: #e2e8f0;
   /* Base Color: Body font color */
   --fides-overlay-font-color: #4a5568;
   /* Base Color: Link font color */
@@ -59,7 +73,7 @@ Fides ships with an existing set of predefined stylesheet values to simplify cus
   /* Base Color: Hover color for pop-up */
   --fides-overlay-hover-color: #edf2f7;
 
-  /* Base Fonts */
+/* Base Fonts */
   /* Base Font: default font set across components, text and buttons */
   --fides-overlay-font-family: Inter, sans-serif;
   /* Base Font: font size for small text */
@@ -71,7 +85,9 @@ Fides ships with an existing set of predefined stylesheet values to simplify cus
   /* Base Font: font size for button text */
   --fides-overlay-font-size-buttons: 1.05em;
   
-  /* Buttons */
+
+
+/* Buttons */
   /* Button: Primary button color */
   --fides-overlay-primary-button-background-color: var(
     --fides-overlay-primary-color
@@ -87,21 +103,27 @@ Fides ships with an existing set of predefined stylesheet values to simplify cus
     --fides-overlay-background-color
   );
   /* Button: Secondary button hover color */
-  --fides-overlay-secondary-button-background-hover-color: #9569f4;
+  --fides-overlay-secondary-button-background-hover-color: var(
+    --fides-overlay-hover-color
+  );
   /* Button: Secondary button text color */
   --fides-overlay-secondary-button-text-color: #2d3748;
   /* Button: Secondary button border color */
-  --fides-overlay-secondary-button-border-color: transparent;
+  --fides-overlay-secondary-button-border-color: var(
+    --fides-overlay-primary-color
+  );
+
 
   /* Text */
   /* Title text: Font color */
   --fides-overlay-title-font-color: var(--fides-overlay-font-color);
   /* Body text: Font color */
---fides-overlay-body-font-color: var(--fides-overlay-font-color);
+  --fides-overlay-body-font-color: var(--fides-overlay-font-color);
   /* Link text: Font color */
- --fides-overlay-link-font-color: var(--fides-overlay-font-color-dark);
+  --fides-overlay-link-font-color: var(--fides-overlay-font-color-dark);
 
-  /* Toggle */
+
+  /* Toggles */
   /* Toggle: Active color for enabled toggle in 'on' position */
   --fides-overlay-primary-active-color: var(--fides-overlay-primary-color);
   /* Toggle: Disabled color for toggle that is disabled in 'on' position */
@@ -111,80 +133,36 @@ Fides ships with an existing set of predefined stylesheet values to simplify cus
   /* Toggle: Disabled color for toggle in 'off' position */
   --fides-overlay-disabled-color: #e1e7ee;
 
+
   /* Dividers */
   /* Divider: Divider color between each privacy notice in pop-up */
   --fides-overlay-row-divider-color: #e2e8f0;
   /* Divider: Hover state of divider color between each privacy notice in pop-up */
-  --fides-overlay-row-hover-color: #e2e8f0;
+  --fides-overlay-row-hover-color: var(--fides-overlay-hover-color);
 
-  /* Padding & Radius */
+  /* Badge */
+  --fides-overlay-badge-background-color: #718096;
+  
+  /* Select */
+  --fides-overlay-select-border-color: #e2e8f0;
+
+/* Padding & Radius */
   /* Padding: Padding space of banner and pop-up components */
   --fides-overlay-padding: 1.5em;
-   
   /* Padding: Padding space for buttons */
   --fides-overlay-button-padding: 0.5em 1em;
-  
   /* Radius: Corner radius of banner and pop-up components */
   --fides-overlay-component-border-radius: 4px;
-
-  /* Position: Position of banner component when initially loaded */
+ /* Position: Position of banner component when initially loaded */
   --fides-overlay-banner-offset: 48px;
+
+/* GPC specific settings */
+  /* GPC: Background color when GPC is applied */
+  --fides-overlay-gpc-applied-background-color: #38a169;
+  /* GPC: Text color when GPC is applied */
+  --fides-overlay-gpc-applied-text-color: white;
+  /* GPC: Background color when GPC is overridden */
+  --fides-overlay-gpc-overridden-background-color: #e53e3e;
+  /* GPC: Text color when GPC is overridden */
+  --fides-overlay-gpc-overridden-text-color: white;
 }
-
-/* Positioning banner on screen in container */
-div#fides-banner-container {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  transform: translateY(0%);
-  transition: transform 1s, visibility 1s;
-  display: flex;
-  justify-content: center;
-  visibility: visible;
-}
-
-/* Banner specific custom styles */
-div#fides-banner {
-  font-size: var(--fides-overlay-font-size-body-small);
-  background: var(--fides-overlay-background-color);
-  color: var(--fides-overlay-body-font-color);
-  box-sizing: border-box;
-  padding: var(--fides-overlay-padding);
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-/* Positioning pop-up on screen in container */
-div#fides-modal-container {}
-
-/* Pop-up specific custom styles */
-#fides-modal {}
-
-/* Responsive banner */
-@media screen and (min-width: 48em) {
-  /* Banner changes for mobile screen size */
-  div#fides-banner {
-    width: 75%;
-    border-radius: var(--fides-overlay-component-border-radius);
-    border: 1px solid var(--fides-overlay-primary-color);
-  }
-  div#fides-banner-container.fides-banner-bottom {
-    bottom: var(--fides-overlay-banner-offset);
-  }
-  div#fides-banner-container.fides-banner-top {
-    top: var(--fides-overlay-banner-offset);
-  }
-}
-
-@media only screen and (min-width: 80em) {
-  /* Banner changes for mobile screen size */
-  div#fides-banner {
-    width: 60%;
-  }
-}
-```

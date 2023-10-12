@@ -380,6 +380,17 @@ table tr td,table tr th {
 	overflow: hidden;
 	color: #ffffff;
 }
+
+.HeroCTAVisual .branded-callout h1 {
+	font-size: 2em;	
+}
+.HeroCTAVisual .branded-callout p {
+	font-size: 1.2em;
+}
+
+.HeroCTAVisual .branded-callout .brand-cta {
+	font-size: 1.3em;
+}
 .HeroCTAVisual .branded-callout {
 	display: inline-block;
 	padding: 24px 0 24px 24px;
@@ -435,7 +446,6 @@ table tr td,table tr th {
 .HeroVisual .HeroImage, .HeroCTAVisual .HeroCTAImage{
 	align-items: flex-end;
 	align-self: stretch;
-	display: flex;
 	flex: 0 1 350px;
 	justify-content: flex-end;
 	margin-left: auto;
@@ -444,12 +454,23 @@ table tr td,table tr th {
 .HeroVisual .HeroImage img, .HeroCTAVisual .HeroCTAImage img {
 	border-radius: 0px 0 8px 0 !important;
 	border: none !important;
+
 }
 @media only screen and (max-width: 1045px) {
 	.HeroVisual .HeroImage, .HeroCTAVisual .HeroCTAImage {
 		display: none;
 	}
 }
+
+@media only screen and (max-width: 650px) {
+	.HeroCTAVisual .branded-callout h1 {
+		font-size: 1.7em;
+	}
+	.HeroCTAVisual .branded-callout p {
+		font-size: 1em;
+	}
+}
+
 /*** KeyFeat & CallToAction Component Styling */
 .KeyFeat, .CtaFeat, .KeyTutorial{
 	border-radius: 8px;

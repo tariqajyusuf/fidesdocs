@@ -38,6 +38,7 @@ The list of available privacy request functions is controlled by the _Actions_ s
 | `policy_key` | A key that refers to the [policy](/dev-docs/configuration/policies/request-policies) that will be used. |
 | `identity_inputs` | The list of personally identifiable information gathered to perform an action and whether or not it is required. | 
 
+
 #### Example: access request
 This is an example of an _Access_ function that requires the Data Subject to enter their email address and executes the `default_access_policy` when submitted returning the access package to the specified email address. 
 
@@ -155,6 +156,9 @@ To configure a custom `Title`, `Description`, or `Logo`, please locate these fie
     "title": "Take control of your data",
     "description": "When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and put you in control.",
     "logo_path": "/logo.svg",
+    "logo_url": "https://fid.es",
+    "privacy_policy_url": "https://fid.es/privacy",
+    "privacy_policy_url_text": "Privacy Policy",
 } 
 ```
 <Callout emoji="" type="info">To set a custom logo, you will have to upload the logo to somewhere publicly accessible. </Callout>
