@@ -1,18 +1,23 @@
 import { Callout } from 'nextra-theme-docs'
+import FeatureList, { FeatureItem } from 'components/featurelist'
+
 
 # Fides 2.20/2.20.1/2.20.2 Release notes
 - 2.20.0: September 19, 2023
 - 2.20.1: September 20, 2023
 - 2.20.2: September 26, 2023
 
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
 ### New features & Enhancements (2.20)
-- **System history UI, API, digest moves into GA**: Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. [Read more](https://docs.ethyca.com/user-guides/data-mapping/review-history). 
-- **Fides Compass upgrades**: Fides Compass now suggests both data uses & cookies and has added 500 more vendors. [Read more](https://docs.ethyca.com/tutorials/data-mapping-dictionary)
-- **Fideslang 2.0**: Fideslang has been updated to 2.0 with changes intended to better support consent use cases. Read more below in the [Taxonomy updates](#taxonomy-updates) section.
-- **Consent notices UI updated**: Our consent notices UI has a new look, human readable geographies, and status indicators for all notices. [Read more](https://docs.ethyca.com/tutorials/consent-management-configuration/privacy-notices)
+
+-   <div class="enterprise"/> **System history UI, API, digest moves into GA:** Fides added the ability to access a system's history of changes from the `History` tab in the UI and API. A daily digest is also accessible via webhook. [Read more](https://docs.ethyca.com/user-guides/data-mapping/review-history). 
+- <div class="enterprise"/>  **Fides Compass upgrades**: Fides Compass now suggests both data uses & cookies and has added 500 more vendors. [Read more](https://docs.ethyca.com/tutorials/data-mapping-dictionary)
+- <div class="enterprise"/> **Consent notices UI updated**: Our consent notices UI has a new look, human readable geographies, and status indicators for all notices. [Read more](https://docs.ethyca.com/tutorials/consent-management-configuration/privacy-notices)
+- <div class="enterprise"/>   **Gather custom fields in privacy requests**: custom fields can now be configured and collected for use in privacy requests. [Read more](https://docs.ethyca.com/dev-docs/configuration/privacy-requests/custom-request-fields)
+- <div class="enterprise"/>   **DNS records page**: there is a new page called *DNS records* under the management menu where you can review and copy the CNAME records required to allow communication between customer networks and Fides.
 - **Skipping collections and endpoints for DSR**: when configuring DSR processing, you can now choose to skip specific collections or endpoints. [Read more](https://docs.ethyca.com/user-guides/datasets/annotate-datasets#skipping-collections)
-- **Gather custom fields in privacy requests**: custom fields can now be configured and collected for use in privacy requests. [Read more](https://docs.ethyca.com/dev-docs/configuration/privacy-requests/custom-request-fields)
-- **DNS records page**: there is a new page called *DNS records* under the management menu where you can review and copy the CNAME records required to allow communication between customer networks and Fides.
+- **Fideslang 2.0**: Fideslang has been updated to 2.0 with changes intended to better support consent use cases. Read more below in the [Taxonomy updates](#taxonomy-updates) section.
 
 ### Fixes and developer updates (2.20)
 - Fides embeds CDN URLs in `fides.js` when they have been provided to Fides

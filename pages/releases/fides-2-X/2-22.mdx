@@ -1,0 +1,27 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.22 release notes
+**2.22.0: October 16, 2023**
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+### New Features & enhancements
+- <div class="enterprise"/> **Developer-Friendly Consent API**: We have introduced API support for caching our privacy experiences, enabling a quick assessment of experience changes, and server-side encoding of TC strings.
+- <div class="enterprise"/> **Beta release of Vendor Management for Consent**: A beta version of our consent-first interface for managing vendors and consent categories has been added in this release. For access and additional information, please get in touch with your support team.
+- <div class="enterprise"/> **TCF Experience enhancements**: Consumers now have the ability to toggle preferences for a specific legal basis for each purpose and vendor.
+- <div class="enterprise"/> **CSS upgrades for all consent interfaces**: We've incorporated updated styles into our consent banners and modals, including more prominently displaying the privacy policy.
+
+
+### Fixes and developer updates
+- Fideslang updates to 2.2.0 
+    - Fideslang has been updated with support for GVL purpose 11 (Issues #171 #174)
+    - A field to indicate when a vendor has declared a flexible legal basis has been added (Issue #177 #178)
+    - Removed mistaken trailing . on some data category names in the default taxonomy #169
+    - Fields that store information about cookie processing have been added to the system model to track info like whether or not the system uses cookies, the maximum duration of cookies, etc. (Issue #173)
+- Added additional fields that are required to support TCF to system information including whether or not a system uses cookies and the max age of those cookies.
+- Various improvements have been made to the TCF modal, including enhancements to vendor storage disclosures, vendor counts, and privacy policies (Issue #4167).
+- The TCF overlay can now initialize its consent preferences from a cookie (Issue #4124).
+- Error messages during connector upload have been improved for better clarity (Issue #4198).
+- The vendors disclosed string has been narrowed down to only the vendors displayed in the user interface, rather than the entire GVL (Issue #4250).
+- In the Braze integration, an issue has been fixed where Braze couldn't mask an email due to formatting (Issue #4187).
+- In both Braze and Domo integrations, an issue where email was not being overridden correctly has been resolved (Issue #4196).
