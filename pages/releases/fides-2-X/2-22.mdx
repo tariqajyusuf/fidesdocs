@@ -1,18 +1,18 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Fides 2.22 release notes
-**2.22.0: October 16, 2023**
+# Fides 2.22.0/1 release notes
+- 2.22.0: October 16, 2023
+- 2.22.1: October 23, 2023
 
 <Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
 
-### New Features & enhancements
+### New Features & enhancements (2.22.0)
 - <div class="enterprise"/> **Developer-Friendly Consent API**: We have introduced API support for caching our privacy experiences, enabling a quick assessment of experience changes, and server-side encoding of TC strings.
 - <div class="enterprise"/> **Beta release of Vendor Management for Consent**: A beta version of our consent-first interface for managing vendors and consent categories has been added in this release. For access and additional information, please get in touch with your support team.
 - <div class="enterprise"/> **TCF Experience enhancements**: Consumers now have the ability to toggle preferences for a specific legal basis for each purpose and vendor.
 - <div class="enterprise"/> **CSS upgrades for all consent interfaces**: We've incorporated updated styles into our consent banners and modals, including more prominently displaying the privacy policy.
 
-
-### Fixes and developer updates
+### Fixes and developer updates (2.22.0)
 - Fideslang updates to 2.2.0 
     - Fideslang has been updated with support for GVL purpose 11 (Issues #171 #174)
     - A field to indicate when a vendor has declared a flexible legal basis has been added (Issue #177 #178)
@@ -25,3 +25,11 @@ import { Callout } from 'nextra-theme-docs'
 - The vendors disclosed string has been narrowed down to only the vendors displayed in the user interface, rather than the entire GVL (Issue #4250).
 - In the Braze integration, an issue has been fixed where Braze couldn't mask an email due to formatting (Issue #4187).
 - In both Braze and Domo integrations, an issue where email was not being overridden correctly has been resolved (Issue #4196).
+
+### Security (2.22.1)
+- Added hostname checks for external SaaS connector URLs [CVE-2023-46124](https://github.com/ethyca/fides/security/advisories/GHSA-jq3w-9mgf-43m4)
+- Use a Pydantic URL type for privacy policy URLs [CVE-2023-46126](https://github.com/ethyca/fides/security/advisories/GHSA-fgjj-5jmr-gh83)
+- Remove the CONFIG_READ scope from the Viewer role [CVE-2023-46125](https://github.com/ethyca/fides/security/advisories/GHSA-rjxg-rpg3-9r89)
+
+### New Features & enhancements (2.22.1)
+- <div class="enterprise"/> Custom fields are now tracked in System History tab (Issue #4294)
