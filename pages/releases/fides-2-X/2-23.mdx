@@ -1,0 +1,32 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.23.0 release notes
+October 30, 2023
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+### New Features & enhancements
+- <div class="enterprise"/> **Select vendors**: we've added a new interface to allow customers to select vendors from a list of 1500+ vendors in Fides Compass and have those vendors, with all of their info and data uses, added to the data map. [Learn more](/user-guides/data-mapping/choosing-vendors) 
+- <div class="enterprise"/> **Google Additional consent**: we've added support for showing Google Ad Technology Providers (ATP) who are not yet certified with the IAB via the [Additional Consent](https://support.google.com/admanager/answer/9681920?hl=en) framework.
+- <div class="enterprise"/> **Compass tags**: we've added tags to many vendor records in Fides Compass to assist you in understanding what service each vendor typically performs. 
+
+### New integrations
+- **SparkPost**: Access and erasure support #4328
+- **Iterate**: Access and erasure support #4332
+
+### Fixes and developer updates 
+- <div class="enterprise"/> Changed vendor selector on system information form to typeahead #4333
+- <div class="enterprise"/> Added support for 3 additional config variables in Fides.js: fidesEmbed, fidesDisableSaveApi, and fidesTcString #4262
+- <div class="enterprise"/> Added support for fidesEmbed, fidesDisableSaveApi, and fidesTcString to be passed into Fides.js via query param, cookie, or window object #4297
+- <div class="enterprise"/> Added new privacy center environment variables FIDES_PRIVACY_CENTER__IS_FORCED_TCF to make the privacy center always return the TCF bundle (fides-tcf.js) #4312
+- <div class="enterprise"/> Added support for overriding the save user preferences API call with a custom function provided through Fides.init #4318
+- <div class="enterprise"/> New GET Privacy Experience Meta Endpoint #4328
+- <div class="enterprise"/> Added served notice history IDs to the TCF privacy preference API calls #4161
+- <div class="enterprise"/> TCF stacks that do not have any purposes will no longer render an empty purpose block #4278
+- <div class="enterprise"/> Restricted TCF Privacy Experience Config if TCF is disabled #4348
+- <div class="enterprise"/> Updated the fidescls EntityMap to use Fideslang 2.0 labels #1157
+- Added a FidesUIChanged event to Fides.js to track when user preferences change without being saved #4314 and #4253
+- Added SSH Support for MySQL connections #4310
+- Fixed issue in Hubspot integration requiring email to be formatted in specific ways when processing an erasure request #4322
+- Applied consistent font sizes for labels in the system form and data use forms in the Admin UI #4346
+
