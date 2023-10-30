@@ -1,0 +1,60 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyTutorialWrap, { TutorialFeat } from 'components/tutorialfeat'
+import TutorialKey from 'components/tutorialkey'
+import VimeoVideo from 'components/vimeovideo'
+import Screenshot from 'components/screenshot'
+
+# Configuring the privacy center
+
+<TutorialKey duration="40" product="Fides" topic="Privacy Requests" interactive="true"/>
+
+## Introduction
+In this tutorial, you will learn how to configure your privacy center to receive privacy requests, like Data Subject Requests.
+
+## Prerequisites
+
+For this tutorial you will need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+
+## The Privacy Center
+
+Fides provides the Privacy Center for your subjects to submit privacy requests that is typically accessed by clicking a link in the footer of your site or in your privacy policy.
+
+This is what the privacy center for the "Cookie House" demo project looks like:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-privacy-center.gif" description="Standard Privacy Center" />
+
+To submit a privacy request, the data subject must identify themselves using either their email address or phone number, depending on the [Privacy Center configuration](privacy-requests/receive-requests#the-privacy-center):
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-submit-identity.gif" description="Submitting a Privacy Request" />
+
+If [Subject Identity Verification](receive-requests#subject-identity-verification) is enabled, the data subject will receive an authentication code that they can use to confirm their identity.
+
+Below is an example of the email received for the "Cookie House" sample project:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-identity-verification.gif" description="Submitting a Privacy Request" mw="600"/>
+
+The subject provides the code when prompted on the privacy center to verify their identity:
+
+<Screenshot img="/assets/img/tutorials/privacy-requests-identy-modal.gif" description="Submitting a Privacy Request" mw="400"/>
+
+And, when confirmed, the privacy request is submitted for review and processing. 
+
+### Customizing the Privacy Center
+
+The Privacy Center's appearance is highly configurable and these guides will show you how to customize the appearance to match your brand: 
+* [Set a custom Title, Description, or Logo](../../dev-docs/configuration/privacy-requests/privacy-center#set-custom-fields)
+* [Use a CSS Stylesheet](../../dev-docs/configuration/privacy-requests/privacy-center#configure-website-appearance)
+
+To configure which privacy request functions appear in your Privacy Center, please follow our guide for [Configuring privacy request functions](../../dev-docs/configuration/privacy-requests/privacy-center#configure-privacy-request-options).
+
+### Subject identity verification
+
+When a privacy request is received, your organization is responsible for confirming the identity of the subject to ensure that you do not incorrectly disclose data. 
+
+To verify an identity, you may only request information that you already have concerning a data subject. For example, you can't request a copy of a subject's drivers license if you don't already have this information.
+
+Ethyca recommends using Multi-Factor Authentication (MFA) for identify verification and Fides offers built-in Subject Identity Verifiation using MFA. To learn more, please see our guide for configuring [Subject Identity Verification](../../dev-docs/configuration/privacy-requests/subject-identity-verification). 
+

@@ -1,8 +1,11 @@
 {
-  "index": "Overview",
-  "submit-requests": "Submiting requests",
-  "receive-requests": "Receiving requests",
-  "manage-requests": "Reviewing requests",
-  "process-requests": "Processing requests",
-  "configure-email": "Configuring email"
+  "privacy-requests-get-started":"Getting started",
+  "privacy-requests-workflow": "Understanding the workflow",
+  "configure-privacy-center": "Configuring the Privacy Center",
+  "process-requests": "Configuring request processing",
+  "configure-email": "Configuring notification",
+  "submitting-requests": "Submitting requests",
+  "review-requests": "Reviewing requests",
+  "privacy-requests-debugging": "Debugging errors"
+
 }
