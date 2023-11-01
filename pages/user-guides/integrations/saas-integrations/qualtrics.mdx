@@ -34,9 +34,9 @@ Fides utilizes _API endpoints_ to access the _API service_ for a SaaS applicatio
 
 In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
 
-| Privacy function            | Endpoint                                                                                                | Description                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| **(RTBF) Delete responses** | [Right To Be Forgotten](https://www.typeform.com/developers/responses/reference/rtbf-delete-responses/) | Delete responses that contain an email from a specified list |
+| Privacy function                        | Endpoint                                                                 | Description                |
+| --------------------------------------- | ------------------------------------------------------------------------ | -------------------------- |
+| **(Right to Erasure) Delete responses** | [Create Request](https://api.qualtrics.com/90a15f9bf47db-create-request) | Create an erasure request. |
 
 <Callout type="info" emoji="">
 By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
