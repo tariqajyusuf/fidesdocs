@@ -1,6 +1,6 @@
 # Privacy Request Execution
 
-Fully configured, Fides provides end-to-end [privacy request](./overview) execution. The following outline summarizes the steps Fides takes to fulfill privacy requests, including optional configurations and manual data retrieval. 
+Fully configured, Fides provides end-to-end [privacy request](/dev-docs/configuration/privacy-requests) execution. The following outline summarizes the steps Fides takes to fulfill privacy requests, including optional configurations and manual data retrieval. 
 
 ## Privacy request submission
 
@@ -59,7 +59,7 @@ Fides builds a Directed Acyclic Graph, or DAG, where each location or node corre
 #### Graph Execution
 After the graph is built, Fides passes the result to [Dask](https://www.dask.org/) to execute sequentially. Fides visits one Collection at a time, following the graph created, and uses Dask to determine ordering for ties.
 
-For the first Collections in the graph connected to the root, Fides uses the customers' provided identity to locate subject data, by either making database queries or HTTP requests to a configured API endpoint. The details on how to access your data are determined by the [Connection](/docs/databases/database-connection-types) type. Fides retrieves all Fields that have been configured on the Collection, and caches the results in temporary storage for usage later. Fides then passes the results of that Collection to downstream Collections that similarly make queries, temporarily cache the results, and return their results to their own downstream Collections.
+For the first Collections in the graph connected to the root, Fides uses the customers' provided identity to locate subject data, by either making database queries or HTTP requests to a configured API endpoint. The details on how to access your data are determined by the [Connection](/dev-docs/configuration/integrations/database-integrations) type. Fides retrieves all Fields that have been configured on the Collection, and caches the results in temporary storage for usage later. Fides then passes the results of that Collection to downstream Collections that similarly make queries, temporarily cache the results, and return their results to their own downstream Collections.
 
 A Collection isn't visited until Fides has searched for data across all of its upstream Collections. This continues until all Collections have been visited. See [Query Execution](/dev-docs/configuration/privacy-requests/graphs) for more information.
 
@@ -92,13 +92,13 @@ The "graph" for an erasure runs on the data from the access request, which is ke
 Fides visits each Collection sequentially, using a deterministic order set by Dask. For each row of data retrieved in the access request step, Fides attempts to mask the data targeting the fields specified on your execution policy, using the [masking strategies](/dev-docs/configuration/privacy-requests/masking-strategies) you've defined. If no rows exist from the access request, or no Fields on that Collection match the targeted Data Categories, no masking occurs. Fides caches a count of the records
 that had fields masked in temporary storage.
 
-The masking request might involve an `update` database query or an `update` or `delete` HTTP request depending on the [Connection Type](/docs/databases/database-connection-types). The Email Connector type doesn't mask any data itself, but instead persists how to locate and mask that Collection in temporary storage for use later.
+The masking request might involve an `update` database query or an `update` or `delete` HTTP request depending on the [Connection Type](/dev-docs/configuration/integrations/database-integrations). The Email Connector type doesn't mask any data itself, but instead persists how to locate and mask that Collection in temporary storage for use later.
 
 If masking fails on a given Collection, Fides retries the requests for a configured number of times, and then request execution will exit with a status of `error`. Fides will cache both the failed Collection and that the failure occurred on the `erasure` step. Retrying the privacy request will resume from the `erasure` step at the failed Collection. Previously masked Collections will not be masked again.
 
 
 ### Send erasure request emails
-After the access and erasure steps have both executed, Fides checks if there are any third parties that need to be additionally emailed to complete erasure requests on your behalf. See [emailing third party services to mask data](messaging#Email-third-party-services-to-mask-data) for more information.
+After the access and erasure steps have both executed, Fides checks if there are any third parties that need to be additionally emailed to complete erasure requests on your behalf. See [emailing third party services to mask data](/dev-docs/configuration/messaging) for more information.
 
 Fides retrieves any masking instructions cached by Email Connectors in the erasure request step, and combines them into a single email per Dataset.
 
