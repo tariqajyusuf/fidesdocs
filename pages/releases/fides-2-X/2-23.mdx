@@ -1,9 +1,10 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Fides 2.23.0/2.23.1/2.23.2 release notes
+# Fides 2.23.0/2.23.1/2.23.2/2.23.3 release notes
 - 2.23.0: October 30, 2023
 - 2.23.1: November 02, 2023
 - 2.23.2: November 03, 2023
+- 2.23.3: November 07, 2023
 
 <Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
 
@@ -43,3 +44,11 @@ import { Callout } from 'nextra-theme-docs'
 
 ### Fixes and developer updates (2.23.2)
 - <div class="enterprise"/> Fixed fides.css to vary banner width based on tcf #4381
+
+### Fixes and developer updates (2.23.3)
+- <div class="enterprise"/> Fix button arrangment and styling for TCF and non-TCF consent banner and modal #4391
+- <div class="enterprise"/> Replaced h1 element with div to use exisitng fides styles in consent modal #4399
+- <div class="enterprise"/> Fixed privacy policy alignment for non-TCF consent overlay banner and modal #4403
+
+### Security (2.23.3)
+- Fix an HTML Injection vulnerability in DSR Packages
