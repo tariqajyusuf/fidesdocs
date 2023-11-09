@@ -49,7 +49,7 @@ If a request to a pre-execution webhook fails, request execution will exit with 
 ### Access request automation
 Access request automation is performed regardless of whether there are access or erasure Rules defined, as both Rules require this data.  See how to [configure policies, rules, and rule targets](/dev-docs/configuration/privacy-requests/graphs) for additional information.
 
-This step visits all Collections and retrieves all Fields that you've defined in your [Datasets](/user-guides/integrations/database-integrations/datasets). Fides builds a graph in accordance with how you've designated your Collections are related, visits each Collection in turn, and gathers all the results together.
+This step visits all Collections and retrieves all Fields that you've defined in your [Datasets](/user-guides/datasets). Fides builds a graph in accordance with how you've designated your Collections are related, visits each Collection in turn, and gathers all the results together.
 
 #### Graph building
 Fides builds a Directed Acyclic Graph, or DAG, where each location or node corresponds to a Collection in one of your Datasets. The graph helps determine the order in which nodes will be visited. Fides begins with any Collections that can be queried using the supplied identity data, and then points those Collections toward dependent Collections, etc. If Fides can't determine how to reach a Collection, it will exit early with a status of `error`.  To remedy an errored access request, you update how your Collections are related to each other in your Datasets, and resubmit the privacy request.
@@ -75,7 +75,7 @@ The final step of an automated access request gathers all the results for each C
 ### Upload results
 If configured, Fides uploads the results retrieved from access automation for the data subject.
 
-For each configured access Rule, Fides filter the graph results to match targeted Data Categories. See [Datasets](/user-guides/integrations/database-integrations/datasets) for more details.
+For each configured access Rule, Fides filter the graph results to match targeted Data Categories. See [Datasets](/user-guides/datasets) for more details.
 Fides also supplements the results with any data manually uploaded from [manual privacy requests](#respond-to-manual-webhooks). Each data package is uploaded in JSON
 or CSV format to a specified storage location like Amazon S3. See [configuring storage](/dev-docs/configuration/privacy-requests/storage-destinations) for more information.
 

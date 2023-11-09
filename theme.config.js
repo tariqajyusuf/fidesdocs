@@ -37,7 +37,7 @@ const Logo = ({ height }) => (
 
 export default {
   primaryHue: 259,
-  docsRepositoryBase: "https://github.com/ethyca/fidesdocs/tree/",
+  docsRepositoryBase: "https://github.com/ethyca/fidesdocs/tree/main/",
 
   useNextSeoProps() {
     return {
@@ -50,9 +50,11 @@ export default {
   },
   editLink: {
     text: null,
+    component(){return null}
   },
   feedback: {
     content: 'Open an issue in Github',
+    useLink(){ return 'https://github.com/ethyca/fidesdocs/issues/new/choose'}
   },
   gitTimestamp: null,
   darkMode: false,
@@ -102,7 +104,7 @@ export default {
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
-        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon/safari-pinned-tab.svg" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link
           rel="mask-icon"
@@ -148,16 +150,16 @@ export default {
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-            <img src ="/assets/ethyca_logo.svg" />
+            <img src ="/assets/ethyca_logo.svg" alt="Ethyca Logo"/>
           </a>
           </div>
           <div className="socials">
             <div className="icons"> 
 
-                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/assets/slack.svg" /> </a>
-                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/assets/linkedin.svg" /> </a>
-                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/assets/twitter.svg" /> </a>
-                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/assets/github.svg" /> </a>
+                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/assets/slack.svg" alt="slack icon" /> </a>
+                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/assets/linkedin.svg" alt="Linkedin icon" /> </a>
+                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/assets/twitter.svg" alt="Twitter icon"  /> </a>
+                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/assets/github.svg" alt="Github icon" /> </a>
             </div>
               <HubspotForm
                    portalId='7252764'
