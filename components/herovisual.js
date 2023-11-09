@@ -4,7 +4,7 @@ export default function HeroVisual({ title, image }) {
     <div className="HeroVisual">
          <h1> {title} </h1>
          <div className="HeroImage">
-            <img src={image}></img>
+            <img src={image} alt=""></img>
          </div>
     </div>
   );
