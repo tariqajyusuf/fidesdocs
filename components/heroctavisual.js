@@ -12,7 +12,7 @@ export default function HeroCTAVisual({ title, highlight, body, cta, href, image
           </Link>
         </div>
          <div className="HeroCTAImage">
-            <img src={image}></img>
+            <img src={image} alt=""></img>
          </div>
     </div>
   );

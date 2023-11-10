@@ -1,0 +1,24 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.24.0 release notes
+November 13, 2023
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+### New Features & enhancements 
+- <div class="enterprise"/> **Customizable integrations for privacy requests**: integrations can now be configured to support particular request types (eg. Access, Erasure, and Consent).
+- <div class="enterprise"/> **IAB TCF compliance**: vendors who are found in the Global Vendor List (GVL) will be non-editable systems to ensure compliance with the IAB TCF framework.
+- <div class="enterprise"/> **Automatic updates for IAB vendors**: when vendors move to version 3 of the Global Vendor List (GVL) from the Google Additional Consent list or older versions of the GVL, we will automatically update any related systems in your data map so that you have the most Up-to-date information
+- <div class="enterprise"/> **Enhanced metadata for privacy requests**: additional hidden fields can now be sent along with privacy requests to assist with automated privacy requests processing.
+- **Cookie support enhancements**: Cookies can now be stored at the system or data use level for reporting or cookie enforcement purposes
+
+
+### New integrations 
+- **Ada Chatbot**: Erasure support [learn more](https://docs.ethyca.com/user-guides/integrations/saas-integrations/ada_chatbot)
+- **Qualtrics**: Erasure support [learn more](https://docs.ethyca.com/user-guides/integrations/saas-integrations/qualtrics)
+- **Typeform**: Eraure support [learn more](https://docs.ethyca.com/user-guides/integrations/saas-integrations/typeform)
+
+### Fixes and developer updates 
+- <div class="enterprise"/> Added fides_disable_banner config option to Fides.js #4378
+- <div class="enterprise"/> Added support for a custom get preferences API call provided through Fides.init #4375
+
