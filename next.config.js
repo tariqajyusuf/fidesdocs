@@ -6,8 +6,3 @@ const withNextra = require("nextra")({
   unstable_staticImage: true,
   defaultShowCopyCode: true,
 });
-
-module.exports = withNextra({
-    basePath: '/docs',
-})
-
