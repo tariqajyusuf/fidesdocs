@@ -1,0 +1,92 @@
+{
+"index":"Fides",
+"main-user-guides": {
+  "title": "User Guides",
+  "type": "menu",
+  "items": {
+    "privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/docs/user-guides/privacy-requests"
+    },
+    "datasets": {
+      "title": "Datasets",
+      "href": "/docs/user-guides/datasets"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "href": "/docs/user-guides/integrations"
+    }
+  }
+},
+"main-dev-docs": {
+  "title": "Developer Docs",
+  "type": "menu",
+  "items": {
+    "docs-quickstart": {
+      "title": "Quickstart Guide",
+      "href": "/docs/dev-docs/get-started"
+    },
+    "docs-cli": {
+      "title": "Fides CLI",
+      "href": "/docs/dev-docs/cli"
+    },
+    "docs-config": {
+      "title": "Fides Configuration",
+      "href": "/docs/dev-docs/configuration/configuration"
+    }
+  }
+},
+"main-tutorials": {
+  "title": "Tutorials",
+  "type": "menu",
+  "items": {
+    "tutorials-byPersona": {
+      "title": "By Persona",
+      "href": "/docs/tutorials/by-persona-get-started"
+    },
+    "tutorials-datamapping": {
+      "title": "Data Mapping",
+      "href": "/docs/tutorials/data-mapping-get-started"
+    },
+    "tutorials-privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/docs/tutorials/privacy-requests-get-started"
+    },
+    "tutorials-consent": {
+      "title": "Consent Management",
+      "href": "/docs/tutorials/consent-management-get-started"
+    }
+  }
+},
+"main-regulations": {
+  "title": "Regulations",
+  "type": "menu",
+  "items": {
+    "regulations-ccpa": {
+      "title": "California Consumer Privacy Act (CCPA)",
+      "href": "/docs/regulations/ccpa/overview"
+    },
+    "regulations-vcdpa": {
+      "title": "Virginia Consumer Data Privacy Act (VCDPA)",
+      "href": "/docs/regulations/vcdpa/overview"
+    },
+    "regulations-cpa": {
+      "title": "Colorado Privacy Act (CPA)",
+      "href": "/docs/regulations/cpa/overview"
+    },
+    "regulations-ctdpa": {
+      "title": "Connecticut Data Privacy Act (CTDPA)",
+      "href": "/docs/regulations/ctdpa/overview"
+    },
+    "regulations-ucpa": {
+      "title": "Utah Consumer Privacy Act (UCPA)",
+      "href": "/docs/regulations/ucpa/overview"
+    },
+    "regulations-gpc": {
+      "title": "Global Privacy Control (GPC)",
+      "href": "/docs/regulations/gpc/overview"
+    }
+  }
+}
+
+}
