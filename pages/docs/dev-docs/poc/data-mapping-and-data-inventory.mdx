@@ -1,0 +1,37 @@
+# POC: Data Mapping with Fides
+Our POC (Proof of Concept) guides are intended for enterprise organiations evaluating Fides deployed in their environment and are a helpful way to guide you through deploying and evaluating the world's leading privacy engineering platform.
+
+## Prerequisites Guide for AWS Data Mapping and Data Inventory
+Please follow these guides, in order, for the appropriate environment to get started quickly with your Fides POC (Proof of Concept):
+
+### In-House Systems
+
+| Step | Description | Notes |
+| --- | --- | --- |
+| AWS Provisioning | Provision AWS Credentials | [AWS Guide to provisioning Access Key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html) |
+| SQL Database Credential Provisioning | Provision a service account for Database Access | Fides requires read-only permissions for classification. |
+| Kubernetes Deployment (If Self-Deploying) | Access to deploy to AKS | [AWS Guide to setting up Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html) |
+
+### Third Party SaaS
+
+| Step | Description | Notes |
+| --- | --- | --- |
+| Credential Provisioning | Provision Access Keys for third party systems | Refer to vendor documentation for seeding third party system data |
+| Seed Test Data | Evaluator will provision sandbox data in a non-production environment | [Example: Stripe - Generating test data](https://github.com/stripe-samples/test-data)  |
+
+
+## POC Checklist for Data Mapping
+### In-House Systems
+
+| Step | Description | Notes |
+| --- | --- | --- |
+| Fides Scanning & Data Mapping | Scan the AWS Instance | [Fides guide to scanning AWS Infrastructure](/docs/tutorials/data-mapping-system-detection#cloud-system-detection-for-aws) |
+| Classify Sandbox AWS MySQL Database | Perform a classification and view results. |  |
+| Create a System in Fides and link MySQL Dataset | Linking the dataset to a system. | [Adding Data Uses and Processing Acitivites](/docs/tutorials/data-mapping-data-uses) |
+| Visualize Datamap, Filter Data, and Export a Report | See, explore, and understand your Datamap. | [Data Mapping and Report Exporting](/docs/tutorials/data-mapping-reports) |
+
+### Third Party SaaS
+
+| Step | Description | Notes |
+| --- | --- | --- |
+| Integrate Third Party System | Fides will use it's data dictionary to identify PII. | [Example: Stripe - Configuring the integration](/docs/dev-docs/configuration/integrations/saas-integrations/example-configs/stripe) |

@@ -1,0 +1,51 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Firebase
+[Firebase](https://firebase.google.com/) is a comprehensive platform by Google for developing web and mobile applications, providing tools for backend services, database management, authentication, hosting, and mor
+
+## Prerequisites
+<Callout emoji="" type="info"> Firebase credentials are provides when [generating a private key](https://firebase.google.com/docs/admin/setup#set-up-project-and-service-account) as a JSON credentials file. You will need to extract the fields below from this.</Callout>
+
+In order to [integrate](/docs/user-guides/integrations) with Firebase, you'll need to collect and input the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                 | The unique URL for your Firebase instance. |
+| **Type of account***           | The type of account to use for connecting to Firebase, extracted from the credentials file as `type` (default: `service_account`) |
+| **Project ID***        | The ID of the project in Firebase, extracted from the credentials file as `project_id`  |
+| **Private key ID***   | The ID of the private key for your service account, extracted from the credentials file as `private_key_id` |
+| **Private key***   | The private key for your service account, extracted from the credentials file as `private_key` | 
+| **Client email***   | The client email for your service account, extracted from the credentials file as `client_email`|
+| **Client ID***   | The client ID for your service account, extracted from the credentials file as `client_id` |
+| **Auth URI***   | The URL for authorization, extracted from the credentials file as `auth_uri` (default: `https://accounts.google.com/o/oauth2/auth`) |
+| **Token URI***   | The URL for the token, extracted from the credentials file as `token_uri` (default: `https://oauth2.googleapis.com/token`) |
+| **Auth Provider Certificate URL***   | The URL for the Auth provider's x509 public key certificate, extracted from the credentials file as `auth_provider_x509_cert_url` (default: `https://www.googleapis.com/oauth2/v1/certs`) |
+| **Client Certificate URL***   | The URL for the client's x509 public key certificate, extracted from the credentials file as `client_x509_cert_url` |
+
+
+## Integrating with Firebase
+To integrate an existing system with Firebase: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/docs/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Firebase endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access and erasure requests** | [User](https://firebase.google.com/docs/reference/rest/auth#section-get-account-info) | Retrieve and erase user data | 
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

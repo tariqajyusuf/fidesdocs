@@ -1,0 +1,101 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: get
+
+The ```fides get``` command retrieves the specified resources from the Fides Server and outputs the repsonse in YAML.
+
+When the ```get``` command is run, it will:
+
+1. Retrieve the specified remote resource from the Server.
+2. Output the resources as YAML on the command line.
+
+To learn more about dataset annotation in Fides see the [Dataset Annotation in Fides](/docs/dev-docs/configuration/privacy-requests/annotate-datasets-cli) guide.
+
+## Usage
+Usage: ```fides get [args] fides_key```
+
+The command will retrieve the remote resources specified by the ```fides_key``` from the Server and print the output as YAML.
+
+Accepted arguments for this command are:
+
+* **data_category**: a specific category from the taxonomy. A valid example would be ```user.name```.
+* **data_qualifier**: a specific qualifier from the taxonomy. A valid example would be ```aggregated```.
+* **data_subject**: a specific data subject from the taxonomy. A valid example is ```customer```.
+* **data_use**: a specific use of data from the taxonomy. A valid example is ```advertising.third_party```.
+* **dataset**: a dataset that represents a collection of information in a system such as the collection of tables in a postgres database.
+* **evaluation**: the result of a policy evaluation check.
+* **organization**: the name of the organization defined in Fides.
+* **policy**: a Fides policy rule. 
+* **system**: a specific system resource.
+
+
+## Example: Retrieve a data category from the taxonomy
+This example retrieves the full data category resource for ```user.contact.address.street``` from the server and displays all properties of the data categories.
+
+```console
+$ fides get data_category user.contact.address.street
+Loaded config from: .fides/fides.toml
+----------
+data_category:
+- description: User’s street level address data.
+  fides_key: user.contact.address.street
+  is_default: true
+  name: User Contact Street
+  organization_fides_key: acme_inc
+  parent_key: user.contact.address
+  tags: null
+```
+
+## Example: Retrieve a specific system from the server
+This example retrieves the system specified by the key ```postgres_database``` from the server and displays all properties of the system.
+
+```console
+$ fides get system postgres_database
+Loaded config from: .fides/fides.toml
+----------
+system:
+- administrating_department: 'Data Engineering'
+  data_protection_impact_assessment:
+    is_required: false
+    link: null
+    progress: null
+  data_responsibility_title: Controller
+  description: 'Fides Generated Description for RDS Instance: postgres_database'
+  fides_key: postgres_database
+  fidesctl_meta:
+    endpoint_address: postgres_database.cyavuxxlazuu.us-east-1.rds.amazonaws.com
+    endpoint_port: 3306
+    resource_id: arn:aws:rds:us-east-1:513247902527:db:postgres_database
+  ingress:
+  - ecommerce_app
+  egress:
+  - data_warehouse
+  joint_controller: null
+  meta: null
+  name: postgres_database
+  organization_fides_key: acme_inc
+  privacy_declarations:
+  - data_categories:
+    - system.operations
+    - user.contact
+    - user.contact.email
+    - user.organization
+    data_qualifier: aggregated.anonymized.unlinked_pseudonymized.pseudonymized.identified
+    data_subjects:
+    - customer
+    data_use: advertising.first_party
+    dataset_references: null
+    egress: 
+    - ecommerce_app
+    ingress:
+    - data_warehouse
+    name: 'Track customer details for e-commerce transactions as part of advertising.'
+  system_dependencies:
+  - ecommerce_app
+  - data_warehouse
+  system_type: rds_instance
+  tags:
+  - e-commerce
+  third_country_transfers: null
+```

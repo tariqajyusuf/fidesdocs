@@ -1,0 +1,19 @@
+
+import Swagger from '../swagger';
+
+# API: current-privacy-preferences
+
+The `/api/v1/current-privacy-preferences` is designed to give you a report of _current_ consent preferences made by end-user subjects. To see _historical_ preferences, please refer to the [historical-privacy-preferences](/docs/dev-docs/api/manage/historical-privacy-preferences) endpoint. 
+
+This can be used to integrate into popular dashboard and reporting tooling. 
+<br></br>
+
+<Swagger 
+    filterStrings={[
+        {
+            'path': '/api/v1/current-privacy-preferences',
+            'greedy': 'true'
+        }
+    ]} 
+    defaultModelsExpandDepth={-1}
+/>

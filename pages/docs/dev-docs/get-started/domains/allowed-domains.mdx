@@ -1,0 +1,25 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Adding Allowed Domains for Consent
+
+<Callout emoji="" type="info">This guide is for Fides Cloud, hosted edition. For alternative information about deploying Fides to your cloud [read the quickstart guide](/docs/dev-docs/get-started/) here.</Callout>
+
+## Prerequisites
+For this guide you should already have a Fides Cloud hosted account.
+
+## Allowed Domains for Consent
+To ensure the security of consent management, fides.js can only be served on sites that have been added to the allowed list of domains. Therefore, you must individually add each domain to ensure that consent will function for your domains.
+
+To learn more about installing `fides.js` on your website and [configuring consent](/docs/tutorials/consent-management-configuration/install-fides), please read the tutorial [here](http://localhost:3002/tutorials/consent-management-configuration/install-fides).
+
+## Adding a Domain to Fides Cloud Allowed List
+To add a domain to the Fides Cloud allowed list:
+1. Click on the gear icon located in the top right corner of the page to go to the Management menu
+2. From the navigation menu on the left, select **CORS configuration**
+3. Add your CORS domain
+
+<Callout emoji="" type="info"> Note, when adding a domain, you may use a wildcard, such as [*.yourdomain.com](http://*.yourdomain.com), or a fully qualified subdomain.</Callout>
+
+<Screenshot img="/assets/img/configuration/cors_configuration.png" description="CORs domain configuration" />
+

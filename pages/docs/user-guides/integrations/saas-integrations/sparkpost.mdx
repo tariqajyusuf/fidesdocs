@@ -1,0 +1,45 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Sparkpost
+
+[Sparkpost](https://messagebird.com/email/cloud-sending?sp=true) SparkPost is a developer-centric email delivery service.
+[Sparkpost](https://messagebird.com/email/cloud-sending?sp=true) is a developer-centric email delivery service.
+
+## Prerequisites
+
+In order to [integrate](/docs/user-guides/integrations) with Sparkpost, you'll need to collect the following information:
+
+| Name                    | Description                                                                                                                                       |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Domain\***            | The domain api.sparkpost.com                                                                                                                      |
+| **Sparkpost API Key\*** | The API access token. Follow Sparkposts [Create API Keys](https://support.sparkpost.com/docs/getting-started/create-api-keys) docs to learn more. |
+
+## Integrating with Sparkpost
+
+To integrate an existing system with Sparkpost:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/docs/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Sparkpost Endpoints
+
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function    | Endpoint                                                                                                                  | Description                                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Access Requests** | [Recipient Lists](https://developers.sparkpost.com/api/recipient-lists/)                                                  | Search for a user by email address and get details about how many surveys they've responded to.                                                           |
+| **Delete Requests** | [Right To Be Forgotten](https://developers.sparkpost.com/api/data-privacy/#data-privacy-post-add-request-to-be-forgotten) | Request deletion of recipient data or opt-out of third party data usage of a recipient's personal information. Requests will be completed within 30 days. |
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

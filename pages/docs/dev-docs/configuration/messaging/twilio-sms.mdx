@@ -1,0 +1,167 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Configure Twilio for SMS
+
+This document explains how to configure SMS notification and messaging services with Twilio and Fides.
+
+## Prerequisites
+
+In order to complete this, you will need the following:
+* A valid Twilio account with which to send SMS messages.
+* Ability to access and update Fides system config variables for your Fides installation. Read about [config variables](/docs/dev-docs/configuration/configuration) here.
+* Fides OAuth access token with the following scopes. 
+    * `messaging:read`: Read an existing messaging configuration.
+    * `messaging:create_or_update`: Create or update messaging configuration.
+    * `messaging:delete`: Delete a messaging configuration.
+    * `config:read`: Read Fides system configurations.
+    * `config:update`: Update Fides system configurations.
+
+
+## Getting your Twilio SMS Credentials
+
+In order to configure Twilio as an SMS provider for Fides you will need:
+* Your Twilio Account SID. Follow this [Twilio guide to get your Account SID](https://support.twilio.com/hc/en-us/articles/14726256820123-What-is-a-Twilio-Account-SID-and-where-can-I-find-it-). 
+* Twilio Auth Token. Follow this [Twilio guide to get your Auth Token](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them).
+* You will also need of the following:
+    * Your Twilio Messaging Service ID. Follow this [Twilio guide to get your Messaging Service ID](https://support.twilio.com/hc/en-us/articles/223181308-Getting-started-with-Messaging-Services) or;
+    * Your Twilio Sender phone number
+
+## Example: Set Twilio Messaging as the default messaging provider
+
+To set Twilio Messaging as the default messaging provider, make a **PUT** request to the `api/v1/messaging/default` endpoint as follows:
+
+```console filename="PUT /api/v1/messaging/default"
+curl '{{FIDES_URL}}/api/v1/messaging/default' \
+-X PUT \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{FIDES_ACCESS_TOKEN}}' \
+-d '{
+    "service_type": "twilio_text"
+}'
+```
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
+
+The `service_type` is `twilio_text`.
+
+The response to this request will return the configuration for the default messaging provider, including a `key` as shown below:
+
+```json filename="Default Messaging Provider Response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "service_type": "twilio_text",
+    "details": null,
+    "name": "Default Messaging Config [twilio_text]",
+    "key": "default_messaging_config_twilio_text"
+}
+```
+
+## Example: Add Twilio Messaging Credentials
+Next, you can add the account SID, auth token and messaging service ID from your Twilio account to your Twilio configuration by making a **PUT** request to the `api/v1/messaging/default/twilio_text/secret` endpoint as follows:
+
+```console filename="PUT /api/v1/messaging/default/twilio_text/secret"
+curl '{{FIDES_URL}}/api/v1/messaging/default/twilio_text/secret' \
+-X PUT \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{FIDES_ACCESS_TOKEN}}' \
+-d '{
+    "twilio_account_sid": "{{TWILIO_ACCOUNT_SID}}",
+    "twilio_auth_token": "{{TWILIO_AUTH_TOKEN}}",
+    "twilio_messaging_service_sid": "{{TWILIO_MESSAGING_SERVICE_ID}}"
+}'
+```
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
+
+The `{{TWILIO_ACCOUNT_SID}}` is your Twilio ACCOUNT SID, `{{TWILIO_AUTH_TOKEN}}` is your auth token and `{{TWILIO_MESSAGING_SERVICE_ID}}` is your messaing service ID as created in [this section](#getting-your-twilio-sms-credentials). 
+
+The response to this request will be a confirmation message that the secret has been updated for the configuration identified by the `key` as shown in this example:
+
+```json filename="Default Messaging Provider Response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "msg": "Secrets updated for MessagingConfig with key: default_messaging_config_twilio_text.",
+    "test_status": null,
+    "failure_reason": null
+}
+```
+
+## Messaging Config Variables
+Fides allows you to configure which messaging service is used to send each system notification. To do this you must update Fides' system-wide settings to ensure that your Twilio service is selected for each notification. Below is a list of the notification cofigurations that can be set:
+
+
+| Name                                   | Type   | Default | Description                                                                                                        |
+| :------------------------------------- | :----- | :-------- | :----------------------------------------------------------------------------------------------------------------- |
+| `send_request_receipt_notification`    | bool   | `false` | When set to `true`, sends notification to subject to confirm reciept of their request.                                    |
+| `send_request_review_notification`     | bool   | `false` | When set to `true`, sends notification to subject to confirm their request is in review.                                     |
+| `send_request_completion_notification`     | bool   | `false` | When set to `true`, sends notification subject when their request has been completed.                                     |
+| `notification_service_type`            | String | N/A     | Sets the notification service type used to send notifications. Accepts `mailgun`, `twilio_text`, or `twilio_email`. |
+| `subject_identity_verification_required` | bool | `false` | Whether privacy requests require user identity verification.                                                                                                                                                                                  |
+
+## Example: Set Messaging Config Variables
+You can update your Fides messaging configuration by making a **PATCH** request to the `api/v1/config` endpoint as follows:
+
+```console filename="PATCH /api/v1/config"
+curl '{{FIDES_URL}}/api/v1/config' \
+-X PATCH \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{FIDES_ACCESS_TOKEN}}' \
+-d '{
+  "notifications": {
+    "notification_service_type" : "twilio_text",
+    "send_request_receipt_notification": true,
+    "send_request_review_notification": true,
+    "send_request_completion_notification": true
+  },
+  "execution": {
+    "subject_identity_verification_required": true
+  }
+}'
+```
+In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
+
+The `notification_service_type` value is `twilio_text` and for each of the notifications you wish to send via Twilio, set their value to `true`.
+You can also enable or disable subject identify verification on privacy requests here by settting `execution.subject_identity_verification_required` to `true`. Learn more about [Subject Identify Verification](/docs/dev-docs/configuration/privacy-requests/subject-identity-verification) here.
+
+The response to this request will confirm the service type and the current status for each notification as shown in the example below:
+
+```json filename="Fides Configuration Update Response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "notifications": {
+        "send_request_completion_notification": true,
+        "send_request_receipt_notification": true,
+        "send_request_review_notification": true,
+        "notification_service_type": "twilio_text"
+    },
+    "execution": {
+        "subject_identity_verification_required": true
+    }
+}
+```
+
+## Check the messaging configuration status
+To check that your messaging configuration has been fully configured, you can invoke the status endpoint at `/api/v1/messaging/default/status`.
+
+```console filename="GET /api/v1/messaging/default/status"
+curl '{{FIDES_URL}}/api/v1/messaging/default/status' \
+-X GET \
+-H 'Authorization: Bearer {{FIDES_ACCESS_TOKEN}}' \
+-d ''
+```
+If everything is correctly configured you will receive a response similar to the example below with `config_status` of "configured".
+
+```json filename="Fides Configuration Update Response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "config_status": "configured",
+    "detail": "Active default messaging service of type twilio_text is fully configured"
+}
+```
+

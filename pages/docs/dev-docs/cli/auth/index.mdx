@@ -1,0 +1,16 @@
+# Authenticating & Managing Users via CLI
+
+
+Fides is a platform that performs automated privacy tasks, offering a collaboration-focused environment that makes it easier for teams to quickly comply with privacy together.
+
+Fides CLI integrates with Fides Server in several ways — it can be a front-end for CLI-driven tasks on Fides Server, and can also rely on Fides Server for a variety of privacy tasks. All of these sensitive endpoints require you to authenticate Fides CLI with your Fides Server.
+
+The best way to handle CLI authentication is with the ```user login``` command, which help automate the process of creating an API token for your Fides Server.
+
+In addition, once logged in, you can ```create``` new users or view the logged in user ```permissions```.
+
+For details, see:
+
+* [The ```fides user login``` command](/docs/dev-docs/cli/auth/cmd-login)
+* [The ```fides user create``` command](/docs/dev-docs/cli/auth/cmd-create)
+* [The ```fides user permissions``` command](/docs/dev-docs/cli/auth/cmd-permissions)

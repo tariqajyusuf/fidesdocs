@@ -1,0 +1,57 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: user login
+
+The ```fides user login``` command can be used to automatically obtain and save an access token for Fides Server.
+
+<Callout emoji="">**Note:** The username and password provided must be an existing, authorized user for Fides. If you have not created at least one user for Fides already, you must complete this step first. For details on creating users, see the [Creating Fides Users](/docs/dev-docs/cli/auth/cmd-create) guide.</Callout>
+
+## Usage
+Usage: ```fides user login [options]```
+
+The command will log the user in to Fides. If no options are given, you will be prompted to provide a username and password. 
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="u"></span>[```-u```](#u) - Provide username as an option.
+* <span class="nx-absolute -nx-mt-20" id="p"></span>[```-p```](#p) - Provide password as an option.
+
+## Credentials Storage
+
+By default, Fides will obtain an access token and save it in a plain text file in a local CLI configuration file called ```.fides_credentials```. When you run ```fides user login``` successfully for the first time it will print the location of where ```.fides_credentials``` is written to on your computer.
+
+## Example: No options provided
+This example prompts for the username and password separately:
+
+```console
+$ fides user login
+Loaded config from: .fides/fides.toml
+Username: root_user
+Password:
+Logged in as user: root_user
+Credentials file written to: /Users/fidesuser/.fides_credentials
+```
+
+## Example: Specifying username and password as options
+This example specifies the -u (username) and -p (password) options:
+
+```console
+$ fides user login -u root_user -p Testpassword1!
+Loaded config from: .fides/fides.toml
+Logged in as user: root_user
+Credentials file written to: /Users/fidesuser/.fides_credentials
+```
+
+---
+
+## Example: Credentials File
+
+The following is an example credentials file:
+
+```toml filename=".fides_credentials"
+username = "root_user"
+password = "Testpassword1!"
+user_id = "fidesadmin"
+access_token = "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..WBo3FxOFfouw4UxYnv9_4Q._GmOyi_d0xhmLUHdOStR43aL09Zzaw3OOq1k3AL_1YJaC4OENuMydbvZ16aLBKUBCVOf4rRUA1NiZY34rXDwIUhU0fkANWknhCOpmgOdG2qhUO3-zSoq_mlv2QjtnWzcBFN9q291f0-QSwg11KNSq9biwpBf81Ki53puygz2FaglpaiOcjWyA33wKu8WRizlCnGAfnFPLqqc1Vf4kSsrKDaLUIAiNF_UxbkBlJcw-2eveV6Sbr7To_ixvYHH_N9nnYH7nrfK_oJEh_GG5SLrTFw4HXMh8DTJ19JylssQ0GCJK2CkldSJP7bzveaI0jkjgTr3hH2TSe5L7dbi1AaZ4VNKKjEraGmlceCrSjoktbwGgCVPo4sf-QAnStUnJAdMTxnoUFoHV8TlXqCqdAPbkr4cTlLWyG4dJV7VI5Dc-sKYAD8DuRAPQiNt2PmIFh6RrTkb8gD1VSGNoFX-nRx0lOqK8fcDOOTn3sW8zfjrtsJboxg9nFasoHTffLjrgXCXxHZusC4RPSM6yE0j3wkxxN_6Mc9qtBOy8ducKCd_OPb0Y_pZa6a4HJipGCr0nj4lNUrL1Eqri1biSNZvB1oOoLFSGqak4iL85bbzNHytEkxAfirCux6KfmajLUp21CUF7h-QCvvZ_D51hB7kP2fbDUvrB7hDADGxEF-RoYJiPZUqm3BmytWSKPt1zXnLOyJlpupZQl7ycKUJI-DofYM9Xnw6g07t__iMzWs3rtbbNj0swt0r_-efxG57aZNHvpELfOqIFYthWHT-YNs_A9JvmAdeVL3p6ChnO9-n3So4Aw-BbYDvdBdojmjEqFzt3ZZuk4Yn6aZITWWFBbeN0ctjlyliKhBVo8vrSbSRps-jF_O5T4gIhltxqmyXe-2D5FdHLkAN_WZGCmw5mIWXKTsSaLS_GIpF38mP3KT8kcIrYMyI-8-s-3293WfBFMiiFpMzJvrezhgyRHtbQF1zRaTXZ5e-IZeVuxkwEH0cTYUArXvCuFvHWJv1EUfBPC5UBD4adkzF6AX78h3smI9XJXZ5LpqzaDw3iscl3drK-KCVLzYp6OD2wxKo1lj9KbRREME8oSSakEpLv1ouCdt0L_VNAPh3pmRX6lbhPWKUTuyE8z7hzuI75ZgEMwuK_nxp5TgZCOMaI9nJEdhJtyP5OUnDPfKSCM975o9U9qYmCd7QB_TPXhM-GyZqYH4p1lu0NL1WE7Nw8RtHUGXFpvU2AqlRo_JdDN9SdL6Md9SPgMBZUm1UnkCjaAHac1_HAnXkatB7-LL_V2v0hf8mzFjVAYUOd8kth7u5WVS4lLUrZQbobyiYnNtOjAZxsvc8XW0KabxXRLtws8VlQ1mnObgldzpcU6kZvbVdXYY8C6_ZgBn2eLnwR8ZDrBvrLB1uFsvtv-nkrBYfjcbmcOjXvYBPRJWChjr9OcgWeScus2C_7JcrudS0gE-6xmumUUfhocDx6HpZOHsMNnn9ArqzIe_5pFalSC3ct3lk5AmxljxGHj-MYgg.-srlTGxL5GsSNnWTxhgQnw"
+```

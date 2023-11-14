@@ -1,0 +1,45 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Configuring Custom domains for Privacy Centers
+
+<Callout emoji="" type="info">This guide is for Fides Cloud, hosted edition. For alternative information about deploying Fides to your cloud [read the quickstart guide](/docs/dev-docs/get-started/) here.</Callout>
+
+## Prerequisites
+For this guide you should already have a Fides Cloud hosted account.
+
+## Domains and Privacy Centers in Fides Cloud
+By default, your Fides Cloud hosted privacy center will have a URL such as `your-company.privacy-center.ethyca.com`. You can enhance your privacy center by adding your own domain to your privacy center with the following steps.
+
+Learn more about privacy centers in the [privacy request tutorial](/docs/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests) here.
+
+## Adding a Domain to Fides Cloud
+To add a domain to Fides Cloud, notify your Customer representative or email support@ethyca.com with the subdomain you would like to use, such as [privacy.yourdomain.com](http://privacy.yourdomain.com).
+
+Your Customer representative will confirm when your domain has been added and ask you to complete the final domain verification steps (see below).
+
+## Verifying your Domain
+In order to add your domain, you will need to verify that you have permission and ownership of your domain and its DNS records. 
+
+To verify ownership of your domain, your Customer representative will share a DNS verification record with you. This must be added as a `CNAME` record to your DNS server in order to verify that you have ownership of the domain.
+
+<Screenshot img="/assets/img/configuration/dns-verification.png" description="Domain name verification - example DNS record" />
+
+### Adding the CNAME verification record
+
+Login to your DNS provider account and locate the controls for adding or managing records related to your domain. For more information on this step, please view your DNS provider documentation.
+
+Create a new record as follows:
+1. Add a record of type **CNAME**
+2. For the **HOST** or **NAME** set the value shown in the **HOST / NAME** of the record provided by your customer representative. This is typically in the form `_XXXXXXX.yourdomain.com` where `_XXXXXX` is a random string appended to your domain
+3. For the **VALUE** use the value showng in the **VALUE** of the record provided by your customer representative. This is typically in the form `_XXXXXX.acm-validation.com`
+4. Set the **TTL** or **REFRESH** to as short as possible, typitcally this is set in milliseconds, we recommend 5 minutes.
+5. Save the record.
+
+<Callout emoji="" type="error">**Note:** Once you have added this record you should leave it permanently. Deleting this record may cause your privacy center domain to stop displaying in future.</Callout>
+
+### Notify your Customer representative
+Once you have successfully added the DNS verification record to your DNS, notify your Customer representative or email support@ethyca.com to get confirmation of the verification.
+
+## Verification complete
+You will receive email notification as soon as domain verification has been completed.

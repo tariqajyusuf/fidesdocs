@@ -1,0 +1,69 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: pull
+
+The ```fides pull``` command updates local resources in the ```.fides``` working directory to match those on the server.
+
+When the ```pull``` command is run, it will:
+
+1. Retrieve all remote resources by their Fides key from the Server.
+2. Update local YAML resources in the working directory to match the Server versions.
+
+To learn more about dataset annotation in Fides see the [Dataset Annotation in Fides](/docs/dev-docs/configuration/privacy-requests/annotate-datasets-cli) guide.
+
+## Usage
+Usage: ```fides pull [options]```
+
+The command will retrieve all remote resources from the sever and update local resources in the ```.fides``` working directory to match the Server.
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="a"></span>[```-a```](#a), [```--all-resources```](#a) - Pull all remote resources from the Server and write them to a destination file specified as an argument.
+
+
+## Example: No options provided
+This example validates all systems and datasets in the ```.fides``` working directory and pushes them to the Fides server.
+
+```console
+$ fides pull
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Pulling file: '.fides/systems.yml'...
+ - System with fides_key: application is being updated from the server...
+ - System with fides_key: database is being updated from the server...
+Updated manifest file written out to: '.fides/systems.yml'
+----------
+Pulling file: '.fides/dataset.yml'...
+ - Dataset with fides_key: postgres is being updated from the server...
+Updated manifest file written out to: '.fides/dataset.yml'
+----------
+Pull complete.
+```
+
+## Example: Pull all remote resources from Server
+This example pulls all remote resources from the Server and writes them to a destination file specified as an argument. In the example below the destination is ```.fides/all-resources.yaml```.
+
+```console
+$ fides pull --all-resources .fides/all-resources.yml
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Pulling file: '.fides/systems.yml'...
+ - System with fides_key: application is being updated from the server...
+ - System with fides_key: database is being updated from the server...
+Updated manifest file written out to: '.fides/systems.yml'
+----------
+Pulling file: '.fides/dataset.yml'...
+ - Dataset with fides_key: postgres is being updated from the server...
+Updated manifest file written out to: '.fides/dataset.yml'
+----------
+Writing out new resources to file: '.fides/all-resources.yml'...
+Updated manifest file written out to: '.fides/all-resources.yml'
+----------
+Pull complete.
+----------
+```

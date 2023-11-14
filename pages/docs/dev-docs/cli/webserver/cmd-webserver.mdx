@@ -1,0 +1,38 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: webserver
+
+The ```fides webserver``` starts the Fides webserver using the available configuration and environment variables. By default, when Fides starts the webserver it:
+
+* Reads the configurations from one of the following three locations:
+	1. The config file passed via the CLI;
+	2. The path specified by the ```FIDES__CONFIG_PATH``` environment variable;
+	3. The current working directory ```.fides``` from the ```fides.toml``` file.
+* Configures the Fides database if it is not already setup.
+* Checks all current resources are valid.
+* Makes the hosted UI available at ```http://{server_url}/``` (e.g. ```http://localhost:8080/```).
+
+
+To learn more about configuring Fides see the [How to Configure Fides](/docs/dev-docs/configuration/configuration) guide.
+
+## Usage
+Usage: ```fides webserver```
+
+Starts the Fides webserver using the configuration provided and makes the UI available at ```http://{server_url}/``` (e.g. ```http://localhost:8080/```).
+
+Running this command should result in output that resembles the following:
+
+```console
+$ fides webserver
+Loaded config from: .fides/fides.toml
+2023-02-23 14:49:13.530 | INFO     | fides.api.ops.tasks:_create_celery:48 - Creating Celery app...
+2023-02-23 14:49:13.530 | INFO     | fides.api.ops.tasks:_create_celery:66 - Autodiscovering tasks...
+2023-02-23 14:49:16.295 | INFO     | fides.core.config.helpers:load_file:48 - Loading file .fides/fides.toml from .
+2023-02-23 14:49:16.295 | INFO     | fides.api.main:start_webserver:371 - Starting webserver - Host: 0.0.0.0, Port: 8080
+2023-02-23 14:49:16.312 | INFO     | fides.api.main:setup_server:221 - Starting Fides - v2.7.0
+2023-02-23 14:49:16.313 | INFO     | fides.api.main:setup_server:222 - Startup configuration: reloading = False, dev_mode = False
+2023-02-23 14:49:16.313 | INFO     | fides.api.main:setup_server:227 - Startup configuration: pii logging = False
+2023-02-23 14:49:16.342 | INFO     | fides.api.ctl.database.database:init_db:51 - Initializing database
+2023-02-23 14:49:16.343 | INFO     | fides.api.ctl.database.database:upgrade_db:43 - Running database migrations
+```

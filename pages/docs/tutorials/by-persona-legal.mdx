@@ -1,0 +1,47 @@
+import KeyTutorialWrap, { TutorialFeat } from 'components/tutorialfeat'
+import { Callout } from 'nextra-theme-docs'
+
+# Legal and Compliance
+
+When working in Legal/Compliance, you're constantly faced with the complexities of evolving privacy laws and the need to ensure your organization's compliance. This task is multi-dimensional and has three core ouputs .
+
+Fides is designed with this challenge in mind. It assists in making your daily tasks more manageable and less time-consuming. Below is an overview on getting up and running with Fides.
+
+## Data Mapping, System Discovery and Data Inventory
+
+The first step in your privacy journey is understanding what systems you have, what they are used for, and where your data lives. Ethyca's platform uses this information to to automatically generate legally compliant consent banners and architect Privacy Request flows.
+
+<Callout emoji="" type="info">
+  For certain tooling like automated system detection, you may want to work with your IT/Engineering team to get credentials for the platforms you are scannning.
+</Callout>
+
+<KeyTutorialWrap>
+  <TutorialFeat title="01 | Data Mapping Fundamentals" link="/docs/tutorials/data-mapping-fundamentals"   description="Get an overview of the fundamental terms, requirements and concepts of Data Mapping." duration="4" video="true" interactive="true" />
+  <TutorialFeat title="02 | Adding SaaS Systems" link="/docs/tutorials/data-mapping-adding-systems-manually"  description="Learn how to add and update systems on your data map manually in the Fides Control." duration="4" video="true" interactive="true" />
+  <TutorialFeat title="03 | Automated System Detection" link="/docs/tutorials/data-mapping-system-detection"  description="Run Fides's detection tools to scan your cloud, single sign-on providers and clusters for systems." duration="8" video="true" interactive="true" />
+  <TutorialFeat title="04 | Data Use & Processing Activities" link="/docs/tutorials/data-mapping-data-uses"   description="Add and update data uses and data processing activities on your systems for accurate reporting." duration="9" video="true" interactive="true" />
+  <TutorialFeat title="05 | Data Map & Inventory Reporting" link="/docs/tutorials/data-mapping-reports"   description="Explore the data map, filter your view and export reports to comply with global privacy regulations." duration="9" video="true" interactive="true" />
+</KeyTutorialWrap>
+
+## Handling Privacy Requests
+
+After configuring the Privacy Request integrations after the systems are identified in the steps above, you may want to process and automate privacy requests. Note - most of the integration configuration is typically handled by [IT or Engineering](/docs/tutorials/by-persona-engineering). In the below set of tutorials, we show how you can interact and handle privacy requests once configured.
+
+<KeyTutorialWrap>
+  <TutorialFeat title="01 | Privacy Request Fundamentals" link="/docs/tutorials/privacy-requests-fundamentals"   description="Get an overview of the fundamental terms, requirements, and concepts of privacy requests." duration="5" />
+  <TutorialFeat title="02 | Submitting Privacy Requests" link="/docs/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests"  description="Learn how a subject can submit privacy requests." duration="3" interactive="true" />
+  <TutorialFeat title="03 | Reviewing Privacy Requests" link="/docs/tutorials/privacy-requests-workflow/privacy-requests-reviewing-requests"  description="Understand how to use the Privacy Request Admin Dashboard" duration="2" interactive="true" />
+  <TutorialFeat title="04 | Approving Privacy Requests" link="/docs/tutorials/privacy-requests-workflow/privacy-requests-approving-requests"  description="See how easy it is to approve and process a Privacy Request within the Admin Dashboard" duration="2" interactive="true" />
+  <TutorialFeat title="05 | Rejecting Privacy Requests" link="/docs/tutorials/privacy-requests-workflow/privacy-requests-rejecting-requests"  description="Learn how to reject a Privacy Request within the Admin Dashboard. This can also be used to request additional information" duration="2" interactive="true" />
+</KeyTutorialWrap>
+
+## Managing the Consent Banner
+
+One of they key benefits of Fides is that is we _automatically generate_ legally compliant language for [most global regulations](/regulations) as you add the systems to your Data Map. The Consent Banner will automatically update without redeploying the FidesJS tag. In the below set of tutorials, we showcase how you can interact with your consent banner.
+
+<KeyTutorialWrap>
+  <TutorialFeat title="01 | Consent Management Fundamentals" link="/docs/tutorials/consent-management-fundamentals"   description="Get an overview of the fundamental terms, requirements and concepts of Consent Management." duration="5" />
+  <TutorialFeat title="02 | Data Use and Consent" link="/docs/tutorials/consent-management-configuration/data-use-for-consent"  description="Learn how data uses automate and power your consent management." duration="5" interactive="true" />
+  <TutorialFeat title="03 | Configuring Privacy Notices" link="/docs/tutorials/consent-management-configuration/privacy-notices"  description="Learn how to configure and manage privacy notices." duration="5" interactive="true" />
+  <TutorialFeat title="04 | Configuring Privacy Experiences" link="/docs/tutorials/consent-management-configuration/privacy-experiences"  description="Learn how to configure and manage privacy experiences." duration="5" interactive="true" />
+</KeyTutorialWrap>

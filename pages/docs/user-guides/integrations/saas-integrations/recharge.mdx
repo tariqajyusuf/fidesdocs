@@ -1,0 +1,38 @@
+# Recharge
+[Recharge](https://rechargepayments.com/) is a subscription management and recurring billing platform for e-commerce businesses.
+
+## Prerequisites
+
+In order to [integrate](/docs/user-guides/integrations) with Recharge, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Recharge URL (default:`api.rechargeapps.com`) |
+| **API key***               | Your API Key. Follow Recharge docs to [generate an API Key](https://docs.rechargepayments.com/docs/recharge-api-key) |
+
+
+## Integrating with Recharge
+To integrate an existing system with Recharge:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/docs/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Recharge endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests**            | [Customer](https://developer.rechargepayments.com/2021-11/customers/customers_list)   | Returns information about a customer |
+| **Update or Erasure Requests** | [Customer](https://developer.rechargepayments.com/2021-11/customers/customers_update) | Used to mask or erase information about a customer  |
+| **Access Requests**            | [Address](https://developer.rechargepayments.com/2021-11/addresses/list_addresses)    | Returns address information for a customer |
+| **Update or Erasure Requests** | [Address](https://developer.rechargepayments.com/2021-11/addresses/update_address)    | Used to mask or erase address information for a customer |

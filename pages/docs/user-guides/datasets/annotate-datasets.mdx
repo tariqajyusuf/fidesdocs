@@ -1,0 +1,135 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+
+# Annotating Datasets
+
+In this guide, we will explore the process of annotating datasets which involves describing, to Fides, where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests. 
+
+## Annotating data categories
+In order to process privacy requests, Fides needs to know how to find and process the applicable categories of personal data. For example, if a data subject submits a request to have their personal data removed, Fides has to know where to find categories of personal data like _user contact info_, _demographic info_, or _purchase history_. 
+
+The way we instruct Fides to locate this data is to attach labels to fields in your database tables to indicate where a particular type of personal data can be found. 
+
+For example, if you have a table with fields that contain _user contact data_, you'd label them with elements from the `user.contact` branch of the [FidesLang Taxonomy](https://ethyca.github.io/fideslang/taxonomy/data_categories/) as such:
+
+<Screenshot img="/assets/img/privacy-requests/sample_annotations.gif" description="Sample annotations" /> 
+
+Datasets may be annotated manually or using FidesClassify to automate the annotation. 
+
+### Annotating categories using the UI
+
+To annotate a dataset using the UI:
+1. Navigate to *Data map* → *Manage datasets*.
+2. Click on the appropriate dataset.
+3. Select the table or collection from the dropdown menu at the top of the table. 
+4. Click into the field. 
+5. Select the appropriate data category
+
+<Screenshot img="/assets/img/privacy-requests/annotate_manually.gif" description="Manually annotate data categories" /> 
+
+### Annotating categories in a file editor
+
+To directly annotate a dataset with data categories or configure DSR processing, you may use our _dataset editor_ or a tool of your choice. 
+The dataset fields that will need to be configured are: 
+* `fides_key`: the name of the dataset
+* `collections`: a list of the tables or collections within the database.
+* `fields`: a list of the fields within the table or collection.
+* `name`: the name of the field within the table or collection.
+* `data_categories`: a data category label taken from the [FidesLang Taxonomy](https://ethyca.github.io/fideslang/taxonomy/data_categories/) to describe the personal data found in this field.
+
+The following example describes a table called `user_contact_info` within a database called `sample_dataset`. This table has the fields `id`, `email`, `first_name`, and `last name` which have been appropriately labeled for privacy request processing.
+
+```yaml
+dataset:
+  - fides_key: sample_dataset
+    collections:
+      - name: user_contact_info
+        fields:
+          - name: id
+            data_categories:      # Add section
+              - system.operations # Provide label from taxonomy
+          - name: email
+            data_categories:
+              - user.contact.email
+          - name: first_name
+            data_categories:
+              - user.name
+          - name: last_name
+            data_categories:
+              - user.name
+```
+
+To upload this file to Fides, please follow these steps: [Uploading a dataset](/docs/user-guides/datasets/generate-datasets#uploading-a-dataset)
+
+### Adding an identity key
+Once the dataset has been annotated with data categories, we need to provide Fides with an `identity key` to indicate which field Fides should use to search for records.
+
+<Callout emoji="" type="info">The _identity_ key must be assigned to a field that contains unique values.</Callout>
+
+Expanding our example above, the best field to use for the `identity key` would be the `email` field because it is unique and identifiable. 
+
+```yaml
+dataset:
+  - fides_key: sample_dataset
+    collections:
+      - name: user_contact_info
+        fields:
+          - name: id
+            data_categories:
+              - system.operations
+          - name: email
+            data_categories:
+              - user.contact.email
+              fides_meta:        # Add section
+                identity: email  # Make identity declaration
+          - name: first_name
+            data_categories:
+              - user.name
+          - name: last_name
+            data_categories:
+              - user.name
+```
+
+### Skipping collections
+Sometimes, it will be necessary to skip over particular data collections or SaaS application endpoints. This can be useful if there's an error processing data in a particular collection or if the collection is known to not contain personal data. 
+
+In order to skip a collection, please use the flag `skip_processing: True` as shown in this example:
+
+```yaml
+dataset:
+  - fides_key: postgres_example_dataset
+    name: Postgres Example Dataset
+    description: Example of a Postgres dataset containing a variety of related tables like customers, products, addresses, etc.
+    collections:
+      - name: address
+        fides_meta:
+          skip_processing: True
+```
+
+In order to skip an endpoint, please use the flag `skip_processing: True` as shown in this example:
+
+```yaml
+saas_config:
+  fides_key: saas_connector_example
+  name: SaaS Example Config
+  type: custom
+  description: A sample schema representing a SaaS for Fides
+  version: 0.0.1
+
+  endpoints:
+    - name: skipped_collection
+      skip_processing: True
+      requests:
+        read:
+          method: GET
+          path: /v1/misc_endpoint/<list_id>
+          param_values:
+            - name: list_id
+              references:
+                - dataset: saas_connector_example
+                  field: users.list_ids
+                  direction: from
+```
+
+To learn more about advanced coniguration options and how Fides traverses databases, please see our guide for [Query execution](/docs/dev-docs/configuration/privacy-requests/graphs)
