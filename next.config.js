@@ -7,8 +7,7 @@ const withNextra = require("nextra")({
   defaultShowCopyCode: true,
 });
 
-module.exports = withNextra{(
-    basePath: '/docs'
-)}
-
+module.exports = withNextra({
+    basePath: '/docs',
+})
 
