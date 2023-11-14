@@ -1,14 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "testdocs.ethyca.com"
-        }
-      ],
-      "destination": "https://ethyca.com/docs/:path*"
+      "source": "/docs/:match*",
+      "destination": "https://ethyca.com.com/:match*"
     }
   ]
 }
