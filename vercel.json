@@ -8,7 +8,7 @@
           "value": "docs.ethyca.com"
         }
       ],
-      "destination": "https://ethyca.com/docs/:path*"
+      "destination": "/docs/:path*"
     }
   ]
 }
