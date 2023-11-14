@@ -1,8 +1,10 @@
 {
-  "rewrites": [
-    {
-      "source": "/docs/:match*",
-      "destination": "https://ethyca.com.com/:match*"
-    }
-  ]
+    "rewrites": [{
+        "source": "/:path*",
+        "has": [{
+            "type": "host",
+            "value": "fidesdocs-subdir.vercel.app"
+        }],
+        "destination": "/docs/:path*"
+    }]
 }
