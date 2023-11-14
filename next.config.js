@@ -18,10 +18,10 @@ module.exports = withNextra({
                 has: [
                     {
                         type: 'host',
-                        value: 'https://fidesdocs-subdir.vercel.app/',
+                        value: 'testdocs.ethyca.com',
                     },
                 ],
-                destination: 'https://ethyca.com/:path*',
+                destination: '/docs/:path*',
             },
         ]
     }
