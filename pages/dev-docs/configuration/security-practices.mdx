@@ -1,6 +1,6 @@
 # Security Best Practices for Fides Deployment and Operation
 
-Fides offers several [configuration options](/dev-docs/configuration/configuration) to flexibly manage a variety of [deployments](/dev-docs/get-started/requirements). This guide is meant to be used as a supplement to the configuration options, and provides a summary for best practices to ensure appropriate security methods when deploying and operating Fides.
+Fides offers several [configuration options](/docs/dev-docs/configuration/configuration) to flexibly manage a variety of [deployments](/docs/dev-docs/get-started/requirements). This guide is meant to be used as a supplement to the configuration options, and provides a summary for best practices to ensure appropriate security methods when deploying and operating Fides.
 
 ## Deployment Diagrams
 
@@ -106,15 +106,15 @@ The Privacy Center UI is intended to be accessed by users on the public Internet
 
 #### Encryption at Rest
 
-* **\[Fides Webserver Config\]** Generate a unique, random 32 character string for the AES app encryption key for use in your configuration.  `app_encryption_key` in the `[security]` section of `fides.toml` - see [Configuration](/dev-docs/configuration/configuration) for more info.
-* **\[Fides Webserver Config\]** Generate a unique, random 32 character string for the PGP user data encryption key for use in your configuration.  `encryption_key` in the `[user]` section of `fides.toml` - see [Configuration](/dev-docs/configuration/configuration) for more info.
+* **\[Fides Webserver Config\]** Generate a unique, random 32 character string for the AES app encryption key for use in your configuration.  `app_encryption_key` in the `[security]` section of `fides.toml` - see [Configuration](/docs/dev-docs/configuration/configuration) for more info.
+* **\[Fides Webserver Config\]** Generate a unique, random 32 character string for the PGP user data encryption key for use in your configuration.  `encryption_key` in the `[user]` section of `fides.toml` - see [Configuration](/docs/dev-docs/configuration/configuration) for more info.
 * **\[Fides Webserver Config\]** Configure a remote [storage destination](../cli/webserver/cmd-webserver) e.g. an S3 bucket with default [server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html). Do not store DSRs locally on the container’s ephemeral filesystem.
 
 ### Application Traffic
 
-* **\[Fides Webserver Config\]** Allow only selected, trusted domains in the `Access-Control-Allow-Origin` header by configuring the value of `cors_origins` appropriately. The values will be unique to your deployment. Avoid the use of `*` wildcards. `cors_origins` in the `[security]` section of `fides.toml` - see [Configuration](/dev-docs/configuration/configuration) for more info.
-* **\[Fides Webserver Config\]** Configure a sensible value for the Fides API rate-limit. Its value should be high enough not to block genuine traffic, but low enough to protect against automated attacks. Ethyca recommends starting with a high value before lowering it as you monitor the amount of traffic Fides receives. `request_rate_limit` in the `[security]` section of `fides.toml` - see [Configuration](/dev-docs/configuration/configuration) for more info.
-* **\[Fides Webserver Config\]** Enable authentication for all Fides webserver API endpoints by setting `env = prod` in the `[security]` section of `fides.toml` If this is not explicitly enabled, then by default the Fides webserver allows all inbound traffic to all API endpoints and front-end paths. This includes potentially dangerous Fides API endpoints such as `/api/v1/admin/db/reset`. See [Configuration](/dev-docs/configuration/configuration) for more info.
+* **\[Fides Webserver Config\]** Allow only selected, trusted domains in the `Access-Control-Allow-Origin` header by configuring the value of `cors_origins` appropriately. The values will be unique to your deployment. Avoid the use of `*` wildcards. `cors_origins` in the `[security]` section of `fides.toml` - see [Configuration](/docs/dev-docs/configuration/configuration) for more info.
+* **\[Fides Webserver Config\]** Configure a sensible value for the Fides API rate-limit. Its value should be high enough not to block genuine traffic, but low enough to protect against automated attacks. Ethyca recommends starting with a high value before lowering it as you monitor the amount of traffic Fides receives. `request_rate_limit` in the `[security]` section of `fides.toml` - see [Configuration](/docs/dev-docs/configuration/configuration) for more info.
+* **\[Fides Webserver Config\]** Enable authentication for all Fides webserver API endpoints by setting `env = prod` in the `[security]` section of `fides.toml` If this is not explicitly enabled, then by default the Fides webserver allows all inbound traffic to all API endpoints and front-end paths. This includes potentially dangerous Fides API endpoints such as `/api/v1/admin/db/reset`. See [Configuration](/docs/dev-docs/configuration/configuration) for more info.
 
 ### Reverse Proxy
 
@@ -153,12 +153,12 @@ The Privacy Center UI is intended to be accessed by users on the public Internet
 
 #### Hosted Fides Cache (Redis)
 
-* **\[Hosted Cache Config\]** Use a [stable, supported version](https://redis.io/docs/about/releases/) of Redis.
+* **\[Hosted Cache Config\]** Use a [stable, supported version](https://redis.io/docs/about/docs/releases/) of Redis.
 * **\[Hosted Cache Config\]** Use a dedicated hosted cache, do not share it with other applications.
   * Allow-list network traffic to/from the Fides Webserver only.
   * If the cache cannot be dedicated and must be shared with other applications, use [Redis ACLs](https://redis.io/docs/management/security/acl/) to manage cache authorization.
 * **\[Hosted Cache Config\]** Use [Redis TLS support](https://redis.io/docs/management/security/encryption/) to only allow TLS/SSL encrypted connections. Note that this will have [a performance impact](https://redis.io/docs/management/security/encryption/#performance-considerations).
-* **\[Fides Webserver Config\]** Configure the Fides Webserver to enable TLS/SSL for Redis traffic. `ssl = True` in the `[redis]` section of `fides.toml` - see [Configuration](/dev-docs/configuration/configuration) for more info.
+* **\[Fides Webserver Config\]** Configure the Fides Webserver to enable TLS/SSL for Redis traffic. `ssl = True` in the `[redis]` section of `fides.toml` - see [Configuration](/docs/dev-docs/configuration/configuration) for more info.
   * If the hosted cache supports it, also set `ssl_cert_reqs = "required"` in the same configuration section. Note that some cache platforms e.g. Elasticache may not support this.
 
 ### Remote Storage Destination

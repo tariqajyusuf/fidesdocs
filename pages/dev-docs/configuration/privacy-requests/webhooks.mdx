@@ -3,13 +3,13 @@
 
 ## What is a Privacy Request webhook?
 
-An webhook is an HTTPS callback that you've defined on an [execution policy](/dev-docs/configuration/policies/request-policies) to call an external REST API endpoint either *before* or *after* a privacy request executes.
+An webhook is an HTTPS callback that you've defined on an [execution policy](/docs/dev-docs/configuration/policies/request-policies) to call an external REST API endpoint either *before* or *after* a privacy request executes.
 
 Webhooks can be `one_way`, where the API is pinged and the privacy request continues, or `two_way`, where Fides will wait for a response. Any derived values returned from a `two_way` webhook will be saved, and can be used to locate other user information. For example, a webhook might take a known `email` `identity` and use that to find a `phone_number` `derived_identity`.
 
 ## Configuration
 
-The process below will define an `https` [Connection](/dev-docs/configuration/integrations/database-integrations/datasets) that contains the details to make a request to your API endpoint, and then create a `PolicyPreWebhook` or a `PolicyPostWebhook`for a specific execution policy using that Connection.
+The process below will define an `https` [Connection](/docs/dev-docs/configuration/integrations/database-integrations/datasets) that contains the details to make a request to your API endpoint, and then create a `PolicyPreWebhook` or a `PolicyPostWebhook`for a specific execution policy using that Connection.
 
 ### Create an HTTPS Connection
 
@@ -146,7 +146,7 @@ For `two-way` webhooks, Fides includes specific headers to pause request executi
 ```
 
 To resume, send a request to the `reply-to` URL with the `reply-to-token`.  The `reply-to-token` will
-expire when your Redis cache expires represented by `default_ttl_seconds` in your Fides configuration. Read how to set [Fides configuration variables here](/dev-docs/configuration/configuration).
+expire when your Redis cache expires represented by `default_ttl_seconds` in your Fides configuration. Read how to set [Fides configuration variables here](/docs/dev-docs/configuration/configuration).
 
 When a request expires, it is be given an `error` status, and requires resubmission.
 
@@ -188,6 +188,6 @@ If there are no derived identities, send an empty `{}` request body.
 
 The `reply-to-token` is a JWE containing the current webhook ID, scopes to access the callback endpoint, and the datetime the token is issued.Fides unpacks this and resumes the privacy request execution after the specified webhook.
 
-The `reply-to-token` expires after a set amount of time, the `privacy_request_delay_timeout` in your Fides configuration. Read how to set [Fides configuration variables here](/dev-docs/configuration/configuration).
+The `reply-to-token` expires after a set amount of time, the `privacy_request_delay_timeout` in your Fides configuration. Read how to set [Fides configuration variables here](/docs/dev-docs/configuration/configuration).
 
 Once the Redis cache expires, Fides no longer has the original identity data and the privacy request should be resubmitted.

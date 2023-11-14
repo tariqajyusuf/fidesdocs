@@ -22,7 +22,7 @@
  },
  "releases": {
   "title": "Release Notes",
-  "href": "/releases/"
+  "href": "/docs/releases/"
  },
  "community": {
   "title": "Community",
@@ -52,15 +52,15 @@
   "items": {
     "privacy-requests": {
       "title": "Privacy Requests",
-      "href": "/user-guides/privacy-requests"
+      "href": "/docs/user-guides/privacy-requests"
     },
     "datasets": {
       "title": "Datasets",
-      "href": "/user-guides/datasets"
+      "href": "/docs/user-guides/datasets"
     },
     "integrations": {
       "title": "Integrations",
-      "href": "/user-guides/integrations"
+      "href": "/docs/user-guides/integrations"
     }
   }
 },
@@ -70,15 +70,15 @@
   "items": {
     "docs-quickstart": {
       "title": "Quickstart Guide",
-      "href": "/dev-docs/get-started"
+      "href": "/docs/dev-docs/get-started"
     },
     "docs-cli": {
       "title": "Fides CLI",
-      "href": "/dev-docs/cli"
+      "href": "/docs/dev-docs/cli"
     },
     "docs-config": {
       "title": "Fides Configuration",
-      "href": "/dev-docs/configuration/configuration"
+      "href": "/docs/dev-docs/configuration/configuration"
     }
   }
 },
@@ -88,19 +88,19 @@
   "items": {
     "tutorials-byPersona": {
       "title": "By Persona",
-      "href": "/tutorials/by-persona-get-started"
+      "href": "/docs/docs/tutorials/by-persona-get-started"
     },
     "tutorials-datamapping": {
       "title": "Data Mapping",
-      "href": "/tutorials/data-mapping-get-started"
+      "href": "/docs/docs/tutorials/data-mapping-get-started"
     },
     "tutorials-privacy-requests": {
       "title": "Privacy Requests",
-      "href": "/tutorials/privacy-requests-get-started"
+      "href": "/docs/docs/tutorials/privacy-requests-get-started"
     },
     "tutorials-consent": {
       "title": "Consent Management",
-      "href": "/tutorials/consent-management-get-started"
+      "href": "/docs/docs/tutorials/consent-management-get-started"
     }
   }
 },
@@ -110,27 +110,27 @@
   "items": {
     "regulations-ccpa": {
       "title": "California Consumer Privacy Act (CCPA)",
-      "href": "/regulations/ccpa/overview"
+      "href": "/docs/regulations/ccpa/overview"
     },
     "regulations-vcdpa": {
       "title": "Virginia Consumer Data Privacy Act (VCDPA)",
-      "href": "/regulations/vcdpa/overview"
+      "href": "/docs/regulations/vcdpa/overview"
     },
     "regulations-cpa": {
       "title": "Colorado Privacy Act (CPA)",
-      "href": "/regulations/cpa/overview"
+      "href": "/docs/regulations/cpa/overview"
     },
     "regulations-ctdpa": {
       "title": "Connecticut Data Privacy Act (CTDPA)",
-      "href": "/regulations/ctdpa/overview"
+      "href": "/docs/regulations/ctdpa/overview"
     },
     "regulations-ucpa": {
       "title": "Utah Consumer Privacy Act (UCPA)",
-      "href": "/regulations/ucpa/overview"
+      "href": "/docs/regulations/ucpa/overview"
     },
     "regulations-gpc": {
       "title": "Global Privacy Control (GPC)",
-      "href": "/regulations/gpc/overview"
+      "href": "/docs/regulations/gpc/overview"
     }
   }
 }

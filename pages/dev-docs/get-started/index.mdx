@@ -2,11 +2,11 @@ import { Callout } from 'nextra-theme-docs'
 
 # Fides Quickstart
 
-<Callout emoji="" type="info">This guide is designed to get you started with Fides running on your computer in as few steps as possible using a local sample project. Want to learn about configuration in-depth? Check out the [basic installation](/dev-docs/get-started/installation) or [advanced installation guide here](/dev-docs/get-started/advanced)</Callout>
+<Callout emoji="" type="info">This guide is designed to get you started with Fides running on your computer in as few steps as possible using a local sample project. Want to learn about configuration in-depth? Check out the [basic installation](/docs/dev-docs/get-started/installation) or [advanced installation guide here](/docs/dev-docs/get-started/advanced)</Callout>
 
 To get started quickly with Fides, a sample project is bundled within the Fides that will set up the Fides Server, Privacy Center, and a sample application for you to experiment with.
 
-To deploy and configure Fides in your own infrastructure, see the [Pdetailed installation](/dev-docs/get-started/advanced) and use the available [Helm chart](/dev-docs/get-started/advanced#using-helm-recommended-if-using-kubernetes) or [Terraform modules](/dev-docs/get-started/advanced#using-terraform) here.
+To deploy and configure Fides in your own infrastructure, see the [Pdetailed installation](/docs/dev-docs/get-started/advanced) and use the available [Helm chart](/docs/dev-docs/get-started/advanced#using-helm-recommended-if-using-kubernetes) or [Terraform modules](/docs/dev-docs/get-started/advanced#using-terraform) here.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ By default, Fides ships with a small project belonging to a fictional e-commerce
 fides deploy up
 ```
 
-<Callout type="info" emoji="">If running `fides deploy` as part of a local fides development environment, refer to the [local documentation](/community/development/dev_deployment) instead.</Callout>
+<Callout type="info" emoji="">If running `fides deploy` as part of a local fides development environment, refer to the [local documentation](/docs/community/development/dev_deployment) instead.</Callout>
 
 ## Exploring the sample project
 When your deployment finishes, a welcome screen will explain the key components of Fides and the sample Cookie House store. 
@@ -39,8 +39,8 @@ If your browser does not open automatically, you should navigate to `http://loca
 
 The project contains:
 
-* The Fides Control admin UI for managing [privacy requests](/tutorials/privacy-requests-get-started)
-* The Fides [Privacy Center](/dev-docs/configuration/privacy-requests/privacy-center) for submitting requests
+* The Fides Control admin UI for managing [privacy requests](/docs/docs/tutorials/privacy-requests-get-started)
+* The Fides [Privacy Center](/docs/dev-docs/configuration/privacy-requests/privacy-center) for submitting requests
 * The sample Cookie House eCommerce site for testing
 * A DSR Directory on your computer to view results
 
@@ -52,4 +52,4 @@ Then, navigate  to the Fides Admin UI to review the pending privacy request.
 Approve the request, and review the resulting package! 
 
 ## Next steps
-Congratulations! You've just run an entire privacy request in under 5 minutes! Fides offers many more tools help take control of your data privacy. To find out more, you can run a privacy request on [your own infrastructure](/tutorials/privacy-requests-get-started), discover [data mapping](/tutorials/data-mapping-get-started), or learn about the [Fides Taxonomy](https://ethyca.github.io/fideslang/).
+Congratulations! You've just run an entire privacy request in under 5 minutes! Fides offers many more tools help take control of your data privacy. To find out more, you can run a privacy request on [your own infrastructure](/docs/docs/tutorials/privacy-requests-get-started), discover [data mapping](/docs/docs/tutorials/data-mapping-get-started), or learn about the [Fides Taxonomy](https://ethyca.github.io/fideslang/).

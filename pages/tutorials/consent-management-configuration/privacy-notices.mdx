@@ -8,7 +8,7 @@ import Screenshot from 'components/screenshot'
 
 In this tutorial, we'll review privacy notices and how they're created, updated, and served to visitors based on location.
 
-After reading this, you'll be familiar with how data uses from the [previous section](/tutorials/consent-management-configuration/data-use-for-consent) automatically generate privacy notices, as well as how to create and manage your own custom privacy notices.
+After reading this, you'll be familiar with how data uses from the [previous section](/docs/docs/tutorials/consent-management-configuration/data-use-for-consent) automatically generate privacy notices, as well as how to create and manage your own custom privacy notices.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ For this tutorial you'll need:
 
 * A Fides Cloud or Fides Enterprise account
 * The role of `Owner` or `Contributor` for your Fides organization.
-* At least one system with a data use on your data map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
+* At least one system with a data use on your data map. Read how to [add systems to the Data Map](/docs/docs/tutorials/data-mapping-adding-systems-manually) now.
 
 
 
@@ -28,11 +28,11 @@ Fides simplifies compliance for privacy notices by monitoring your data map and 
 
 Next, we'll view and customize automatically generated privacy notices and how to create custom privacy notices from scratch. 
 
-Learn more about [privacy notice fundamentals](/tutorials/consent-management-fundamentals/consent-management-privacy-notices) here.
+Learn more about [privacy notice fundamentals](/docs/docs/tutorials/consent-management-fundamentals/consent-management-privacy-notices) here.
 
 ## Viewing and Managing Privacy Notices
 To view privacy notices in Fides, navigate to **Consent** → **Privacy notices** where you will see a list of currently configured privacy notices based on the data uses specified by your data map.
-<Screenshot img="/assets/img/tutorials/consent-management-privacy-notices.gif" description="View all Privacy Notices" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-privacy-notices.gif" description="View all Privacy Notices" />
 
 Each item on the list of privacy notices is comprised of a title, mechanism, locations, last update, status, and a toggle to enable the notice. Let's review these briefly:
 
@@ -50,7 +50,7 @@ Each item on the list of privacy notices is comprised of a title, mechanism, loc
 ## Creating a Privacy Notice
 Click **Add a privacy notice +** to create a new notice as shown below:
 
-<Screenshot img="/assets/img/tutorials/consent-management-new-notice.gif" description="Create a Privacy Notices" mw="450" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-new-notice.gif" description="Create a Privacy Notices" mw="450" />
 
 ## Creating or Updating a Privacy Notice
 Click on any privacy notice to view and edit the notice's details or create a new notice from scratch.
@@ -69,7 +69,7 @@ As shown in the screenshot below, you can configure:
 * **Title**: the title of the privacy notice displayed to the visitor.
 * **Privacy notice**: the detailed text of the notice displayed to the visitor.
 
-<Screenshot img="/assets/img/tutorials/consent-management-privacy-notice-details.gif" description="Privacy Notice Details" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-privacy-notice-details.gif" description="Privacy Notice Details" mw="500" />
 
 ### Consent Mechanism
 The consent mechanism allows you to configure which type of consent is used for the privacy notice. 
@@ -82,7 +82,7 @@ The method of consent to apply to this notice from the following options:
 * **Opt-Out**: the user may opt-out of the processing of their personal data.
 * **Notice only**: this privacy notice does not require consent, simply a notification.
 
-<Screenshot img="/assets/img/tutorials/consent-management-consent-mechanism-consent.gif" description="Privacy Notice Consent Mechanism" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-consent-mechanism-consent.gif" description="Privacy Notice Consent Mechanism" mw="500" />
 
 #### Enforcement Level
 
@@ -91,38 +91,38 @@ Enforcement of the consent can happen on different levels. **Enforcement level**
 * **Front end**: suppressing data processing for front end systems, like pixels, tags, and cookies.
 * **System wide**: suppressing front end data processing, _and_ back end or server side data processing.
 * **Not applicable**: in the case of notice only, there is no enforcement of suppression required.
-<Screenshot img="/assets/img/tutorials/consent-management-consent-mechanism-enforcement.gif" description="Privacy Notice Consent Enforcement" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-consent-mechanism-enforcement.gif" description="Privacy Notice Consent Enforcement" mw="500" />
 
 #### GPC Signal
-Toggle whether this privacy notice should conform and respond to the Global Privacy Control. Learn more about the [Global Privacy Control](/regulations/gpc/overview) here.
+Toggle whether this privacy notice should conform and respond to the Global Privacy Control. Learn more about the [Global Privacy Control](/docs/regulations/gpc/overview) here.
 
-<Screenshot img="/assets/img/tutorials/consent-management-consent-mechanism-gpc.gif" description="Privacy Notice GPC Configuration" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-consent-mechanism-gpc.gif" description="Privacy Notice GPC Configuration" mw="500" />
 
 ### Privacy Notice Configuration
 The privacy notice configuration is used to configure: data uses associated with the privacy notice, locations in which to display the notice, a unique key for cookie consent configuration, and which privacy experience to use to display the notice.
 
 #### Data Uses
 
-You can configure the data uses associated with the privacy notice. Typically, Fides relies on the default data uses but you can add to these at any time. Read about [modifying data uses in the taxonomy](/tutorials/consent-management-configuration/data-use-for-consent) here.
+You can configure the data uses associated with the privacy notice. Typically, Fides relies on the default data uses but you can add to these at any time. Read about [modifying data uses in the taxonomy](/docs/docs/tutorials/consent-management-configuration/data-use-for-consent) here.
 
-<Screenshot img="/assets/img/tutorials/consent-management-config-data-use.gif" description="Privacy Notice Configure Data Uses" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-config-data-use.gif" description="Privacy Notice Configure Data Uses" mw="500" />
 
 #### Description
 Allows you to set a description of the data notice **only visible to internal users** of your organization.
 
-<Screenshot img="/assets/img/tutorials/consent-management-config-description.gif" description="Privacy Notice Configure Description" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-config-description.gif" description="Privacy Notice Configure Description" mw="500" />
 
 #### Location
 Defines the locations in which this privacy notice will be displayed. Locations are based on [ISO country and state codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
-<Screenshot img="/assets/img/tutorials/consent-management-config-location.gif" description="Privacy Notice Configure Locations" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-config-location.gif" description="Privacy Notice Configure Locations" mw="500" />
 
 #### Cookie Key
 Fides allows you to create custom, unique **cookie keys** that are used to configure front end consent enforcement in your tag manager. 
 
-The **cookie key** is used to identify the visitors preferences for the specific privacy notice. For example, if a visitor opted out of Data Sales and Sharing, the cookie on their browser would have the value: `data_sales_and_sharing` set to `false`. Learn how to [configure front end consent](/tutorials/consent-management-configuration) here.
+The **cookie key** is used to identify the visitors preferences for the specific privacy notice. For example, if a visitor opted out of Data Sales and Sharing, the cookie on their browser would have the value: `data_sales_and_sharing` set to `false`. Learn how to [configure front end consent](/docs/docs/tutorials/consent-management-configuration) here.
 
-<Screenshot img="/assets/img/tutorials/consent-management-config-cookie-key.gif" description="Privacy Notice Configure Cookie Key" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-config-cookie-key.gif" description="Privacy Notice Configure Cookie Key" mw="500" />
 
 #### Privacy Experience
 
@@ -131,6 +131,6 @@ You can select the privacy experience that this notice should use to be displaye
 * **Overlay**: display in the overlay and associated pop up.
 * **API Only**: only make this privacy notice available to be set by API, helpful for mobile app-only configurations.
 
-<Screenshot img="/assets/img/tutorials/consent-management-config-privacy-experience.gif" description="Privacy Notice Configure Privacy Experience" mw="500" />
+<Screenshot img="/assets/img/docs/docs/tutorials/consent-management-config-privacy-experience.gif" description="Privacy Notice Configure Privacy Experience" mw="500" />
 
 Next, we'll configure privacy experiences for our available notices.

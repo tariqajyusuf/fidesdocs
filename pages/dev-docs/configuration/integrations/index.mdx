@@ -5,7 +5,7 @@ import { Callout } from 'nextra-theme-docs'
 ## What is an integration?
 
 
-A _Connection_ links your owned databases and [third-party applications](/dev-docs/configuration/integrations/saas-integrations/saas-config) to Fides, allowing Fides to execute privacy requests against your collections and fields.
+A _Connection_ links your owned databases and [third-party applications](/docs/dev-docs/configuration/integrations/saas-integrations/saas-config) to Fides, allowing Fides to execute privacy requests against your collections and fields.
 
 Fides currently supports integrations to the following databases:
 
@@ -23,7 +23,7 @@ Other platforms will be added in future releases.
 ## How do integrations differ from datasets?
 
 
-A _[Dataset](/user-guides/integrations/database-integrations/datasets)_ is model of a service that describes the data contained within each field. A _Connection_ stores the secrets to connect to the database. After Fides connects to your database, it dynamically generates queries to fulfil privacy requests by consulting the annotations in the Dataset.
+A _[Dataset](/docs/user-guides/integrations/database-integrations/datasets)_ is model of a service that describes the data contained within each field. A _Connection_ stores the secrets to connect to the database. After Fides connects to your database, it dynamically generates queries to fulfil privacy requests by consulting the annotations in the Dataset.
 
 
 ## Create a new integration 
@@ -220,7 +220,7 @@ Test failures can be resolved by calling the connection's `/secret/` endpoint, a
 ```
 
 ## Associate a Dataset
-Once you have a working Integration, it must be associated to an existing [dataset](/dev-docs/configuration/integrations/database-integrations/datasets). This enables Fides to map and access the contents of your database. 
+Once you have a working Integration, it must be associated to an existing [dataset](/docs/dev-docs/configuration/integrations/database-integrations/datasets). This enables Fides to map and access the contents of your database. 
 
 Call the `/dataset` endpoint with a JSON version of your dataset as the request body:
 
@@ -330,7 +330,7 @@ The `test_status` filter queries on the status of the last successful test:
 
 ### System_Status filter
 
-The `system_status` filter surfaces either `database` or [`saas`-type](/dev-docs/configuration/integrations/saas-integrations/saas-config) connectors:
+The `system_status` filter surfaces either `database` or [`saas`-type](/docs/dev-docs/configuration/integrations/saas-integrations/saas-config) connectors:
 
 ```json
 {

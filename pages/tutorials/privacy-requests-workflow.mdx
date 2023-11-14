@@ -15,8 +15,8 @@ For this tutorial, you'll need:
 
 * A Fides Cloud or Fides Enterprise account
 * The role of either `Owner`, `View & Approver` or `Approver` to manage privacy requests.
-* At least one system integration configured for privacy requests. Read how to [configure an integration](/tutorials/privacy-requests-configuration/integrations).
-* A privacy center to receive and process privacy requests. Read how to [configure a privacy center](/tutorials/consent-management-configuration/privacy-experiences/privacy-center).
+* At least one system integration configured for privacy requests. Read how to [configure an integration](/docs/docs/tutorials/privacy-requests-configuration/integrations).
+* A privacy center to receive and process privacy requests. Read how to [configure a privacy center](/docs/docs/tutorials/consent-management-configuration/privacy-experiences/privacy-center).
 
 
 
@@ -24,17 +24,17 @@ For this tutorial, you'll need:
 
 Before processing a privacy request, we'll look briefly at the steps and flow of a typical request:
 
-<Screenshot img="/assets/img/tutorials/privacy-requests-request-flow.gif" description="Typical data privacy request flow" />
+<Screenshot img="/assets/img/docs/docs/tutorials/privacy-requests-request-flow.gif" description="Typical data privacy request flow" />
 
-1. **[Subject Submits Privacy Request](/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests)**: The user (subject) submits a privacy request through the privacy center.
-2. **[Identity Verification](/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests#subject-identity-verification)**: Fides sends a code to the user's email address or phone number to verify their identity.
-3. **[Subject Confirms Identity](/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests#subject-identity-verification)**: The subject confirms their identity using the code provided.
-4. **[Privacy Request Received](/tutorials/privacy-requests-workflow/privacy-requests-reviewing-requests)**: The privacy request is recorded on Fides with the subject's identity verification.
-5. **[Privacy Request Reviewed](/tutorials/privacy-requests-workflow/privacy-requests-reviewing-requests)**: Privacy requests are reviewed by an appointed request manager.
-6. **[Rejected](/tutorials/privacy-requests-workflow/privacy-requests-rejecting-requests)**: When a privacy request is rejected, Fides records the reason for rejecting the request.
+1. **[Subject Submits Privacy Request](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests)**: The user (subject) submits a privacy request through the privacy center.
+2. **[Identity Verification](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests#subject-identity-verification)**: Fides sends a code to the user's email address or phone number to verify their identity.
+3. **[Subject Confirms Identity](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-submitting-requests#subject-identity-verification)**: The subject confirms their identity using the code provided.
+4. **[Privacy Request Received](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-reviewing-requests)**: The privacy request is recorded on Fides with the subject's identity verification.
+5. **[Privacy Request Reviewed](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-reviewing-requests)**: Privacy requests are reviewed by an appointed request manager.
+6. **[Rejected](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-rejecting-requests)**: When a privacy request is rejected, Fides records the reason for rejecting the request.
 7. **Email Confirmation Sent**: An email confirming that the request has been rejected is sent to the subject.
-8. **[Approved](/tutorials/privacy-requests-workflow/privacy-requests-approving-requests)**: When a privacy request is approved, Fides commences processing the request.
-9. **[Fides Processes Request](/tutorials/privacy-requests-workflow/privacy-requests-approving-requests#process-after-approving-request)**: Fides processes the privacy request programmatically across all integrated systems.
+8. **[Approved](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-approving-requests)**: When a privacy request is approved, Fides commences processing the request.
+9. **[Fides Processes Request](/docs/docs/tutorials/privacy-requests-workflow/privacy-requests-approving-requests#process-after-approving-request)**: Fides processes the privacy request programmatically across all integrated systems.
 10. **Email Confirmation Sent**: An email confirming the request has been completed is sent to the subject.
 
 Next, we'll look at each step in the flow in detail.

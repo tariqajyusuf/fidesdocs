@@ -8,15 +8,15 @@ Please follow these guides, in order, for the appropriate environment to get sta
 
 | Step | Description | Notes |
 | --- | --- | --- |
-| Deploy Privacy Center | This allows you to simulate end-user flows. | [Deploying and Configuring the Privacy Center](/dev-docs/configuration/privacy-requests/privacy-center) |
-| (Optional) S3 Bucket Configuration | Configure an S3 bucket as a destination for DSR packages. (requires AWS Access Key) | Fides can use an S3 bucket to output the DSR package:<br></br><br></br>1. [AWS Guide to provisioning Access Key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html)<br></br><br></br>2. [Configuring Storage Destinations](/dev-docs/configuration/privacy-requests/storage-destinations) |
+| Deploy Privacy Center | This allows you to simulate end-user flows. | [Deploying and Configuring the Privacy Center](/docs/dev-docs/configuration/privacy-requests/privacy-center) |
+| (Optional) S3 Bucket Configuration | Configure an S3 bucket as a destination for DSR packages. (requires AWS Access Key) | Fides can use an S3 bucket to output the DSR package:<br></br><br></br>1. [AWS Guide to provisioning Access Key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html)<br></br><br></br>2. [Configuring Storage Destinations](/docs/dev-docs/configuration/privacy-requests/storage-destinations) |
 
 ### SQL Database
 
 | Step | Description | Notes |
 | --- | --- | --- |
 | SQL Database Credential Provisioning | Provision a service account for Database Access | Fides requires read and write access to modify the database. |
-| SQL Database Network Connectivity | Fides will need to have network connectivity from the Admin Server, (Optioanl) Worker nodes, to the database. | For a POC, we recommend basic connectivity, however for a production deployment [please refer to our security best practices](/dev-docs/configuration/security-practices) |
+| SQL Database Network Connectivity | Fides will need to have network connectivity from the Admin Server, (Optioanl) Worker nodes, to the database. | For a POC, we recommend basic connectivity, however for a production deployment [please refer to our security best practices](/docs/dev-docs/configuration/security-practices) |
 
 ### Third Party SaaS
 
@@ -29,14 +29,14 @@ Please follow these guides, in order, for the appropriate environment to get sta
 ### SQL Database
 | Step | Description | Notes |
 | --- | --- | --- |
-| Generate a Dataset | Create a Dataset for your SQL database for Fides to traverse and generate a DSR. | [Generate Dataset](/user-guides/datasets/generate-datasets) |
-| Annotate Dataset | Download and annotate the dataset with `data_categories` and an `identity key`.<br></br><br></br>Note - if you use the Fides Enterprise Classifier, this is done for you automatically. Alternatively you can download thhe file and use the Fides CLI tooling or use the `{{FIDES_SERVER_URL}}:8080/docs` endpoint where you can view the Swagger docs and make a request via the API. | [Annotating a Dataset](/user-guides/datasets/annotate-datasets#annotating-in-the-file)<br></br><br></br>[Adding Identity key](/user-guides/datasets/annotate-datasets#adding-an-identity-key) |
-| (Optional) Define Database Relationships | Define the entity relationships within your database with additional annotations.  You can also use [dbml-to-fides](https://pypi.org/project/dbml-to-fides/) to do this. These annotations ensure that Fides can correctly traverse all tables annd relationships during a privacy request.| [Annotate Relationships](/dev-docs/configuration/privacy-requests/graphs)<br></br><br></br>[dbml-to-fides](https://pypi.org/project/dbml-to-fides/) |
-| Link the Dataset | Connect the dataset to the System to enable privacy requests against your database. | [Link Datasets](/user-guides/datasets/link-datasets) |
-| Test your integration | Test your request via the Fides Privacy Center or DSR client, and approve it in the Fides administrative console. | [Submitting a Request](/user-guides/privacy-requests/submit-requests)<br></br><br></br>[Approving a Request](/user-guides/privacy-requests/manage-requests) |
+| Generate a Dataset | Create a Dataset for your SQL database for Fides to traverse and generate a DSR. | [Generate Dataset](/docs/user-guides/datasets/generate-datasets) |
+| Annotate Dataset | Download and annotate the dataset with `data_categories` and an `identity key`.<br></br><br></br>Note - if you use the Fides Enterprise Classifier, this is done for you automatically. Alternatively you can download thhe file and use the Fides CLI tooling or use the `{{FIDES_SERVER_URL}}:8080/docs` endpoint where you can view the Swagger docs and make a request via the API. | [Annotating a Dataset](/docs/user-guides/datasets/annotate-datasets#annotating-in-the-file)<br></br><br></br>[Adding Identity key](/docs/user-guides/datasets/annotate-datasets#adding-an-identity-key) |
+| (Optional) Define Database Relationships | Define the entity relationships within your database with additional annotations.  You can also use [dbml-to-fides](https://pypi.org/project/dbml-to-fides/) to do this. These annotations ensure that Fides can correctly traverse all tables annd relationships during a privacy request.| [Annotate Relationships](/docs/dev-docs/configuration/privacy-requests/graphs)<br></br><br></br>[dbml-to-fides](https://pypi.org/project/dbml-to-fides/) |
+| Link the Dataset | Connect the dataset to the System to enable privacy requests against your database. | [Link Datasets](/docs/user-guides/datasets/link-datasets) |
+| Test your integration | Test your request via the Fides Privacy Center or DSR client, and approve it in the Fides administrative console. | [Submitting a Request](/docs/user-guides/privacy-requests/submit-requests)<br></br><br></br>[Approving a Request](/docs/user-guides/privacy-requests/manage-requests) |
 
 ### Third Party SaaS
 | Step | Description | Notes |
 | --- | --- | --- |
-| Integrate Third Party System | Fides comes pre-configured with SaaS connectors that integrate into third party systems. | [Example: Stripe - Configuring the integration](/dev-docs/configuration/integrations/saas-integrations/example-configs/stripe) |
-| Test your integration | Test your request via the Fides Privacy Center or DSR client, and approve it in the Fides administrative console. | [Submitting a Request](/user-guides/privacy-requests/submit-requests)<br></br><br></br>[Approving a Request](/user-guides/privacy-requests/manage-requests) |
+| Integrate Third Party System | Fides comes pre-configured with SaaS connectors that integrate into third party systems. | [Example: Stripe - Configuring the integration](/docs/dev-docs/configuration/integrations/saas-integrations/example-configs/stripe) |
+| Test your integration | Test your request via the Fides Privacy Center or DSR client, and approve it in the Fides administrative console. | [Submitting a Request](/docs/user-guides/privacy-requests/submit-requests)<br></br><br></br>[Approving a Request](/docs/user-guides/privacy-requests/manage-requests) |

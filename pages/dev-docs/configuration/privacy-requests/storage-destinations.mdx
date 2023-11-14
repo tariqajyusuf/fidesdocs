@@ -7,7 +7,7 @@ Access requests produce a package of returned data upon completion. This data wi
 
 <Callout type="info" emoji="">Fides never stores privacy request results locally. At least one storage destination must be configured if you wish to process access requests.</Callout>
 
-Storage destinations are associated to privacy request policies in their [rules](/dev-docs/configuration/policies/request-policies), allowing multiple storage destinations to be configured per privacy request policy.
+Storage destinations are associated to privacy request policies in their [rules](/docs/dev-docs/configuration/policies/request-policies), allowing multiple storage destinations to be configured per privacy request policy.
 
 ![Storage Destinations](/assets/img/resources/storage_destinations.png "Storage Destinations")
 
@@ -62,7 +62,7 @@ Storage destinations are created and managed via the API. To create a new Storag
 |---|---|
 | `naming` | This defines how the uploaded files will be named. Currently, Fides supports upload file naming by `request_id`. Use this value for all your storage destinations. |
 
-On success, the response from the above endpoint will include a `storage_key` for each destination, which can be used when defining privacy request policy [rules](/dev-docs/configuration/policies/request-policies).
+On success, the response from the above endpoint will include a `storage_key` for each destination, which can be used when defining privacy request policy [rules](/docs/dev-docs/configuration/policies/request-policies).
 
 ```json filename="Example response"
 {

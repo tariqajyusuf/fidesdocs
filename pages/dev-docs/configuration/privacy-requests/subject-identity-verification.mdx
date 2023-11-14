@@ -9,13 +9,13 @@ To enable Subject Identity Verification, you need to set
 1. [Configure a messaging service](#configuring-a-messaging-service)
 2. [Configure Fides to use this service for Subject Identity Verification](#configure-fides)
 
-You may also customize the content of the email that is sent for this purpose. See our guide for [configuring email content](/user-guides/privacy-requests/configure-email) to learn more
+You may also customize the content of the email that is sent for this purpose. See our guide for [configuring email content](/docs/user-guides/privacy-requests/configure-email) to learn more
 
 ### Configure a messaging service
 The available messaging services for Subject Identity Verification are:
-* [Mailgun for email](/dev-docs/configuration/messaging/mailgun-email)
-* [Twilio for email](/dev-docs/configuration/messaging/twilio-email)
-* [Twilio for SMS](/dev-docs/configuration/messaging/twilio-sms)
+* [Mailgun for email](/docs/dev-docs/configuration/messaging/mailgun-email)
+* [Twilio for email](/docs/dev-docs/configuration/messaging/twilio-email)
+* [Twilio for SMS](/docs/dev-docs/configuration/messaging/twilio-sms)
 
 Click on the service you want to configure above to view the setup guide.
 
@@ -24,7 +24,7 @@ Click on the service you want to configure above to view the setup guide.
 Fides needs to be configured to enable Subject Identity Verification and to use the correct messaging service for this purpose. This can be configured using environment variables or the Fides configuration file. 
 
 #### Using the Fides configuration file
-To set this in the Fides Configuration file, please locate the variable within the appropirate `fides.toml` file. To learn more about where to find this file, please see the [Fides Configuration](/dev-docs/configuration/configuration) guide.  
+To set this in the Fides Configuration file, please locate the variable within the appropirate `fides.toml` file. To learn more about where to find this file, please see the [Fides Configuration](/docs/dev-docs/configuration/configuration) guide.  
 
 The two variables that must be set are:
 

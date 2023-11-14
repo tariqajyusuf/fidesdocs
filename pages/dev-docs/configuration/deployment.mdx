@@ -15,7 +15,7 @@ Fully deployed, Fides consists of the following individual systems:
 Optionally, the Fides [**Privacy Center**](#set-up-the-privacy-center-optional) can be deployed as a pre-built way to receive privacy requests.
 
 ## Deployment options
-Any Docker host can be used to deploy Fides, and this guide outlines three main deployment options: [Helm](#using-helm), [Terraform](#using-terraform), and [Docker](#using-docker). For all options, please refer to our [security best practices](/dev-docs/configuration/security-practices) for recommendations on production infrastructure.
+Any Docker host can be used to deploy Fides, and this guide outlines three main deployment options: [Helm](#using-helm), [Terraform](#using-terraform), and [Docker](#using-docker). For all options, please refer to our [security best practices](/docs/dev-docs/configuration/security-practices) for recommendations on production infrastructure.
 
 
 ### Using Helm
@@ -47,7 +47,7 @@ The remainder of this guide outlines generic steps for manually deploying the da
 
 ## Set up the hosted database
 
-Fides uses an application database for persistent storage. Any hosted PostgreSQL database that meets the current [project requirements](/dev-docs/get-started/requirements) is acceptable, as long as it's accessible. 
+Fides uses an application database for persistent storage. Any hosted PostgreSQL database that meets the current [project requirements](/docs/dev-docs/get-started/requirements) is acceptable, as long as it's accessible. 
 
 Options include:
 
@@ -75,7 +75,7 @@ Use your database information to set the following values in your Fides configur
 
 ## Set up the hosted cache
 
-During privacy request execution, Fides collects result data in a temporary Redis cache that automatically expires to ensure personal data is never retained erroneously. Any hosted Redis database that meets the current [project requirements](/dev-docs/get-started/requirements) is acceptable, from a Docker [Redis](https://hub.docker.com/_/redis) container to a managed service (e.g., AWS ElastiCache, GCP Memorystore, Azure Cache, Redis Cloud).
+During privacy request execution, Fides collects result data in a temporary Redis cache that automatically expires to ensure personal data is never retained erroneously. Any hosted Redis database that meets the current [project requirements](/docs/dev-docs/get-started/requirements) is acceptable, from a Docker [Redis](https://hub.docker.com/_/redis) container to a managed service (e.g., AWS ElastiCache, GCP Memorystore, Azure Cache, Redis Cloud).
 
 <Callout> As long as your cache will be accessible by your Fides webserver, there is no need to expose it to the public Internet. </Callout>
 
@@ -106,7 +106,7 @@ The Fides webserver is a [FastAPI](https://fastapi.tiangolo.com/) application wi
 
 ### Using docker
 
-Ensure that Docker is running on your host, and satisfies the [minimum requirements](/dev-docs/get-started/requirements).
+Ensure that Docker is running on your host, and satisfies the [minimum requirements](/docs/dev-docs/get-started/requirements).
 
 #### Pull the docker image
 Run the following command to pull the latest image from Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides):
@@ -193,7 +193,7 @@ You can also visit the hosted UI at `http://{server_url}/`.
 
 ## Set up the Privacy Center (Optional)
 
-Ensure that Docker is running on your host, and satisfies the [minimum requirements](/dev-docs/get-started/requirements).
+Ensure that Docker is running on your host, and satisfies the [minimum requirements](/docs/dev-docs/get-started/requirements).
 
 Run the following command to pull the latest image from Ethyca's [DockerHub](https://hub.docker.com/r/ethyca/fides):
 
@@ -201,7 +201,7 @@ Run the following command to pull the latest image from Ethyca's [DockerHub](htt
 docker pull ethyca/fides-privacy-center
 ``` 
 
-More information about configuration options can be found in [this guide](/dev-docs/configuration/privacy-requests/privacy-center).
+More information about configuration options can be found in [this guide](/docs/dev-docs/configuration/privacy-requests/privacy-center).
 
 Once pulled and configured, you can run the following within your project to start the server: 
 

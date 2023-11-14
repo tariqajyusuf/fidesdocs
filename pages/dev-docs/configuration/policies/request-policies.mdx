@@ -3,7 +3,7 @@ import { Callout } from 'nextra-theme-docs'
 # Configure DSR Request Policies
 ## What is DSR request policy?
 
-A DSR request policy (separate from a [CI Policy](/dev-docs/cli/check), used for automated policy checks in CI) is a set of instructions, or Rules, that are executed when a user submits a [request](/dev-docs/configuration/privacy-requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
+A DSR request policy (separate from a [CI Policy](/docs/dev-docs/cli/check), used for automated policy checks in CI) is a set of instructions, or Rules, that are executed when a user submits a [request](/docs/dev-docs/configuration/privacy-requests) to retrieve or delete their data. It describes how to access, mask, or erase data that matches specific data categories in submitted privacy requests.
 
 Each endpoint takes an array of objects to create multiple policies, rules, or targets at one time.
 
@@ -28,7 +28,7 @@ To create a new DSR request policy, it must first be defined:
 |---|---|
 | `name` | User-friendly name for your Policy. |
 | `key` | Unique key by which to reference the Policy. |
-| `drp_action` | *Optional.* A [Data Rights Protocol](/dev-docs/configuration/privacy-requests/data-rights-protocol) action to associate to this policy. Accepted values are `access` (must be used with an [access Rule](#add-a-rule)) or `deletion` (must be used with an [erasure Rule](#add-an-erasure-rule)). |
+| `drp_action` | *Optional.* A [Data Rights Protocol](/docs/dev-docs/configuration/privacy-requests/data-rights-protocol) action to associate to this policy. Accepted values are `access` (must be used with an [access Rule](#add-a-rule)) or `deletion` (must be used with an [erasure Rule](#add-an-erasure-rule)). |
 | `execution_timeframe` | The time in which to fulfill an associated privacy request, in days. |
 
 ## Add a Rule
@@ -52,11 +52,11 @@ The following is an example of an access Rule:
 | `name` | A user-friendly name for the rule.
 | `action_type` | Which action is this `Rule` handling?
 | `action_type.access` | A data subject access request. Matching data will be returned.
-| `action_type.erasure` | A data subject erasure request (or Right to be Forgotten). Matching data will be erased or [masked](/dev-docs/configuration/privacy-requests/masking-strategies).
-| `storage_destination` | Where Fides will upload the returned data for an `access` action. See [storage](/dev-docs/configuration/privacy-requests/storage-destinations). |
-| `masking_strategy` | How to erase data that applies to this `Rule`. See [Configuring Masking Strategies](/dev-docs/configuration/privacy-requests/masking-strategies) |
+| `action_type.erasure` | A data subject erasure request (or Right to be Forgotten). Matching data will be erased or [masked](/docs/dev-docs/configuration/privacy-requests/masking-strategies).
+| `storage_destination` | Where Fides will upload the returned data for an `access` action. See [storage](/docs/dev-docs/configuration/privacy-requests/storage-destinations). |
+| `masking_strategy` | How to erase data that applies to this `Rule`. See [Configuring Masking Strategies](/docs/dev-docs/configuration/privacy-requests/masking-strategies) |
 
-<Callout>The `storage_key` must identify an existing storage object. Read about [configuring storage](/dev-docs/configuration/privacy-requests/storage-destinations) here.</Callout>
+<Callout>The `storage_key` must identify an existing storage object. Read about [configuring storage](/docs/dev-docs/configuration/privacy-requests/storage-destinations) here.</Callout>
 
 ### Add a Rule Target
 A Rule also specifies one or more [Data Categories](https://ethyca.github.io/fideslang/taxonomy/data_categories/), or "Targets", to which the rule applies. Creating a Rule will return a key, which can be used to assign it one or more targets:
