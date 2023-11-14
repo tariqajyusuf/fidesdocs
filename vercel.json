@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "docs.ethyca.com"
+          "value": "testdocs.ethyca.com"
         }
       ],
       "destination": "/docs/:path*"
