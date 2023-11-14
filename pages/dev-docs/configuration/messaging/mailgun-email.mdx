@@ -8,8 +8,8 @@ This document explains how to configure email notification and messaging service
 
 In order to complete this, you will need the following:
 * A valid Mailgun account with which to send emails.
-* Ability to access and update Fides system config variables for your Fides installation. Read about [config variables](#LINK) here.
-* Fides OAuth access token with the following scopes. Read about [Fides Scopes](#LINK) here.
+* Ability to access and update Fides system config variables for your Fides installation. Read about [config variables](/dev-docs/configuration/configuration) here.
+* Fides OAuth access token with the following scopes.
     * `messaging:read`: Read an existing messaging configuration.
     * `messaging:create_or_update`: Create or update messaging configuration.
     * `messaging:delete`: Delete a messaging configuration.
@@ -126,7 +126,7 @@ curl '{{FIDES_URL}}/api/v1/config' \
 In the above example `{{FIDES_URL}}` is the URL to your Fides server. The Authorization is Bearer and `{{FIDES_ACCESS_TOKEN}}` is your Fides access token. The request Content-Type is application/json.
 
 The `notification_service_type` value is `mailgun` and for each of the notifications you wish to send via Mailgun, set their value to `true`.
-You can also enable or disable subject identify verification on privacy requests here by settting `execution.subject_identity_verification_required` to `true`. Learn more about [Subject Identify Verification](#LINK) here.
+You can also enable or disable subject identify verification on privacy requests here by settting `execution.subject_identity_verification_required` to `true`. Learn more about [Subject Identify Verification](/dev-docs/configuration/privacy-requests/subject-identity-verification) here.
 
 The response to this request will confirm the service type and the current status for each notification as shown in the example below:
 
@@ -176,7 +176,7 @@ Mailgun can be setup to either use customized Mailgun templates, or the generic 
 
 ### Create a Mailgun fides Template
 
-For detailed step-by-step instructions on configuring the template, please visit the [configure email style customization](/user-guides/privacy-requests/configure-email/style-customizatons.mdx) section. Below is a brief summary on making the template.
+For detailed step-by-step instructions on configuring the template, please visit the [configure email style customization](/user-guides/privacy-requests/configure-email/email-style) section. Below is a brief summary on making the template.
 
 
 1. In Mailgun create a template named `fides`. You can follow Mailgun's documentation on [creating templates](https://documentation.mailgun.com/en/latest/user_manual.html#templates) here.

@@ -4,48 +4,56 @@
 	src: url('public/fonts/SourceSansPro-Regular.ttf');
 	font-weight: 400, normal;
 	font-style: normal;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-Italic.ttf');
 	font-weight: 400, normal;
 	font-style: italic;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-Light.ttf');
 	font-weight: 300;
 	font-style: normal;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-LightItalic.ttf');
 	font-weight: 300;
 	font-style: italic;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-ExtraLight.ttf');
 	font-weight: 100;
 	font-style: normal;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-Bold.ttf');
 	font-weight: 600;
 	font-style: normal;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-SemiBold.ttf');
 	font-weight: 500;
 	font-style: normal;
+  	font-display: swap;
 }
 @font-face {
 	font-family: "SourceSansPro";
 	src: url('public/fonts/SourceSansPro-Black.ttf');
 	font-weight: 700;
 	font-style: normal;
+  	font-display: swap;
 }
 html {
 	font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "ss06" 1 !important;
@@ -64,8 +72,8 @@ html {
   --shiki-token-constant: #4898FF !important;
   --shiki-token-string-expression: #1fdf8f !important;
   --shiki-token-punctuation: #bbbbbb !important;
-    --shiki-token-string: #fff !important;
-    --shiki-token-function: #B794F4 !important;
+   --shiki-token-string: #fff !important;
+   --shiki-token-function: #B794F4 !important;
 }
 
 

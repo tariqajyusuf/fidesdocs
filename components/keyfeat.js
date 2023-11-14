@@ -16,7 +16,7 @@ export function KeyFeat({ title, link, description }) {
     <Link legacyBehavior href={link}>
     <a
         key={title}
-        href=""
+        href={link}
         className="featBlockWrap"
       >
     <div className="">
