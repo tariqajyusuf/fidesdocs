@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "fidesdocs-git-redirect-subdir-ethyca.vercel.app"
+          "value": "docs.ethyca.com"
         }
       ],
       "destination": "https://ethyca.com/docs/:path*"
