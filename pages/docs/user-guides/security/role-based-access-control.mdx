@@ -32,19 +32,19 @@ Login as the root user using the `root_username` and `root_password`.
 Note: this info was likely configured during installation in the security section of `fides.toml` but may also be set using the `FIDES__SECURITY__ROOT_USERNAME` and `FIDES__SECURITY__ROOT_PASSWORD` environment variables.
 
 
-![Login as root](../../../public/assets/img/guides/login_as_root.png)
+![Login as root](/assets/img/guides/login_as_root.png)
 
 Click on the gear icon in the upper right of the navigation bar to navigate to Management > Users and click on `Add New User`.
 
-![User tab](../../../public/assets/img/guides/user_tab.png)
+![User tab](/assets/img/guides/user_tab.png)
 
 Complete the fields for Username (typically email), First Name, Last Name, and a strong password. Click `Save`.
 
-![Create your own user](../../../public/assets/img/guides/create_user.png)
+![Create your own user](/assets/img/guides/create_user.png)
 
 Once saved, the Permissions tab becomes accessible. Select the correct role and click `Save`. As an `Owner`, you will be able to manage all settings in Fides and create additional users:
 
-![Set Owner Perms](../../../public/assets/img/guides/set_owner_permissions.png)
+![Set Owner Perms](/assets/img/guides/set_owner_permissions.png)
 
 
 ### Configuring other users
@@ -53,17 +53,17 @@ To add other users, login as an `Owner` or `Contributor` account, and follow the
 
 Login as an `Owner` or `Contributor`:
 
-![Login as owner](../../../public/assets/img/guides/login_as_owner.png)
+![Login as owner](/assets/img/guides/login_as_owner.png)
 
 
 Navigate to Management > Users and click on `Add New User`. Enter the information for the Privacy Request Approver.
 
-![Create approver user](../../../public/assets/img/guides/create_viewer_approver.png)
+![Create approver user](/assets/img/guides/create_viewer_approver.png)
 
 
 In the Permissions tab, add the `Viewer & Approver` role to that user.  This user will be given limited view access to the UI but will be able to manage privacy requests and view systems.
 
-![Set Approver Perms](../../../public/assets/img/guides/viewer_approver_role.png)
+![Set Approver Perms](/assets/img/guides/viewer_approver_role.png)
 
 
 ## Assigning systems
@@ -75,17 +75,17 @@ Note that `Owners` can edit **all** systems without being assigned as the Data S
 To assign systems to a user, first assign their role (ex. `Viewer & Approver`) and then use the `Assign Systems+` button to select the systems they should manage.
 In this example, we click the `Viewer & Approver` row and then click `Assign Systems+`
 
-![Viewer Role](../../../public/assets/img/guides/viewer_approver_role.png)
+![Viewer Role](/assets/img/guides/viewer_approver_role.png)
 
 
 In the Assign systems modal, toggle on/off the specific systems that you want this user to manage. You may assign all systems using the `Assign all systems` toggle or use the search to filter to the set of systems you want to assign. Using the `Assign all systems` toggle with filtered results will only assign the visible systems. When you've made your choices, click `Confirm.`
 
-![Assign Systems](../../../public/assets/img/guides/assign_systems.png)
+![Assign Systems](/assets/img/guides/assign_systems.png)
 
 
 In this example, the user has been assigned a `Viewer & Approver` role which grants view-only access to all settings and systems in Fides. However, they have additionally been assigned as the Data Steward for the `Cookie House Marketing System` and the `Cookie House Customer Database` and can make updates to those specific systems.
 
-![system_list](../../../public/assets/img/guides/system_list.png)
+![system_list](/assets/img/guides/system_list.png)
 
 
 
