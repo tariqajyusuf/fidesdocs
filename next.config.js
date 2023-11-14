@@ -21,7 +21,7 @@ module.exports = withNextra({
                         value: 'testdocs.ethyca.com',
                     },
                 ],
-                destination: '/docs/:path*',
+                destination: 'https://ethyca.com/docs/:path*',
             },
         ]
     }
