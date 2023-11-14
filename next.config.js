@@ -7,5 +7,23 @@ const withNextra = require("nextra")({
   defaultShowCopyCode: true,
 });
 
-module.exports = withNextra()
-
+module.exports = withNextra({
+  async rewrites() {
+    return {
+        beforeFiles: [
+            // if the host is `app.acme.com`,
+            // this rewrite will be applied
+            {
+                source: '/:path*',
+                has: [
+                    {
+                        type: 'host',
+                        value: 'https://fidesdocs-subdir.vercel.app/',
+                    },
+                ],
+                destination: 'https://ethyca.com/:path*',
+            },
+        ]
+    }
+  },
+});
