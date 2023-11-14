@@ -1,0 +1,44 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Adobe Sign
+
+[Adobe Sign](https://www.adobe.com/sign.html) is an electronic signature solution that allows users to digitally sign, send, and track documents securely, streamlining the process of obtaining legally binding signatures.
+
+## Prerequisites
+
+<Callout emoji="" type="info" title="Connected apps"> To integrate with Adobe Sign, we require our customers to use a _Web App_. This ensures exclusive data control, enhances security by reducing unauthorized access risks, and allows customization of scopes and permissions to suit your business needs and policies.</Callout>
+
+In order to [integrate](/user-guides/integrations) with Adobe Sign, you'll need to collect the following information:
+
+| Name                | Description                                                                                                                                                                                                       |
+| :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain\***        | The unique URL for your Adobe Sign instance                                                                                                                                                                       |
+| **Client ID\***     | Your Adobe Sign application's client ID. Follow Adobe's API authentication docs for [steps to retrieve this key](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/)    |
+| **Client secret\*** | Your Adobe Sign application's client secret.Follow Adobe's API authentication docs for [steps to retrieve this key](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/) |
+| **Redirect URL**    | The Fides URL to which users will be redirected upon successful authentication (ex. `https://fides-host.com/oauth/callback`)                                                                                      |
+
+## Integrating with Adobe Sign
+
+To integrate an existing system with Adobe Sign:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Adobe Sign endpoints
+
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function    | Endpoint                                                                                   | Description                                  |
+| ------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| **Access Requests** | [Users](https://secure.na1.adobesign.com/public/docs/restapi/v6#swagger-ui-container)      | Retrieves all the users in an account.       |
+| **Access Requests** | [Agreements](https://secure.na1.adobesign.com/public/docs/restapi/v6#swagger-ui-container) | Retrieves information about user agreements. |

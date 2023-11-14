@@ -1,0 +1,77 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Data Flows: Fides Cloud vs. Self Hosted
+
+Personal and sensitive data must be handled with the utmost care and Fides is designed to ensure this in any configuration.
+This page outlines the various Fides configurations and how personal data flows and where it is stored to help you select the optimum configuration for your needs. We'll briefly review the [available Fides configurations](#comparing-fides-cloud-and-self-hosted) and then a chart of [data flow for each major feature](#data-flow-by-feature).
+
+## Comparing Fides Cloud and Self Hosted
+Fides is available in two options:
+
+* [Fides Cloud](#fides-cloud): hosted by Ethyca in our secure, SOC2-II certified infrastructure.
+* [Fides Self Hosted](#fides-self-hosted): deployed in your cloud, supported by Ethyca.
+
+
+### Fides Cloud
+Fides Cloud is hosted by Ethyca in our cloud infrastructure. By default hosting is in the USA, with options available for organizations that require geographic data residency in Europe or other regions.
+
+<Callout type="info" emoji="">Fides Cloud is recommended for most organizations requiring a high degree of security and minimizing the developer resources needed for configuration and maintenance.  Please [contact Ethyca's solutions team for more information](https://ethyca.com/book-demo). </Callout>
+
+In the example below, you can see the typical configuration of Fides Cloud which provides options to suit your preferred connectivity solutions:
+
+<Screenshot img="/assets/img/guides/fides-cloud.png" description="Fides Cloud Example" />
+
+### Fides Self Hosted
+Fides Self Hosted is a deployed instance of Fides, installed in your cloud and secured by your organization's firewall. Ethyca has no access to this instance and no data is stored on Ethyca infrastructure. All data processing occurs in your cloud.
+
+<Callout type="info" emoji="">Self hosted is recommended for organizations requiring additional security controls or where you do not wish to have data stored in a third party vendor system. Please [contact Ethyca's solutions team for more information](https://ethyca.com/book-demo).</Callout>
+
+In the example below, you can see the typical configuration of Fides Self Hosted, where all Fides tools are installed and configured within your cloud provider.
+
+<Screenshot img="/assets/img/guides/fides-deployed.png" description="Fides Self Hosted Example" />
+
+
+## Data Flow by Feature
+With this understanding of Fides' various configurations, the following table outlines the personal data flows for each major feature.
+<table className="dataflows">
+<colgroup>
+        <col span="1" />
+        <col span="1" />
+        <col span="1" />
+</colgroup>
+<thead>
+<tr>
+<td>Description</td>
+<td>Fides Cloud</td>
+<td>Fides Self Hosted</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Consent**<br/>Complying with consent requires storing a record of the privacy notice presented to the visitor, along with a record of the preference they selected including a timestamp.</td>
+<td><Callout type="info" emoji="">Stores pseudonymous data for auditing.</Callout><br/>To comply with consent regulations, Cloud stores:<br/><br/> <ul><li>a psuedonymous identifier,</li><li>the privacy notice presented,</li><li>visitor's geographic region,</li><li>the consent status,</li><li>timestamp.</li></ul></td>
+<td><Callout type="info" emoji="">Stores pseudonymous data for auditing.</Callout><br/>To comply with consent regulations, Self Hosted stores:<br/><br/> <ul><li>a psuedonymous identifier,</li><li>the privacy notice presented,</li><li>visitor's geographic region,</li><li>the consent status,</li><li>timestamp.</li></ul> </td>
+</tr>
+<tr>
+<td>**Privacy Requests**<br/>
+Complying with privacy requests requires either retrieving, updating or deleting user data across all systems that process personal data and recording the action is completed.</td>
+<td><Callout type="warning" emoji="">Processes personal data and can be configured to temporarily store personal data in Ethyca or customer cloud.</Callout><br/> To comply with privacy regulations, Cloud may store personal data processed by your organization, examples may include:<br/><br/><ul><li>name</li><li>email</li><li>phone number</li><li>address</li><li>behavior data</li></ul></td>
+<td><Callout type="warning" emoji="">Processes personal data and can be configured to temporarily store personal data in customer cloud.</Callout><br/>
+To comply with privacy regulations, Self Hosted may store personal data processed by your organization, examples may include:<br/><br/><ul><li>name</li><li>email</li><li>phone number</li><li>address</li><li>behavior data</li></ul></td>
+</tr>
+<tr>
+<td>**Data Mapping and RoPA**<br/>
+Complying with data mapping and reporting such as RoPA reporting requires creating an inventory of systems, the categories of data they processes and purposes of use.</td>
+<td><Callout type="info" emoji="">Does not store personal data.</Callout><br/>To comply with privacy regulations,   Cloud stores:<br/><br/><ul><li>systems</li><li>categories of personal data</li><li>categories of data use</li><li>subject or user types</li><li>lawful basis</li></ul></td>
+<td><Callout type="info" emoji="">Does not store personal data.</Callout><br/>To comply with privacy regulations, Self Hosted stores:<br/><br/><ul><li>systems</li><li>categories of personal data</li><li>categories of data use</li><li>subject or user types</li><li>lawful basis</li></ul></td>
+</tr>
+<tr>
+<td>**ML Data Classification**<br/>
+To speed up the task of data mapping and configuration of privacy request, Fides provides optional tools to automatically categorize personal data using Machine Learning.</td>
+<td><Callout type="warning" emoji="">May process personal data depending on configuration</Callout><br/>Depending on your requirements and configuration, Cloud can temporarily read samples of content from databases to automatically recommend personal data labels.</td>
+<td><Callout type="info" emoji="">For enhanced privacy, we recommend using Self Hosted for machine learning classification.</Callout><br/>Depending on your requirements and configuration, Self Hosted can temporarily read samples of content from databases to automatically recommend personal data labels. </td>
+</tr>
+</tbody>
+</table>
+

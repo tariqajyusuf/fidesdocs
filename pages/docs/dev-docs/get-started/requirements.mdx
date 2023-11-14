@@ -1,0 +1,41 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Project Requirements
+
+<Callout emoji="" type="info">Want to quickly experiment with Fides? Use the [demo application](/dev-docs/get-started) to go from "Zero to DSR Automation" in minutes!</Callout>
+
+## System requirements 
+
+Fides consists of the following individual systems:
+
+* **Hosted Database**: A PostgreSQL database server used for permanent storage of configuration data for the webserver.
+* **Hosted Cache**: A Redis database server used as a temporary cache during execution and task scheduling.
+* **Fides Webserver**: The main application, which houses the Admin UI and API endpoints.
+
+Production deployments may require a storage destination to store the results of completed privacy requests and the Privacy Center can be deployed as a pre-built and customizable portal for receiving privacy requests.
+
+Read about [configuring storage destinations](/dev-docs/configuration/privacy-requests/storage-destinations) here and [configuring the privacy center](/dev-docs/configuration/privacy-requests/privacy-center) here.
+
+Fides requires a general purpose web server (e.g. for AWS EC2, a t3.small), and has no persistent storage requirements.
+
+## Version requirements
+
+Fides supports the following Python versions:
+
+* Python: 3.8+
+
+The following is supported as the application database:
+
+* PostgreSQL: 12
+
+The following is supported as the application cache:
+
+* Redis: 6.2.0+
+
+All of these must be installed, either locally or via Docker, before attempting to run Fides as an application. The CLI is capable of running with only the Python dependency.
+
+## Docker requirements
+
+If using Docker, the following minimum versions are required:
+
+* [Docker](https://www.docker.com/products/docker-desktop): 20.10.11+

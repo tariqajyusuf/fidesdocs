@@ -1,0 +1,9 @@
+{
+  "index": "Overview",
+  "get-started": "Get Started",
+  "api": "Fides REST API",
+  "cli": "Fides CLI",
+  "consent": "Consent",
+  "configuration": "Fides Configuration",
+  "poc": "Proof of Concept Guides"
+}

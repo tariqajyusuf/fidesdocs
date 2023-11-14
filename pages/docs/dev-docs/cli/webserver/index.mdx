@@ -1,0 +1,22 @@
+# Running Fides Webserver
+
+The Fides CLI integrates with the Fides Server to provide a central solution for collaboration on privacy and data governance tasks for teams.
+
+The Fides Server can be run locally, deployed to a cloud provider, or hosted by Ethyca. The Fides Server unifies all privacy resources and provides a UI for collaborating and simplifying privacy tasks. For details on how to configure and deploy Fides server read the [Fides installation guide](/dev-docs/get-started/advanced) here. 
+
+## Running the Webserver
+The ```fides webserver``` command will use the first [Fides configuration](/dev-docs/configuration/configuration) it can read from to determine default state and start the Fides Webserver.
+
+With the Fides Webserver running, the hosted UI is available at ```http://{server_url}/``` (e.g. ```http://localhost:8080/```).
+
+For details, see [the ```fides webserver``` command](/dev-docs/cli/webserver/cmd-webserver).
+
+## Managing the database 
+The ```fides db``` command accepts several subcommands to manage the primary Fides database for the Fides Server. Where necessary this supports initializing the database or resetting the database to its freshly initialized state.
+
+For details, see [the ```fides db``` command](/dev-docs/cli/webserver/cmd-db).
+
+## Checking server status
+The ```fides status``` command will make a request to the Fides server to check its health, current version and report back any possible issues.
+
+For details, see [the ```fides status``` command](/dev-docs/cli/webserver/cmd-status).

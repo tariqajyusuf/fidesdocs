@@ -1,0 +1,12 @@
+# Task Management in Fides with Workers
+
+Fides is a powerful data orchestration engine for privacy tasks such as deleting or retrieving user data across systems. Often completing these data privacy tasks requires asynchronous execution across multiple distributed systems and as the volume of these requests grow it may create challenges in request processing.
+
+Fides has built in support for [Celery Distributed Task Queues](https://docs.celeryq.dev/en/stable/) and [Celery Workers](https://docs.celeryq.dev/en/stable/userguide/workers.html) to simplify the process of task management and scaling of requests.
+
+## Starting Celery Workers
+Running the ```fides worker``` will start a Celery worker and output the current status and address of the worker.
+
+For details, see:
+
+[The ```fides worker``` command](/dev-docs/cli/task/cmd-worker)

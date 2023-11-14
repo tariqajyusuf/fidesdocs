@@ -1,0 +1,31 @@
+import Swagger from '../swagger';
+
+# API: dsr/policy
+
+The `/api/v1/dsr/policy` routes are a collection of routes that are used to [configure Privacy Requests](/dev-docs/configuration/privacy-requests). It is important to configure this correctly to properly fulfill [graph traversal](/dev-docs/configuration/privacy-requests/graphs).
+
+<br></br>
+
+<Swagger 
+    filterStrings={[
+        {
+            'path': '/api/v1/dsr/policy',
+        },
+        {
+            'path': '/api/v1/dsr/policy/{policy_key}',
+        },
+        {
+            'path': '/api/v1/dsr/policy/{policy_key}/rule',
+        },
+        {
+            'path': '/api/v1/dsr/policy/{policy_key}/rule/{rule_key}',
+        },
+        {
+            'path': '/api/v1/dsr/policy/{policy_key}/rule/{rule_key}/target',
+        },
+        {
+            'path': '/api/v1/dsr/policy/{policy_key}/rule/{rule_key}/target/{rule_target_key}',
+        },
+    ]} 
+    defaultModelsExpandDepth={-1}
+/>

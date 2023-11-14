@@ -1,0 +1,40 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+
+# Email style Customizations
+In order to implement custom styling for email templates, Fides supports forwarding [variables](/user-guides/privacy-requests/configure-email/email-content) directly to an email provider like Mailgun, Sendgrid, or Twilio. In this tutorial, we are going to walk through an example of using [Mailgun](/dev-docs/configuration/messaging/mailgun-email) to style an email. 
+
+
+While each vendor will vary in how they implement it, the same general steps should apply for all.
+
+<Callout emoji="" type="info">For steps to update the _content_ of these messages, please see our guide for [configuring email content](/user-guides/privacy-requests/configure-email/email-content).</Callout>
+
+## Creating a Mailgun template
+A template describes how styling, such as font choices, should be applied to imcoming email content. 
+
+To create a template using Mailgun: 
+
+1. Click **Create message template** and name this new template something helpful (ex. `fides`) using Mailgun's Visual builder.
+
+<Screenshot img="/assets/img/privacy-requests/mailgun-fides-template.png" description="Configure the fides template in Mailgun" mw="800"/>
+
+2. Modify this email template to match your organization's branding guidelines by following Mailgun's [guide to email template building](https://www.mailgun.com/blog/product/mailgun-template-builder/).
+
+3. Add an HTML block to the email template and add the following snippet of code, updating the style as needed, to reference the incoming email content from Fides:
+
+```html copy showLineNumbers
+<div style="padding-left: 25px;padding-right: 25px;color: #2D3748;font-family: Arial,sans-serif;font-size: 14px;">  
+
+{{fides_email_body}}
+
+</div>
+```
+
+<Screenshot img="/assets/img/privacy-requests/mailgun-fides-template-html-block.png" description="Configure the fides template in Mailgun" mw="800"/>
+
+4. Test the email tempate by running a privacy request.
+
+<Screenshot img="/assets/img/privacy-requests/mailgun-fides-template-emailed.png" description="Test your privacy request with Fides" mw="800"/>
+
+

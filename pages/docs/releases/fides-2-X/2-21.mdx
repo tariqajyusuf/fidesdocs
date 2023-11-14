@@ -1,0 +1,20 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.21 Release notes
+2.21.0: October 3, 2023
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+
+### New features & Enhancements 
+- <div class="enterprise"/> **TCF Early Access!**: For compliance with the IAB's Transparency Consent Framework v2.2, we now support the TCF consent experience, backed by our data map. Please contact your customer support team for the steps to configure this!
+- <div class="enterprise"/> **Customization for all consumer UIs!**: You may now upload a stylesheet to customize consumer-facing UIs like the Privacy Center and Consent Experiences. [Learn more](/tutorials/consent-management-configuration/css-styling)
+- <div class="enterprise"/> **CORS domains**: You can now specify CORS domains to add to the Fides allow list directly in the UI. [Learn more](https://docs.ethyca.com/dev-docs/get-started/domains/allowed-domains)
+
+
+### Fixes and developer updates 
+- Added further config options to customize the privacy center so that you can configure a link for the privacy center icon and (optionally) show a link to the privacy center #4090
+- Refactored fides.js components so that they can take data structures that are not necessarily privacy notices #3870
+- Misc copy changes for the system history table and modal #4146
+- Allows CDN to cache empty experience responses from fides.js API #4113
+

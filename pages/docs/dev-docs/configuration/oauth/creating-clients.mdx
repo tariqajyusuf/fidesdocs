@@ -1,0 +1,46 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Creating OAuth Clients
+
+Because the root client's token contains all scopes, it can create new clients and new client ID/client secret pairs which can be used to create additional access tokens.
+
+
+## Prerequisites
+
+In order to complete this, you will need one of the following:
+
+* A valid `access_token` created from a client credentials with adequate _**scopes**_ to create additional clients. Read how to [generate an access token](/dev-docs/configuration/oauth/generating-tokens) here.
+
+<Callout>Best practices recommend creating client credentials with the scope `CLIENT_CREATE` to create any new clients. This will help to reduce the utilization of the all-scopes root client.</Callout>
+
+## Example: Create new OAuth Client
+To create a new client ID and client secret, make **POST** request to the `/api/v1/oauth/client` endpoint using an access token with appropriate scopes as shown in the example below:
+
+```console filename="POST /api/v1/oauth/client"
+curl 'http://localhost:8080/api/v1/oauth/client' \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{FIDES_ACCESS_TOKEN}}' \
+-d '["policy:read", "rule:read"]'
+```
+
+The Authorization header should be `Bearer`, where `{{FIDES_ACCESS_TOKEN}}` is your access token and the request `Content-Type` should be `application/json`.
+
+To add scopes to the client, the body of your request must contain an array of scopes in the form `key: scope_value`.
+
+In the above example, the new access token only lets the client read policies and rules. The client cannot create other clients, write policies, or perform other operations using Fides APIs. 
+
+A successful request to Fides will respond with a new client ID client secret pair similar to the example below:
+
+```json filename="New OAuth Client Response"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "client_id" : "c0508a70e08f9f49de23eace66664d1d",
+  "client_secret" : "5fac65211cbd005b390c073b3912af14",
+}
+```
+## Create an access token
+
+You can then create an access token for the client credentials by calling `POST /api/v1/oauth/token` with the new credentials and following the steps to [generate a token here](/dev-docs/configuration/oauth/generating-tokens).

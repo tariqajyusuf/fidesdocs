@@ -1,0 +1,135 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: evaluate
+
+The ```fides evaluate``` performs an automated privacy check on any change to a resource to ensure they comply with Fides policies.
+
+This is a powerful way to automatically check if changes to projects and data models comply with business policies. Fides achieves this by combining all local resources and annotations with remote resources on the Fides server and checking these against Fides policies. Fides policies are a customizable set of rules and conditions that can be used to define rules that new or system modifications must meet.
+
+The ```fides evaluate``` can be used with Git hooks to continuously integrate privacy checks into an existing CI pipeline. 
+
+When the ```evaluate``` command is run, it will:
+
+1. Retrieve all local resources from the ```.fides``` working directory.
+2. Combine local and remote resources on the Fides server to a single set.
+3. Evaluate the combined set of resources against the configured Fides policies.
+4. Display the evaluation results in the command line.
+5. Create a record of the evaluation on the server for reporting purposes.
+
+For details on how policies are used read the [Guide to Fides Policies](/dev-docs/configuration/policies/request-policies) here.
+
+## Usage
+Usage: ```fides evaluate [options]```
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="k"></span>[```-k```](#k), [```--fides-key```](#k) - The ```fides_key``` of the single policy that you wish to evaluate.
+* <span class="nx-absolute -nx-mt-20" id="m"></span>[```-m```](#m), [```--message```](#m) - A message that you can supply to describe the context of this evaluation. This is stored as part of the record of the evaluation.
+* <span class="nx-absolute -nx-mt-20" id="a"></span>[```-a```](#a), [```--audit```](#a) - Output errors if any resources are missing attributes required for building a data map.
+* <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Prevent the persistence of any changes to resources on the Fides server.
+
+
+
+## Example: Evaluate against all available policies
+This example executes an evaluation of all resources and all available policies. In this example, the resources are tested against two policies; a ```cpra_policy``` (California's Privacy Law) and a ```gdpr_policy``` (European Privacy Law). 
+
+```console
+$ fides evaluate
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing policy resource(s)...
+PUSHED 2 policy resource(s).
+----------
+Processing system resource(s)...
+PUSHED 4 system resource(s).
+----------
+Processing dataset resource(s)...
+PUSHED 1 dataset resource(s).
+----------
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+Evaluating the following policies:
+- cpra_policy
+- gdpr_policy
+----------
+Checking for missing resources...
+Executing Policy evaluation(s)...
+Sending the evaluation results to the server...
+Evaluation passed!
+```
+
+## Example: Evaluate against a specific policy
+This example executes an evaluation of all resources against a specific policy, ```gdpr_policy```.
+
+```console
+$ fides evaluate -k gdpr_policy
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing policy resource(s)...
+PUSHED 2 policy resource(s).
+----------
+Processing system resource(s)...
+PUSHED 4 system resource(s).
+----------
+Processing dataset resource(s)...
+PUSHED 1 dataset resource(s).
+----------
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+Evaluating the following policies:
+- gdpr_policy
+----------
+Checking for missing resources...
+Executing Policy evaluation(s)...
+Sending the evaluation results to the server...
+Evaluation passed!
+```
+
+## Example: Append a message to the evaluation
+This example executes an evaluation of all resources and all available policies and adds a message to be recorded to the evaluation audit log on the Fides server.
+
+```console
+$ fides evaluate -m "Checking system changes comply with the GDPR and CPRA"
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing dataset resource(s)...
+PUSHED 1 dataset resource(s).
+----------
+Processing system resource(s)...
+PUSHED 4 system resource(s).
+----------
+Processing policy resource(s)...
+PUSHED 2 policy resource(s).
+----------
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+Evaluating the following policies:
+- cpra_policy
+- gdpr_policy
+----------
+Checking for missing resources...
+Executing Policy evaluation(s)...
+Sending the evaluation results to the server...
+Evaluation passed!
+```
+
+You can retrieve the results of this evaluation with either ```fides get [fides_key]``` where the key is the identifier of the specific evaluation or with ```fides ls [evaluate]``` where evaluate is the list of resources to return.
+In the example below, using the ```fides ls``` command has returned the final privacy evaluation showing the status and the provided message:
+
+```console
+$ fides ls evaluation
+Loaded config from: .fides/fides.toml
+----------
+evaluation:
+- fides_key: 08c37c27_512b_4ef3_9d64_7bd67c4bf189
+  message: Checking system changes comply with the GDPR.
+  status: PASS
+  violations: []
+  ```

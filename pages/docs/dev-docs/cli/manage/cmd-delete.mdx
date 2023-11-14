@@ -1,0 +1,36 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: delete
+
+The ```fides delete``` command deletes a remote resource completely from the Fides Server.
+
+## Usage
+Usage: ```fides delete [args] fides_key```
+
+The command will delete the remote resources specified by the ```fides_key``` from the Server.
+
+Accepted arguments for this command are:
+
+* **data_category**: a specific category from the taxonomy. A valid example would be ```user.name```.
+* **data_qualifier**: a specific qualifier from the taxonomy. A valid example would be ```aggregated```.
+* **data_subject**: a specific data subject from the taxonomy. A valid example is ```customer```.
+* **data_use**: a specific use of data from the taxonomy. A valid example is ```advertising.third_party```.
+* **dataset**: a dataset that represents a collection of information in a system such as the collection of tables in a postgres database.
+* **evaluation**: the result of a policy evaluation check.
+* **organization**: the name of the organization defined in Fides.
+* **policy**: a Fides policy rule. 
+* **system**: a specific system resource.
+
+## Example: Delete a specific system from the server
+This example deletes the system specified by the key ```postgres_database``` from the server and displays all properties of the system.
+
+```console
+$ fides delete system postgres_database
+Loaded config from: .fides/fides.toml
+{ 'message': 'resource deleted',
+  'resource': { 'fides_key': 'postgres_database',
+                'description': 'Fides Generated Description for RDS Instance: postgres_database',
+                system-related-meta....
+}}
+```

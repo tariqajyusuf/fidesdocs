@@ -1,0 +1,13 @@
+{
+  "overview": "Introduction",
+  "what_is_ctdpa": "What is the CTDPA?",
+  "what_reqs_ctdpa": "What are requirements of the CTDPA?",
+  "addtl_reqs_ctdpa": "Additional Business Obligations of CTDPA",
+  "data_map_ctdpa": "01: Data Mapping",
+  "access_requests_ctdpa": "02: Access Requests for CTDPA",
+  "correction_requests_ctdpa": "03: Correction Requests for CTDPA",
+  "erasure_ctdpa": "04: Erasure Requests for CTDPA",
+  "portability_ctdpa": "05: Portability Requests",
+  "dpa_ctdpa": "06: Data Protection Assessments",
+  "conclusion_ctdpa": "Summary"
+}

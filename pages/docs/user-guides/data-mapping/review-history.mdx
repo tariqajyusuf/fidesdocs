@@ -1,0 +1,26 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Reviewing system history
+
+In this guide, we will describe how to use the System History tab in the UI to review and audit changes that have been made to systems in the data map.
+
+<Callout emoji="" type="info">To learn how to subscribe to a digest of changes using our System History API, please refer to [this guide](/dev-docs/api/system-history-api).</Callout>
+
+## Exploring system history
+
+To see a digest of system changes, please:
+
+1. Navigate to **Data map** → **View systems**
+2. Select the system you want to explore
+3. Click on the **History** tab
+
+In the resulting pane, you will find a list of the changes made to the system. Each change indicates shows the user that made the change, a description of the update and the date and time the change occurred. 
+
+<Screenshot img="/assets/img/tutorials/history-viewer.gif" description="Viewing system history" />
+
+To dive into the details of a particular change, click on the entry in the digest to open the change detail panel.
+
+Each change is displayed from left to right where <span style={{border: '1px dashed #E53E6E', color:'#E53E6E', backgroundColor:'#FFF5F5', padding: '0 5px 0 5px', display: 'inline-block', borderRadius:'3px'}}>items in red</span> indicate where a change occurred, and <span style={{border: '1px dashed #38A169', color:'#38A169', backgroundColor:'#F0FFF4', padding: '0 5px 0 5px', display: 'inline-block', borderRadius:'3px'}}>items in green</span> show the updates that were made.
+
+<Screenshot img="/assets/img/tutorials/diff-view-history.gif" description="Viewing system changes" />

@@ -1,0 +1,12 @@
+{
+    "index": "Overview",
+    "cmd-annotate": "annotate",
+    "cmd-delete": "delete",
+    "cmd-generate": "generate",
+    "cmd-get": "get",
+    "cmd-ls": "ls",
+    "cmd-parse": "parse",
+    "cmd-pull": "pull",
+    "cmd-push": "push"
+  }
+  

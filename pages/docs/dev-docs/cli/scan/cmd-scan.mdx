@@ -1,0 +1,197 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: scan
+
+> **Hands-on:** Try the [Fides: Get Started](/dev-docs/get-started) tutorials.  For more in-depth details on the ```scan``` command, check out the [Annotation Coverage tutorial](/user-guides/datasets/annotate-datasets).
+
+
+The ```fides scan``` evaluates all resources against their source systems and reports on any differences or gaps in annotation.
+This is extremely helpful for:
+
+1. Identifying changes in a source system's schema that may require annotation.
+2. Reporting on the percentage of annotation coverage across one, or multiple systems.
+
+This command can be scheduled as an automated workflow to continuously check annotation coverage and proactively report where annotation coverage drops below an acceptable threshold.
+
+## Usage
+Usage: ```fides scan <commands> [options] working/directory/```
+
+This command accepts several subcommands and options depending on the resource being scanned. For example:
+
+Scanning a dataset accepts ```db``` (database) as the type, followed by connection information and the working directory.
+
+```console
+fides scan dataset db {connection_information} working/directory/
+```
+
+Scanning systems accepts either ```aws``` (Amazon Web Services) or ```okta``` (Okta Sign-on) as the type, followed by connection information and the working directory.
+
+```console
+fides scan system [aws || okta] {connection_information} working/directory/
+```
+
+
+Here are the full list of accepted commands, subcommands and arguments:
+
+* <span class="nx-absolute -nx-mt-20" id="dataset"></span>[```dataset```](#dataset) - Scan datasets for the given data source. (e.g. SQL).
+        * <span class="nx-absolute -nx-mt-20" id="dataset-db"></span>[```db```](#dataset-db) - Connect to a database directly via a SQLAlchemy-style connection.
+                Accepted options for this command:
+                * <span class="nx-absolute -nx-mt-20" id="dataset-db-credentials-id"></span>[```--credentials-id```](#dataset-db-credentials-id) - Use connection information already defined in the ```fides.toml``` config by specifying the key for the associated credentials in the config file.
+                * <span class="nx-absolute -nx-mt-20" id="dataset-db-connection-string"></span>[```--connection-string```](#dataset-db-connection-string) - Use a connection string to connect to a database.
+                * <span class="nx-absolute -nx-mt-20" id="dataset-coverage-threshold"></span>[```-c```](#dataset-coverage-threshold), [```--coverage-threshold```](#dataset-coverage-threshold) - Specify a minimum threshold that annotation coverage must meet.
+* <span class="nx-absolute -nx-mt-20" id="system"></span>[```system```](#system) - Scan systems for the connected source, such as scanning infrastructure (e.g. AWS) or sign-on systems (e.g. Okta).
+        * <span class="nx-absolute -nx-mt-20" id="system-aws"></span>[```aws```](#system-aws) - Connect to an AWS account and scan.
+                Accepted options for this command:
+                * <span class="nx-absolute -nx-mt-20" id="system-aws-credentials-id"></span>[```--credentials-id```](#system-aws-credentials-id) - Use AWS connection information already defined in the ```fides.toml``` config by specifying the key for the associated credentials in the config file.
+                * <span class="nx-absolute -nx-mt-20" id="system-aws-access_key_id"></span>[```--access_key_id```](#system-aws-access_key_id) - Specify an access key id to connect to AWS. Connecting to AWS requires the options: ```--access_key_id```,```--secret_access_key``` and ```--region```.
+                * <span class="nx-absolute -nx-mt-20" id="system-aws-secret_access_key"></span>[``` --secret_access_key```](#system-aws-secret_access_key) - Specify the secret access key for connecting to AWS. Connecting to AWS requires the options: ```--access_key_id```,```--secret_access_key``` and ```--region```.
+                * <span class="nx-absolute -nx-mt-20" id="system-aws-region"></span>[``` --region```](#system-aws-region) - Specify the region to connect to for scanning AWS. Connecting to AWS requires the options: ```--access_key_id```,```--secret_access_key``` and ```--region```.
+                * <span class="nx-absolute -nx-mt-20" id="system-aws-include-null"></span>[```--include-null```](#system-aws-include-null) - Include attributes in the system YAML that would otherwise be null for this system.
+				* <span class="nx-absolute -nx-mt-20" id="system-aws-coverage-threshold"></span>[```-c```](#system-aws-coverage-threshold), [```--coverage-threshold```](#system-aws-coverage-threshold) - Specify a minimum threshold that annotation coverage must meet.
+        * <span class="nx-absolute -nx-mt-20" id="system-okta"></span>[```okta```](#system-okta) - Connect to an Okta instance and scan.
+                * <span class="nx-absolute -nx-mt-20" id="system-okta-credentials-id"></span>[```--credentials-id```](#system-okta-credentials-id) - Use Okta connection information already defined in the ```fides.toml``` config by specifying the key for the associated credentials in the config file.
+                * <span class="nx-absolute -nx-mt-20" id="system-okt-org-url"></span>[```--org-url```](#system-okt-org-url) - Specify the organization's Okta URL to connect to Okta. Connecting to Okta requires the options: ```--org-url``` and ```--token```.
+                * <span class="nx-absolute -nx-mt-20" id="system-okta-token"></span>[``` --token```](#system-okta-token) - Specify the token to connect to Okta. Connecting to Okta requires the options: ```--org-url``` and ```--token```.
+                * <span class="nx-absolute -nx-mt-20" id="system-okta-include-null"></span>[```--include-null```](#system-okta-include-null) - Include attributes in the system YAML that would otherwise be null for this system.
+				* <span class="nx-absolute -nx-mt-20" id="system-okta-coverage-threshold"></span>[```-c```](#system-okta-coverage-threshold), [```--coverage-threshold```](#system-okta-coverage-threshold) - Specify a minimum threshold that annotation coverage must meet.
+
+Running this command should result in output that resembles the examples below.
+
+---
+
+## Examples: Scanning Dataset Coverage
+Scanning datasets provides a valuable way to quickly know annotation coverage and identify gaps in dataset annotation.
+
+### Example: Scan a database for annotation coverage using a connection config file
+This example uses connection details stored in the ```fides.toml``` to connect to a database and compare the schema for annotation coverage against resources in the ```.fides``` working directory.
+
+In this example, ```pg-credentials``` is the key that represents the credentials in the configuration file. For more in-depth details on using configuration files, check out the [Fides Configuration tutorial](/dev-docs/configuration/configuration).
+
+```console
+$ fides scan dataset db --credentials-id "pg-credentials" .fides/
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+Loaded the following dataset manifests:
+        public_c94f8a9702
+Successfully scanned the following datasets:
+        public
+
+Annotation coverage: 100%
+```
+
+### Example: Scan a database for annotation coverage using a connection string
+This example connects to the database and compares the schema for annotation coverage against resources in the  ```.fides``` working directory.
+
+```console
+$ fides scan dataset db \
+--connection-string postgresql://username:password@localhost:5432/database .fides/
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+Loaded the following dataset manifests:
+        public_c94f8a9702
+Successfully scanned the following datasets:
+        public
+
+Annotation coverage: 100%
+```
+
+## Examples: Scanning System Coverage
+Scanning systems provides a valuable way to quickly check annotation coverage for systems across a tech stack.
+
+### Example: Scan AWS system annotation coverage with connection config file
+This example uses connection details stored in the ```fides.toml``` to connect to AWS and scan for annotation coverage against resources in the ```.fides``` working directory. 
+
+In this example, ```aws-credentials``` is the key that represents the credentials in the configuration file. For more in-depth details on using configuration files, check out the [Fides Configuration tutorial](/dev-docs/configuration/configuration).
+
+```console
+$ fides scan system aws \
+--credentials-id "aws-credentials" .fides
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides
+Taxonomy successfully created.
+Successfully scanned the following systems:
+        redshift-cluster-1
+        database-1
+
+Resource coverage: 100%
+```
+
+
+### Example: Scan AWS system annotation coverage with credential arguments
+This example passes connection details as arguments to connect to an AWS account and scan for annotation coverage against resources in the ```.fides``` working directory.
+
+```console
+$ fides scan system aws \
+--access_key_id "AWS-ACCESS-KEY" \
+--secret_access_key "AWS-SECRET-KEY" \
+--region "AWS-REGION" .fides
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides
+Taxonomy successfully created.
+Successfully scanned the following systems:
+        redshift-cluster-1
+        database-1
+
+Resource coverage: 100%
+```
+
+### Example: Scan Okta system annotation coverage with connection config
+This example uses connection details stored in the ```fides.toml``` to connect to an Okta server and scan for annotation coverage against resources in the ```.fides``` working directory. 
+As can be seen in the results, the scan identified new systems that were not annotated as existing system resources.
+
+In this example, ```okta-credentials``` is the key that represents the credentials in the configuration file. To learn more about configuration files, check out the [Fides Configuration tutorial](/dev-docs/configuration/configuration). 
+
+```console
+$ fides scan system okta  --credentials-id "okta" .fides
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides
+Taxonomy successfully created.
+Successfully scanned the following systems:
+        okta_browser_plugin
+        okta_enduser
+        salesforce
+        workday
+        zendesk
+
+The following system were not found in existing manifest
+Missing Okta Application:
+        okta_browser_plugin
+        okta_enduser
+        salesforce
+        workday
+        zendesk
+
+Resource coverage: 0%
+```
+
+### Example: Scan Okta system annotation coverage with credential arguments
+This example passes connection details as arguments to connect to an Okta server and scan for annotation coverage against resources in the ```.fides``` working directory.
+As can be seen in the results, the scan identified new systems that were not annotated as existing system resources.
+
+```console
+$ fides generate system okta \
+--org-url "OKTA-URL" \
+--token "OKTA-TOKEN"  .fides
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides
+Taxonomy successfully created.
+Successfully scanned the following systems:
+        okta_browser_plugin
+        okta_enduser
+        salesforce
+        workday
+        zendesk
+
+The following system were not found in existing manifest
+Missing Okta Application:
+        okta_browser_plugin
+        okta_enduser
+        salesforce
+        workday
+        zendesk
+
+Resource coverage: 0%
+```

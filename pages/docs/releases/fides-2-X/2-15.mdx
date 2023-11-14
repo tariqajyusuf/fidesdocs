@@ -1,0 +1,33 @@
+# Fides 2.15 Release notes
+June 28, 2023
+
+## Fides for Business 2.15.0
+### Features
+- **Consent management**: Fides now allows you to gather the correct consent preferences from users across the world in minutes using customized consent notices and experience. Learn more in our [Consent Managmement guides](/tutorials/consent-management-fundamentals). 
+- **Cookie enforcement**: Fides now allows data stewards to specify cookie names for systems to aid with cookie consent enforcement. Cookies that are specified are deleted when an opt-out is received in the new consent experiences or privacy center. Learn more in our [Consent Managmement guides](/tutorials/consent-management-get-started).
+
+
+## Fides OSS 2.15.0
+### Enhancements
+- **System-based integrations**: Connectors are now called _Integrations_ and are located on systems. To learn more about how to manage integrations and migrate to the new system, please see our guide for [Managing integrations](/user-guides/integrations/manage-integrations).
+- **Updated fideslang to 1.4.1**: Updated to allow custom metadata for system resources [#3463](https://github.com/ethyca/fides/pull/3463).
+- **Updates to database parameters**: Implemented a database parameters configuration that is urlencoded as a querystring for the constructed URIs [#3450](https://github.com/ethyca/fides/pull/3450).
+- **Optional SSH Support for DSR Processing**: Added optional SSH support for DSR processing a bastion host [#3374](https://github.com/ethyca/fides/pull/3374/).
+- **Improved DSR access packages**: DSR access packages are now returned in a nicely formatted HTML package [#3427](https://github.com/ethyca/fides/pull/3427).
+- **Replaced `pydobc` with `pymysql`**: `pydobc` has been replaced with `pymysql` as the SQL Server adapter. [#3435](https://github.com/ethyca/fides/pull/3435).
+- **Increased SafeStr limit**: Increasing SafeStr character limit from 500 to 32000 for large known inputs like CSS Or PEM encoded certificates. [#3647](https://github.com/ethyca/fides/pull/3647).
+- **Allow both email & phone inputs in privacy requests**: Remove form validation to allow both email & phone inputs for consent requests [#3529](https://github.com/ethyca/fides/pull/3529).
+- **Updated versions**:
+    - `Psycopg2-binary`: Upgraded to 2.9.6 [#3473](https://github.com/ethyca/fides/pull/3473).
+    - `SlowAPI`: Upgraded to 0.1.8 [#3456](https://github.com/ethyca/fides/pull/3456).
+- **Developer experience Enhancements**:
+    - Added ability to pass ENV vars to both privacy center and sample app during fides deploy via .env [#2949](https://github.com/ethyca/fides/pull/2949)
+    - Handled an edge case when generating tags that finds them out of sequence [#3405](https://github.com/ethyca/fides/pull/3405)
+    - Added support for pushing prerelease and rc tagged images to Dockerhub [#3474](https://github.com/ethyca/fides/pull/3474)
+    - Optimizes GitHub workflows used for docker image publishing [#3526](https://github.com/ethyca/fides/pull/3526)
+- **Connector (Integration!) updates**
+    - Access and erasure connector for *SurveyMonkey* [#3590](https://github.com/ethyca/fides/pull/3590)
+    - Integration framework now ignores errors for non-existent identities when connecting to *Kustomer* [#3513](https://github.com/ethyca/fides/pull/3513).
+
+
+

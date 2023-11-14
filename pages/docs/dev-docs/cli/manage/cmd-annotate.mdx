@@ -1,0 +1,79 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: annotate
+
+The ```fides annotate``` starts an interactive shell that provides a guided flow for annotating datasets manually. Dataset annotation in Fides relies on identifying and labeling sensitive data using the Fides taxonomy. For more in-depth details on sensitive data and the Fides taxonomy, see the [Fides Sensitive Data Taxonomy](https://ethyca.github.io/fideslang/explorer/) guide.
+
+When the ```annotate``` command is run, it will:
+
+1. Parse each field in the provided dataset.
+2. Check if a field has an assigned data category.
+3. If the field has *no* data category assigned, provide a prompt for annotation.
+4. Continue through all fields of the dataset until complete.
+
+To learn more about dataset annotation in Fides see the [Dataset Annotation in Fides](/dev-docs/configuration/privacy-requests/annotate-datasets-cli) guide.
+
+## Usage
+Usage: ```fides annotate <dataset> [options]```
+
+The command will start an interactive shell providing a guided flow to annotate datasets.
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="a"></span>[```-a```](#a), [```--all-members```](#a) - Annotate all dataset members, not just fields.
+* <span class="nx-absolute -nx-mt-20" id="v"></span>[```-v```](#v), [```--validate```](#v) - Strictly validate annotations to ensure they match available labels in the taxonomy.
+
+
+## Example: No options provided
+This example of the command's default behavior provides a guided flow just for fields identified in the dataset. In this example ```.fides/dataset.yml``` is the dataset being labeled. All provided labels will be written in place to the same file when the shell is complete.
+Provide data category labels as a comma separated list from the [Fides Taxonomy](#LINK).
+
+```console
+$ fides annotate dataset .fides/dataset.yml 
+Loaded config from: .fides/fides.toml
+
+####
+Annotating Dataset: [postgres]
+####
+Annotating Table: [customer]
+
+Field [customer.email] has no data categories
+
+Enter comma separated data categories for [email] [s: skip, q: quit]: 
+```
+
+## Example: Annotate all dataset members
+This example provides a guided flow similar in behavior to the default command. However, in this case it will require labels for every member of the dataset instead of just fields. Provide data category labels as a comma separated list from the [Fides Taxonomy](#LINK).
+
+```console
+#REVIEW
+```
+
+## Example: Strictly validate annotations against taxonomy
+This example provides a guided flow similar in behavior to the default command. However, here all data category labels provided will be strictly validated against the Fides taxonomy currently configured in your Fides instance.
+
+```console
+$ fides annotate dataset -v .fides/dataset.yml 
+Loaded config from: .fides/fides.toml
+
+####
+Annotating Dataset: [postgres]
+####
+Annotating Table: [customer]
+
+Field [customer.email] has no data categories
+
+Enter comma separated data categories for [email] [s: skip, q: quit]: 
+```
+
+In the example below, a nonexistent data category ```nonexistent_category``` has been provided for the ```customer.email``` field. The system responds with an error that the proposed category is invalid and will ask for a valid category again:
+
+```console
+Enter comma separated data categories for [email] [s: skip, q: quit]: nonexistent_category
+
+[['nonexistent_category']] is not a valid data category, please re-confirm and try again!
+Enter comma separated data categories for [fields] [s: skip, q: quit]: 
+```
+
+To learn more about dataset annotation in Fides see the [Dataset Annotation in Fides](#LINK) guide.

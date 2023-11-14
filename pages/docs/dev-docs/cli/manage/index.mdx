@@ -1,0 +1,56 @@
+# Managing Privacy Resources with Fides
+
+Fides' primary function is to create and maintain datasets that can be used to automate compliance tasks for global privacy regulations.
+
+When people refer to "running Fides," they generally mean labeling and evaluating that these datasets conform to [Fides Policies](#LINK), and then using these to automatically execute automated privacy tasks such as data retrieval, data deletion, or consent. Fides has many other subcommands for a wide variety of administrative actions, but these basic annotation and configuration tasks are the core of Fides.
+
+Fides' annotation workflow relies on six commands: ```generate```, ```annotate```, ```evaluate```, ```push```, ```pull``` and ```delete```. All of these commands require an [initialized](/dev-docs/cli/init) working directory, and all of them act only upon the currently selected working directory. Although the Fides CLI can be used standalone, it is most powerful when used with the [Fides Server](/dev-docs/cli/webserver).
+
+Fides relies on resources that describe how and where data is processed. These resources are typically managed as YAML documents stored in the ```.fides``` working directory. The main Fides resource types describe systems and datasets. 
+
+## Generating
+The ```fides generate``` command will connect to a specified database/service and automatically generate a YAML resource file based on the data source's schema or type. This is a great way to quickly create Fides structured datasets for labeling. In the case of datasets, this command uses the schema of the data source to build a data model for data labeling in Fides. For systems, this command uses Fides' discovery tools to generate a list of systems and for each system provide a manifest of the system's privacy properties for completion. 
+
+A newly generated system or dataset resource will provide a data model with all of the necessary labels for manual data annotation. Generating datasets and systems are a great place to quickly build a system and data inventory for data mapping and privacy related tasks which can then be imported into your projects in git or managed via the Fides admin panel.
+
+For details see [the ```fides generate``` command.](/dev-docs/cli/manage/cmd-generate)
+
+## Annotating
+The ```fides annotate``` command will start an interactive shell that provides a guided flow for annotating datasets, in order to streamline the process of manually labeling datasets. 
+This command asks the user to label each field of the system or dataset individually to ensure a complete data map.
+
+By default ```fides annotate``` only asks the user to provide labels for fields, however, there are command options to ensure both strict validation against the taxonomy and force annotation of all members of the dataset.
+
+For details see [the ```fides annotate``` command.](/dev-docs/cli/manage/cmd-annotate)
+
+## Evaluating
+The ```fides evaluate``` command is a powerful way to automatically check if changes to projects and data models comply with business policies. Fides achieves this by combining all location resources and annotations with remote resources on the Fides Server and checking these against Fides policies. Fides policies are a customizable set of rules and conditions that can be used to define rules that new systems or system modifications must meet.
+
+By default the ```fides evaluate``` command is an easy-to-use CLI command. However, it can be configured to be a part of automated CI checks with Git hooks in order to continuously integrate privacy checks into an existing pipeline. This makes privacy a consistent, agile part of existing workflows. For details on how policies are used read the [Guide to Fides Policies](#LINK) here.
+
+For details see [the ```fides evaluate``` command.](/dev-docs/cli/check/cmd-evaluate)
+
+## Pushing
+The ```fides push``` command will validate the syntax and structure of the Fides YAML files in the working directory before persisting those validated resources to the Fides Server. This is ideal for centralizing resources to build a single data map and collaborate with other teams.
+
+For details see [the ```fides push``` command.](/dev-docs/cli/manage/cmd-push)
+
+## Pulling
+The ```fides pull``` command will update local resources in the working directory to match those on the server. This is ideal for maintaining consistency between local and remote resources.
+
+For details see [the ```fides pull``` command.](/dev-docs/cli/manage/cmd-pull)
+
+## Deleting
+The ```fides delete``` command will delete a remote resource completely from the Fides Server.
+
+For details see [the ```fides delete``` command.](/dev-docs/cli/manage/cmd-delete)
+
+## Other utilities for managing resources
+
+Fides CLI includes several other commands to make resource management more convenient to work with. Integrating these commands into your editing workflow can potentially save you time and effort.
+
+* [The ```fides get``` command](/dev-docs/cli/manage/cmd-get) retrieves the specified resources from the Fides Server and displays them as YAML.
+
+* [The ```fides ls``` command](/dev-docs/cli/manage/cmd-ls) gets a list of all resources from the server and displays them as YAML.
+
+* [The ```fides parse``` command](/dev-docs/cli/manage/cmd-parse) validates the syntax of all Fides YAML documents in the working directory.

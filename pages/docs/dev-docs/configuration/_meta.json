@@ -1,0 +1,10 @@
+{
+    "deployment": "Deploying Fides to Production",
+    "security-practices": "Security Best Practices",
+    "configuration": "Configuration Variables",
+    "privacy-requests": "Privacy Requests",
+    "policies": "Policies",
+    "integrations": "Integrations",
+    "oauth": "Authenticating with OAuth",
+    "messaging": "Messaging & Notifications" 
+}

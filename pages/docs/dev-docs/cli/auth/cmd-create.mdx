@@ -1,0 +1,54 @@
+import { Callout } from 'nextra-theme-docs'
+import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
+
+# Command: user create
+
+The ```fides user create``` command can be used to create a new user on the Fides Server. 
+
+The ```create``` command requires a valid local credentials file with access token. To learn more about creating a credentials file see the [Logging into Fides Server from the CLI](/dev-docs/cli/webserver) guide.
+
+## Usage
+Usage: ```fides user create [options]```
+
+The command will create a user on the Fides Server. If no options are given, you will be prompted to provide username, password, first name and last name.
+
+<Callout emoji="">**Note:** Passwords require 8 characters minimum, with at least one number, one capital letter and one symbol.</Callout>
+
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="u"></span>[```-u```](#u) - Provide username as an option.
+* <span class="nx-absolute -nx-mt-20" id="p"></span>[```-p```](#p) - Provide password as an option.
+* <span class="nx-absolute -nx-mt-20" id="f"></span>[```-f```](#f) - Provide first name as an option.
+* <span class="nx-absolute -nx-mt-20" id="l"></span>[```-l```](#l) - Provide last name as an option.
+
+## Example: No options provided
+This example prompts for the username and password.
+
+```console
+$ fides user create
+Loaded config from: .fides/fides.toml
+Username: newuser
+Password: 
+User: 'newuser' created and assigned permissions.
+```
+
+## Example: Specifying username and password as options
+This example specifies the -u (username) and -p (password) options:
+
+```console
+$ fides user create -u newuser -p pAssw0rd!
+Loaded config from: .fides/fides.toml
+User: 'newuser' created and assigned permissions.
+```
+
+## Example: Specifying first name and last name as options
+This example specifies the -f (first name) and -l (last name) options:
+
+```console
+$ fides user create -f Jane -l Doe
+Loaded config from: .fides/fides.toml
+Username: newuser
+Password: 
+User: 'newuser' created and assigned permissions.
+```

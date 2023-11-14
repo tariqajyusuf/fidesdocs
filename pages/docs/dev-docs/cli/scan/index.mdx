@@ -1,0 +1,14 @@
+# Checking Annotation Coverage
+
+One of the main benefits of Fides is to speed up and simplify data cataloguing and data inventory management with tools built for data annotation. Fides' annotations include all of the information necessary to ensure compliance with global privacy and data governance regulations. A key part of compliance is ensuring that all data is adequately labeled.
+
+Fides CLI includes commands specifically intended to scan and report on annotation coverage to ensure that no systems or datasets are missed and that the entirety of the tech stack is adequately labeled.
+These commands can be scheduled to periodically scan and report on annotation coverage, identifying possible risks where data annotation is incomplete.
+
+## Scanning
+Running the ```fides scan``` command for systems or datasets will trigger an evaluation of all resources against their source systems and reports on any differences or gaps in annotation.
+This is extremely helpful for identifying gaps or reporting on the percentage of annotation coverage across a set of systems. 
+
+For details, see:
+
+[The ```fides scan``` command](/dev-docs/cli/scan/cmd-scan)

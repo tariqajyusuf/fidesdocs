@@ -1,0 +1,45 @@
+
+import { Callout } from 'nextra-theme-docs'
+
+# Jira
+[Atlassian Jira Software](https://www.atlassian.com/software/jira) is a project management tool that provides issue tracking, bug tracking, and agile project management capabilities for teams.
+
+## Prerequisites
+
+In order to [integrate](/user-guides/integrations) with Jira, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+|  **Domain***               | The unique URL for your Jira instance (ex. `your-domain.atlassian.net` ). Follow Jiras [Getting Started](https://confluence.atlassian.com/jiracoreserver073/getting-started-with-jira-core-861255635.html) docs to learn more.             | 
+|  **Username***             | The email address of the authorized Jira user. Follow Jiras [Getting Started](https://confluence.atlassian.com/jiracoreserver073/getting-started-with-jira-core-861255635.html) docs to learn more. |
+|  **API token***            | The token used for authentication to Jira. To learn more about how to generate and retrieve this, see [Jiras API token documentation](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/). | 
+
+
+## Integrating with Jira
+To integrate an existing system with Jira: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information.  Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Jira Endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests** | [Find Users](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-user-search/#api-rest-api-3-user-search-get) | Used to interact with project users |
+| **Delete Requests** | [Delete User](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-users/#api-rest-api-3-user-delete) | Used to delete users from Jira's user base | 
+
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

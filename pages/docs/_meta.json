@@ -1,0 +1,138 @@
+{
+"index":"Fides",
+"user-guides": {
+ "title": "User Guides",
+ "href": "/user-guides"
+},
+"dev-docs": {
+  "title": "Developer Docs",
+  "href": "/dev-docs"
+ },
+"tutorials": {
+  "title": "Tutorials",
+  "href": "/tutorials"
+ },
+ "--": {
+  "type": "separator",
+  "title": "Resources"
+},
+"regulations": {
+  "title": "Regulations",
+  "href": "/regulations"
+ },
+ "releases": {
+  "title": "Release Notes",
+  "href": "/releases/"
+ },
+ "community": {
+  "title": "Community",
+  "href": "/community"
+},
+"slack": {
+  "title": "Slack",
+  "href": "https://fid.es/join",
+  "newWindow": true
+},
+"github": {
+  "title": "Github",
+  "href": "https://github.com/ethyca/fides",
+  "newWindow": true
+},
+"support": {
+  "title": "Contact Support",
+  "href": "mailto:support@ethyca.com"
+},
+"ethyca": {
+  "title": "About Ethyca",
+  "href": "/ethyca"
+},
+"main-user-guides": {
+  "title": "User Guides",
+  "type": "menu",
+  "items": {
+    "privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/user-guides/privacy-requests"
+    },
+    "datasets": {
+      "title": "Datasets",
+      "href": "/user-guides/datasets"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "href": "/user-guides/integrations"
+    }
+  }
+},
+"main-dev-docs": {
+  "title": "Developer Docs",
+  "type": "menu",
+  "items": {
+    "docs-quickstart": {
+      "title": "Quickstart Guide",
+      "href": "/dev-docs/get-started"
+    },
+    "docs-cli": {
+      "title": "Fides CLI",
+      "href": "/dev-docs/cli"
+    },
+    "docs-config": {
+      "title": "Fides Configuration",
+      "href": "/dev-docs/configuration/configuration"
+    }
+  }
+},
+"main-tutorials": {
+  "title": "Tutorials",
+  "type": "menu",
+  "items": {
+    "tutorials-byPersona": {
+      "title": "By Persona",
+      "href": "/tutorials/by-persona-get-started"
+    },
+    "tutorials-datamapping": {
+      "title": "Data Mapping",
+      "href": "/tutorials/data-mapping-get-started"
+    },
+    "tutorials-privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/tutorials/privacy-requests-get-started"
+    },
+    "tutorials-consent": {
+      "title": "Consent Management",
+      "href": "/tutorials/consent-management-get-started"
+    }
+  }
+},
+"main-regulations": {
+  "title": "Regulations",
+  "type": "menu",
+  "items": {
+    "regulations-ccpa": {
+      "title": "California Consumer Privacy Act (CCPA)",
+      "href": "/regulations/ccpa/overview"
+    },
+    "regulations-vcdpa": {
+      "title": "Virginia Consumer Data Privacy Act (VCDPA)",
+      "href": "/regulations/vcdpa/overview"
+    },
+    "regulations-cpa": {
+      "title": "Colorado Privacy Act (CPA)",
+      "href": "/regulations/cpa/overview"
+    },
+    "regulations-ctdpa": {
+      "title": "Connecticut Data Privacy Act (CTDPA)",
+      "href": "/regulations/ctdpa/overview"
+    },
+    "regulations-ucpa": {
+      "title": "Utah Consumer Privacy Act (UCPA)",
+      "href": "/regulations/ucpa/overview"
+    },
+    "regulations-gpc": {
+      "title": "Global Privacy Control (GPC)",
+      "href": "/regulations/gpc/overview"
+    }
+  }
+}
+
+}

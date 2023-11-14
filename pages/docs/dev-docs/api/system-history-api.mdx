@@ -1,0 +1,140 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# System History API
+
+Fides monitors system changes and offers an API endpoint for accessing the system history. Additionally, a digest of changes made over a 24-hour period is provided, which can be accessed via a webhook.
+
+### Reading from the history API
+
+To access the system history API, please use the following command: 
+
+```
+GET /api/v1/plus/system/{fides_key}/history?size=10?page=1
+```
+
+The parameters are:
+- `size` - specifies the number of records to return per call
+- `page` - allows the retrieval of additional results.
+
+Below is an example response illustrating a change to the system **name**. The record includes:
+
+- `edited_by` - the user that made the change
+- `system_id` - unique ID for the system
+- `before` and `after` - records containing the entire state of the system before and after the change
+- `created_at` indicating when this system history change was created
+
+```json
+{
+    "items": [
+        {
+            "edited_by": "[user]",
+            "system_id": "[unique_id]",
+            "before": {
+                "dpo": "dpo@privacy.com",
+                "meta": null,
+                "name": "beginning_name",
+                "tags": [],
+                "fides_key": "[fides_key]",
+                "vendor_id": "[gvl_vendor]",
+                "legal_name": "[legal_name]",
+                "description": "[description]",
+                "registry_id": null,
+                "system_type": "",
+                "dpa_location": null,
+                "dpa_progress": null,
+                "fidesctl_meta": null,
+                "legal_address": "[legal_address]",
+                "privacy_policy": "[privacy_policy]",
+                "responsibility": [],
+                "uses_profiling": false,
+                "joint_controller": null,
+                "dataset_references": [],
+                "reason_for_exemption": null,
+                "joint_controller_info": "",
+                "organization_fides_key": "default_organization",
+                "data_security_practices": "",
+                "processes_personal_data": true,
+                "third_country_transfers": null,
+                "administrating_department": "",
+                "data_responsibility_title": null,
+                "legal_basis_for_profiling": [],
+                "legal_basis_for_transfers": "[legal_basis]",
+                "does_international_transfers": true,
+                "exempt_from_privacy_regulations": false,
+                "data_protection_impact_assessment": null,
+                "requires_data_protection_assessments": false
+            },
+            "after": {
+                "dpo": "dpo@privacy.com",
+                "meta": null,
+                "name": "after_name",
+                "tags": [],
+                "fides_key": "[fides_key]",
+                "vendor_id": "[gvl_vendor]",
+                "legal_name": "[legal_name]",
+                "description": "[description]",
+                "registry_id": null,
+                "system_type": "",
+                "dpa_location": null,
+                "dpa_progress": null,
+                "fidesctl_meta": null,
+                "legal_address": "[legal_address]",
+                "privacy_policy": "[privacy_policy]",
+                "responsibility": [],
+                "uses_profiling": false,
+                "joint_controller": null,
+                "dataset_references": [],
+                "reason_for_exemption": null,
+                "joint_controller_info": "",
+                "organization_fides_key": "default_organization",
+                "data_security_practices": "",
+                "processes_personal_data": true,
+                "third_country_transfers": null,
+                "administrating_department": "",
+                "data_responsibility_title": null,
+                "legal_basis_for_profiling": [],
+                "legal_basis_for_transfers": "[legal_basis]",
+                "does_international_transfers": true,
+                "exempt_from_privacy_regulations": false,
+                "data_protection_impact_assessment": null,
+                "requires_data_protection_assessments": false
+            },
+            "created_at": "2023-09-13T20:08:43.434409+00:00"
+        },
+    ],
+}
+```
+
+### Reading from the system change digest
+
+Fides also offers a way subscribe to a digest of system changes by specifying an environment variable or enabling the digest using `fides.toml`.
+
+
+Environment variable: 
+
+```yaml
+FIDESPLUS__JOBS__SYSTEM_CHANGE_WEBHOOK_URL="https://destination_url"
+```
+
+Configuration value in `fides.toml`:
+
+```yaml
+[jobs]
+system_change_webhook_url="https://destination_url"
+```
+
+The system change digest is generated daily at 6 a.m. EST and posted to the URL specified in `system_change_webhook_url`. The digest contains entries for each unique system that has been edited within the past 24 hours.
+
+```json
+{
+    "modified_systems": [
+        {"fides_key": "system_a", "name": "System A"},
+        {"fides_key": "system_b", "name": "System B"},
+    ]
+}
+```
+
+The `fides_key` and `name` can be used for reporting or for generating a link to the changed system.
+
+<Callout emoji="ⓘ" type="idea">To generate a link to the modified system, construct the following URL using the information from the digest payload: `https://{your_fides_domain}/systems/configure/{fides_key}`</Callout>

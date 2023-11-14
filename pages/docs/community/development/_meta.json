@@ -1,0 +1,17 @@
+{
+  "overview": "Overview",
+  "contributing_details": "Contributing Details",
+  "code_style": "Code Style",
+  "ui": "UI Development",
+  "fideslog": "Fideslog Analytics",
+  "database_migration": "Database Migration",
+  "documentation": "Documentation",
+  "testing": "Writing Tests",
+  "testing_environment": "Testing Environment",
+  "dev_deployment": "Local Fides Deployment",
+  "pull_requests": "Pull Requests",
+  "releases": "Releases",
+  "release_checklist": "Release Checklist",
+  "jetbrains_debugging": "Jetbrains Debugging",
+  "update_erd_diagram": "Updating the Database Diagram"
+}

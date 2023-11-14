@@ -1,0 +1,18 @@
+
+import Swagger from '../swagger';
+
+# API: login
+
+The `/api/v1/login` route is used to login to the Fides platform using basic authentication and create a client object on the users behalf simulating a session. It will return identity data as well as an access token. 
+
+<br></br>
+
+<Swagger 
+    filterStrings={[
+        {
+            'path': '/api/v1/login',
+            'greedy': 'true'
+        }
+    ]} 
+    defaultModelsExpandDepth={-1}
+/>

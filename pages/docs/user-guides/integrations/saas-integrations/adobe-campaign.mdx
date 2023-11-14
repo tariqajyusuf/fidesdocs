@@ -1,0 +1,50 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Adobe Campaign
+[Adobe Campaign](https://business.adobe.com/products/campaign/adobe-campaign.html) is a marketing automation platform offered by Adobe Systems that helps businesses and organizations manage and execute multi-channel marketing campaigns. 
+
+## Prerequisites
+
+In order to [integrate](/user-guides/integrations) with Adobe Campaign, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                 | The unique URL for your Adobe Campaign instance. |
+| **Organization***           | The Organization name in Adobe Campaign. Follow Adobe's docs to locate your [organization information](https://experienceleague.adobe.com/docs/core-services/interface/administration/organizations.html). |
+| **Organization ID***        | The Organization ID in Adobe Campaign. Follow Adobe's docs to locate your [organization information](https://experienceleague.adobe.com/docs/core-services/interface/administration/organizations.html?lang=en#concept_EA8AEE5B02CF46ACBDAD6A8508646255). |
+| **Technical account ID***   | The Technical Account ID provided by your Adobe administrator. See Adobe's guide on [technical accounts](https://helpx.adobe.com/sign/using/sign-technical-accounts.html).  |
+| **Client ID***              | The OAuth client ID from Adobe Campaign. Follow Adobe's guide for [creating and managing credentials](https://developer.adobe.com/developer-console/docs/guides/credentials/). |
+| **Client secret***          | The OAuth secret from Adobe Campaign. Follow Adobe's guide for [creating and managing credentials](https://developer.adobe.com/developer-console/docs/guides/credentials/). |
+| **Private key***            | A Personal access key. Follow Adobe's guide on [generating GPG keys here](https://experienceleague.adobe.com/docs/control-panel/using/instances-settings/gpg-keys-management.html?lang=en). |
+| **Regulation***             | The legal regulation to apply to request processing. Read Adobe's guide on [privacy management here](https://experienceleague.adobe.com/docs/campaign-classic/using/getting-started/privacy/privacy-management.html?lang=en). |
+| **Namespace***              | You can specify a namespace to target for privacy requests. Watch Adobe's video guide on [creating namespaces for privacy requests](https://experienceleague.adobe.com/docs/campaign-standard-learn/tutorials/privacy/namespaces-for-privacy-requests.html?lang=en). |
+
+## Integrating with Adobe Campaign
+To integrate an existing system with Adobe Campaign: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Adobe Campaign endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests** | [Profile](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to interact with profiles from Campaign database. | 
+| **Access Requests** | [Marketing History](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to read a profile's marketing history |
+| **Update or Delete Requests** | [Privacy Tool](https://experienceleague.adobe.com/docs/campaign-standard/using/working-with-apis/global-concepts/endpoints.html?lang=en) | Used to automate the processing of privacy requests |
+
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

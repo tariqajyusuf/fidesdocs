@@ -1,0 +1,40 @@
+{
+  "separator-by-persona": {
+    "title":"By Persona",
+    "type": "separator"
+  },
+  "by-persona-get-started": "Gettting Started",
+  "by-persona-legal": "Legal and Compliance",
+  "by-persona-engineering": "Engineering and IT",
+  "separator-data-mapping": {
+    "title":"Data Mapping",
+    "type": "separator"
+  },
+  "data-mapping-get-started":"Getting Started",
+  "data-mapping-fundamentals": "Data Mapping Fundamentals",
+  "data-mapping-adding-systems-manually":"Adding Systems Manually",
+  "data-mapping-system-detection": "Automated System Detection",
+  "data-mapping-data-uses": "Data Use & Processing Activities",
+  "data-mapping-dictionary": "Using Fides Compass",
+  "data-mapping-reports": "Data Map & Inventory Reporting",
+  "data-mapping-glossary": "Data Mapping Glossary",
+
+  "separator-privacy-requests": {
+    "title": "Privacy Requests",
+    "type": "separator"
+  },
+  "privacy-requests-get-started":"Getting Started",
+  "privacy-requests-fundamentals": "Privacy Request Fundamentals",
+  "privacy-requests-configuration": "Configuring Privacy Requests",
+  "privacy-requests-workflow": "Privacy Request Workflow",
+  "privacy-requests-debugging": "Debugging Request Errors",
+  "privacy-requests-glossary": "Privacy Request Glossary",
+
+  "separator-consent-management": {
+    "title": "Consent Management",
+    "type": "separator"
+  },
+  "consent-management-get-started":"Getting Started",
+  "consent-management-fundamentals": "Consent Management Fundamentals",
+  "consent-management-configuration": "Configuring Consent"
+}

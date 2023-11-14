@@ -1,0 +1,56 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Outreach
+[Outreach](https://www.outreach.io/) is a sales engagement platform that helps sales teams effectively communicate with prospects and customers through personalized, automated outreach.
+
+## Prerequisites
+
+<Callout emoji="" type="info"> To integrate with Outreach, you'll need to setup a custom Outreach app. This ensures exclusive data control, enhances security by reducing unauthorized access risks, and allows customization of scopes and permissions to suit your business needs and policies.</Callout>
+
+To configure a custom Outreach app using OAuth 2.0 for authentication, please follow [this Outreach guide](https://developers.outreach.io/client-extensions/your-first-outreach-extension/). 
+
+Once you have this configured, you'll need to collect the following information:
+
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                 | Your Outreach domain (default: `api.outreach.io`) |
+| **Requester email***        | The email address of the Outreach user that created your custom app  |
+| **Client ID***         | The OAuth 2.0 client ID for your application. For more info, see the Outreach [OAuth guide](https://developers.outreach.io/api/oauth/)  |
+| **Client secret***     | The OAuth 2.0 client secret. For more info, see the Outreach [OAuth guide](https://developers.outreach.io/api/oauth/)|
+| **Redirect URL***           | The Fides URL to which users will be redirected upon successful authentication (ex. `https://fides-host.com/oauth/callback`) | 
+| **Page size***            | The number of results to return on each page. |
+
+## Integrating with Outreach
+To integrate an existing system with Outreach: 
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+To authorize the integration so that it can connect to Outeach:
+1. Click on **Authorize integration** to be redirected to the Outreach authorization screen
+2. Enter your credentials and click **Log in**. You will automatically be redirected back to the Fides UI using the `Redirect URL` that was provided in the form in the previous step.
+
+You may now confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Outeach Endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint(s) | Description |
+|----|----|----|
+| **Access Requests** | [Prospects](https://developers.outreach.io/api/reference/tag/Prospect/) | Used to fetch prospects from Outreach. | 
+| **Access Requests** | [Recipients](https://developers.outreach.io/api/reference/tag/Recipient/) | Used to fetch recipients from Outreach. |
+| **Delete Requests** | [Prospects, Recipients](https://developers.outreach.io/api/reference/tag/Compliance-Request/) | Used to delete prospects and recipients in Outreach. | 
+
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to erase personal information instead of just masking it, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

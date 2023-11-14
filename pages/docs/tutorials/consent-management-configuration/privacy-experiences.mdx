@@ -1,0 +1,121 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Consent Management: Configuring Privacy Experiences
+
+<TutorialKey duration="5" product="Fides" topic="Consent Management"/>
+
+<Callout emoji=""> This tutorial requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
+
+In this tutorial, we'll review privacy experiences, how they're configured, and how they're presented to visitors.
+
+After reading this, you'll be familiar with how to configure privacy experiences and how privacy notices are presented within your privacy experiences to visitors based on their location.
+
+## Prerequisites
+
+For this tutorial you'll need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of `Owner` or `Contributor` for your Fides organization.
+* At least one system with a data use on your Data Map. Read how to [add systems to the Data Map](/tutorials/data-mapping-adding-systems-manually) now.
+* At least one privacy notice configured. Read how to [configure privacy notices](/tutorials/consent-management-fundamentals/consent-management-privacy-notices) now.
+
+
+
+## What are Privacy Experiences?
+
+A privacy experience in Fides is the user experience for how privacy notices are presented to a visitor based on the regulations that apply in the user's location.
+
+Fides has two default privacy experiences, the **Overlay** and accompanying pop-up and the **Privacy Center**. Learn about [privacy experience fundamentals](/tutorials/consent-management-fundamentals/consent-management-privacy-experiences) here.
+
+## Viewing Privacy Experiences
+To view privacy experiences in Fides, navigate to **Privacy requests** → **Consent** → **Privacy experiences** where you'll see a list of currently configured privacy experiences for your Fides account.
+<Screenshot img="/assets/img/tutorials/consent-management-privacy-experiences.gif" description="View all Privacy Experiences" />
+
+
+Each item on the list of privacy experiences consists of a location, component type, date of last update, and a toggle to enable it. 
+
+* **Locations**: the locations this privacy experience will be displayed.
+* **Component**: the type of privacy user experience.
+* **Last update**: the last time the privacy experience was modified.
+* **Enable**: a toggle to activate to deactivate the privacy experience. An inactive experience is not displayed to any visitor.
+
+<Screenshot img="/assets/img/tutorials/consent-management-fides-js.gif" description="Copying Fides Consent JavaScript" mw="650" />
+
+The **Get JavaScript tag** button allows you to copy your JavaScript tags for configuring front end consent. Learn how to [configure front end consent](/tutorials/consent-management-configuration) here.
+
+## Available Privacy Experiences
+Fides has two default privacy experiences you can configure:
+1. **Privacy Center**: a privacy center typically available at `https://privacy.your-brand.com`.
+2. **Overlay**: a banner and pop-up commonly used for opt-in cookie consent.
+
+## Configuring the Privacy Center Experience
+Click on the **Privacy center** component to view the detailed configuration page.
+
+From here you can set the two components of the privacy center experience:
+1. **Consent Page Text**: the text information displayed to the user at the top of the consent management section of the privacy center.
+2. **Actions**: the labels for the buttons presented to the user in the privacy center.
+
+Let's review each privacy center experience configuration component:
+
+### Consent Page Text
+The consent page text is the information shown to your visitor in the privacy center experience.
+
+As shown in the screenshot below, you can configure:
+* **Title**: the title of the privacy center consent page displayed to the visitor.
+* **Description**: the detailed text of the privacy center displayed to the visitor.
+
+<Screenshot img="/assets/img/tutorials/consent-management-pux-page-text.gif" description="Privacy Center Experience Text" />
+
+### Actions
+The actions represent the labels you can assign to buttons on the privacy center.
+
+You can configure:
+
+**Save button label**: the label for the **Save** button action.
+
+<Screenshot img="/assets/img/tutorials/consent-management-pux-action-buttons.gif" description="Privacy Center Actions" />
+
+## Configuring the Overlay Experience
+Click on the **Overlay** component to view the detailed configuration page.
+
+From here you can set the three components of the privacy center experience:
+1. **Overlay and Preference Text**: the text information displayed to the user on both the overlay and in the preference pop-up.
+2. **Actions**: the labels for the buttons presented to the user in both the overlay and in the preference pop-up.
+3. **Privacy Policy**: the label for the privacy policy and link to the privacy policy.
+
+Let's review each overlay and preference pop-up configuration component:
+
+### Overlay and Preference Text
+The overlay and preference text is the information shown to your visitor in the overlay and preference pop-up experience.
+
+As shown in the screenshot below, you can configure:
+* **Overlay title**: the title displayed to the user in both the overlay and the pop-up experience.
+* **Overlay description**: the description displayed to the user in both the overlay and the pop-up experience.
+<Screenshot img="/assets/img/tutorials/consent-management-oux-titles.gif" description="Privacy Overlay Text" />
+
+### Actions
+The actions represent the labels you can assign to buttons on the overlay and preferences pop-up.
+
+You can configure:
+
+* **Accept button label**: the label to accept the privacy notice.
+* **Reject button label**: the label to reject the privacy notice.
+* **Preferences button label**: the label to open the preferences pop-up.
+* **Save button label**: the label to save preferences in the pop-up.
+
+<Screenshot img="/assets/img/tutorials/consent-management-oux-action-buttons.gif" description="Overlay Button Actions" />
+
+### Privacy Policy
+Here, you can configure the label and URL for the location of your public privacy policy to be displayed in the notice.
+
+<Screenshot img="/assets/img/tutorials/consent-management-oux-policy.gif" description="Overlay Privacy Policy" mw="500"/>
+
+### Display Configuration
+You can configure where the overlay and preference pop-up are displayed using the display configuration options as follows:
+* **Always enabled**: the overlay will be displayed to every visitor, regardless of location.
+* **Enabled where legally required**: the overlay will only be displayed to users where it is legally required.
+* **Always disabled**: the overlay will never be displayed to any visitor.
+
+<Screenshot img="/assets/img/tutorials/consent-management-oux-display.gif" description="Overlay Display Configuration" mw="500"/>

@@ -1,0 +1,29 @@
+# Annotating datasets using the CLI
+
+This process will require having the Dataset YAML file locally. If using Fides Cloud, you will need to follow the [steps to pull Datasets locally](/tutorials/privacy-requests-configuration/privacy-requests-dataset-annotation#pull-the-generated-dataset-locally).
+
+At this point, we should be able to use the `annotate` command:
+
+```bash
+$ fides annotate dataset .fides/<your_dataset>.yaml
+> Loaded config from: /fides/.fides/fides.toml
+####
+Annotating Dataset: [sample_dataset]
+####
+Annotating Table: [user]
+
+Field [user.id] has no data categories
+
+Enter comma separated data categories for [id] [s: skip, q: quit]:
+```
+
+The on screen prompts will walk you through the annotation process, also allowing for you to save state if you do not complete the annotations in one go.
+
+```bash
+...
+Enter comma separated data categories for [id] [s: skip, q: quit]: system.operations
+Setting data categories for user.id to:
+            ['system.operations']
+
+Annotation process complete.
+```

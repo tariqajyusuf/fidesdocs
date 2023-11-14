@@ -1,0 +1,50 @@
+import { Callout } from 'nextra-theme-docs'
+
+
+# Google Analytics 4
+[Google Analytics 4](https://developers.google.com/analytics/devguides/collection/ga4) is a web analytics service that helps companies track and analyze website performance and user behavior.
+
+## Prerequisites
+<Callout emoji="" type="info">OAuth 2.0 must be configured ahead of time to authorize requests against this service. To learn more follow [this guide from Google Analytics](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization). </Callout>
+
+
+In order to [integrate](/user-guides/integrations) with Google Analytics 4, you must complete the following steps:
+* Enable authorization using [Google OAuth 2.0](https://developers.google.com/analytics/devguides/reporting/core/v4/authorization).
+* Configure the Google OAuth Consent Screen and add  the `https://www.googleapis.com/auth/analytics.user.deletion` scope to your app. Steps for this can be found in the *User Consent* section of [this guide](https://support.google.com/cloud/answer/6158849?hl=en#zippy=%2Cpublic-and-internal-applications). 
+
+Once you have this configured, you'll need to collect the following information:
+
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Client ID***             | The OAuth 2.0 client ID for your application.  See Google docs for creating [OAuth client ID credentials](https://developers.google.com/workspace/guides/create-credentials#oauth-client-id) |
+| **Client secret***         | The OAuth 2.0 client secret. See Google docs for creating [OAuth client ID credentials](https://developers.google.com/workspace/guides/create-credentials#oauth-client-id) |
+| **Redirect URL***           | The Fides URL to which users will be redirected upon successful authentication (ex. `https://fides-host.com/oauth/callback`) |
+| **Property ID***           | Your GA4 Property ID. See Google's guide on [Property ID's](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).  |
+
+## Integrating with Google Analytics
+To integrate an existing system with Google Analytics:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+To authorize the integration so that it can connect to Google:
+1. Click on **Authorize integration** to be redirected to the Google authorization screen
+2. Enter your credentials and click **Log in**. You will automatically be redirected back to the Fides UI using the `Redirect URL` that was provided in the form in the previous step.
+
+You may now confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Google Analytics Endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Consent Requests** | [User Deletion Request](https://developers.google.com/analytics/devguides/config/userdeletion/v3/reference/userDeletion/userDeletionRequest/upsert) | Used to delete the user from Google Analytics upon opt-out |

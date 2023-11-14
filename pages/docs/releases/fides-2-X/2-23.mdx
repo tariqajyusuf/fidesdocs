@@ -1,0 +1,54 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.23.0/2.23.1/2.23.2/2.23.3 release notes
+- 2.23.0: October 30, 2023
+- 2.23.1: November 02, 2023
+- 2.23.2: November 03, 2023
+- 2.23.3: November 07, 2023
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+### New Features & enhancements (2.23.0)
+- <div class="enterprise"/> **Select vendors**: we've added a new interface to allow customers to select vendors from a list of 1500+ vendors in Fides Compass and have those vendors, with all of their info and data uses, added to the data map. [Learn more](/user-guides/data-mapping/choosing-vendors) 
+- <div class="enterprise"/> **Google Additional consent**: we've added support for showing Google Ad Technology Providers (ATP) who are not yet certified with the IAB via the [Additional Consent](https://support.google.com/admanager/answer/9681920?hl=en) framework.
+- <div class="enterprise"/> **Compass tags**: we've added tags to many vendor records in Fides Compass to assist you in understanding what service each vendor typically performs. 
+
+### New integrations (2.23.0)
+- **SparkPost**: Access and erasure support #4328
+- **Iterate**: Access and erasure support #4332
+
+### Fixes and developer updates (2.23.0)
+- <div class="enterprise"/> Changed vendor selector on system information form to typeahead #4333
+- <div class="enterprise"/> Added support for 3 additional config variables in Fides.js: fidesEmbed, fidesDisableSaveApi, and fidesTcString #4262
+- <div class="enterprise"/> Added support for fidesEmbed, fidesDisableSaveApi, and fidesTcString to be passed into Fides.js via query param, cookie, or window object #4297
+- <div class="enterprise"/> Added new privacy center environment variables FIDES_PRIVACY_CENTER__IS_FORCED_TCF to make the privacy center always return the TCF bundle (fides-tcf.js) #4312
+- <div class="enterprise"/> Added support for overriding the save user preferences API call with a custom function provided through Fides.init #4318
+- <div class="enterprise"/> New GET Privacy Experience Meta Endpoint #4328
+- <div class="enterprise"/> Added served notice history IDs to the TCF privacy preference API calls #4161
+- <div class="enterprise"/> TCF stacks that do not have any purposes will no longer render an empty purpose block #4278
+- <div class="enterprise"/> Restricted TCF Privacy Experience Config if TCF is disabled #4348
+- <div class="enterprise"/> Updated the fidescls EntityMap to use Fideslang 2.0 labels #1157
+- Added a FidesUIChanged event to Fides.js to track when user preferences change without being saved #4314 and #4253
+- Added SSH Support for MySQL connections #4310
+- Fixed issue in Hubspot integration requiring email to be formatted in specific ways when processing an erasure request #4322
+- Applied consistent font sizes for labels in the system form and data use forms in the Admin UI #4346
+
+### New Features & enhancements (2.23.1)
+- <div class="enterprise"/> **Custom fides.js extension**: we've added customer-specific fides.js and consent overlay css which allows an enterprise customer to extened/change fides.js functionality and implement custom styling #1186 and #1198 
+
+### Fixes and developer updates (2.23.1)
+- <div class="enterprise"/> Fix a11y issue with embedded consent modal #4355
+- <div class="enterprise"/> Remove duplicate FidesUpdated event during fides.js initialization #4365
+- <div class="enterprise"/> Handle invalid fides_string by reseting to null #4350
+- <div class="enterprise"/> Fix fides_string initialization bug; parsing vendor IDs from fides_string correctly #4368
+
+### Fixes and developer updates (2.23.2)
+- <div class="enterprise"/> Fixed fides.css to vary banner width based on tcf #4381
+
+### Fixes and developer updates (2.23.3)
+- <div class="enterprise"/> Fix button arrangment and styling for TCF and non-TCF consent banner and modal #4391
+- <div class="enterprise"/> Replaced h1 element with div to use exisitng fides styles in consent modal #4399
+- <div class="enterprise"/> Fixed privacy policy alignment for non-TCF consent overlay banner and modal #4403
+
+### Security (2.23.3)
+- Fix an HTML Injection vulnerability in DSR Packages

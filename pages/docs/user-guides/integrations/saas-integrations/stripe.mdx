@@ -1,0 +1,55 @@
+# Stripe
+[Stripe](https://stripe.com/) provides online payment processing solutions for businesses.
+
+## Prerequisites
+
+In order to [integrate](/user-guides/integrations) with Stripe, you'll need to collect the following information:
+
+| Name                       | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain***                | Your Stripe URL (default:`api.stripe.com`) |
+| **API key***               | Your Stripe API Key. Follow Stripe's docs to [generate an API key](https://stripe.com/docs/keys) |
+
+
+## Integrating with Stripe
+To integrate an existing system with Stripe:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**. 
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail 
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions. 
+
+### Stripe endpoints
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function | Endpoint | Description |
+|----|----|----|
+| **Access Requests**            | [Customer](https://stripe.com/docs/api/customers/list) | Returns information about a customer |
+| **Update or Erasure Requests** | [Customer](https://stripe.com/docs/api/customers/update) | Used to mask or erase information about a customer  |
+| **Access Requests**            | [Charge](https://stripe.com/docs/api/charges/list) | Returns information about customer charges |
+| **Access Requests**            | [Dispute](https://stripe.com/docs/api/disputes/list) | Returns disputes for a customer charge |
+| **Access Requests**            | [Payment Intent](https://stripe.com/docs/api/payment_intents/list) | Returns payment intents associated with a customer |
+| **Access Requests**            | [Payment Method](https://stripe.com/docs/api/payment_methods/customer_list) | Returns a customer's payment methods |
+| **Update or Erasure Requests** | [Payment Method](https://stripe.com/docs/api/payment_methods/update) | Used to mask or erase information about a customer's payment method  |
+| **Access Requests**            | [Bank Account](https://stripe.com/docs/api/customer_bank_accounts/list) | Returns bank accounts associated with a customer |
+| **Update or Erasure Requests** | [Bank Account](https://stripe.com/docs/api/customer_bank_accounts/update) | Used to mask or erase information about a customer's bank account  |
+| **Access Requests**            | [Card](https://stripe.com/docs/api/cards/list) | Returns cards associated with a customer |
+| **Update or Erasure Requests** | [Card](https://stripe.com/docs/api/cards/update) | Used to mask or erase information about a customer's cards  |
+| **Access Requests**            | [Credit Note](https://stripe.com/docs/api/credit_notes/list) | Returns credit notes associated with a customer |
+| **Access Requests**            | [Customer Balance Transaction](https://stripe.com/docs/api/customer_balance_transactions/list) | Returns transactions that updated the customer's balances |
+| **Access Requests**            | [Tax ID](https://stripe.com/docs/api/customer_tax_ids/list) | Returns Tax IDs associated with a customer |
+| **Update or Erasure Requests** | [TaxID](https://stripe.com/docs/api/customer_tax_ids/delete) | Erases information about customer tax IDs  |
+| **Access Requests**            | [Invoice](https://stripe.com/docs/api/invoices/list) | Returns customer invoices |
+| **Update or Erasure Requests** | [Invoice](https://stripe.com/docs/api/invoices/delete) | Used to erase a customer's draft invoices |
+| **Access Requests**            | [Invoice Item](https://stripe.com/docs/api/invoiceitems/list) | Returns invoice items associated with a customer |
+| **Update or Erasure Requests** | [Invoice Item](https://stripe.com/docs/api/invoiceitems/delete) | Used to erase inovice items from a customer's invoice  |
+| **Access Requests**            | [Subscription](https://stripe.com/docs/api/subscriptions/list) | Returns a customer's subscriptions |
+| **Update or Erasure Requests** | [Subscription](https://stripe.com/docs/api/subscriptions/cancel) | Used to cancel a customer's subscriptions  |
