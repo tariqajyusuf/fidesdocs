@@ -11,10 +11,18 @@ module.exports = withNextra({
   async rewrites() {
     return {
         beforeFiles: [
-			    {
-			      "source": "https://testdocs.ethyca.com/docs/:path*",
-			      "destination": "https://ethyca.com/docs/:path*"
-			    }
+            // if the host is `app.acme.com`,
+            // this rewrite will be applied
+            {
+                source: '/docs/:path*',
+                has: [
+                    {
+                        type: 'host',
+                        value: 'testdocs.ethyca.com',
+                    },
+                ],
+                destination: 'https://ethyca.com/docs/:path*',
+            },
         ]
     }
   },
