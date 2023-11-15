@@ -12,7 +12,7 @@ module.exports = withNextra({
     return {
         beforeFiles: [
 			    {
-			      "source": "/docs/:path*",
+			      "source": "https://testdocs.ethyca.com/docs/:path*",
 			      "destination": "https://ethyca.com/docs/:path*"
 			    }
         ]
