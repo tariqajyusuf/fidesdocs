@@ -83,7 +83,7 @@ export default {
   head: ({ title, meta }) => {
 
     const ogImage =
-      `https://docs.ethyca.com/assets/featured.png`;
+      `https://ethyca.com/docs/assets/featured.png`;
 
     return (
       <>
