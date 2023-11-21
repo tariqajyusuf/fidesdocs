@@ -1,7 +1,8 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Fides 2.24.0 release notes
-November 13, 2023
+# Fides 2.24.0/2.24.1 release notes
+- 2.24.0: November 13, 2023
+- 2.24.1: November 20, 2023
 
 <Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
 
@@ -21,4 +22,9 @@ November 13, 2023
 ### Fixes and developer updates 
 - <div class="enterprise"/> Added fides_disable_banner config option to Fides.js #4378
 - <div class="enterprise"/> Added support for a custom get preferences API call provided through Fides.init #4375
+
+### Security (2.24.1)
+- Added additional warning log messages related to root user access
+- Fides processes no longer run as root user 
+
 
