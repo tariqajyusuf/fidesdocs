@@ -1,4 +1,6 @@
-const ETHYCA_SITE_URL = process.env["ETHYCA_SITE_URL"] || "https://ethyca.com";
+// NOTE: This is set to ETHYCA_SITE_URL="https://ethyca.com" when hosting on Vercel here: 
+// https://vercel.com/ethyca/fidesdocs/settings/environment-variables
+const ETHYCA_SITE_URL = process.env["ETHYCA_SITE_URL"] || "";
 
 const withNextra = require("nextra")({
   theme: "nextra-theme-docs",
@@ -29,3 +31,4 @@ module.exports = withNextra({
     ]
   }
 });
+
