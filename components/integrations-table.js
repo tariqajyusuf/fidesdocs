@@ -21,7 +21,7 @@ export default function IntegrationsTable({ columns }) {
           <tr key={rowIndex}>
             {row.map(([key, value]) => (
               <td key={key}>
-                <a href={`/user-guides/integrations/saas-integrations/${key}`} class="nx-text-primary-600 nx-underline nx-decoration-from-font [text-underline-position:from-font]">
+                <a href={`/docs/user-guides/integrations/saas-integrations/${key}`} class="nx-text-primary-600 nx-underline nx-decoration-from-font [text-underline-position:from-font]">
                   <strong>{value}</strong>
                 </a>
               </td>
