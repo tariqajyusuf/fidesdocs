@@ -90,13 +90,13 @@ export default {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
+          href="/docs/favicon/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon/favicon-32x32.png"
+          href="/docs/favicon/favicon-32x32.png"
         />
         <link
           rel="icon"
@@ -104,8 +104,8 @@ export default {
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
-        <link rel="icon" type="image/svg+xml" href="/favicon/safari-pinned-tab.svg" />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="icon" type="image/svg+xml" href="/docs/favicon/safari-pinned-tab.svg" />
+        <link rel="manifest" href="/docs/favicon/site.webmanifest" />
         <link
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
@@ -150,16 +150,16 @@ export default {
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-            <img src ="/assets/ethyca_logo.svg" alt="Ethyca Logo"/>
+            <img src ="/docs/assets/ethyca_logo.svg" alt="Ethyca Logo"/>
           </a>
           </div>
           <div className="socials">
             <div className="icons"> 
 
-                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/assets/slack.svg" alt="slack icon" /> </a>
-                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/assets/linkedin.svg" alt="Linkedin icon" /> </a>
-                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/assets/twitter.svg" alt="Twitter icon"  /> </a>
-                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/assets/github.svg" alt="Github icon" /> </a>
+                <a href="https://www.fid.es/join-slack" rel="noopener"> <img src ="/docs/assets/slack.svg" alt="slack icon" /> </a>
+                <a href="https://www.linkedin.com/company/ethyca/" rel="noopener"> <img src ="/docs/assets/linkedin.svg" alt="Linkedin icon" /> </a>
+                <a href="https://twitter.com/ethyca" rel="noopener">  <img src ="/docs/assets/twitter.svg" alt="Twitter icon"  /> </a>
+                <a href="https://github.com/ethyca/fides" rel="noopener">  <img src ="/docs/assets/github.svg" alt="Github icon" /> </a>
             </div>
               <HubspotForm
                    portalId='7252764'
