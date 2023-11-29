@@ -138,6 +138,10 @@
     "regulations-gpc": {
       "title": "Global Privacy Control (GPC)",
       "href": "/regulations/gpc"
+    },
+    "regulations-gdpr": {
+      "title": "General Data Protection Regulation (GDPR)",
+      "href": "/regulations/gdpr"
     }
   }
 }
