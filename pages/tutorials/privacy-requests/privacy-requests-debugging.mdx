@@ -1,0 +1,45 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Privacy Requests: Identifying & Debugging Issues
+
+<TutorialKey duration="2" product="Fides" topic="Privacy Requests" interactive="true"/>
+
+<Callout emoji=""> This tutorial requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
+
+## Introduction
+In this tutorial, you'll learn how to review the event logs for a privacy request and identify issues that may require debugging.
+
+## Prerequisites
+
+For this tutorial, you'll need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of either `Owner`, `View & Approver` or `Approver` to manage privacy requests.
+* At least one system integration configured for privacy requests. Read how to [configure an integration](/tutorials/privacy-requests/privacy-requests-configuration/integrations).
+* A privacy center to receive and process privacy requests. Read how to [configure a privacy center](/tutorials/consent-management/consent-management-configuration/privacy-experiences/privacy-center).
+
+
+
+## Identifying Privacy Request Issues
+From time-to-time, privacy requests can fail to process completely. This is often due to the sheer number of systems connected in a privacy process and how they depend on each other to complete successfully. 
+A common reason for a privacy request to fail is expired credentials to a system, however, there can be a variety of other reasons. Identifying the cause as quickly as possible to remediate it is key.
+
+Fides provides a detailed events and activities log for this very reason. Let's take a walk through of the feature now.
+
+## Viewing Request Logs
+
+To view the event logs for a given request, click the kebab menu `...` and select **View Details** as follows:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-view-details.gif" description="View Privacy Request Details" mw="500" />
+
+If the privacy request has already been processed, the event logs will show a list of the processed systems under **Events and Logs** as shown below:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-event-logs.gif" description="Privacy Request Logs" mw="600" />
+
+To view the the details of a specific system's privacy request processing, click on "View Details" and then "View log" to show the detailed processing log for the system:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-detailed-log.gif" description="Approve Privacy Request" />
+
+This detailed view of events shows exactly what action has been performed for each system and the available collections, so you can identify precisely where an issue occurs with a privacy request for debugging.

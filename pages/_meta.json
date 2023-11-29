@@ -1,5 +1,11 @@
 {
-"index":"Fides",
+"index": {
+  "title": "Fides",
+  "href": "/",
+  "theme": {
+    "breadcrumb": false
+  }
+},
 "user-guides": {
  "title": "User Guides",
  "href": "/user-guides"
@@ -12,14 +18,14 @@
   "title": "Tutorials",
   "href": "/tutorials"
  },
- "--": {
-  "type": "separator",
-  "title": "Resources"
-},
-"regulations": {
+ "regulations": {
   "title": "Regulations",
   "href": "/regulations"
  },
+ "--": {
+  "type": "separator"
+},
+
  "releases": {
   "title": "Release Notes",
   "href": "/releases/"
@@ -88,19 +94,19 @@
   "items": {
     "tutorials-byPersona": {
       "title": "By Persona",
-      "href": "/tutorials/by-persona-get-started"
+      "href": "/tutorials/by-persona"
     },
     "tutorials-datamapping": {
       "title": "Data Mapping",
-      "href": "/tutorials/data-mapping-get-started"
+      "href": "/tutorials/data-mapping"
     },
     "tutorials-privacy-requests": {
       "title": "Privacy Requests",
-      "href": "/tutorials/privacy-requests-get-started"
+      "href": "/tutorials/privacy-requests"
     },
     "tutorials-consent": {
       "title": "Consent Management",
-      "href": "/tutorials/consent-management-get-started"
+      "href": "/tutorials/consent-management"
     }
   }
 },
@@ -110,27 +116,27 @@
   "items": {
     "regulations-ccpa": {
       "title": "California Consumer Privacy Act (CCPA)",
-      "href": "/regulations/ccpa/overview"
+      "href": "/regulations/ccpa"
     },
     "regulations-vcdpa": {
       "title": "Virginia Consumer Data Privacy Act (VCDPA)",
-      "href": "/regulations/vcdpa/overview"
+      "href": "/regulations/vcdpa"
     },
     "regulations-cpa": {
       "title": "Colorado Privacy Act (CPA)",
-      "href": "/regulations/cpa/overview"
+      "href": "/regulations/cpa"
     },
     "regulations-ctdpa": {
       "title": "Connecticut Data Privacy Act (CTDPA)",
-      "href": "/regulations/ctdpa/overview"
+      "href": "/regulations/ctdpa"
     },
     "regulations-ucpa": {
       "title": "Utah Consumer Privacy Act (UCPA)",
-      "href": "/regulations/ucpa/overview"
+      "href": "/regulations/ucpa"
     },
     "regulations-gpc": {
       "title": "Global Privacy Control (GPC)",
-      "href": "/regulations/gpc/overview"
+      "href": "/regulations/gpc"
     }
   }
 }

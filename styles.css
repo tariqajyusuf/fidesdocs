@@ -84,7 +84,16 @@ body {
 	color: #2D3748;
 	font-family: 'SourceSansPro', sans-serif;
 }
+.nextra-sidebar-container ul li:first-child a[href="/docs"] {
+	text-indent: -9999px;
+	background: 0 0 url(/docs/assets/fides_logo.svg);
+	background-repeat: no-repeat;
+	background-size: auto 18px;
+		background-position: 8px;
+}
+
 @media (min-width: 768px){
+
 	nav.nx-justify-end {
 		justify-content: unset !important;
 	}
@@ -129,6 +138,12 @@ nav .nextra-search{
 	right: 20px;
 	top: 13px;
 }
+
+.nextra-sidebar-container ul li.active:first-child a[href="/docs"] {
+	background-color: hsl(var(--nextra-primary-hue)100% 94%/var(--tw-bg-opacity));	
+}
+
+
 .nextra-sidebar-search{
 	display: none;
 }
@@ -623,14 +638,14 @@ a.featBlockWrap:hover, .CtaFeatWrap a:hover .ctaBlockWrap, a.tutorialBlockWrap:h
 	content: none;
 }
 .tutorialKey .tutorial-video::before, .tutorialCTAKey .tutorial-video::before {
-	content: url(/assets/svg/video-icon.svg);
+	content: url(/docs/assets/svg/video-icon.svg);
 	position:relative;
 	top:2px;
 	padding-right: 3px;
 	line-height: 1em;
 }
 .tutorialKey .tutorial-interactive::before, .tutorialCTAKey .tutorial-interactive::before {
-	content: url(/assets/svg/terminal-icon.svg);
+	content: url(/docs/assets/svg/terminal-icon.svg);
 	position:relative;
 	top:2px;
 	padding-right: 5px;

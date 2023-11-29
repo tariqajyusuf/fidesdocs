@@ -4,8 +4,8 @@ import Screenshot from 'components/screenshot'
 # Processing privacy requests
 Privacy request processing is the process by which approved privacy requests are submitted to internal database or third party SaaS applications to be fulfilled. Said differently, processing is the execution of the privacy request that ensures that the legal obligation has been fulfilled.
 
-* For [_Access_](/tutorials/privacy-requests-glossary#access-request) or [_Portability_](/tutorials/privacy-requests-glossary#portability-request) requests, Fides will send a request to the data store to return a machine-readable package containing all personal data that is found about the data subject.
-* For [_Erasure_](/tutorials/privacy-requests-glossary#erasure-request) or [_Rectification_](/tutorials/privacy-requests-glossary#rectification-request) requests, Fides will send a request to the data store to erase, mask, or update all applicable personal data that is found about the data subject.
+* For [_Access_](/tutorials/privacy-requests/privacy-requests-glossary#access-request) or [_Portability_](/tutorials/privacy-requests/privacy-requests-glossary#portability-request) requests, Fides will send a request to the data store to return a machine-readable package containing all personal data that is found about the data subject.
+* For [_Erasure_](/tutorials/privacy-requests/privacy-requests-glossary#erasure-request) or [_Rectification_](/tutorials/privacy-requests/privacy-requests-glossary#rectification-request) requests, Fides will send a request to the data store to erase, mask, or update all applicable personal data that is found about the data subject.
 
 ### Methods for sending requests
 
@@ -71,7 +71,7 @@ To learn how to configure a storage destination, please see our guide for [Creat
 
 
 ### Troubleshooting
-To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests-debugging)
+To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests/privacy-requests-debugging)
 
 ## Email requests
 To configure Fides to send erasure requests via email, follow these steps:
@@ -90,7 +90,7 @@ To configure Fides to send erasure requests via email, follow these steps:
 
 
 ## Manual requests
-Manual privacy requests allow vendors to upload personal data using an API to satisfy [Access](/tutorials/privacy-requests-glossary#access-request) requests. To enable these requests, a `manual process` integration must be configured.
+Manual privacy requests allow vendors to upload personal data using an API to satisfy [Access](/tutorials/privacy-requests/privacy-requests-glossary#access-request) requests. To enable these requests, a `manual process` integration must be configured.
 
 To configure the `manual process` [_integation_](/user-guides/integrations/):
 1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
@@ -101,7 +101,7 @@ To configure the `manual process` [_integation_](/user-guides/integrations/):
 
 <Screenshot img="/docs/assets/img/privacy-requests/manual_process.gif" description="Configure a manual connector" /> 
 
-When an [access](/tutorials/privacy-requests-glossary#access-request) request is placed, a package containing the found personal data is returned. In order to properly format this package, you'll need to tell Fides how to label the fields of personal data in it. 
+When an [access](/tutorials/privacy-requests/privacy-requests-glossary#access-request) request is placed, a package containing the found personal data is returned. In order to properly format this package, you'll need to tell Fides how to label the fields of personal data in it. 
 
 Thus, in the resulting modal, you'll need to fill in the following fields:
 * `PII Field`: the label Fides will display when it solicits manual input for this field.
@@ -123,7 +123,7 @@ Fides ships with two default privacy request policies: `download` (for access re
 To learn how to configure custom policies, please see our guide for [Configuring privacy request policies](/dev-docs/configuration/policies/request-policies).
 
 ### Troubleshooting
-To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests-debugging)
+To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests/privacy-requests-debugging)
 
 ## Email requests
 To configure Fides to send erasure requests via email, follow these steps:
@@ -142,7 +142,7 @@ To configure Fides to send erasure requests via email, follow these steps:
 
 
 ## Manual requests
-Manual privacy requests allow vendors to upload personal data using the API to satisfy an [_Access_](/tutorials/privacy-requests-glossary#access-request) request. To enable these requests,`manual process` connection must be created.
+Manual privacy requests allow vendors to upload personal data using the API to satisfy an [_Access_](/tutorials/privacy-requests/privacy-requests-glossary#access-request) request. To enable these requests,`manual process` connection must be created.
 
 To configure the `manual process` [_integation_](/user-guides/integrations/):
 1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
