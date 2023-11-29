@@ -495,14 +495,14 @@ table tr td,table tr th {
 }
 
 /*** KeyFeat & CallToAction Component Styling */
-.KeyFeat, .CtaFeat, .KeyTutorial{
+.KeyFeat, .CtaFeat, .KeyTutorial, .ArticleFeat{
 	border-radius: 8px;
 	margin: 20px 0px;
 }
-.KeyFeat h2, .KeyFeat p, .CtaFeat h2, .CtaFeat p, .KeyTutorial h2, .KeyTutorial p{
+.KeyFeat h2, .KeyFeat p, .CtaFeat h2, .CtaFeat p, .KeyTutorial h2, .KeyTutorial p, .ArticleFeat h2, .ArticleFeat p,{
 	margin-top: 0px;
 }
-.KeyFeat h2, .CtaFeat h2, .KeyTutorial h2 {
+.KeyFeat h2, .CtaFeat h2, .KeyTutorial h2, .ArticleFeat h2,{
 	font-size: 24px;
 }
 .KeyFeatWrap, .CtaFeatWrap, .KeyTutorialWrap{
@@ -512,40 +512,80 @@ table tr td,table tr th {
 	grid-column-gap: 15px;
 	grid-row-gap: 15px;
 }
-.KeyFeatWrap a , .KeyTutorialWrap a {
+.ArticleFeatWrap{
+	margin-top: 15px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+}
+
+@media only screen and (max-width: 1045px) {
+	.ArticleFeatWrap{
+		grid-template-columns: auto auto;
+	}
+}
+@media only screen and (max-width: 650px) {
+	.ArticleFeatWrap{
+		grid-template-columns: auto;
+	}
+}
+
+.KeyFeatWrap a, .KeyTutorialWrap a, .ArticleFeatWrap a{
 	text-decoration: none;
 }
 
-.featBlockWrap div{
-	height: 100%;
+.featBlockWrap div, .articleBlockWrap div {
 	position: relative;
 	padding-bottom: 25px;
 }
+.articleBlockWrap div {
+	padding: 16px 16px 0 16px;
+}
 
-a.featBlockWrap, .ctaBlockWrap, a.tutorialBlockWrap {
+a.featBlockWrap, .ctaBlockWrap, a.tutorialBlockWrap, a.articleBlockWrap {
 	border-radius: 6px;
 	padding: 16px;
 	background: #F7FAFC;
 	border: 1px solid #e5e7eb;
 }
+a.articleBlockWrap {
+	padding: 0 0 16px 0;
+}
+
+.ArticleFeat img {
+	border: none;
+	border-radius: 7px 7px 0 0;
+	height: 160px;
+	width: 100%;
+	object-fit: cover;
+	object-position: 100% 0;
+	overflow: hidden;
+}
 
 .KeyFeat h2, .CtaFeat h2, .KeyTutorial h2 {
 	font-size: 24px;
 }
-a.featBlockWrap, a .ctaBlockWrap, a.tutorialBlockWrap{
+
+a.featBlockWrap, a .ctaBlockWrap, a.tutorialBlockWrap, a.articleBlockWrap{
 	transition: box-shadow 0.2s ease-in-out;
 }
-a.featBlockWrap:hover .featBlock h3, a.featBlockWrap:hover .featBlock p, a.tutorialBlockWrap:hover .tutorialBlock h3, a.tutorialBlockWrap:hover .tutorialBlock p, a.tutorialBlockWrap:hover .tutorialBlock, .tutorialCTAKey {
+a.featBlockWrap:hover .featBlock h3, a.featBlockWrap:hover .featBlock p, a.tutorialBlockWrap:hover .tutorialBlock h3, a.tutorialBlockWrap:hover .tutorialBlock p, a.tutorialBlockWrap:hover .tutorialBlock, .tutorialCTAKey, a.articleBlockWrap:hover {
 	text-decoration: none;
 	color: #2D3748;
 }
-.featBlockWrap h3, a .ctaBlock h3, .tutorialBlockWrap h3{
+.featBlockWrap h3, a .ctaBlock h3, .tutorialBlockWrap h3, .articleBlockWrap h3{
 	font-size: 16px;
 	font-weight: 600;
 	margin-top: 0;
 	text-decoration-line: none !important;
   transition: color 0.2s ease-in-out;
 }
+
+.articleBlockWrap h3 {
+	font-size: 19px;
+}
+
 .featCTA, .tutorialCTA{
 	font-size: 14px;
 	font-weight: 600 !important;
@@ -576,7 +616,7 @@ a.featBlockWrap:hover .featCTA::after, a.tutorialBlockWrap:hover .tutorialCTA::a
 .CtaFeatWrap a:hover{
 	text-decoration: underline !important;
 }
-a.featBlockWrap:hover, .CtaFeatWrap a:hover .ctaBlockWrap, a.tutorialBlockWrap:hover{
+a.featBlockWrap:hover, .CtaFeatWrap a:hover .ctaBlockWrap, a.tutorialBlockWrap:hover, a.articleBlockWrap:hover {
 	box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
 }
 .CtaFeatWrap a:hover .ctaBlockWrap::after {

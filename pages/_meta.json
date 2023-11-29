@@ -6,21 +6,49 @@
     "breadcrumb": false
   }
 },
+
+"resources": {
+  "title": "Resources",
+  "href": "/resources",
+  "theme": {
+    "breadcrumb": false,
+    "toc": false,
+    "layout": "full",
+    "pagination": false
+  }
+ },
+ 
 "user-guides": {
  "title": "User Guides",
- "href": "/user-guides"
+ "href": "/user-guides",
+ "theme": {
+  "breadcrumb": false,
+  "pagination": false
+}
 },
 "dev-docs": {
   "title": "Developer Docs",
-  "href": "/dev-docs"
+  "href": "/dev-docs",
+  "theme": {
+    "breadcrumb": false,
+    "pagination": false
+  }
  },
 "tutorials": {
   "title": "Tutorials",
-  "href": "/tutorials"
+  "href": "/tutorials",
+  "theme": {
+    "breadcrumb": false,
+    "pagination": false
+  }
  },
  "regulations": {
   "title": "Regulations",
-  "href": "/regulations"
+  "href": "/regulations",
+  "theme": {
+    "breadcrumb": false,
+    "pagination": false
+  }
  },
  "--": {
   "type": "separator",
@@ -29,11 +57,19 @@
 
  "releases": {
   "title": "Release Notes",
-  "href": "/releases/"
+  "href": "/releases/",
+  "theme": {
+    "breadcrumb": false,
+    "pagination": false
+  }
  },
  "community": {
   "title": "Community",
-  "href": "/community"
+  "href": "/community",
+  "theme": {
+  "breadcrumb": false,
+  "pagination": false
+}
 },
 "slack": {
   "title": "Slack",
