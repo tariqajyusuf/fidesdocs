@@ -23,7 +23,8 @@
   "href": "/regulations"
  },
  "--": {
-  "type": "separator"
+  "type": "separator",
+  "title":""
 },
 
  "releases": {
