@@ -1,7 +1,0 @@
-{
-  "saas-config": "SaaS Configuration Reference",
-  "saas-oauth2": "OAuth2 Configuration",
-  "saas-pagination": "Pagination",
-  "saas-postprocessors": "Postprocessing",
-  "example-configs": "Example Integrations"
-}

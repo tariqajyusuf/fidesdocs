@@ -1,6 +1,6 @@
 # OAuth2 
 
-SaaS integrations support two OAuth2 flows:
+API integrations support two OAuth2 flows:
 
 - [Authorization Code](https://oauth.net/2/grant-types/authorization-code/): `oauth2_authorization_code`
 - [Client Credentials](https://oauth.net/2/grant-types/client-credentials/): `oauth2_client_credentials`
@@ -55,7 +55,7 @@ The above `authentication_request` will generate the following:
 https://<domain>/auth/authorize?client_id=<client_id>&redirect_uri=<redirect_uri>&response_type=code&scope=<scope>&state=<state>
 ```
 
-The placeholders are sourced from the values defined in the [`connector_params`](/dev-docs/configuration/integrations/saas-integrations/saas-config#integration-params) of your SaaS config.
+The placeholders are sourced from the values defined in the [`connector_params`](/dev-docs/configuration/integrations/api-integrations/api-config#integration-params) of your API config.
 
 The `<state>` placeholder is generated automatically with each authorization request. This authorization URL can be retrieved by calling:
 
@@ -138,10 +138,10 @@ To use OAuth2 as a connection strategy, the following must be configured first:
 
 #### Per-connector configuration
 
-- Fides must be able to connect to the SaaS provider (Outreach, Salesforce, etc.).
-- A **Client ID** and **Client Secret** must be generated within the SaaS provider’s admin console.
-  - This is dependent on the individual SaaS provider. Refer to the provider's documentation.
-- The connector using OAuth2 is configured using the steps for [how to configure a SaaS connector](/dev-docs/configuration/integrations/saas-integrations/saas-config).
+- Fides must be able to connect to the API or SaaS provider (Outreach, Salesforce, etc.).
+- A **Client ID** and **Client Secret** must be generated target system or SaaS provider’s admin console.
+  - This is dependent on your systems design or the SaaS vendor you're connecting to. Refer to the vendor or your system documentation.
+- The connector using OAuth2 is configured using the steps for [how to configure a API connector](/dev-docs/configuration/integrations/api-integrations/api-config).
 
 ### Additional steps for authentication code flow
 
@@ -152,7 +152,7 @@ To use OAuth2 as a connection strategy, the following must be configured first:
 
 #### Per-connector configuration
 
-- The **Redirect URI** must be registered within the SaaS provider's admin console.
+- The **Redirect URI** must be registered within the target API systems admin console.
 - The OAuth2 workflow is initialized by following the URL returned from `https://{{domain}}/api/v1/connection/{{connection_key}}/authorize`.
 
 ## OAuth2 authentication code flow diagram
