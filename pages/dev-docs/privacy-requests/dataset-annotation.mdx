@@ -146,7 +146,7 @@ Server is reachable and the client/server application versions match.
 then login to the CLI, using your username and password for the UI
 
 ```bash
-$ fides login
+$ fides user login
 ```
 
 For the next step, we want to populate a YAML using the fides_key of the dataset we want to provide metadata for.
@@ -176,7 +176,7 @@ A `user` table, and an `address` table. The minimal annotated YAML for this look
 ```yaml
 dataset:
   - fides_key: sample_dataset
-    collections: [
+    collections:
     - name: user
       fields:
       - name: id
@@ -211,7 +211,6 @@ dataset:
       - name: zip_code
         data_categories:
         - user.contact.address.postal_code
-    ]
 ```
 
 The starting off point for adding required metadata will be the identity marker. In our sample dataset, this will be email which is found in the `user` Collection.
@@ -219,7 +218,7 @@ The starting off point for adding required metadata will be the identity marker.
 ```yaml
 dataset:
   - fides_key: sample_dataset
-    collections: [
+    collections:
     - name: user
       fields:
       ...
@@ -237,7 +236,7 @@ However, if we wanted to validate our Dataset we would still get a traversal err
 ```yaml
 dataset:
   - fides_key: sample_dataset
-    collections: [
+    collections:
     - name: user
       fields:
       - name: id
@@ -256,8 +255,6 @@ dataset:
             field: user.id
             direction: from
       ...
-    ]
 ```
 
 Now testing the Dataset validity again will pass, and we are ready to process a DSR against the Dataset!
-#TODO add how to test the dataset validity via Postman

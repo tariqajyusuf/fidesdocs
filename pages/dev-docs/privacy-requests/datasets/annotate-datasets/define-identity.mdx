@@ -1,0 +1,35 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Dataset identity keys for privacy requests
+In order for Fides to process a privacy request for a given dataset it must not which fields should be used to uniquey identify user data. Specifying an identity key for a dataset allows Fides to complete these tasks. Here we'll walk through defining an identity key for a dataset.
+
+## Defining the identity key for the dataset
+In order to use your dataset for privacy requests, you must specify an `identify key` to indicate which field Fides should use to search for records.
+
+<Callout emoji="" type="info">The _identity_ key must be assigned to a field that contains unique values that you would typically use to uniquely identify records in a database.</Callout>
+
+Expanding on our sample project, the most suitable `identity key` would be the `email` field because it is unique and identifiable. 
+
+```yaml filename="postgres_dataset.yml"
+collections:
+  - name: customer
+    fields:
+    - name: email
+      data_categories:
+      - user.contact.email
+      fides_meta:           # Add Fides metadata section
+        identity: email     # Specify this is the identity key and provide a name
+        data_type: string   # Specify the expected data type
+    - name: id
+      data_categories: 
+      - user.unique_id
+      fides_meta:
+        primary_key: True
+    - name: name
+      data_categories:
+      - user.name
+      fides_meta:
+        data_type: string
+        length: 40
+```

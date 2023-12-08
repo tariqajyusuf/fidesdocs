@@ -1,5 +1,7 @@
 {
+  "structure": "Understanding datasets",
   "generate-datasets": "Generating datasets",
   "annotate-datasets": "Annotating datasets",
+  "add-datasets": "Uploading datasets",
   "link-datasets": "Linking datasets"
 }

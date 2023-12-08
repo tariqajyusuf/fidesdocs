@@ -34,15 +34,15 @@ Fides uses [_Integrations_](/user-guides/integrations/) to submit privacy reques
 When you have gathered these credentials, you can proceed to [generate your dataset](#generating-datasets) if you're using a databse, or skip ahead to [configure an integration](#configuring-integrations), for SaaS connections.
 
 ### Generating datasets
-A [_dataset_](/user-guides/datasets) is a configuration file that describes, to Fides, how to interact with your databases for the purpose of processing privacy requests. A dataset describes where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests. 
+A [_dataset_](/dev-docs/datasets) is a configuration file that describes, to Fides, how to interact with your databases for the purpose of processing privacy requests. A dataset describes where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests. 
 
 <Callout emoji="" type="info">Datasets also are required to integrate with SaaS applications. However, Fides pre-configures these datasets and they typically work out-of-the-box.</Callout>
 
 In order to generate an actionable dataset, you will need to:
 
-1. [Generate a dataset](/user-guides/datasets/generate-datasets) 
-2. [Annotate the dataset with data categories](/user-guides/datasets/annotate-datasets#annotating-data-categories)
-3. [Establish which fields contain identities](/user-guides/datasets/annotate-datasets#annotating-data-categories#adding-an-identity-key)
+1. [Generate a dataset](/dev-docs/privacy-requests/datasets/generate-datasets) 
+2. [Annotate the dataset with data categories](/dev-docs/privacy-requests/datasets/annotate-datasets#annotating-data-categories)
+3. [Establish which fields contain identities](/dev-docs/privacy-requests/datasets/annotate-datasets#annotating-data-categories#adding-an-identity-key)
 
 Once the dataset configuration complete, you can move to the next step and link the dataset to an [_Integation_](/user-guides/integrations/).
 

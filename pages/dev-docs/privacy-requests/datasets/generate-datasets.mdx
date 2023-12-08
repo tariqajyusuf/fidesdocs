@@ -3,52 +3,9 @@ import Screenshot from 'components/screenshot'
 
 # Generating a Dataset
 
-In Fides, a [_dataset_](/user-guides/datasets) is a YAML configuration file that describes a collection of data such as a database. Fides uses these dataset YAML files as a map of your database to automatically process privacy requests. A dataset describes where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related to eachother so that Fides can safely traverse the data when processing privacy requests. 
+In Fides, a [_dataset_](/dev-docs/privacy-requests/datasets) is a YAML configuration file that describes a collection of data such as a database. Fides uses these dataset YAML files as a map of your database to automatically process privacy requests. A dataset describes where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related to eachother so that Fides can safely traverse the data when processing privacy requests. 
 
-<Callout emoji="" type="info">You can think of Datasets as a map for any collection of data in Fides. For this reason, you'll see Datasets for database as well as third-party SaaS applications.</Callout>
+## Generate a Dataset
 
-Dataset YAML files can be configured locally and then [uploaded to Fides](#uploading-a-dataset) or using the [UI-based Dataset Editor](#generating-a-datset-in-the-ui). 
-
-However, we recommend preparing the annotations and information that will be required to support privacy requests ahead of time. Please review the following to prepare:
-* [Annotating datasets with data categories and key relationships](/user-guides/datasets/annotate-datasets#adding-an-identity-key)
-* Adding the information necessary to process privacy requests
-
-## Uploading a dataset 
-To upload a dataset configuration file that has been manually created:  
-
-1. Navigate to **Data map** → **Manage datasets**.
-2. Click **Create new dataset**.
-3. Click **Upload a new dataset YAML**.
-4. Paste the dataset configuration in YAML into the editor.
-5. Click **Create dataset**
-
-<Screenshot img="/docs/assets/img/privacy-requests/generate_dataset.gif" description="Generate a dataset" /> 
-
-
-## Generating a datset in the UI
-
-### Creating a dataset 
-To create a new dataset using the _Dataset Editor_:
-1. Navigate to **Data map** → **Manage datasets**.
-2. Click **Create new dataset**.
-3. Enter the dataset configuration into the editor.
-4. Click **Create dataset**
-
-<Callout emoji="" type="info">You can also create a new dataset using the _dataset editor_ when creating an integration. Learn more in our guide for [Linking datasets](/user-guides/datasets/link-datasets).</Callout> 
-
-<Screenshot img="/docs/assets/img/privacy-requests/generate_dataset.gif" description="Generate a dataset" /> 
-
-### Generating a dataset from a database
-To generate a new dataset by connecting to a database:
-1. Navigate to *Data map* → *Manage datasets*.
-2. Click **Create new dataset**.
-3. Click **Connect to a database**.
-4. Paste the database connection string into the `Database URL` field. 
-5. Click **Generate dataset**
-
-For helping building the _database connection string_, please see the [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls). 
->PostgreSQL example: `postgresql://<user>:<password>@<hostname>:<port>/<database>`
-
-<Screenshot img="/docs/assets/img/privacy-requests/generate_dataset_db.gif" description="Generate a dataset" /> 
-
-For more details and examples, please see our guide for [Generating resources](/dev-docs/cli/manage/cmd-generate).
+* [Generate a dataset in Fides Control administrative UI](/dev-docs/privacy-requests/datasets/generate-datasets/generate-datasets-ui)
+* [Generate a dataset using Fides CLI](/dev-docs/privacy-requests/datasets/generate-datasets/generate-datasets-cli)

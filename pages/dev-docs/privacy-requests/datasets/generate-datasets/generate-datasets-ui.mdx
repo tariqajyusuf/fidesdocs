@@ -1,0 +1,38 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Generating a Dataset via the UI
+
+In this guide you will learn how to generate a Fides dataset via the Fides Control admin UI. Read more about [datasets here](/dev-docs/privacy-requests/datasets/) or read how to [generate datasets via the Fides CLI here](generate-datasets-cli).
+
+## Generating a dataset from a database
+
+You can generate a dataset by directly connecting Fides to a datastore. Fides will connect securely via a database connection string and parse the schema of the system to generate a Fides dataset automatically.
+
+To generate a new dataset by connecting to a database:
+1. Navigate to *Data map* → *Manage datasets*.
+2. Click **Create new dataset**.
+3. Click **Connect to a database**.
+4. Paste the database connection string into the `Database URL` field. 
+5. Click **Generate dataset**
+
+For helping building the _database connection string_, please see the [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls). 
+>PostgreSQL example: `postgresql://<user>:<password>@<hostname>:<port>/<database>`
+
+<Screenshot img="/docs/assets/img/privacy-requests/generate_dataset_db.gif" description="Generate a dataset" /> 
+
+
+## Creating a dataset 
+
+You can also manually create a dataset by copy and pasting existing Fides valid YAML to the dataset editor in the Fides admin UI.
+
+To create a new dataset using the _Dataset Editor_:
+1. Navigate to **Data map** → **Manage datasets**.
+2. Click **Create new dataset**.
+3. Enter the dataset configuration into the editor.
+4. Click **Create dataset**
+
+<Screenshot img="/docs/assets/img/privacy-requests/generate_dataset.gif" description="Generate a dataset" /> 
+
+
+
