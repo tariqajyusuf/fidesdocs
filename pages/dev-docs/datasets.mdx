@@ -13,26 +13,27 @@ A Fides dataset is a YAML configuration file that can be used to represent a col
 This guide walks through the steps for generating, annotating and managing datasets for privacy requests.
 
 ### Understanding datasets
-For details read about the [Structure of datasets](/dev-docs/privacy-requests/datasets/structure) now.
+For details read about the [Structure of datasets](/dev-docs/datasets/structure) now.
 
 ### Generating datasets
 To generate a dataset, you use Fides Control administrative UI or Fides CLI:
-* [Generate a dataset in Fides Control administrative UI](/dev-docs/privacy-requests/datasets/generate-datasets/generate-datasets-ui)
-* [Generate a dataset using Fides `generate` CLI command](/dev-docs/privacy-requests/datasets/generate-datasets/generate-datasets-cli)
+* [Generate a dataset in Fides Control administrative UI](/dev-docs/datasets/generate-datasets/generate-datasets-ui)
+* [Generate a dataset using Fides `generate` CLI command](/dev-docs/datasets/generate-datasets/generate-datasets-cli)
 
 ### Annotating datasets
 Annotating datasets is the process of describing, to Fides, where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests:
 
-1. [Annotating data categories](/dev-docs/privacy-requests/datasets/annotate-datasets/annotate-categories)
-2. [Defining the identity key for the dataset](/dev-docs/privacy-requests/datasets/annotate-datasets/define-identity)
-3. [Define relationships between datasets, collections and fields](/dev-docs/privacy-requests/datasets/annotate-datasets/define-relationships)
-4. [Skipping collections in privacy requests](/dev-docs/privacy-requests/datasets/annotate-datasets/skip-collections)
+1. [Annotating data categories manually](/dev-docs/datasets/annotate-datasets/annotate-categories)
+2. [Annotating data categories with the CLI](/dev-docs/datasets/annotate-datasets/annotate-categories-cli)
+3. [Defining the identity key for the dataset](/dev-docs/datasets/annotate-datasets/define-identity)
+4. [Define relationships between datasets, collections and fields](/dev-docs/datasets/annotate-datasets/define-relationships)
+5. [Skipping collections in privacy requests](/dev-docs/datasets/annotate-datasets/skip-collections)
 
 ### Uploading / Adding datasets to Fides
 You can upload or add your datasets to Fides via the Control administrative UI or Fides CLI:
-* [Upload a dataset in Fides Control administrative UI](/dev-docs/privacy-requests/datasets/add-datasets/add-datasets-ui)
-* [Add a dataset using Fides `push` CLI command](/dev-docs/privacy-requests/datasets/add-datasets/add-datasets-cli)
+* [Upload a dataset in Fides Control administrative UI](/dev-docs/datasets/add-datasets/add-datasets-ui)
+* [Add a dataset using Fides `push` CLI command](/dev-docs/datasets/add-datasets/add-datasets-cli)
 
 ### Linking datasets
 To process privacy requests against databases a dataset must be linked to the database integration.
-Complete this final step with the guide for [Linking datasets](/dev-docs/privacy-requests/datasets/link-datasets).
+Complete this final step with the guide for [Linking datasets](/dev-docs/datasets/link-datasets).

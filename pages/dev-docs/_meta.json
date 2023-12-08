@@ -2,6 +2,7 @@
   "get-started": "Get Started",
   "cli": "Fides CLI",
   "api": "Fides API",
+  "datasets": "Datasets",
   "privacy-requests": "Privacy Requests",
   "consent": "Consent",
   "configuration": "Fides Configuration",

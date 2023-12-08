@@ -1,0 +1,32 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Annotating datasets using the CLI
+
+The `fides annotate` command provides a command line prompt tool to assist in labeling data categories of an existing dataset.
+
+## Using annotate command
+```console
+$ fides annotate dataset .fides/<your_dataset>.yaml
+> Loaded config from: /fides/.fides/fides.toml
+####
+Annotating Dataset: [sample_dataset]
+####
+Annotating Table: [user]
+
+Field [user.id] has no data categories
+
+Enter comma separated data categories for [id] [s: skip, q: quit]:
+```
+
+The on screen prompts will walk you through the annotation process, also allowing for you to save state if you do not complete the annotations in a single session so that you can return and complete later.
+Read the [CLI guide to learn more about managing resources](/dev-docs/cli/manage).
+
+```console
+...
+Enter comma separated data categories for [id] [s: skip, q: quit]: system.operations
+Setting data categories for user.id to:
+            ['system.operations']
+
+Annotation process complete.
+```
