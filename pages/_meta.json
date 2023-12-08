@@ -57,17 +57,17 @@
   "title": "User Guides",
   "type": "menu",
   "items": {
+    "data-mapping": {
+      "title": "Data Mapping",
+      "href": "/user-guides/data-mapping"
+    },
     "privacy-requests": {
       "title": "Privacy Requests",
       "href": "/user-guides/privacy-requests"
     },
-    "datasets": {
-      "title": "Datasets",
-      "href": "/user-guides/datasets"
-    },
-    "integrations": {
-      "title": "Integrations",
-      "href": "/user-guides/integrations"
+    "consent": {
+      "title": "Consent Management",
+      "href": "/user-guides/consent"
     }
   }
 },
@@ -79,9 +79,21 @@
       "title": "Quickstart Guide",
       "href": "/dev-docs/get-started"
     },
+    "docs-privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/dev-docs/privacy-requests"
+    },
+    "docs-consent": {
+      "title": "Consent APIs",
+      "href": "/dev-docs/consent/consent-api"
+    },
     "docs-cli": {
       "title": "Fides CLI",
       "href": "/dev-docs/cli"
+    },
+    "docs-api": {
+      "title": "Fides API",
+      "href": "/dev-docs/api"
     },
     "docs-config": {
       "title": "Fides Configuration",

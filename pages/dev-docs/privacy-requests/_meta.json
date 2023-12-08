@@ -7,6 +7,7 @@
     "graphs": "Privacy request graphs",
     "webhooks": "Webhooks for privacy requests",
     "manual-requests": "Manual privacy requests",
+    "datasets": "Managing datasets",
     "complex-fields": "Annotate complex fields",   
     "masking-strategies": "Data masking for privacy requests",
     "storage-destinations": "Storage destinations",
