@@ -76,16 +76,8 @@
   "type": "menu",
   "items": {
     "docs-quickstart": {
-      "title": "Quickstart Guide",
+      "title": "Get Started",
       "href": "/dev-docs/get-started"
-    },
-    "docs-privacy-requests": {
-      "title": "Privacy Requests",
-      "href": "/dev-docs/privacy-requests"
-    },
-    "docs-consent": {
-      "title": "Consent APIs",
-      "href": "/dev-docs/consent/consent-api"
     },
     "docs-cli": {
       "title": "Fides CLI",
@@ -94,6 +86,18 @@
     "docs-api": {
       "title": "Fides API",
       "href": "/dev-docs/api"
+    },
+    "docs-datasets": {
+      "title": "Datasets",
+      "href": "/dev-docs/datasets"
+    },
+    "docs-privacy-requests": {
+      "title": "Privacy Requests",
+      "href": "/dev-docs/privacy-requests"
+    },
+    "docs-consent": {
+      "title": "Consent",
+      "href": "/dev-docs/consent"
     },
     "docs-config": {
       "title": "Fides Configuration",

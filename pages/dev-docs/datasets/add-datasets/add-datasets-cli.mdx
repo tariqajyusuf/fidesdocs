@@ -7,11 +7,11 @@ In this guide you will learn how to add a Fides dataset via the Fides CLI. Read 
 
 ## Adding a dataset using the push command
 
-The ```fides push``` command allows you to quickly add YAML datasets from your working project directory to the Fides server. Note you can also add resources using the `fides evaluate` command, you can read about [fides evaluate here](/dev-docs/cli/check/cmd-evaluate).
+The ```fides push``` command allows you to quickly add YAML datasets from your working project directory to the Fides server.
 
 Usage: ```fides push [options]```
 
-The command will first evaluate all local system and dataset YAML documents in the working directory and then persist any changes to the Fides Server.
+The command will parse all the local system and dataset YAML documents in the ```.fides/``` working directory and then persist any changes to the Fides Server.
 
 The command-line flags are all optional. The following flags are available:
 
@@ -20,7 +20,7 @@ The command-line flags are all optional. The following flags are available:
 
 
 ## Example: No options provided
-This example validates all systems and datasets in the ```.fides``` working directory and pushes them to the Fides server.
+This example validates all systems and datasets in the ```.fides/``` working directory and pushes them to the Fides server.
 
 ```console
 $ fides push
@@ -38,4 +38,4 @@ PUSHED 1 dataset resource(s).
 
 Once you complete this step if you navigate via the Fides Control admin UI to the Dataset editor you will see your dataset in the list.
 
-To view the list of available datasets go to the Fides Contorl admin UI and navigate to **Data map** → **Manage datasets**.
+To view the list of available datasets go to the Fides Control admin UI and navigate to **Data map** → **Manage datasets**.
