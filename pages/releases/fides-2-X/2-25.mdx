@@ -1,0 +1,25 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.25.0 release notes
+- 2.25.0: November 29, 2023
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+### New Features & enhancements 
+- <div class="enterprise"/> **Consent reporting improvements**: Added more detailed tracking of the "method" used to save consent preferences (e.g. gpc, accept, reject, save, dismiss). #4419
+- <div class="enterprise"/> **Consent modal UX update**: Improved UX to only include a single "save" button when only one notice is enabled, instead of also showing extra "accept" and "reject" options. #4441
+- <div class="enterprise"/> **Consent API enhancements**: Added support for both TCF string encoding versions (bitfield and range encoding) on server APIs. #1225
+- <div class="enterprise"/> **CMP GPP API**: Added initial support for GPP stub and serving TCF strings via GPP. #4431 #4433
+- **Data use deletion warning**: Added a confirmation modal when deleting data use to warn users. #4439
+
+
+### Fixes and developer updates 
+- <div class="enterprise"/> Improved performance of consent API and CMP UI when a large number of vendors are enabled. #1227 #1223
+- <div class="enterprise"/> Granted permission to manage domains to Contributor users. #4438
+- <div class="enterprise"/> Removed support for wildcard domains such as *.yourdomain.com for security. #4438 [Learn more](https://ethyca.com/docs/dev-docs/get-started/domains/allowed-domains)
+- <div class="enterprise"/> Improved initialization speed of the TCF CMP API. #4453
+- <div class="enterprise"/> Improved experience for adding system information from Compass. #4437 #4428
+- <div class="enterprise"/> Fixed issue initializing legitimate interest preferences when providing a fides_string override param. #4430
+- <div class="enterprise"/> Fixed issue where consent modal could initialize preferences incorrectly when not loaded via the Fides Cloud CDN. #4451
+- Added a warning message when deleting datasets that are used by other resources #4406
+
