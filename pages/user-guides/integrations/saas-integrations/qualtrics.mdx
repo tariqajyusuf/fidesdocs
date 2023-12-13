@@ -1,0 +1,43 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Qualtrics
+
+[Qualtrics](https://www.qualtrics.com//) is a suite of research tools that help provide insight from visitors, customers, and users.
+
+## Prerequisites
+
+In order to [integrate](../) with Qualtrics, you'll need to collect the following information:
+
+| Name                    | Description                                                                                                                                                                                     |
+| :---------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain\***            | The domain which is comprised of your datacenter id and .qualtrics.com. Find yours with the [How to Find your Datacenter](https://api.qualtrics.com/1aea264443797-base-url-and-datacenter-i-ds) |
+| **Qualtrics API Key\*** | The API access token. Follow Qualtrics's [Getting Started with the Qualtrics API](https://www.qualtrics.com/support/integrations/api-integration/overview/) docs to learn more.                 |
+
+## Integrating with Qualtrics
+
+To integrate an existing system with Qualtrics:
+
+1. Navigate to **Data map** → **View Systems** and choose the system that you want to connect.
+2. Click on the **Integrations** tab.
+3. Pick the vendor or system type that you want to integrate with from the **Connection type** drop-down menu.
+4. Complete the required fields for the integration and click **Save**.
+
+You may confirm your connection is working using the **Test connection** button, if desired.
+
+To learn more, please see our guide for [Managing Integrations](/user-guides/integrations/manage-integrations).
+
+## Technical detail
+
+Fides utilizes _API endpoints_ to access the _API service_ for a SaaS application. An _API service_ is the programmatic interface through which Fides can query and update data within an application to access, rectify, or delete personal information. Each SaaS tool will have a unique set of endpoints to enable privacy functions.
+
+### Qualtrics Endpoints
+
+In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
+
+| Privacy function                        | Endpoint                                                                 | Description                |
+| --------------------------------------- | ------------------------------------------------------------------------ | -------------------------- |
+| **(Right to Erasure) Delete responses** | [Create Request](https://api.qualtrics.com/90a15f9bf47db-create-request) | Create an erasure request. |
+
+<Callout type="info" emoji="">
+By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
+</Callout>

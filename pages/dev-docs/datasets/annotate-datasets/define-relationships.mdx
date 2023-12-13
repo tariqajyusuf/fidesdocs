@@ -1,0 +1,48 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+
+# Mapping entity relationships
+In order to automatically process privacy requests with Fides, the relationships between databases and tables must be mapped so that it can traverse them correctly during a privacy request.
+
+You can see a simple example of this entity relationship mapped between the `Purchase_items`, `Purchase` and `Users` table below. 
+
+<Screenshot img="/docs/assets/img/resources/entity_relationships.png" description="Entity Relationships" mw="600px" /> 
+
+
+
+## Define relationships between datasets, collections and fields
+
+You can specify the relationship across datasets, collections and fields so that you can model relationships between databases, tables or APIs.
+
+To map relationships the dataset fields that will need to be configured are: 
+
+| Key | Value |
+|-----|-------|
+| **`fides_meta`** | Fides metadata attributes, used for defining entity relationships between collections and tables for privacy requests. |
+| **`dataset`** | Reference to the dataset where the related collection and field are located. |
+| **`field`** | Reference to the  collection and field in the format `collection.field`. |
+| **`direction`** | The direction of the mapped relationship for the prupose of privacy requests processing.|
+| **`data_type`** | Specify a required data type for type checking. |
+| **`length`** | Where a data type may require length, set the string length. |
+
+Expanding on our sample project, to specify that the `address_id` field of the `customer` table has a relationship to the `id` field of the `address` table, the `dataset` is set to `postgres_example_test_dataset`, the field is set to  `address.to` and the `direction` is `to`.
+
+```yaml filename="postgres_dataset.yml"
+collections:
+  - name: customer
+    fields:
+    - name: address_id
+      data_categories:
+      - system.operations
+      fides_meta:                                   # Add Fides metadata section
+        references:                                 # Specify references for relationship mapping
+        - dataset: postgres_example_test_dataset    # Add reference to related dataset
+          field: address.id                         # Add to field in the format collection.field
+          direction: to                             # Specify the direction of the request processing
+    - name: created
+      data_categories:
+      - system.operations
+```
+<Callout emoji="" type="info">Direction specifies the order of exection for privacy requests. Specifying `to` in the example above means that the value from `customer.address_id` should be used to retrieve the appropriate record from `address.id`.</Callout>
+

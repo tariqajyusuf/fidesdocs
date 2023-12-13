@@ -4,8 +4,8 @@ import Screenshot from 'components/screenshot'
 # Processing privacy requests
 Privacy request processing is the process by which approved privacy requests are submitted to internal database or third party SaaS applications to be fulfilled. Said differently, processing is the execution of the privacy request that ensures that the legal obligation has been fulfilled.
 
-* For [_Access_](/tutorials/privacy-requests-glossary#access-request) or [_Portability_](/tutorials/privacy-requests-glossary#portability-request) requests, Fides will send a request to the data store to return a machine-readable package containing all personal data that is found about the data subject.
-* For [_Erasure_](/tutorials/privacy-requests-glossary#erasure-request) or [_Rectification_](/tutorials/privacy-requests-glossary#rectification-request) requests, Fides will send a request to the data store to erase, mask, or update all applicable personal data that is found about the data subject.
+* For [_Access_](/tutorials/privacy-requests/privacy-requests-glossary#access-request) or [_Portability_](/tutorials/privacy-requests/privacy-requests-glossary#portability-request) requests, Fides will send a request to the data store to return a machine-readable package containing all personal data that is found about the data subject.
+* For [_Erasure_](/tutorials/privacy-requests/privacy-requests-glossary#erasure-request) or [_Rectification_](/tutorials/privacy-requests/privacy-requests-glossary#rectification-request) requests, Fides will send a request to the data store to erase, mask, or update all applicable personal data that is found about the data subject.
 
 ### Methods for sending requests
 
@@ -34,15 +34,15 @@ Fides uses [_Integrations_](/user-guides/integrations/) to submit privacy reques
 When you have gathered these credentials, you can proceed to [generate your dataset](#generating-datasets) if you're using a databse, or skip ahead to [configure an integration](#configuring-integrations), for SaaS connections.
 
 ### Generating datasets
-A [_dataset_](/user-guides/datasets) is a configuration file that describes, to Fides, how to interact with your databases for the purpose of processing privacy requests. A dataset describes where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests. 
+A [_dataset_](/dev-docs/datasets) is a configuration file that describes, to Fides, how to interact with your databases for the purpose of processing privacy requests. A dataset describes where categories of personal data (e.g. user contact info) can be found and how fields in tables or collections are related so that Fides can traverse the data to fulfill privacy requests. 
 
 <Callout emoji="" type="info">Datasets also are required to integrate with SaaS applications. However, Fides pre-configures these datasets and they typically work out-of-the-box.</Callout>
 
 In order to generate an actionable dataset, you will need to:
 
-1. [Generate a dataset](/user-guides/datasets/generate-datasets) 
-2. [Annotate the dataset with data categories](/user-guides/datasets/annotate-datasets#annotating-data-categories)
-3. [Establish which fields contain identities](/user-guides/datasets/annotate-datasets#annotating-data-categories#adding-an-identity-key)
+1. [Generate a dataset](/dev-docs/datasets/generate-datasets) 
+2. [Annotate the dataset with data categories](/dev-docs/datasets/annotate-datasets#annotating-data-categories)
+3. [Establish which fields contain identities](/dev-docs/datasets/annotate-datasets#annotating-data-categories#adding-an-identity-key)
 
 Once the dataset configuration complete, you can move to the next step and link the dataset to an [_Integation_](/user-guides/integrations/).
 
@@ -71,7 +71,7 @@ To learn how to configure a storage destination, please see our guide for [Creat
 
 
 ### Troubleshooting
-To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests-debugging)
+To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests/privacy-requests-debugging)
 
 ## Email requests
 To configure Fides to send erasure requests via email, follow these steps:
@@ -84,13 +84,13 @@ To configure Fides to send erasure requests via email, follow these steps:
 6. Enter a `Test email address`, if desired. This will send a copy of the email request to the specified address.
 7. Click `Save`.
 
-<Screenshot img="/assets/img/privacy-requests/email_connector.gif" description="Configure an email connector" /> 
+<Screenshot img="/docs/assets/img/privacy-requests/email_connector.gif" description="Configure an email connector" /> 
 
 <Callout emoji="" type="info">We cannot currently support access requests over email because we can't enforce that the package returned is well-formatted or machine-readable.</Callout>
 
 
 ## Manual requests
-Manual privacy requests allow vendors to upload personal data using an API to satisfy [Access](/tutorials/privacy-requests-glossary#access-request) requests. To enable these requests, a `manual process` integration must be configured.
+Manual privacy requests allow vendors to upload personal data using an API to satisfy [Access](/tutorials/privacy-requests/privacy-requests-glossary#access-request) requests. To enable these requests, a `manual process` integration must be configured.
 
 To configure the `manual process` [_integation_](/user-guides/integrations/):
 1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
@@ -99,9 +99,9 @@ To configure the `manual process` [_integation_](/user-guides/integrations/):
 4. Enter a name for the integration.
 5. Click `Customize DSR`.
 
-<Screenshot img="/assets/img/privacy-requests/manual_process.gif" description="Configure a manual connector" /> 
+<Screenshot img="/docs/assets/img/privacy-requests/manual_process.gif" description="Configure a manual connector" /> 
 
-When an [access](/tutorials/privacy-requests-glossary#access-request) request is placed, a package containing the found personal data is returned. In order to properly format this package, you'll need to tell Fides how to label the fields of personal data in it. 
+When an [access](/tutorials/privacy-requests/privacy-requests-glossary#access-request) request is placed, a package containing the found personal data is returned. In order to properly format this package, you'll need to tell Fides how to label the fields of personal data in it. 
 
 Thus, in the resulting modal, you'll need to fill in the following fields:
 * `PII Field`: the label Fides will display when it solicits manual input for this field.
@@ -123,7 +123,7 @@ Fides ships with two default privacy request policies: `download` (for access re
 To learn how to configure custom policies, please see our guide for [Configuring privacy request policies](/dev-docs/configuration/policies/request-policies).
 
 ### Troubleshooting
-To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests-debugging)
+To learn how to debug common issues with API-based privacy requests, please see our guide for [Identifying & debugging issues](/tutorials/privacy-requests/privacy-requests-debugging)
 
 ## Email requests
 To configure Fides to send erasure requests via email, follow these steps:
@@ -136,13 +136,13 @@ To configure Fides to send erasure requests via email, follow these steps:
 6. Enter a `Test email address`, if desired. This will send a copy of the email request to the specified address.
 7. Click `Save`.
 
-<Screenshot img="/assets/img/privacy-requests/email_connector.gif" description="Configure an email connector" /> 
+<Screenshot img="/docs/assets/img/privacy-requests/email_connector.gif" description="Configure an email connector" /> 
 
 <Callout emoji="ⓘ">We cannot currently support access requests over email because we can't enforce that the package returned is well-formatted or machine-readable.</Callout>
 
 
 ## Manual requests
-Manual privacy requests allow vendors to upload personal data using the API to satisfy an [_Access_](/tutorials/privacy-requests-glossary#access-request) request. To enable these requests,`manual process` connection must be created.
+Manual privacy requests allow vendors to upload personal data using the API to satisfy an [_Access_](/tutorials/privacy-requests/privacy-requests-glossary#access-request) request. To enable these requests,`manual process` connection must be created.
 
 To configure the `manual process` [_integation_](/user-guides/integrations/):
 1. Navigate to the system: **Data map** → **View Systems** and choose the system that you want to integrate with. 
@@ -151,11 +151,11 @@ To configure the `manual process` [_integation_](/user-guides/integrations/):
 4. Enter a name for the integration.
 5. Click `Customize DSR`.
 
-<Screenshot img="/assets/img/privacy-requests/manual_process.gif" description="Configure a manual connector" /> 
+<Screenshot img="/docs/assets/img/privacy-requests/manual_process.gif" description="Configure a manual connector" /> 
 
 Now you have to define the fields:
 
-<Screenshot img="/assets/img/privacy-requests/manual_process_fields.gif" description="Configure a manual connector" /> 
+<Screenshot img="/docs/assets/img/privacy-requests/manual_process_fields.gif" description="Configure a manual connector" /> 
 
 To learn more about this feature, please see our Developer guide for [Manual privacy requests](/dev-docs/configuration/privacy-requests/manual-requests).
 

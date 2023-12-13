@@ -1,9 +1,10 @@
 {
-  "index": "Overview",
   "data-mapping": "Data Mapping",
   "privacy-requests": "Privacy Requests",
-  "consent": "Consent Management",
-  "datasets": "Datasets",
+  "consent": {
+    "title": "Consent Management",
+    "href": "/user-guides/consent"
+  },
   "integrations": "Integrations",
   "security": "Security"
 }

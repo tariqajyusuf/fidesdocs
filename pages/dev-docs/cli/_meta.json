@@ -1,5 +1,4 @@
 {
-  "index": "Overview",
   "cli-basics": "Basic CLI Features",
   "init": "Initializing Working Directories",
   "webserver": "Running Fides Server",
@@ -11,6 +10,7 @@
   "task": "Task Management",
   "config": "Fides Configuration",
   "sample": "Fides Sample Project",
+  "fides-cloud": "Fides Cloud",
   "alpha": {
     "title": "Alphabetical List of Commands"    
   }

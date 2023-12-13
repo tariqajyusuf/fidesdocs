@@ -1,0 +1,53 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+
+# Skipping collections
+
+The ability to skip privacy request processing on specific data collections or API endpoints can be useful in scenarios such as a data processing error, or if the collection is known to not contain personal data. 
+
+
+## Configure process skipping
+
+In order to skip a collection, use the flag `skip_processing: True` as shown in this example:
+
+```yaml
+dataset:
+  - fides_key: postgres_example_dataset
+    name: Postgres Example Dataset
+    description: Example of a Postgres dataset containing a variety of related tables like customers, products, addresses, etc.
+    collections:
+      - name: address
+        fides_meta:
+          skip_processing: True
+```
+
+In order to skip an endpoint, use the flag `skip_processing: True` as shown in this example:
+
+```yaml
+saas_config:
+  fides_key: saas_connector_example
+  name: SaaS Example Config
+  type: custom
+  description: A sample schema representing a SaaS for Fides
+  version: 0.0.1
+
+  endpoints:
+    - name: skipped_collection
+      skip_processing: True
+      requests:
+        read:
+          method: GET
+          path: /v1/misc_endpoint/<list_id>
+          param_values:
+            - name: list_id
+              references:
+                - dataset: saas_connector_example
+                  field: users.list_ids
+                  direction: from
+```
+
+To learn more about advanced coniguration options and how Fides traverses databases, please see our guide for [Query execution](/dev-docs/configuration/privacy-requests/graphs)
+
+
+To upload this file to Fides, please follow these steps: [Uploading a dataset](/dev-docs/datasets/generate-datasets#uploading-a-dataset)

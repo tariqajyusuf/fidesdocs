@@ -1,0 +1,81 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Privacy Requests: Processing Requests
+
+<TutorialKey duration="4" product="Fides" topic="Privacy Requests" interactive="true"/>
+
+<Callout emoji=""> This tutorial requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
+
+## Introduction
+In this tutorial, you'll learn about the privacy request admin dashboard in Fides Control.  You'll cover how to filter, search and view privacy requests.
+
+## Prerequisites
+
+For this tutorial, you'll need:
+
+* A Fides Cloud or Fides Enterprise account
+* The role of either `Owner`, `View & Approver` or `Approver` to manage privacy requests.
+* At least one system integration configured for privacy requests. Read how to [configure an integration](/tutorials/privacy-requests/privacy-requests-configuration/integrations).
+* A privacy center to receive and process privacy requests. Read how to [configure a privacy center](/tutorials/consent-management/consent-management-configuration/privacy-experiences/privacy-center).
+
+
+
+## Reviewing Privacy Requests
+
+When privacy requests are received, they're registered in Fides as a **New** request available to view in Fides Control's privacy request admin panel as shown below:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-admin.gif" description="Fides Control Privacy Request Review Panel" />
+
+The privacy request admin panel features a set of controls to filter, search, and prioritize privacy requests as follows:
+
+### Filtering by Status
+
+To filter privacy requests by their current status, use the **Status** filter as shown here:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-status-filter.gif" description="Filter Privacy Requests by Status" mw="350" />
+
+### Search by Request ID
+
+Each privacy request is assigned a uniquely identifiable **Request ID**. You can search privacy requests by ID in the search field as shown:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-search.gif" description="Search for Privacy Request by ID" mw="500" />
+
+### Filter by Date Range
+
+You can filter privacy requests by date range, using the **From** and **To** date ranges as shown:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-dates.gif" description="Filter Privacy Requests by Date Range" mw="420" />
+
+### Toggle to Reveal Personal Identity
+
+To minimize personal data risks, obfuscates personal identifiers in the UI by default. To reveal personal identifiers, you can toggle the **Reveal PII** switch as shown:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-toggle-pii.gif" description="Toggle on PII" mw="500" />
+
+### Download Filtered Report
+
+To download a report of the currently filtered view of privacy requests click the **Download** button.
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-download.gif" description="Download Privacy Request Report" mw="500" />
+
+## View Privacy Request Details
+
+To view the details of a specific privacy request, click the kebab menu `...` and select **View Details**:
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-view-details.gif" description="View Privacy Request Details" mw="500"/>
+
+## Privacy Request Details Page
+
+The Privacy Request Details page displays:
+* **Request ID**: The unique ID for the privacy request.
+* **Request Type**: The privacy request type, such as access or erasure.
+* **Policy Key**: The privacy request policy being applied to the privacy request.
+* **Status**: The current status of the privacy request, including a countdown timer by when the request must be completed.
+* **Subject Identities**: The related identifiers for the subject that made the request.
+* **Events Log**: An activity log related to the privacy request.
+
+<Screenshot img="/docs/assets/img/tutorials/privacy-requests/privacy-requests-details.gif" description="Privacy Request Details Page"/>
+
+Next, we'll look at rejecting privacy requests.

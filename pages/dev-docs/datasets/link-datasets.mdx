@@ -1,0 +1,25 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Linking datasets 
+
+In this section, we will explore the process for linking [datasets](/dev-docs/datasets) to [integrations](/user-guides/integrations) so that privacy requests can be executed against all of your data, whether in a database or third party SaaS application.
+
+
+## Linking a dataset to an integration
+Database integrations require a dataset to describe the table or collection schemas and relationships. The following guide explains how to link an existing dataet to an integration. Read the [guide on generating datasets](generate-datasets) if you have not yet completed this step.
+
+### Linking an existing dataset 
+To configure a dataset for use in a database integration for privacy requests:
+
+1. Navigate to **Data map** → **View systems**.
+2. Select your system.
+3. Click the **Integrations** tab.
+4. Select the database connection type (e.g. PostgreSQL or DynamoDB)
+5. Provide appropriate database credentials.
+6. In the **Dataset** field select your dataset from the list of available datasets. 
+7. Click **Save**.
+
+<Screenshot img="/docs/assets/img/integrations/link-datasets.gif" description="Link a dataset" /> 
+
+Review the list of available [database integration](/user-guides/integrations/manage-integrations#2-configure-the-connection-information-and-test-the-integration)'s here.
