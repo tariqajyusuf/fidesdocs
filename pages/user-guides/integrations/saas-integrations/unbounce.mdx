@@ -16,7 +16,7 @@ In order to [integrate](../) with Unbounce, you'll need to collect the following
 | **Unbounce API Key\***    | The API key. Refer to Unbounce's [Getting Started](https://developer.unbounce.com/getting_started/) doc to learn more.     |
 | **Unbounce Client ID\*** | The OAuth 2.0 client ID for your application. Refer to Unbounce's [Getting Started](https://developer.unbounce.com/getting_started/) doc to learn more. |
 | **Unbounce Client Secret\*** | The OAuth 2.0 client secret for your application. Refer to Unbounce's [Getting Started](https://developer.unbounce.com/getting_started/) doc to learn more. |
-| **Redirect URL\** | The Fides URL to which users will be redirected upon successful authentication 
+| **Redirect URL\** | The value of the URL_ENCODED_CLIENT_REDIRECT_URI for the application. Refer to Unbounce's [Getting Started](https://developer.unbounce.com/getting_started/) doc to learn more. |
 
 ## Integrating with Unbounce
 
@@ -41,7 +41,9 @@ In the table below, you can find which endpoints are used for each type of priva
 
 | Privacy function            | Endpoint                                                                                                | Description                                                  |
 | --------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| **(RTBF) Delete responses** | [Right To Be Forgotten](https://www.typeform.com/developers/responses/reference/rtbf-delete-responses/) | Delete responses that contain an email from a specified list |
+| **Access** | [Accounts Pages](https://developer.unbounce.com/api_reference/#id_accounts__account_id__pages) | Retrieve a list of all pages for the specified account. |
+| **Access** | [Pages Lead ID](https://developer.unbounce.com/api_reference/#id_pages__page_id__leads__lead_id_) | Get info of single Lead. |
+| **Erasure**| [Pages Lead Deletion](https://developer.unbounce.com/api_reference/#id_pages__page_id__lead_deletion_request) | Creates a request to asynchronously delete one or more leads for a given page. NOTE: this endpoint cannot be used with API keys (OAuth only) |
 
 <Callout type="info" emoji="">
 By default, deletion requests are fulfilled by masking personal information. To enable Fides to personal information, ensure the `masking_strict` variable in your `fides.toml` file is set to `false`.
