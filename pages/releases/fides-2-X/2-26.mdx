@@ -1,11 +1,12 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Fides 2.26.0 release notes
+# Fides 2.26.0/2.26.1 release notes
 - 2.26.0: December 11, 2023
+- 2.26.1: December 13, 2023
 
 <Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
 
-### New Features & enhancements 
+### New Features & enhancements (2.26.0)
 - <div class="enterprise"/> **Consent Settings (New)**: Added new page to view TCF settings and configure TCF vendor purpose overrides. #4484 #1240
 - <div class="enterprise"/> **Consent Reporting (Beta)**: Added new page to download consent reports to CSV. To try this out, enable "Consent reporting" beta feature from the "About Fides" settings page. #4488 #1247
 - <div class="enterprise"/> **Prevent dismissal of consent banner & modal**: Added configuration option to prevent users from dismissing the banner/modal without first saving a consent preference. Contact support to enable this or learn more! #4470
@@ -13,7 +14,7 @@ import { Callout } from 'nextra-theme-docs'
 - <div class="enterprise"/> **TCF notice update**: Added ability to override which TCF purposes are allowed in the TCF notice. #1240
 - <div class="enterprise"/> **TCF modal UX update**: Added pagination to the TCF modal when viewing vendor lists. #4463
 
-### Fixes and developer updates 
+### Fixes and developer updates (2.26.0)
 - <div class="enterprise"/> Removed Global Vendor List (GVL) and Google Additional Consent (AC) vendors from the data map table and graph pages to improve performance. #1241
 - <div class="enterprise"/> Improved consent API performance by caching TCF experience data for 60 minutes by default. #1223
 - <div class="enterprise"/> Fixed an issue where the data map table would not show rows without data categories. #1245
@@ -21,5 +22,8 @@ import { Callout } from 'nextra-theme-docs'
 - <div class="enterprise"/> Fixed an issue saving large numbers of consent preferences. #4469
 - Improved focus border colors on inputs across UI. #4467
 
-### New integrations 
+### New integrations (2.26.0)
 - **Gong**: Access & erasure support. [Learn more](https://ethyca.com/docs/user-guides/integrations/saas-integrations/gong)
+
+### Fixes and developer updates (2.26.1)
+- <div class="enterprise"/> Fixed an issue with date filters for consent reporting. #1263
