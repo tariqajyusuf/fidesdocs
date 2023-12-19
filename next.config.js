@@ -5,8 +5,10 @@ const ETHYCA_SITE_URL = process.env["ETHYCA_SITE_URL"] || "";
 const withNextra = require("nextra")({
   theme: "nextra-theme-docs",
   themeConfig: "./theme.config.js",
-  flexsearch: false,
-  unstable_staticImage: true,
+  flexsearch: {
+    codeblocks: false,
+  },
+  staticImage: true,
   defaultShowCopyCode: true,
 });
 
