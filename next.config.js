@@ -8,7 +8,7 @@ const withNextra = require("nextra")({
   staticImage: true,
   flexsearch: {
     codeblocks: false,
-    cache: 5,
+    cache: false,
   },
   defaultShowCopyCode: true,
 });
