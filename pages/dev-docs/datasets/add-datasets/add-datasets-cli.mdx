@@ -1,0 +1,41 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Adding a Dataset via the CLI
+
+In this guide you will learn how to add a Fides dataset via the Fides CLI. Read more about [datasets here](/dev-docs/datasets/) or read how to [add datasets via the Fides Admin UI here](add-datasets-ui).
+
+## Adding a dataset using the push command
+
+The ```fides push``` command allows you to quickly add YAML datasets from your working project directory to the Fides server.
+
+Usage: ```fides push [options]```
+
+The command will parse all the local system and dataset YAML documents in the ```.fides/``` working directory and then persist any changes to the Fides Server.
+
+The command-line flags are all optional. The following flags are available:
+
+* <span class="nx-absolute -nx-mt-20" id="dry"></span>[```--dry```](#dry) - Only validate the syntax of system and dataset YAML but prevent persistence of any changes on the Server.
+* <span class="nx-absolute -nx-mt-20" id="diff"></span>[```-diff```](#diff) - Output any changes between server and local resources as part of the command output response.
+
+
+## Example: No options provided
+This example validates all systems and datasets in the ```.fides/``` working directory and pushes them to the Fides server.
+
+```console
+$ fides push
+Loaded config from: .fides/fides.toml
+Loading resource manifests from: .fides/
+Taxonomy successfully created.
+----------
+Processing system resource(s)...
+PUSHED 4 system resource(s).
+----------
+Processing dataset resource(s)...
+PUSHED 1 dataset resource(s).
+----------
+```
+
+Once you complete this step if you navigate via the Fides Control admin UI to the Dataset editor you will see your dataset in the list.
+
+To view the list of available datasets go to the Fides Control admin UI and navigate to **Data map** → **Manage datasets**.

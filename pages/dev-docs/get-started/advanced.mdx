@@ -5,7 +5,7 @@ import { Callout } from 'nextra-theme-docs'
 <Callout emoji="" type="info">Want to quickly experiment with Fides? Clone the [source repository](https://github.com/ethyca/fides) to utilize the built-in Docker Compose file, alternatively check out the quick start guide [start-up guide](/dev-docs/get-started) to run a privacy request in minutes, or use follow the [basic installation](/dev-docs/get-started/installation).</Callout>
 
 ## Minimum requirements
-See the the [project requirements](requirements) page to get started.
+See the the [project requirements](/dev-docs/get-started/requirements) page to get started.
 
 ## Installation options
 The Fides team maintains a Python package [published on PyPI](https://pypi.org/project/fides/), and a Docker image on the [ethyca/fides DockerHub](https://hub.docker.com/r/ethyca/fides/tags).
@@ -125,7 +125,7 @@ FIDES__ADMIN_UI__ENABLED=true
 | `FIDES__REDIS__PASSWORD` | The password created for Fides to access the Redis cache.
 
 
-See the [Configuration guide](configuration) for a full list of settings, as well as a sample `fides.toml`.
+See the [Configuration guide](/dev-docs/configuration/configuration) for a full list of settings, as well as a sample `fides.toml`.
 
 ## Running the webserver
 Once configured, you can start your server:
@@ -143,4 +143,4 @@ fides webserver
 With the Fides webserver running, the hosted UI is available at `http://{server_url}/` (e.g. `http://localhost:8080/`). 
 
 ## Next steps
-Now that Fides is up and running, you're ready to get started with [privacy request automation](/tutorials/privacy-requests-get-started) and [data mapping](/tutorials/data-mapping-get-started)!
+Now that Fides is up and running, you're ready to get started with [privacy request automation](/tutorials/privacy-requests) and [data mapping](/tutorials/data-mapping)!

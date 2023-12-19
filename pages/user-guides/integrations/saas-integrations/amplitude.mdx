@@ -1,9 +1,14 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Amplitude
+
+<Callout emoji=""> This Integration requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
+
 [Amplitude](https://amplitude.com/) is a software company that specializes in providing analytics solutions for businesses to track and analyze user behavior and engagement within digital products and applications.
 
 ## Prerequisites
 
-In order to [integrate](../) with Amplitude, you'll need to collect the following information:
+In order to [integrate](/user-guides/integrations) with Amplitude, you'll need to collect the following information:
 
 | Name                       | Description                                                                                                                             |
 | :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,6 +40,6 @@ In the table below, you can find which endpoints are used for each type of priva
 |----|----|----|
 | **Access Requests**            | [User](https://www.docs.developers.amplitude.com/analytics/apis/dashboard-rest-api/#user-search) | Returns users |
 | **Access Requests**            | [User Details](https://www.docs.developers.amplitude.com/analytics/apis/user-profile-api/) | Returns user details |
-| **Access Requests**            | [Events](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) | Returns events associated with a user |
+| **Erasure Requests**            | [User Privacy API](https://www.docs.developers.amplitude.com/analytics/apis/user-privacy-api/#authorization) | The API lets you programmatically submit requests to delete all data for a set of known Amplitude IDs or User IDs|
 
 

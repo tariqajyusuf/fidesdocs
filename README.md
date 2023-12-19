@@ -9,7 +9,7 @@ Fides Docs houses the public documentation for Ethyca's open-source [Fides](http
 
 ## :rocket: Contributing
 
-Fides welcomes contributors to the documentation project! To get started, you may view the existing [issues](https://github.com/ethyca/fidesdocs/issues), or open a new one to suggest a change. Issues may also be opened directly from any page on the [docs site](http://docs.ethyca.com) itself.
+Fides welcomes contributors to the documentation project! To get started, you may view the existing [issues](https://github.com/ethyca/fidesdocs/issues), or open a new one to suggest a change. Issues may also be opened directly from any page on the [docs site](https://ethyca.com/docs) itself.
 
 ### Minimum requirements
 
@@ -31,7 +31,7 @@ Visit `localhost:3000` to preview your changes.
 
 ## :book: Learn More
 
-The Fides core team is committed to providing a variety of documentation to help get you started using Fides.  As such, all interactions are governed by the [Fides Code of Conduct](http://docs.ethyca.com/fides/community/code_of_conduct/).
+The Fides core team is committed to providing a variety of documentation to help get you started using Fides.  As such, all interactions are governed by the [Fides Code of Conduct](https://ethyca.com/docs/fides/community/code_of_conduct/).
 
 ### Support
 

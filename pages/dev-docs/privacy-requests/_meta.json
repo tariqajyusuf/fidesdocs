@@ -1,0 +1,14 @@
+{
+    "privacy-center": "Privacy center",
+    "subject-identity-verification": "Subject identification verification",
+    "custom-request-fields": "Custom request fields",
+    "execution": "Privacy request execution",
+    "graphs": "Privacy request graphs",
+    "webhooks": "Webhooks for privacy requests",
+    "manual-requests": "Manual privacy requests",
+    "complex-fields": "Annotate complex fields",   
+    "masking-strategies": "Data masking for privacy requests",
+    "storage-destinations": "Storage destinations",
+    "reporting": "Reporting for privacy requests",
+    "data-rights-protocol": "Data Rights Protocol (DRP)"
+}

@@ -1,9 +1,8 @@
 import { Callout } from 'nextra-theme-docs'
-import KeyFeatWrap, { KeyFeat } from 'components/keyfeat'
 
 # Command: scan
 
-> **Hands-on:** Try the [Fides: Get Started](#LINK) tutorials.  For more in-depth details on the ```scan``` command, check out the [Annotation Coverage tutorial](#LINK).
+> **Hands-on:** Try the [Fides: Get Started](/dev-docs/get-started) tutorials.  For more in-depth details on the ```scan``` command, check out the [Annotation Coverage tutorial](/dev-docs/datasets/annotate-datasets).
 
 
 The ```fides scan``` evaluates all resources against their source systems and reports on any differences or gaps in annotation.
@@ -66,7 +65,7 @@ Scanning datasets provides a valuable way to quickly know annotation coverage an
 ### Example: Scan a database for annotation coverage using a connection config file
 This example uses connection details stored in the ```fides.toml``` to connect to a database and compare the schema for annotation coverage against resources in the ```.fides``` working directory.
 
-In this example, ```pg-credentials``` is the key that represents the credentials in the configuration file. For more in-depth details on using configuration files, check out the [Fides Configuration tutorial](#LINK).
+In this example, ```pg-credentials``` is the key that represents the credentials in the configuration file. For more in-depth details on using configuration files, check out the [Fides Configuration tutorial](/dev-docs/configuration/configuration).
 
 ```console
 $ fides scan dataset db --credentials-id "pg-credentials" .fides/
@@ -104,7 +103,7 @@ Scanning systems provides a valuable way to quickly check annotation coverage fo
 ### Example: Scan AWS system annotation coverage with connection config file
 This example uses connection details stored in the ```fides.toml``` to connect to AWS and scan for annotation coverage against resources in the ```.fides``` working directory. 
 
-In this example, ```aws-credentials``` is the key that represents the credentials in the configuration file. For more in-depth details on using configuration files, check out the [Fides Configuration tutorial](#LINK).
+In this example, ```aws-credentials``` is the key that represents the credentials in the configuration file. For more in-depth details on using configuration files, check out the [Fides Configuration tutorial](/dev-docs/configuration/configuration).
 
 ```console
 $ fides scan system aws \
@@ -142,7 +141,7 @@ Resource coverage: 100%
 This example uses connection details stored in the ```fides.toml``` to connect to an Okta server and scan for annotation coverage against resources in the ```.fides``` working directory. 
 As can be seen in the results, the scan identified new systems that were not annotated as existing system resources.
 
-In this example, ```okta-credentials``` is the key that represents the credentials in the configuration file. To learn more about configuration files, check out the [Fides Configuration tutorial](#LINK). 
+In this example, ```okta-credentials``` is the key that represents the credentials in the configuration file. To learn more about configuration files, check out the [Fides Configuration tutorial](/dev-docs/configuration/configuration). 
 
 ```console
 $ fides scan system okta  --credentials-id "okta" .fides

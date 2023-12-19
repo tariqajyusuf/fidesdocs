@@ -1,0 +1,102 @@
+import { Callout } from 'nextra-theme-docs'
+import Screenshot from 'components/screenshot'
+
+# Understanding datasets
+In this section, you will learn about the structure of datasets and what information they contain so that you can manage dataset resources in Fides. For the purpose of this Fides dataset guide we will use the [Cookie House sample project available on Github](https://github.com/ethyca/cookiehouse-sample-project).
+
+## Structure of Fides datasets
+A Fides dataset is a YAML configuration file. For more information on YAML (yet another markup language), visit the official [YAML.org](https://yaml.org) site.
+
+A dataset contains the following information:
+- **Table schemas**: the schema, or list of fields, for the database tables or collections of information represented.
+- **Data categories**: which categories of personal data exist and within which fields.
+- **Identity keys**: where to search for individual records when processing privacy requests.
+
+
+## Example: Fides dataset
+
+To understand datasets in Fides we will use the example [PostgreSQL dataset for the Cookie House sample project](https://github.com/ethyca/cookiehouse-sample-project/blob/add-sample-resources/.fides/datasets/postgres_dataset.yml).
+
+### Dataset attributes
+Below is a snippet of the attributes used to describe a dataset:
+
+```yaml filename="postgres_dataset.yml"
+dataset:
+- fides_key: postgres_example_test_dataset
+  organization_fides_key: default_organization
+  tags: null
+  name: Postgres Example Test Dataset
+  description: Example of a Postgres dataset containing a variety of related tables
+    like customers, products, addresses, etc.
+```
+
+As you can see from the example above, the general structure of a dataset in Fides is as follows:
+
+| Key | Value |
+|-----|-------|
+| **`dataset`** | Declares the type of resource to Fides, this can be an `organization`, `system`, `dataset` or `policy`. This guide focuses on `dataset`. |
+| **`fides_key`** | The unique name for your dataset. |
+| **`organization_fides_key`** | Datasets must have a relationship to an organization, this can be your company, department or some other group. |
+| **`tags`** | Optional tags to provide additional context or labeling and grouping of resources. |
+| **`name`** | The user-friendly label for the dataset presented in reports and Fides Control admin UI. |
+| **`description`** | A description of the dataset, useful for providing additional context in review/reporting. |
+
+### Dataset collections
+Below is a snippet representing one collection and two fields in a dataset:
+
+```yaml filename="postgres_dataset.yml"
+collections:
+  - name: customer
+    fields:
+    - name: address_id
+      data_categories:
+      - system.operations
+      fides_meta:
+        references:
+        - dataset: postgres_example_test_dataset
+          field: address.id
+          direction: to
+    - name: created
+      data_categories:
+      - system.operations
+    - name: email
+      data_categories:
+      - user.contact.email
+      fides_meta:
+        identity: email
+        data_type: string
+    - name: id
+      data_categories: 
+      - user.unique_id
+      fides_meta:
+        primary_key: True
+    - name: name
+      data_categories:
+      - user.name
+      fides_meta:
+        data_type: string
+        length: 40
+```
+
+As you can see from the example above, the general structure of a collection in Fides is as follows:
+
+| Key | Value |
+|-----|-------|
+| **`collections`** | Declares a collection of data in a Fides dataset. |
+| **`collections`** → **`name`** | Used to represent the collection name, e.g. a table on a database, a document or an object of a resource such as an API. |
+| **`fields`** | The list of fields in the given collection. |
+| **`fields`** → **`name`** | The name of the field. |
+| **`data_categories`** | The category of personal data in the field. This can be an array of one or more values. |
+| **`fides_meta`** | Fides metadata attributes, used for defining entity relationships between collections and tables for privacy requests. |
+| **`data_type`** | Specify a required data type for type checking. |
+| **`length`** | Where a data type may require length, set the string length. |
+| **`references`** | Set references to establish relationships between other datasets and fields for data modeling and privacy requests.  |
+| **`references`** → **`dataset`** | Reference to a dataset with a relationship to this field. |
+| **`references`** → **`field`** | Reference to the foreign collection and field in the format `collection.field`. |
+| **`references`** → **`direction`** | Defines the direction of the mapped relationship between fields for the purpose of executing privacy request between databases, tables and fields. |
+
+### Generating datasets
+Now that you understand Fides datasets, you can learn how to generate a dataset using Fides Control administrative UI or Fides CLI:
+* [Generate a dataset in Fides Control administrative UI](/dev-docs/datasets/generate-datasets/generate-datasets-ui)
+* [Generate a dataset using Fides CLI](/dev-docs/datasets/generate-datasets/generate-datasets-cli)
+
