@@ -114,14 +114,6 @@ export default {
         />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta httpEquiv="Content-Language" content="en" />
-        <meta
-          name="description"
-          content="Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
-        />
-        <meta
-          name="og:description"
-          content="Documentation hub for Ethyca and the Fides Privacy Engineering Platform. Developers and end users can get the info they need on Ethyca’s product range here."
-        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@ethyca" />
         <meta name="twitter:image" content={ogImage} />
