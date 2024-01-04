@@ -1,3 +1,10 @@
+import { NextSeo } from 'next-seo';
+
+<NextSeo
+  title="Database Migration"
+  description="Strategies for efficient and safe database migrations to ensure data integrity and adherence to project timelines."
+/>
+
 # Database Migration
 
 Changes to Fides could require a change to the database model. This includes scenarios where you want to persist a new field or replace an existing field. Changes made to the Fides databases are done through alembic migration scripts. Migrations can be found in the following directory: `src/fides/api/ctl/migrations/versions`
