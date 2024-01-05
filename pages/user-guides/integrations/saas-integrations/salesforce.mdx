@@ -23,6 +23,7 @@ Once you have this configured, you'll need to collect the following information:
 | **Consumer Key***             | Your OAuth client ID. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
 | **Consumer Secret***         | Your OAuth client secret. Follow Salesforce's docs to retrive your [OAuth credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_rotate_consumer_details.htm) |
 | **Redirect URL***           | The Fides URL to which users will be redirected upon successful authentication (ex. `https://fides-host.com/api/v1/oauth/callback`) |
+| **Token Refresh URL***      | The Salesforce URL for refresh tokens. This should not be changed unless using a Sandbox account, when it should be set to `test.salesforce.com` |
 
 ## Integrating with Salesforce
 To integrate an existing system with Salesforce:
@@ -64,3 +65,20 @@ In the table below, you can find which endpoints are used for each type of priva
 | **Access Requests** | [Campaign Member List](https://developer.salesforce.com/docs/atlas.en-us.236.0.api_rest.meta/api_rest/resources_query.htm) | Used to search for campaign members. |
 | **Access Requests** | [Campaign Members](https://developer.salesforce.com/docs/atlas.en-us.236.0.api_rest.meta/api_rest/resources_sobject_retrieve.htm) | Used to fetch campaign members. |
 | **Update or Delete Requests** | [Campaign Members](https://developer.salesforce.com/docs/atlas.en-us.236.0.api_rest.meta/api_rest/resources_sobject_retrieve.htm) | Used to mask or erase campaign member information. |
+
+## Required Policy Updates
+
+Due to widespread field restrictions in Salesforce, the following erasure policy changes should be made when using this integrations. Reference the [guide on strategies](/dev-docs/privacy-requests/masking-strategies) when making these changes.
+
+* Update the `default_erasure_policy` to use the `random_string_rewrite` strategy with a length of 20
+* Create a new policy for location data using the `null_rewrite` strategy
+* Remove `user.location` from the default policy targets and add to the new `null_rewrite` target list
+* Create a new policy using the `random_string_rewrite` strategy for a formatted email, with the suffix format of a valid email (i.e. `@masked.com`)
+* Create a new policy using the `string_rewrite` strategy for a phone number, with the format of a valid phone number (i.e. `5555551111`)
+* Remove `user.contact` from the default erasure policy and re-apply the following data categories:
+    * `user.contact.address`
+    * `user.contact.organization`
+    * `user.contact.url`
+    * `user.name`
+* Add `user.contact.email` as a target to the email `random_string_rewrite` policy
+* Add `user.contact.phone_number` and `user.contact.fax_number` as targets to the phone number `string_rewrite` policy
