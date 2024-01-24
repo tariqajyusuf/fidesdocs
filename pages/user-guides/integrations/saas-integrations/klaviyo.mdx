@@ -4,18 +4,16 @@ import { Callout } from 'nextra-theme-docs'
 
 <Callout emoji=""> This Integration requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
 
-
 [Klaviyo](https://www.klaviyo.com) is an email marketing platform that empowers businesses to create and manage targeted email campaigns, track customer engagement, and drive sales through personalized marketing strategies.
 
 ## Prerequisites
 
 In order to [integrate](/user-guides/integrations) with Klaviyo, you'll need to collect the following information:
 
-| Name           | Description                                                                                                                                                             |
-| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Domain\***   | Your Klaviyo API URL (default: a.klaviyo.com)                                   |
-| **API key\***  | Your Private API key. Follow Klaviyo's docs to [obtain private API keys](https://developers.klaviyo.com/en/docs/retrieve_api_credentials#private-key)                   |
-| **Revision\*** | The API revision provided as an ISO 8601 date (ex. 2023-02-03). To learn more about available versions, please see [Klaviyo docs](https://developers.klaviyo.com/en/docs/api_versioning_and_deprecation_policy#versioning) |
+| Name          | Description                                                                                                                                           |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Domain\***  | Your Klaviyo API URL (default: a.klaviyo.com)                                                                                                         |
+| **API key\*** | Your Private API key. Follow Klaviyo's docs to [obtain private API keys](https://developers.klaviyo.com/en/docs/retrieve_api_credentials#private-key) |
 
 ## Integrating with Klaviyo
 
@@ -38,7 +36,9 @@ Fides utilizes _API endpoints_ to access the _API service_ for a SaaS applicatio
 
 In the table below, you can find which endpoints are used for each type of privacy function. Clicking on the endpoint will take you to the documentation for that endpoint.
 
-| Privacy function              | Endpoint                                                                                | Description                                 |
-| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| **Access Requests**           | [Profiles](https://developers.klaviyo.com/en/reference/get_profiles)                    | Returns information about a person.         |
-| **Update or Delete Requests** | [Delete Profiles](https://developers.klaviyo.com/en/reference/request_profile_deletion) | Used to mask or erase records for a person. |
+| Privacy function              | Endpoint                                                                                | Description                                                       |
+| ----------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **Access Requests**           | [Profiles](https://developers.klaviyo.com/en/reference/get_profiles)                    | Returns information about a person.                               |
+| **Update or Delete Requests** | [Delete Profiles](https://developers.klaviyo.com/en/reference/request_profile_deletion) | Used to mask or erase records for a person.                       |
+| **Consent Request**           | [Opt in](https://developers.klaviyo.com/en/reference/unsuppress_profiles)               | Un-suppress a profile so the person may receive email marketing.  |
+| **Consent Request**           | [Opt out](https://developers.klaviyo.com/en/reference/subscribe_profiles)               | Suppress a profile so the person will not receive email marketing |
