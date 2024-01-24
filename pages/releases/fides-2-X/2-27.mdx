@@ -1,0 +1,21 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Fides 2.27.0 release notes
+- 2.27.0: January 9, 2024
+
+<Callout emoji="" type="info">The **Enterprise** tag indicates that features are only available for Enterprise customers. To review pricing and upgrade your plan, please visit [our site](https://ethyca.com/pricing) or contact us to learn more. </Callout>
+
+### New Features & enhancements (2.27.0)
+- <div class="enterprise"/> **Consent Settings**: Added option to prevent users from dismissing consent overlay (via Privacy Center settings) #4470
+- <div class="enterprise"/> **Consent Settings**: Added support to customize separate descriptions for consent banner & modal #4542
+- <div class="enterprise"/> **Consent Settings (Beta)**: Select and view for geographies in Fides #1269
+- <div class="enterprise"/> **GPP (Beta)**: Core string now serving for US geographies #4504
+
+
+### Fixes and developer updates (2.27.0)
+- <div class="enterprise"/> Fideslang: Remove Data Qualifiers and other Deprecated Fields #1267
+- <div class="enterprise"/> Security Update: Remove unused PyArrow dependency to prevent vulnerabilities #4486
+- <div class="enterprise"/> Updates to the Add Vendor menu from the consent management #4521
+- <div class="enterprise"/> Explicitly disable all "out-of-band" signals on the TCF CMP API #4516
+- <div class="enterprise"/> Fix various issues with Compass button states and system name input on single add vendor form #4508, #4521
+- <div class="enterprise"/> Fix consent reporting date filters to apply to CSV export #1263
