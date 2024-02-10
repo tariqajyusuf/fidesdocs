@@ -1,0 +1,43 @@
+import { Callout } from 'nextra-theme-docs'
+import TutorialKey from 'components/tutorialkey'
+import Screenshot from 'components/screenshot'
+
+# Consent Management: Optional: Monitoring Consent
+
+<TutorialKey duration="10" product="Fides" topic="Consent Management"/>
+
+<Callout emoji=""> This tutorial requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
+
+In this tutorial, we'll review the different options available to monitor consent choices.
+
+After reading this, you'll be familiar with the different methods available to track both opt-in and opt-out choices made by your users.
+
+## Prerequisites
+
+For this tutorial you'll need:
+
+- An understanding on how to [Configure Privacy Notices](/tutorials/consent-management/consent-management-configuration/privacy-notices)
+- A Fides Cloud or Fides Enterprise account
+- A functioning consent implementation
+
+## Using the API
+
+Fides comes with an expansive API that can cover a multitude of use-cases, including tracking historical privacy preferences. These can be found at the `docs/` page on your Fides instance
+
+<Screenshot img="/docs/assets/img/tutorials/consent-management/consent-management-privacy-notices.gif" description="View all Privacy Notices" />
+
+## Using event data
+
+The `FidesUpdated` event is another way to track consent preferences and push data into your data warehouse. The following snippet is an example of how to listen and act when an explicit consent preference is made.
+
+```
+window.addEventListener("FidesUpdated", (e) => console.log(Fides.consent, e))
+```
+
+Some examples of the schema include:
+
+- _Fides.consent_: The current consent preferences for the available notices
+- _Fides.experience.regions_: The region where the notices were served
+- \_Fides.fides*meta.consentMethod*: The method the consent was saved via
+
+<Screenshot img="/docs/assets/img/tutorials/consent-management/consent-management-new-notice.gif" description="Create a Privacy Notices" mw="450" />
