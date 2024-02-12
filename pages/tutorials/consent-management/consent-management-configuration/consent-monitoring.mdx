@@ -22,9 +22,11 @@ For this tutorial you'll need:
 
 ## Using the API
 
-Fides comes with an expansive API that can cover a multitude of use-cases, including tracking historical privacy preferences. These can be found at the `docs/` page on your Fides instance
+Fides comes with an expansive API that can cover a multitude of use-cases, including tracking historical privacy preferences. These can be found at the `docs/` page on your Fides instance.
 
-<Screenshot img="/docs/assets/img/tutorials/consent-management/consent-management-privacy-notices.gif" description="View all Privacy Notices" />
+To collect the fullest picture possible, your data team can set up a pipeline using the `/api/v1/historical-privacy-preferences` endpoint. With opt-in by default consent, it's important to remember to pair this data alongside traffic counts to ensure a full picture!
+
+<Screenshot img="/docs/assets/img/tutorials/consent-management/privacy-preferences.png" description="Privacy Preferences API" />
 
 ## Using event data
 
@@ -37,7 +39,21 @@ window.addEventListener("FidesUpdated", (e) => console.log(Fides.consent, e))
 Some examples of the schema include:
 
 - _Fides.consent_: The current consent preferences for the available notices
-- _Fides.experience.regions_: The region where the notices were served
-- \_Fides.fides*meta.consentMethod*: The method the consent was saved via
+- _Fides.experience.region_: The region where the notices were served
+- _Fides.fides_meta.consentMethod_: The method of make a privacy preference (e.g. accept, GPC, dismiss)
 
-<Screenshot img="/docs/assets/img/tutorials/consent-management/consent-management-new-notice.gif" description="Create a Privacy Notices" mw="450" />
+```
+$ window.addEventListener("FidesUpdated", (e) => console.log(Fides.consent, e))
+< {
+    "marketing": true,
+    "analytics": true,
+    "functional": true,
+    "essential": true
+}
+
+$ Fides.experience.region
+< 'pt'
+
+$ Fides.fides_meta.consentMethod
+< 'accept'
+```
