@@ -6,6 +6,6 @@
   "google-tag-manager": "Configuring Google Tag Manager",
   "global-privacy-control": "Configuring Global Privacy Control (GPC)",
   "css-styling": "Customizing Appearance with CSS",
-  "privacy-notices-localization": "Optional: Configuring Custom Notices for Localization",
-  "consent-monitoring": "Optional: Monitoring Consent"
+  "consent-reporting": "Consent Reporting",
+  "privacy-notices-localization": "Optional: Configuring Custom Notices for Localization"
 }

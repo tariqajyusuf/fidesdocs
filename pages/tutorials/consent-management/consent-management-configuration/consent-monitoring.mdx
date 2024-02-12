@@ -2,38 +2,50 @@ import { Callout } from 'nextra-theme-docs'
 import TutorialKey from 'components/tutorialkey'
 import Screenshot from 'components/screenshot'
 
-# Consent Management: Optional: Monitoring Consent
+# Consent Management: Consent Reporting
 
 <TutorialKey duration="10" product="Fides" topic="Consent Management"/>
 
 <Callout emoji=""> This tutorial requires Fides Cloud or Fides Enterprise. For more information, [talk to our solutions team.](https://ethyca.com/book-demo?utm_source=docs-site) </Callout>
 
-In this tutorial, we'll review the different options available to monitor consent choices.
+In this tutorial, we'll review the different options available to run reports on saved consent preferences.
 
-After reading this, you'll be familiar with the different methods available to track both opt-in and opt-out choices made by your users.
+There are three main options for reporting:
+1. Download saved consent preferences from Fides Cloud as a CSV file for manual reporting
+2. Query saved consent preferences from the Fides API for automated reporting
+3. Integrate consent events from FidesJS into your frontend product analytics for real-time reporting
+
+After reading this, you'll be familiar with the different methods available to track both opt-in and opt-out choices made by your users. 
 
 ## Prerequisites
 
 For this tutorial you'll need:
 
-- An understanding on how to [Configure Privacy Notices](/tutorials/consent-management/consent-management-configuration/privacy-notices)
 - A Fides Cloud or Fides Enterprise account
 - A functioning consent implementation
-
+- Knowledge about your own preferred reporting tools for CSV analysis, API integrations, or event analytics
+## Option 1: Download CSV Reports from Fides
 ## Using the API
 
-Fides comes with an expansive API that can cover a multitude of use-cases, including tracking [historical privacy preferences](/dev-docs/api/manage/historical-privacy-preferences). These can also be found at the `docs/` page on your Fides instance.
+Fides comes with an expansive API that can cover a multitude of use-cases, including tracking [historical privacy preferences](/dev-docs/api/manage/historical-privacy-preferences).
 
 To collect the fullest picture possible, your data team can set up a pipeline using the `/api/v1/historical-privacy-preferences` endpoint. With opt-in by default consent, it's important to remember to pair this data alongside traffic counts to ensure a full picture!
 
 <Screenshot img="/docs/assets/img/tutorials/consent-management/privacy-preferences.png" description="Privacy Preferences API" />
 
-## Using event data
+## Option 3: Integrating FidesJS consent events into your event analytics tool
 
-The `FidesUpdated` event is another way to track consent preferences and push data into your data warehouse. The following snippet is an example of how to listen and act when an explicit consent preference is made.
+When running on a user's browser, FidesJS will automatically emit a `FidesUpdated` event to the `window` object with the user's saved consent preferences. You can subscribe to this event to track changes to user consent (e.g. opt-in, opt-out) and other details such as the consent method (e.g. save, dismiss).
+
 
 ```
-window.addEventListener("FidesUpdated", (e) => console.log(Fides.consent, e))
+window.addEventListener("FidesUpdated", (event) => {
+  const consent = event.detail.consent; // e.g. { marketing: true, analytics: false }
+  const extraDetails = event.detail.extraDetails; // e.g. { consentMethod: "save" }
+  console.log("Received 'FidesUpdated' event from FidesJS!");
+  console.log("Updated user consent preferences:", consent);
+  console.log("Extra event details:", extraDetails);
+});
 ```
 
 Some examples of the schema include:
